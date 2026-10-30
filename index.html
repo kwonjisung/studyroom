@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<title>스터디룸</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@500&display=swap">
+<style>
+/* Layout: app shell — sticky tab bar (홈 · 영어 · 일본어 · 테스트), one column of panels; English blue, Japanese plum, tests amber */
+:root{
+  --bg:#eef0f3; --paper:#ffffff; --sunk:#f6f7f9; --ink:#1c2029; --muted:#677080; --line:#dde1e7;
+  --en:#2f5d8a; --en-soft:#e4edf6; --ja:#8a3f5c; --ja-soft:#f4e7ed; --test:#94681c; --test-soft:#f6eedf; --ok:#2f7d4f;
+  --g1:#fde2e4; --g1b:#f0b3ba; --g2:#dcecfb; --g2b:#a9cdee; --g3:#ddf3e6; --g3b:#9fd6b5;
+  --op:#d9534f; --fr:#2f8f8a; --ky:#3f8f4f; --jj:#6c4fb3; --hh:#c4871b;
+  --display:"Gowun Batang","Noto Serif KR",serif;
+  --ko:"Noto Sans KR","Apple SD Gothic Neo",system-ui,sans-serif;
+  --enS:"Lora",Georgia,serif;
+  --jaS:"Noto Serif JP","Hiragino Mincho ProN",serif; --jaF:"Noto Sans JP","Hiragino Sans",sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121419; --paper:#1b1e25; --sunk:#16191f; --ink:#e6e8ee; --muted:#9aa2b0; --line:#2d323c;
+  --en:#8fb9e3; --en-soft:#1f2f42; --ja:#e2a3bb; --ja-soft:#38232d; --test:#e0b866; --test-soft:#3a3020; --ok:#7fcf9a;
+  --g1:#4a2a30; --g1b:#8a4d57; --g2:#22374d; --g2b:#4f7aa3; --g3:#1f3e2d; --g3b:#4f9a6c;
+  --op:#f08a86; --fr:#6fd0ca; --ky:#7fcf8e; --jj:#b39cf0; --hh:#f0c05e; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121419; --paper:#1b1e25; --sunk:#16191f; --ink:#e6e8ee; --muted:#9aa2b0; --line:#2d323c;
+  --en:#8fb9e3; --en-soft:#1f2f42; --ja:#e2a3bb; --ja-soft:#38232d; --test:#e0b866; --test-soft:#3a3020; --ok:#7fcf9a;
+  --g1:#4a2a30; --g1b:#8a4d57; --g2:#22374d; --g2b:#4f7aa3; --g3:#1f3e2d; --g3b:#4f9a6c;
+  --op:#f08a86; --fr:#6fd0ca; --ky:#7fcf8e; --jj:#b39cf0; --hh:#f0c05e; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--ko);word-break:keep-all;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 56px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+.app{max-width:860px;margin:0 auto;display:flex;flex-direction:column;gap:16px}
+/* top bar */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-top:16px;display:flex;flex-direction:column;gap:10px}
+.brandrow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--display);font-size:26px;font-weight:700;letter-spacing:.02em;margin:0}
+.brand small{font-family:var(--ko);font-size:12.5px;font-weight:500;color:var(--muted);margin-left:8px;letter-spacing:0}
+.today{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:4px}
+.tab{font:inherit;font-size:14.5px;font-weight:500;border:0;border-radius:9px;padding:9px 6px;background:transparent;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
+.tab[aria-selected="true"]{background:var(--ink);color:var(--paper)}
+.tab .pip{width:8px;height:8px;border-radius:50%}
+.tab:focus-visible,.btn:focus-visible,.cell:focus-visible,select:focus-visible{outline:2px solid var(--en);outline-offset:2px}
+.view[hidden]{display:none}
+.view{display:flex;flex-direction:column;gap:16px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px clamp(14px,3.5vw,26px);display:flex;flex-direction:column;gap:12px;min-width:0}
+.ph{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.ph h2{font-size:16.5px;margin:0}
+.ph .sub{font-size:12.5px;color:var(--muted)}
+.btn{font:inherit;font-size:14px;font-weight:500;border:0;border-radius:9px;padding:9px 14px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:6px;background:var(--sunk);color:var(--ink);border:1px solid var(--line)}
+.btn.en{background:var(--en);color:var(--paper);border-color:var(--en)}
+.btn.ja{background:var(--ja);color:var(--paper);border-color:var(--ja)}
+.btn.test{background:var(--test);color:var(--paper);border-color:var(--test)}
+.btn.ghost-en{background:var(--en-soft);color:var(--en);border-color:transparent}
+.btn.ghost-ja{background:var(--ja-soft);color:var(--ja);border-color:transparent}
+.btn[disabled]{opacity:.5;cursor:default}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.note{font-size:12.5px;color:var(--muted);min-height:1em}
+.empty{color:var(--muted);text-align:center;padding:28px 8px;font-size:14px}
+/* home: today */
+.todaygrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:640px){.todaygrid{grid-template-columns:1fr}}
+.tcard{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-width:0;border-top:4px solid var(--c)}
+.tcard .k{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--c);display:flex;justify-content:space-between;gap:8px}
+.tcard .k span{font-weight:500;letter-spacing:0;color:var(--muted)}
+.tcard .tt{font-size:16px;font-weight:700;line-height:1.4}
+.tcard .tt.enf{font-family:var(--enS)}
+.tcard .tt.jaf{font-family:var(--jaS);font-weight:500;font-size:18px}
+.tcard .m{font-size:13px;color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:6px;font-size:12.5px;font-weight:700;border-radius:999px;padding:3px 10px;width:fit-content}
+.status.done{background:color-mix(in srgb,var(--ok) 14%,transparent);color:var(--ok)}
+.status.wait{background:var(--sunk);color:var(--muted)}
+.status.testday{background:var(--test-soft);color:var(--test)}
+/* week strip */
+.week{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px}
+.wd{border:1px solid var(--line);border-radius:10px;padding:8px 6px;display:flex;flex-direction:column;gap:5px;align-items:center;font-size:12px;background:var(--paper);cursor:pointer;font:inherit;color:inherit}
+.wd.is-today{outline:2px solid var(--ink);outline-offset:-1px}
+.wd .dn{font-size:11.5px;color:var(--muted)} .wd .dd{font-weight:700;font-size:15px;font-variant-numeric:tabular-nums}
+.wd .marks{display:flex;gap:4px;flex-wrap:wrap;justify-content:center}
+.mk{font-size:10.5px;font-weight:700;border-radius:5px;padding:1px 5px;line-height:1.5}
+.mk.en{background:var(--en-soft);color:var(--en)} .mk.ja{background:var(--ja-soft);color:var(--ja)} .mk.t{background:var(--test-soft);color:var(--test)}
+.mk.off{background:transparent;color:var(--muted);border:1px dashed var(--line)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media (max-width:560px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--sunk);border-radius:10px;padding:10px 12px}
+.stat b{display:block;font-size:22px;font-variant-numeric:tabular-nums;line-height:1.2}
+.stat span{font-size:12px;color:var(--muted)}
+/* calendar */
+.calnav{display:flex;align-items:center;gap:8px}
+.calnav button{font:inherit;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;width:34px;height:32px;cursor:pointer}
+.calnav b{min-width:92px;text-align:center;font-variant-numeric:tabular-nums}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.dot{width:9px;height:9px;border-radius:50%;display:inline-block;flex:none}
+.grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
+.dh{font-size:12px;color:var(--muted);text-align:center}
+.dh.sun{color:var(--op)}
+.cell{min-height:78px;border:1px solid var(--line);border-radius:8px;padding:5px 6px;display:flex;flex-direction:column;gap:3px;background:var(--paper);text-align:left;font:inherit;color:inherit;cursor:pointer;min-width:0}
+.cell.off{opacity:.35;border-style:dashed;cursor:default;background:transparent}
+.cell.pre{cursor:default;background:transparent;color:var(--muted);min-height:0}
+.cell.is-today{outline:2px solid var(--ink);outline-offset:-1px}
+.cell.sel{background:var(--sunk)}
+.cell .n{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums}
+.cell .row{display:flex;align-items:center;gap:4px;font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
+.cell .row .lab{font-weight:700;flex:none}
+.cell .row.en .lab{color:var(--en)} .cell .row.ja .lab{color:var(--ja)} .cell .row.t .lab{color:var(--test)}
+.cell .row .s{color:var(--muted);overflow:hidden;text-overflow:ellipsis}
+.cell .row .s.ok{color:var(--ok);font-weight:700}
+@media (max-width:560px){ .cell{min-height:58px;padding:4px} .cell .row .s{display:none} }
+.detail{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--sunk)}
+.detail h3{margin:0;font-size:14.5px}
+.dline{display:flex;flex-direction:column;gap:4px;padding-left:10px;border-left:3px solid var(--c)}
+.dline .lab{font-size:12px;font-weight:700;color:var(--c)}
+.dline .q{font-size:15px}
+.dline .q.jaf{font-family:var(--jaS)} .dline .q.enf{font-family:var(--enS)}
+.dline .m{font-size:12.5px;color:var(--muted)}
+.dline a{color:var(--c);font-size:13px;font-weight:500}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:12px;background:var(--ja-soft);color:var(--ja);border-radius:999px;padding:2px 9px;font-family:var(--jaF)}
+/* sheet (shared) */
+.sheethead{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.sheethead .no{font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--c)}
+.sheethead h2{font-size:clamp(20px,4.2vw,26px);line-height:1.25;margin:4px 0 0;text-wrap:balance}
+.sheethead h2.enf{font-family:var(--enS)}
+.sheethead .rt{text-align:right;flex:none;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.sheethead .rt b{font-size:17px;font-variant-numeric:tabular-nums}
+.sheethead .rt span{font-size:12px;color:var(--muted)}
+select{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);max-width:100%}
+.src{font-size:13px;color:var(--muted)} .src a{color:var(--en)}
+.sec{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--c);border-bottom:1px solid var(--line);padding-bottom:4px}
+.sec .lg{font-weight:400;letter-spacing:0;color:var(--muted)}
+u{text-decoration-thickness:1.5px;text-underline-offset:3px}
+mark{color:inherit;border-radius:3px;padding:0 1px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+mark.g1{background:var(--g1)} mark.g2{background:var(--g2)} mark.g3{background:var(--g3)}
+.player{display:flex;flex-direction:column;gap:6px;border-radius:10px;padding:10px 12px;background:var(--en-soft)}
+.player .pl{font-size:13.5px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline} .player .pl b{color:var(--en)} .player .pl span{font-size:12.5px;color:var(--muted)}
+.player audio{width:100%;height:40px}
+.reading p{font-family:var(--enS);font-size:17px;line-height:1.75;margin:0 0 12px;text-wrap:pretty}
+.reading p:last-child{margin:0}
+.say{font-family:var(--ko);font-size:12px;font-weight:500;color:var(--en);text-decoration:none;margin-left:6px;white-space:nowrap}
+.study2{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px}
+@media (max-width:680px){.study2{grid-template-columns:1fr}}
+.vlist{list-style:none;margin:0;padding:0;font-size:14.5px}
+.vlist li{display:flex;align-items:baseline;gap:8px;padding:6px 0;border-bottom:1px dotted var(--line)}
+.vlist .vt{flex:1;min-width:0}
+.vlist .w{font-family:var(--enS);font-weight:700}
+.vlist .pr{color:var(--muted);font-size:.85em}
+.vlist .pos{font-family:var(--enS);font-style:italic;color:var(--en);font-size:.9em}
+.say3{flex:none;font:inherit;font-size:12px;font-weight:500;border:1px solid var(--line);border-radius:999px;padding:3px 9px;background:var(--paper);color:var(--en);cursor:pointer;white-space:nowrap}
+.say3.on{background:var(--en);color:var(--paper);border-color:var(--en)}
+.gbox{border:1px solid var(--line);border-radius:9px;padding:10px 13px;font-size:14.5px;display:flex;flex-direction:column;gap:4px}
+.gbox+.gbox{margin-top:10px}
+.gbox.b1{border-left:4px solid var(--g1b)} .gbox.b2{border-left:4px solid var(--g2b)} .gbox.b3{border-left:4px solid var(--g3b)}
+.gt{font-size:11px;font-weight:700;padding:2px 7px;border-radius:4px;margin-right:6px}
+.gt.g1{background:var(--g1)} .gt.g2{background:var(--g2)} .gt.g3{background:var(--g3)}
+.gx{margin:0;color:var(--muted)}
+.exs{margin:0;padding-left:20px} .exs li{margin-top:5px}
+.exs .e1{display:block} .exs .e1.enf{font-family:var(--enS)} .exs .e1.jaf{font-family:var(--jaF)}
+.exs .e2{display:block;color:var(--muted);font-size:.92em}
+.trans{border-top:1px solid var(--line);padding-top:10px;font-size:14px;line-height:1.75}
+.trans b{display:block;margin-bottom:4px;color:var(--muted);font-size:12.5px}
+.trans p{margin:0 0 6px}
+/* japanese */
+.quote{font-family:var(--jaS);font-size:clamp(22px,4.8vw,30px);line-height:2.1;margin:0}
+.quote .ln{display:block}
+.quote .pr{display:block;font-family:var(--ko);font-size:14px;line-height:1.5;color:var(--muted);margin:-6px 0 6px}
+rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
+.kp{color:var(--ja);font-size:.88em;margin-left:4px}
+.kor{font-weight:500;font-size:16px}
+.who{font-size:13px;color:var(--muted)}
+.scene{font-size:14px;background:var(--sunk);border-radius:9px;padding:9px 12px}
+.scene b{color:var(--ja);margin-right:6px}
+.jwords{list-style:none;margin:0;padding:0;font-size:14.5px}
+.jwords li{display:grid;grid-template-columns:minmax(0,auto) 1fr;gap:4px 10px;padding:6px 0;border-bottom:1px dotted var(--line);align-items:baseline}
+.jwords .w{font-family:var(--jaF);font-weight:700;font-size:1.08em}
+.jwords .pos{font-size:12px;color:var(--ja);margin-left:6px}
+.tips{margin:0;padding-left:18px;font-size:14px;display:flex;flex-direction:column;gap:6px}
+.tips b{color:var(--ja);font-family:var(--jaF)}
+.sim{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+.sim div{border-left:3px solid var(--line);padding:2px 0 2px 10px;font-size:14px}
+.sim .sj{font-family:var(--jaF);font-weight:700}
+.sim .tag{font-size:11px;color:var(--paper);background:var(--ja);border-radius:4px;padding:0 6px;margin-left:6px}
+.sim .sm{display:block;color:var(--muted)}
+/* tests */
+.tlist{display:flex;flex-direction:column;gap:10px}
+.titem{border:1px solid var(--line);border-left:4px solid var(--c);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:6px}
+.titem .k{font-size:12px;font-weight:700;color:var(--c);letter-spacing:.08em}
+.titem .t{font-weight:700}
+.titem .m{font-size:13px;color:var(--muted)}
+.tsec{display:flex;flex-wrap:wrap;gap:6px}.tsec span{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 9px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+</style>
+
+<div class="app">
+  <div class="top">
+    <div class="brandrow">
+      <h1 class="brand">스터디룸<small>영어 · 일본어 데일리</small></h1>
+      <div class="today" id="todayLabel"></div>
+    </div>
+    <nav class="tabs" role="tablist" aria-label="스터디룸 메뉴">
+      <button class="tab" role="tab" id="t-home" data-view="home">홈</button>
+      <button class="tab" role="tab" id="t-en" data-view="en"><i class="pip" style="background:var(--en)"></i>영어</button>
+      <button class="tab" role="tab" id="t-ja" data-view="ja"><i class="pip" style="background:var(--ja)"></i>일본어</button>
+      <button class="tab" role="tab" id="t-tests" data-view="tests"><i class="pip" style="background:var(--test)"></i>테스트</button>
+    </nav>
+  </div>
+
+  <!-- 홈 -->
+  <section class="view" id="v-home" role="tabpanel" aria-labelledby="t-home">
+    <div class="panel">
+      <div class="ph"><h2 id="homeTitle">오늘의 공부</h2><span class="sub">매일 오전 5시 무렵 새 학습지가 들어옵니다</span></div>
+      <div class="todaygrid" id="todayCards"><div class="empty">학습지를 불러오는 중입니다.</div></div>
+    </div>
+    <div class="panel">
+      <div class="ph"><h2>이번 주</h2><span class="sub">월~토 학습지 · 일요일 주간 테스트</span></div>
+      <div class="week" id="weekStrip"></div>
+      <div class="stats" id="stats"></div>
+    </div>
+    <div class="panel">
+      <div class="ph"><h2>달력</h2>
+        <div class="calnav"><button type="button" id="calPrev" aria-label="이전 달">‹</button><b id="calMonth"></b><button type="button" id="calNext" aria-label="다음 달">›</button></div></div>
+      <div class="legend" id="calLegend"></div>
+      <div class="grid" id="calGrid" role="grid" aria-label="날짜별 영어·일본어 학습"></div>
+      <div class="detail" id="calDetail" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- 영어 -->
+  <section class="view" id="v-en" role="tabpanel" aria-labelledby="t-en" hidden>
+    <div class="panel" id="enSheet" style="--c:var(--en)"><div class="empty">영어 학습지를 불러오는 중입니다.</div></div>
+  </section>
+
+  <!-- 일본어 -->
+  <section class="view" id="v-ja" role="tabpanel" aria-labelledby="t-ja" hidden>
+    <div class="panel" id="jaSheet" style="--c:var(--ja)"><div class="empty">일본어 학습지를 불러오는 중입니다.</div></div>
+    <div class="panel" id="jaPlan" style="--c:var(--ja)"></div>
+  </section>
+
+  <!-- 테스트 -->
+  <section class="view" id="v-tests" role="tabpanel" aria-labelledby="t-tests" hidden>
+    <div class="panel" style="--c:var(--test)">
+      <div class="ph"><h2>주간 테스트</h2><span class="sub">매주 일요일 아침 · 그 주 학습지로 출제</span></div>
+      <div class="tlist" id="testList"></div>
+    </div>
+  </section>
+</div>
+
+<script>
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const strip=h=>{const d=document.createElement('div');d.innerHTML=h;return d.textContent;};
+const jaH=t=>String(t||'').replace(/\{([^|{}]+)\|([^{}]+)\}/g,'<ruby>$1<rt>$2</rt></ruby>').replace(/\^/g,'<wbr>').replace(/[⟦⟧]/g,'');
+const jaP=t=>String(t||'').replace(/<[^>]+>/g,'').replace(/\{([^|{}]+)\|([^{}]+)\}/g,'$1').replace(/[\^⟦⟧]/g,'');
+const gtEN=t=>'https://translate.google.com/?sl=en&tl=ko&op=translate&text='+encodeURIComponent(t);
+const gtJA=t=>'https://translate.google.com/?sl=ja&tl=ko&op=translate&text='+encodeURIComponent(t);
+const WORKS={op:'원피스',fr:'장송의 프리렌',ky:'귀멸의 칼날',jj:'주술회전',hh:'헌터×헌터'};
+const DOW='일월화수목금토';
+const TODAY=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul'}).format(new Date());
+const addDays=(iso,n)=>{const d=new Date(iso+'T00:00:00Z');d.setUTCDate(d.getUTCDate()+n);return d.toISOString().slice(0,10);};
+const dowOf=iso=>new Date(iso+'T00:00:00Z').getUTCDay();
+const md=iso=>`${+iso.slice(5,7)}/${+iso.slice(8)}`;
+const tag=iso=>iso.replace(/-/g,'');
+
+const D={en:[],ja:[],enT:[],jaT:[],sched:null};
+let downloads=null;
+(async()=>{ try{ downloads=await window.claude?.use?.("downloads"); }catch(e){ downloads=null; } })();
+
+async function getJSON(p){ try{ const r=await fetch(p,{cache:'no-store'}); if(!r.ok) return null; return await r.json(); }catch(e){ return null; } }
+
+async function savePdf(path,filename,btn,note){
+  const label=btn.textContent; btn.disabled=true; btn.textContent='PDF 준비 중…';
+  try{
+    if(!downloads){ // claude.ai 밖(GitHub Pages 등): 일반 다운로드 링크로 저장
+      const a=document.createElement('a'); a.href=path; a.download=filename; document.body.append(a); a.click(); a.remove();
+      note.textContent='PDF를 내려받았습니다. 안 열리면 브라우저의 다운로드 목록을 확인하세요.'; return; }
+    const blob=await (await fetch(path)).blob();
+    await downloads.save({filename,data:blob});
+    note.textContent='PDF를 저장했습니다.';
+  }catch(err){ note.textContent= err&&err.code==='declined' ? '저장을 취소했습니다.' : 'PDF를 저장하지 못했습니다. 잠시 뒤 다시 눌러 주세요.'; }
+  finally{ btn.disabled=false; btn.textContent=label; }
+}
+
+/* ── 탭 ── */
+const VIEWS=['home','en','ja','tests'];
+function show(view, date){
+  if(!VIEWS.includes(view)) view='home';
+  VIEWS.forEach(v=>{ $('v-'+v).hidden=v!==view; $('t-'+v).setAttribute('aria-selected',String(v===view)); });
+  stopPlay();
+  if(view==='en'&&date) renderEN(date);
+  if(view==='ja'&&date) renderJA(date);
+  window.scrollTo({top:0});
+}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>show(b.dataset.view));
+
+/* ── 상태 계산 ── */
+const enBy=()=>Object.fromEntries(D.en.map(e=>[e.date,e]));
+const jaBy=()=>Object.fromEntries(D.ja.map(e=>[e.date,e]));
+const schedBy=()=>Object.fromEntries((D.sched?.days||[]).map(d=>[d.date,d]));
+const enTestBy=()=>Object.fromEntries(D.enT.map(t=>[t.date,t]));
+const jaTestBy=()=>Object.fromEntries(D.jaT.map(t=>[t.date,t]));
+const TEST_START='2026-11-01';
+const isTestDay=iso=>dowOf(iso)===0 && iso>=TEST_START;
+let START='9999';
+
+/* ── 홈 ── */
+function renderHome(){
+  const [y,m,d]=TODAY.split('-');
+  $('todayLabel').textContent=`${+y}. ${+m}. ${+d} (${DOW[dowOf(TODAY)]})`;
+  $('homeTitle').textContent=isTestDay(TODAY)?'오늘은 주간 테스트 날':'오늘의 공부';
+  const E=enBy(), J=jaBy(), S=schedBy(), ET=enTestBy(), JT=jaTestBy();
+  const wait='<span class="status wait">오전 5시 무렵 도착 예정</span>';
+  let enCard, jaCard;
+  if(isTestDay(TODAY)){
+    const t=ET[TODAY], u=JT[TODAY];
+    enCard=`<div class="tcard" style="--c:var(--en)"><div class="k">ENGLISH<span>주간 테스트</span></div>
+      <div class="tt">${t?esc(t.no+' 영어 주간 테스트'):'영어 주간 테스트'}</div>
+      ${t?`<span class="status done">✓ 도착</span><div class="m">범위 ${md(t.range_start)} ~ ${md(t.range_end)}</div><div class="bar"><button class="btn test" data-goto="tests">테스트 보기</button></div>`:wait}</div>`;
+    jaCard=`<div class="tcard" style="--c:var(--ja)"><div class="k">日本語<span>週間テスト</span></div>
+      <div class="tt">${u?esc(u.title||u.no):'일본어 주간 테스트'}</div>
+      ${u?`<span class="status done">✓ 도착</span><div class="m">${esc(u.range_display||'')}</div><div class="bar"><button class="btn test" data-goto="tests">테스트 보기</button></div>`:wait}</div>`;
+  }else{
+    const e=E[TODAY], j=J[TODAY], s=S[TODAY];
+    const latestE=[...D.en].sort((a,b)=>b.date.localeCompare(a.date))[0];
+    const latestJ=[...D.ja].sort((a,b)=>b.date.localeCompare(a.date))[0];
+    enCard=`<div class="tcard" style="--c:var(--en)"><div class="k">ENGLISH<span>${e?'No.'+esc(e.no):'뉴스 기사'}</span></div>
+      ${e?`<div class="tt enf">${esc(e.title)}</div><span class="status done">✓ 도착</span><div class="m">${esc(e.source)} · ${esc(e.published_display)}</div>
+        <div class="bar"><button class="btn en" data-open="en" data-date="${e.date}">학습지 열기</button>${e.mp3?`<button class="btn ghost-en" data-play="${e.date}">▶ MP3</button>`:''}</div>`
+      :`<div class="tt">오늘 영어 학습지</div>${wait}${latestE?`<div class="bar"><button class="btn ghost-en" data-open="en" data-date="${latestE.date}">최근 학습지 ${md(latestE.date)}</button></div>`:''}`}</div>`;
+    jaCard=`<div class="tcard" style="--c:var(--ja)"><div class="k">日本語<span>${j?'No.'+esc(j.no):(s?esc(s.work_ko):'명대사')}</span></div>
+      ${j?`<div class="tt jaf" lang="ja">${j.quote.map(jaH).join('')}</div><span class="status done">✓ 도착</span><div class="m">${esc(j.work_ko)} · ${esc(j.speaker)}</div>
+        <div class="bar"><button class="btn ja" data-open="ja" data-date="${j.date}">학습지 열기</button></div>`
+      :`<div class="tt jaf" lang="ja">${s?esc(s.quote):'오늘 일본어 학습지'}</div>${wait}<div class="m">${s?esc(s.work_ko)+' · '+esc(s.speaker):''}</div>${latestJ?`<div class="bar"><button class="btn ghost-ja" data-open="ja" data-date="${latestJ.date}">최근 학습지 ${md(latestJ.date)}</button></div>`:''}`}</div>`;
+  }
+  $('todayCards').innerHTML=enCard+jaCard;
+  bindJumps($('todayCards'));
+
+  // 이번 주 (월~일)
+  const mon=addDays(TODAY,-((dowOf(TODAY)+6)%7));
+  let w='';
+  for(let i=0;i<7;i++){
+    const iso=addDays(mon,i); const dw=dowOf(iso);
+    let marks='';
+    if(isTestDay(iso)){ marks+=`<span class="mk ${ET[iso]||JT[iso]?'t':'off'}">테스트</span>`; }
+    else{
+      marks+=`<span class="mk ${E[iso]?'en':'off'}">EN</span><span class="mk ${J[iso]?'ja':'off'}">JA</span>`;
+    }
+    w+=`<button type="button" class="wd ${iso===TODAY?'is-today':''}" data-cal="${iso}" aria-label="${md(iso)} ${DOW[dw]}요일"><span class="dn">${DOW[dw]}</span><span class="dd">${+iso.slice(8)}</span><span class="marks">${marks}</span></button>`;
+  }
+  $('weekStrip').innerHTML=w;
+  $('weekStrip').querySelectorAll('[data-cal]').forEach(b=>b.onclick=()=>{ calMonth=b.dataset.cal.slice(0,7); renderCal(b.dataset.cal); $('calDetail').scrollIntoView({block:'nearest'}); });
+
+  // 통계: 연속 공부일(학습지가 하나라도 있는 날)
+  const have=new Set([...D.en,...D.ja,...D.enT,...D.jaT].map(x=>x.date));
+  let streak=0, cur=have.has(TODAY)?TODAY:addDays(TODAY,-1);
+  while(have.has(cur)){ streak++; cur=addDays(cur,-1); }
+  $('stats').innerHTML=[
+    [D.en.length,'영어 학습지'],[D.ja.length,'일본어 학습지'],[D.enT.length+D.jaT.length,'주간 테스트'],[streak,'연속 학습일']
+  ].map(([n,l])=>`<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
+}
+
+function bindJumps(root){
+  root.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>show(b.dataset.open,b.dataset.date));
+  root.querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>show(b.dataset.goto));
+  root.querySelectorAll('[data-play]').forEach(b=>b.onclick=()=>{ show('en',b.dataset.play); const a=$('enAud'); if(a){ a.play().catch(()=>{}); } });
+}
+
+/* ── 달력 (영어 + 일본어) ── */
+let calMonth=TODAY.slice(0,7);
+function renderCal(selIso){
+  const E=enBy(), J=jaBy(), S=schedBy(), ET=enTestBy(), JT=jaTestBy();
+  const [y,m]=calMonth.split('-').map(Number);
+  $('calMonth').textContent=`${y}년 ${m}월`;
+  $('calLegend').innerHTML='<span><i class="dot" style="background:var(--en)"></i>영어 (뉴스)</span><span><i class="dot" style="background:var(--ja)"></i>일본어 (명대사)</span><span><i class="dot" style="background:var(--test)"></i>일요일 주간 테스트</span><span>✓ 도착 · 예정은 회색</span>';
+  const first=`${calMonth}-01`; const days=new Date(Date.UTC(y,m,0)).getUTCDate();
+  let h=[...DOW].map((c,i)=>`<div class="dh ${i===0?'sun':''}">${c}</div>`).join('');
+  for(let i=0;i<dowOf(first);i++) h+='<div class="cell off" aria-hidden="true"></div>';
+  for(let d=1;d<=days;d++){
+    const iso=`${calMonth}-${String(d).padStart(2,'0')}`;
+    let rows='';
+    if(iso<START){ h+=`<div class="cell pre" aria-hidden="true"><span class="n">${d}</span></div>`; continue; }
+    if(isTestDay(iso)){
+      const any=ET[iso]||JT[iso];
+      rows=`<div class="row t"><span class="lab">테스트</span><span class="s ${any?'ok':''}">${any?'✓':''}</span></div>`;
+    }else{
+      const e=E[iso], j=J[iso], s=S[iso];
+      const future=iso>TODAY;
+      rows+=`<div class="row en"><span class="lab">EN</span><span class="s ${e?'ok':''}">${e?'✓':(future?'예정':'')}</span></div>`;
+      rows+=`<div class="row ja"><span class="lab">JA</span><span class="s ${j?'ok':''}">${j?'✓ '+esc(j.work_ko):(s&&s.type!=='test'?esc(s.work_ko):'')}</span></div>`;
+    }
+    h+=`<button type="button" class="cell ${iso===TODAY?'is-today':''} ${iso===selIso?'sel':''}" data-iso="${iso}" aria-label="${m}월 ${d}일"><span class="n">${d}</span>${rows}</button>`;
+  }
+  $('calGrid').innerHTML=h;
+  $('calGrid').querySelectorAll('[data-iso]').forEach(b=>b.onclick=()=>renderCal(b.dataset.iso));
+  renderDetail(selIso||(TODAY.startsWith(calMonth)?TODAY:first));
+}
+function renderDetail(iso){
+  const E=enBy(), J=jaBy(), S=schedBy(), ET=enTestBy(), JT=jaTestBy();
+  const e=E[iso], j=J[iso], s=S[iso];
+  const head=`<h3>${+iso.slice(5,7)}월 ${+iso.slice(8)}일 (${DOW[dowOf(iso)]})</h3>`;
+  const pending=iso>=TODAY?'오전 5시 무렵 도착 예정':'학습지 없음';
+  let body='';
+  if(isTestDay(iso)){
+    const t=ET[iso], u=JT[iso];
+    body=`<div class="dline" style="--c:var(--en)"><span class="lab">영어 주간 테스트</span><span class="m">${t?`✓ ${esc(t.no)} · 범위 ${md(t.range_start)}~${md(t.range_end)}`:pending}</span></div>
+      <div class="dline" style="--c:var(--ja)"><span class="lab">일본어 주간 테스트</span><span class="m">${u?`✓ ${esc(u.title||u.no)} · ${esc(u.range_display||'')}`:(s?esc(s.source)+' · '+pending:pending)}</span></div>
+      ${(t||u)?'<div><button class="btn test" data-goto="tests">테스트 탭에서 보기</button></div>':''}`;
+  }else{
+    body=`<div class="dline" style="--c:var(--en)"><span class="lab">영어</span>
+        ${e?`<span class="q enf">${esc(e.title)}</span><span class="m">${esc(e.source)} · 문법 ${e.grammar.map(g=>esc(g.name.split(' (')[0])).join(', ')}</span><a href="#en-${tag(iso)}" data-open="en" data-date="${iso}">학습지 열기 →</a>`
+          :`<span class="m">${pending} · 그날의 주요 영어 뉴스 기사</span>`}</div>
+      <div class="dline" style="--c:var(--ja)"><span class="lab">일본어${s&&s.work_ko?' · '+esc(s.work_ko):''}</span>
+        ${j?`<span class="q jaf" lang="ja">${j.quote.map(jaH).join('')}</span><span class="m">${esc(j.speaker)} · ${esc(j.source)}</span><a href="#ja-${tag(iso)}" data-open="ja" data-date="${iso}">학습지 열기 →</a>`
+          : s?`<span class="q jaf" lang="ja">${esc(s.quote)}</span><span class="m">${esc(s.speaker)} · ${esc(s.source)} · ${pending}</span><div class="chips">${s.grammar.map(g=>`<span class="chip">${esc(g)}</span>`).join('')}</div>`
+          :`<span class="m">${pending}</span>`}</div>`;
+  }
+  $('calDetail').innerHTML=head+body;
+  $('calDetail').querySelectorAll('a[data-open]').forEach(a=>a.onclick=ev=>{ev.preventDefault();show(a.dataset.open,a.dataset.date);});
+  bindJumps($('calDetail'));
+}
+$('calPrev').onclick=()=>{ const [y,m]=calMonth.split('-').map(Number); const d=new Date(Date.UTC(y,m-2,1)); calMonth=d.toISOString().slice(0,7); renderCal(); };
+$('calNext').onclick=()=>{ const [y,m]=calMonth.split('-').map(Number); const d=new Date(Date.UTC(y,m,1)); calMonth=d.toISOString().slice(0,7); renderCal(); };
+
+/* ── 영어 학습지 ── */
+let enCur=null;
+function renderEN(date){
+  const list=[...D.en].sort((a,b)=>b.date.localeCompare(a.date));
+  if(!list.length){ $('enSheet').innerHTML='<div class="empty">아직 영어 학습지가 없습니다.</div>'; return; }
+  const e=list.find(x=>x.date===date)||list[0]; enCur=e;
+  $('enSheet').innerHTML=`
+    <div class="sheethead"><div><div class="no">ENGLISH DAILY · No.${esc(e.no)}</div><h2 class="enf">${esc(e.title)}</h2></div>
+      <div class="rt"><b>${esc(e.date_display)}</b><span>${esc(e.weekday)}</span>
+        <select id="enDay" aria-label="영어 학습지 날짜">${list.map(x=>`<option value="${x.date}" ${x.date===e.date?'selected':''}>${md(x.date)} No.${esc(x.no)}</option>`).join('')}</select></div></div>
+    <div class="src">출처: <b>${esc(e.source)}</b> · 발행일 ${esc(e.published_display)} · <a href="${esc(e.url)}" target="_blank" rel="noopener">원문 기사 보기 ↗</a><br>※ 학습용으로 기사 내용을 요약·재구성한 본문입니다.</div>
+    ${e.mp3?`<div class="player"><div class="pl"><b>▶ 본문 MP3</b><span>느린 발음 1회 → 보통 발음 1회${e.mp3_normal_at?` (보통 발음은 ${esc(e.mp3_normal_at)}부터)`:''}</span></div><audio id="enAud" controls preload="none" src="en/${esc(e.mp3)}"></audio></div>`:''}
+    <div class="bar"><a class="btn en" href="${esc(gtEN(e.passage.map(strip).join(' ')))}" target="_blank" rel="noopener">▶ 본문 듣기 (Google 번역)</a>${e.pdf?'<button class="btn" type="button" id="enPdf">PDF 저장</button>':''}</div>
+    <div class="note" id="enNote">Google 번역 창이 열리면 영어 칸의 스피커 버튼을 누르세요.</div>
+    <section class="reading" style="display:flex;flex-direction:column;gap:10px"><div class="sec"><span>READING</span><span class="lg"><u>밑줄</u> 핵심 단어 · <mark class="g1">분홍</mark> 문법 1 · <mark class="g2">파랑</mark> 문법 2</span></div>
+      <div>${e.passage.map(p=>`<p>${p}<a class="say" href="${esc(gtEN(strip(p)))}" target="_blank" rel="noopener">▶ 듣기</a></p>`).join('')}</div></section>
+    <div class="study2">
+      <section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>KEY WORDS</span><button class="say3" type="button" id="allWords">▶ 전체 3번씩</button></div>
+        <ul class="vlist">${e.vocab.map((v,i)=>`<li><span class="vt"><span class="w">${esc(v.word)}</span> <span class="pr">${esc(v.ipa||'')}</span> <span class="pos">${esc(v.pos)}</span> ${esc(v.meaning)}</span><button class="say3" type="button" data-i="${i}" aria-label="${esc(v.word)} 3번 듣기">▶×3</button></li>`).join('')}</ul></section>
+      <section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>GRAMMAR</span></div>
+        ${e.grammar.map((g,i)=>`<div class="gbox b${i+1}"><div><span class="gt g${i+1}">문법 ${i+1}</span><b>${esc(g.name)}</b></div><p class="gx">${g.explain}</p><ol class="exs">${g.examples.map(x=>`<li><span class="e1 enf">${x.en}</span><span class="e2">${esc(x.ko)}</span></li>`).join('')}</ol></div>`).join('')}</section>
+    </div>
+    <section class="trans"><b>전체 해석</b>${e.translation.map(t=>`<p>${esc(t)}</p>`).join('')}</section>`;
+  $('enDay').onchange=ev=>{ stopPlay(); renderEN(ev.target.value); };
+  if(e.pdf) $('enPdf').onclick=ev=>savePdf('en/'+e.pdf,`EnglishDaily_${e.date}.pdf`,ev.currentTarget,$('enNote'));
+  $('enSheet').querySelectorAll('button[data-i]').forEach(b=>b.onclick=()=>play([e.vocab[+b.dataset.i].word],b));
+  $('allWords').onclick=ev=>play(e.vocab.map(v=>v.word),ev.currentTarget);
+}
+
+/* 단어 3번 듣기 (브라우저 음성) */
+const tts=('speechSynthesis' in window)&&typeof SpeechSynthesisUtterance!=='undefined';
+let playing=null;
+function enVoice(){ try{ const vs=speechSynthesis.getVoices(); return vs.find(v=>/en[-_]US/i.test(v.lang)&&/Google|Samantha|Aria|Jenny/i.test(v.name))||vs.find(v=>/en[-_]US/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang))||null; }catch(e){return null;} }
+function stopPlay(){ try{ if(tts) speechSynthesis.cancel(); }catch(e){} if(playing){ playing.classList.remove('on'); if(playing.id==='allWords') playing.textContent='▶ 전체 3번씩'; } playing=null; const a=$('enAud'); if(a) a.pause(); }
+function play(words,btn){
+  if(playing===btn){ stopPlay(); return; }
+  stopPlay();
+  if(!tts){ window.open(gtEN(words.map(w=>[w,w,w].join('. ')).join('. ')+'.'),'_blank','noopener'); return; }
+  playing=btn; btn.classList.add('on'); if(btn.id==='allWords') btn.textContent='■ 멈추기';
+  const voice=enVoice(), q=[]; words.forEach(w=>{ for(let k=0;k<3;k++) q.push(w); });
+  let n=0;
+  const next=()=>{ if(playing!==btn) return; if(n>=q.length){ stopPlay(); return; }
+    const u=new SpeechSynthesisUtterance(q[n]); u.lang='en-US'; if(voice) u.voice=voice; u.rate=0.85;
+    const gap=(n%3===2)?900:450; n++; u.onend=()=>setTimeout(next,gap); u.onerror=()=>stopPlay(); speechSynthesis.speak(u); };
+  next();
+}
+if(tts){ try{ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices(); }catch(e){} }
+
+/* ── 일본어 학습지 ── */
+function renderJA(date){
+  const list=[...D.ja].sort((a,b)=>b.date.localeCompare(a.date));
+  if(!list.length){ $('jaSheet').innerHTML='<div class="empty">아직 일본어 학습지가 없습니다.</div>'; return; }
+  const e=list.find(x=>x.date===date)||list[0];
+  $('jaSheet').innerHTML=`
+    <div class="sheethead"><div><div class="no">JAPANESE DAILY · No.${esc(e.no)}</div><h2>${esc(e.work_ko)} <span lang="ja" style="font-family:var(--jaF);font-weight:400;font-size:.7em;color:var(--muted)">${esc(e.work_ja)}</span></h2></div>
+      <div class="rt"><b>${esc(e.date_display)}</b><span>${esc(e.weekday)}</span>
+        <select id="jaDay" aria-label="일본어 학습지 날짜">${list.map(x=>`<option value="${x.date}" ${x.date===e.date?'selected':''}>${md(x.date)} ${esc(x.work_ko)}</option>`).join('')}</select></div></div>
+    <p class="quote" lang="ja">${e.quote.map((s,i)=>`<span class="ln">${jaH(s)}</span><span class="pr" lang="ko">(${esc((e.quote_pron||[])[i]||'')})</span>`).join('')}</p>
+    <div class="kor">${esc(e.korean)}</div>
+    <div class="who">— ${esc(e.speaker)} · ${esc(e.source)}</div>
+    <div class="bar"><a class="btn ja" href="${esc(gtJA(e.quote.map(jaP).join('')))}" target="_blank" rel="noopener">▶ 대사 듣기 (Google 번역)</a>${e.pdf?'<button class="btn" type="button" id="jaPdf">PDF 저장</button>':''}</div>
+    <div class="note" id="jaNote">Google 번역 창이 열리면 일본어 칸의 스피커 버튼을 누르세요.</div>
+    ${e.scene?`<div class="scene"><b>장면</b>${esc(e.scene)}</div>`:''}
+    <div class="study2">
+      <section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>WORDS · 단어</span></div>
+        <ul class="jwords">${e.words.map(w=>`<li><span><span class="w" lang="ja">${jaH(w.word)}</span><span class="kp">(${esc(w.pron||'')})</span></span><span>${esc(w.meaning)}<span class="pos">${esc(w.pos||'')}</span></span></li>`).join('')}</ul>
+        ${(e.tips||[]).length?`<div class="sec" style="margin-top:8px"><span>BASICS · 오늘의 기초</span></div><ul class="tips">${e.tips.map(t=>`<li><b>${jaH(t.title)}</b> ${jaH(t.body)}</li>`).join('')}</ul>`:''}</section>
+      <section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>GRAMMAR · 문법</span></div>
+        ${e.grammar.map((g,i)=>`<div class="gbox b${i+1}"><div><span class="gt g${i+1}">문법 ${i+1}</span><b lang="ja" style="font-family:var(--jaF)">${jaH(g.name)}</b><span class="kp">(${esc(g.pron||'')})</span> <span style="color:var(--muted)">${esc(g.meaning||'')}</span></div>
+          ${g.formula?`<div lang="ja" style="font-family:var(--jaF);font-size:13.5px"><b style="color:var(--ja);font-family:var(--ko)">공식</b> ${jaH(g.formula)}</div>`:''}<p class="gx">${esc(g.explain)}</p>
+          <ol class="exs">${g.examples.map(x=>`<li><span class="e1 jaf" lang="ja">${jaH(x.ja)} <span class="kp">(${esc(x.pron||'')})</span></span><span class="e2">${esc(x.ko)}</span></li>`).join('')}</ol></div>`).join('')}</section>
+    </div>
+    ${(e.similar||[]).length?`<section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>SIMILAR · 비슷한 표현 · 반대 표현</span></div><div class="sim">${e.similar.map(x=>`<div><span class="sj" lang="ja">${jaH(x.ja)}</span><span class="kp">(${esc(x.pron)})</span><span class="tag">${esc(x.tag)}</span><span class="sm">${esc(x.meaning)}</span></div>`).join('')}</div></section>`:''}
+    ${e.credit?`<div class="who">출처: ${esc(e.credit)} · 대사는 학습 목적의 짧은 인용입니다.</div>`:''}`;
+  $('jaDay').onchange=ev=>renderJA(ev.target.value);
+  if(e.pdf) $('jaPdf').onclick=ev=>savePdf('ja/'+e.pdf,`JapaneseDaily_${e.date}.pdf`,ev.currentTarget,$('jaNote'));
+}
+function renderJAPlan(){
+  const s=D.sched; if(!s){ $('jaPlan').hidden=true; return; }
+  const J=jaBy();
+  const up=s.days.filter(d=>d.date>=TODAY).slice(0,7);
+  $('jaPlan').innerHTML=`<div class="ph"><h2>앞으로 7일 · 일본어 일정</h2><span class="sub">${md(s.range[0])} ~ ${md(s.range[1])} 계획 · 홈 달력에서 한 달 전체를 볼 수 있어요</span></div>
+    <div style="display:flex;flex-direction:column;gap:8px">${up.map(d=>`<div class="dline" style="--c:${d.type==='test'?'var(--test)':'var(--'+d.work+')'}"><span class="lab">${md(d.date)} (${esc(d.dow)}) · ${esc(d.work_ko)}${J[d.date]?' · ✓ 도착':''}</span><span class="q jaf" lang="ja">${esc(d.quote)}</span><span class="m">${esc(d.speaker)} · ${d.grammar.map(esc).join(', ')}</span></div>`).join('')||'<div class="empty">예정된 일정이 없습니다.</div>'}</div>
+    <div class="sub" style="font-size:12.5px;color:var(--muted)">주차 테마: ${s.weeks.map(w=>esc(w.label+' '+w.theme)).join(' · ')}</div>`;
+}
+
+/* ── 테스트 ── */
+function renderTests(){
+  const items=[
+    ...D.enT.map(t=>({lang:'en',date:t.date,t})),
+    ...D.jaT.map(t=>({lang:'ja',date:t.date,t}))
+  ].sort((a,b)=>b.date.localeCompare(a.date)||a.lang.localeCompare(b.lang));
+  const nextSun=addDays(TODAY,(7-dowOf(TODAY))%7||0);
+  if(!items.length){
+    $('testList').innerHTML=`<div class="empty">아직 주간 테스트가 없습니다.<br>첫 테스트는 ${md(nextSun>=TEST_START?nextSun:TEST_START)}(일) 아침, 영어·일본어 각각 도착합니다.</div>`; return;
+  }
+  $('testList').innerHTML=items.map((x,i)=>{
+    const t=x.t;
+    if(x.lang==='en') return `<div class="titem" style="--c:var(--en)"><span class="k">ENGLISH · ${esc(t.no)}</span><span class="t">영어 주간 테스트 · ${md(t.date)}(일)</span>
+      <span class="m">범위 ${md(t.range_start)} ~ ${md(t.range_end)}${t.covers?` · 학습지 ${t.covers.length}장`:''}</span>
+      <div class="bar">${t.pdf?`<button class="btn en" type="button" data-pdf="en/${esc(t.pdf)}" data-fn="EnglishTest_${t.date}.pdf">테스트지 PDF 저장</button>`:''}</div><div class="note"></div></div>`;
+    return `<div class="titem" style="--c:var(--ja)"><span class="k">日本語 · ${esc(t.no)}</span><span class="t">${esc(t.title||'일본어 주간 테스트')} · ${md(t.date)}(일)</span>
+      <span class="m">${esc(t.range_display||'')}</span>
+      ${(t.sections||[]).length?`<div class="tsec">${t.sections.map(s=>`<span>${esc(s.id)}. ${esc(s.title)} · ${esc(s.count)}문항</span>`).join('')}</div>`:''}
+      <div class="bar">${t.pdf?`<button class="btn ja" type="button" data-pdf="ja/${esc(t.pdf)}" data-fn="${esc(t.file||'JapaneseTest_'+t.date+'.pdf')}">테스트지 PDF 저장</button>`:''}</div><div class="note"></div></div>`;
+  }).join('');
+  $('testList').querySelectorAll('[data-pdf]').forEach(b=>b.onclick=()=>savePdf(b.dataset.pdf,b.dataset.fn,b,b.closest('.titem').querySelector('.note')));
+}
+
+/* ── 시작 ── */
+(async()=>{
+  const [en,ja,enT,jaT,sched]=await Promise.all([getJSON('en/entries.json'),getJSON('ja/entries.json'),getJSON('en/tests.json'),getJSON('ja/tests.json'),getJSON('ja/schedule.json')]);
+  D.en=en||[]; D.ja=ja||[]; D.enT=enT||[]; D.jaT=jaT||[]; D.sched=sched;
+  START=[...D.en,...D.ja].map(x=>x.date).sort()[0]||TODAY;
+  renderHome(); renderCal(TODAY); renderEN(); renderJA(); renderJAPlan(); renderTests();
+  const h=(location.hash||'').slice(1);
+  const m=h.match(/^(en|ja)-(\d{8})$/);
+  if(m){ const iso=`${m[2].slice(0,4)}-${m[2].slice(4,6)}-${m[2].slice(6)}`; show(m[1],iso); }
+  else show(VIEWS.includes(h)?h:'home');
+})();
+</script>
+
+</body>
+</html>

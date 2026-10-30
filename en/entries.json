@@ -1,0 +1,1605 @@
+[
+ {
+  "no": "001",
+  "date_display": "2026. 10. 22",
+  "weekday": "목요일 · THU",
+  "title": "Arizona's Chiricahua Becomes America's 64th National Park",
+  "source": "ABC News (Good Morning America · Travel)",
+  "published_display": "2026년 10월 21일",
+  "url": "https://abcnews.com/GMA/Travel/5-things-americas-newest-national-park/story?id=137445401",
+  "passage": [
+   "Arizona's Chiricahua National Monument <mark class=\"g1\">has officially been <u>redesignated</u></mark> as Chiricahua National Park, <mark class=\"g2\">making it the 64th national park in the United States</mark>. President Donald Trump signed the Chiricahua National Park Act into law on October 20, after the bill passed Congress with <u>bipartisan</u> support.",
+   "<mark class=\"g2\">Often called the “Wonderland of Rocks,”</mark> the park is famous for its tall rock <u>spires</u>, which formed from ancient <u>volcanic</u> ash. It covers more than 12,000 acres in southeastern Arizona and is the <u>homeland</u> of the Chiricahua Apache. The area <mark class=\"g1\">has been <u>federally</u> protected</mark> since 1924, and it <mark class=\"g1\">has also been recognized</mark> as a dark sky park, a perfect place for <u>stargazing</u>.",
+   "Officials hope the new title will <u>attract</u> more visitors and <u>boost</u> local economies. Because the park sits high in the mountains, the weather can vary widely: when it is raining at the visitor center, it may be snowing at higher <u>elevations</u>."
+  ],
+  "vocab": [
+   {
+    "word": "redesignate",
+    "ipa": "[rìːdézɪɡnèɪt]",
+    "pos": "v.",
+    "meaning": "(명칭·지위를) 다시 지정하다"
+   },
+   {
+    "word": "bipartisan",
+    "ipa": "[bàɪpɑ́ːrtəzən]",
+    "pos": "adj.",
+    "meaning": "초당적인, 양당이 함께하는"
+   },
+   {
+    "word": "spire",
+    "ipa": "[spáɪər]",
+    "pos": "n.",
+    "meaning": "뾰족한 첨탑(바위 봉우리)"
+   },
+   {
+    "word": "volcanic",
+    "ipa": "[vɑlkǽnɪk]",
+    "pos": "adj.",
+    "meaning": "화산의, 화산 활동으로 생긴"
+   },
+   {
+    "word": "homeland",
+    "ipa": "[hóʊmlæ̀nd]",
+    "pos": "n.",
+    "meaning": "고향, 본거지"
+   },
+   {
+    "word": "federally",
+    "ipa": "[fédərəli]",
+    "pos": "adv.",
+    "meaning": "연방 정부 차원에서"
+   },
+   {
+    "word": "stargazing",
+    "ipa": "[stɑ́ːrɡèɪzɪŋ]",
+    "pos": "n.",
+    "meaning": "별 관찰, 천체 관측"
+   },
+   {
+    "word": "attract",
+    "ipa": "[ətrǽkt]",
+    "pos": "v.",
+    "meaning": "(사람을) 끌어들이다"
+   },
+   {
+    "word": "boost",
+    "ipa": "[buːst]",
+    "pos": "v.",
+    "meaning": "끌어올리다, 활성화하다"
+   },
+   {
+    "word": "elevation",
+    "ipa": "[èləvéɪʃən]",
+    "pos": "n.",
+    "meaning": "고도, 해발 높이"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "현재완료 수동태 (have/has been + p.p.)",
+    "explain": "과거에 일어난 일이 지금까지 결과·상태로 이어질 때 '~되었다', '~되어 왔다'. since·for와 자주 함께 쓰며, 부사는 has와 been 사이나 p.p. 앞에 둡니다.",
+    "examples": [
+     {
+      "en": "The bridge <mark class=\"g1\">has been closed</mark> since last Monday.",
+      "ko": "그 다리는 지난 월요일부터 폐쇄되어 있다."
+     },
+     {
+      "en": "More than 500 trees <mark class=\"g1\">have been planted</mark> in the park this year.",
+      "ko": "올해 공원에 500그루가 넘는 나무가 심어졌다."
+     }
+    ]
+   },
+   {
+    "name": "분사구문 (-ing / p.p.로 시작하는 부가 설명)",
+    "explain": "접속사와 주어를 줄여 문장에 정보를 덧붙입니다. -ing는 능동·결과(그 결과 ~하게 되다), p.p.는 수동(~되는/~된)의 의미입니다.",
+    "examples": [
+     {
+      "en": "The storm hit the coast overnight, <mark class=\"g2\">leaving thousands without power</mark>.",
+      "ko": "폭풍이 밤사이 해안을 덮쳐, 수천 명이 전기 없이 지내게 되었다."
+     },
+     {
+      "en": "<mark class=\"g2\">Built in 1890,</mark> the library is the oldest building in town.",
+      "ko": "1890년에 지어진 그 도서관은 마을에서 가장 오래된 건물이다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "애리조나주 치리카후아 국가기념물이 공식적으로 치리카후아 국립공원으로 재지정되어, 미국의 64번째 국립공원이 되었다. 도널드 트럼프 대통령은 법안이 초당적 지지를 받아 의회를 통과한 뒤, 10월 20일 '치리카후아 국립공원법'에 서명했다.",
+   "흔히 '바위의 원더랜드'라고 불리는 이 공원은 고대 화산재로 만들어진 높은 바위 첨탑들로 유명하다. 애리조나 남동부의 1만 2천 에이커가 넘는 면적에 걸쳐 있으며, 치리카후아 아파치족의 고향이다. 이 지역은 1924년부터 연방 차원의 보호를 받아 왔고, 별 관찰에 더없이 좋은 '밤하늘 보호공원'으로도 인정받았다.",
+   "관계자들은 새 명칭이 더 많은 방문객을 끌어들이고 지역 경제를 활성화하기를 기대한다. 공원이 높은 산지에 있어 날씨 변화가 크기 때문에, 방문자 센터에 비가 올 때 더 높은 곳에서는 눈이 내릴 수도 있다."
+  ],
+  "date": "2026-10-22",
+  "pdf": "pdf/2026-10-22.pdf",
+  "workbook": {
+   "cloze": {
+    "bank": [
+     "boost",
+     "spires",
+     "redesignated",
+     "stargazing",
+     "bipartisan",
+     "attract",
+     "elevations"
+    ],
+    "items": [
+     "Chiricahua National Monument has officially been ___ as a national park.",
+     "The bill passed Congress with ___ support.",
+     "The park is famous for its tall rock ___.",
+     "The dark sky park is a perfect place for ___.",
+     "Officials hope the new title will ___ local economies."
+    ],
+    "answers": [
+     "redesignated",
+     "bipartisan",
+     "spires",
+     "stargazing",
+     "boost"
+    ]
+   },
+   "transform": [
+    {
+     "g": 1,
+     "task": "현재완료 수동태로 바꾸기",
+     "given": "They have protected the area since 1924.",
+     "template": "The area ___ since 1924.",
+     "answer": "has been protected"
+    },
+    {
+     "g": 2,
+     "task": "분사구문으로 한 문장 만들기",
+     "given": "The park is often called the \"Wonderland of Rocks.\" It draws many hikers.",
+     "template": "___, the park draws many hikers.",
+     "answer": "Often called the \"Wonderland of Rocks\""
+    }
+   ],
+   "ko2en": [
+    {
+     "ko": "나는 치리카후아 국립공원에서 별을 보고 싶다.",
+     "hint": "go stargazing",
+     "answer": "I want to go stargazing in Chiricahua National Park."
+    },
+    {
+     "ko": "'바위의 원더랜드'라고 흔히 불리는 그 공원은 아름답다.",
+     "hint": "Often called",
+     "answer": "Often called the \"Wonderland of Rocks,\" the park is beautiful."
+    }
+   ]
+  }
+ },
+ {
+  "no": "002",
+  "date_display": "2026. 10. 23",
+  "weekday": "금요일 · FRI",
+  "title": "Was “The Starry Night” Painted from a Real July Sky?",
+  "source": "ABC News (AP · Marcia Dunn)",
+  "published_display": "2026년 10월 22일",
+  "url": "https://abcnews.com/Technology/wireStory/new-study-traces-van-goghs-famed-starry-night-137478827",
+  "passage": [
+   "Vincent van Gogh’s “The Starry Night” <mark class=\"g1\">may have been <u>inspired</u></mark> by a real night sky, according to a new study from South Korea. The research team, <mark class=\"g2\">which published its findings in the journal <i>Scientific Reports</i></mark>, <u>matched</u> the painting to a <u>predawn</u> sky over Saint-Rémy-de-Provence, France, around July 22, 1889. That is about a month later than the date art historians have long accepted.",
+   "The study was led by Elijah Jeong-hyun Kim, <mark class=\"g2\">who runs a telescope company in Seoul</mark> and studies at Kyung Hee University. His team found that the moon in mid-June <mark class=\"g1\">would not have looked</mark> like the thin <u>crescent</u> in the painting. In late July, however, the moon’s shape fit well, and Venus and a bright star <u>cluster</u> were rising in the east. Weather records suggest the sky was clear enough to see them.",
+   "Still, van Gogh painted in his studio from sketches and memory, so the scene <mark class=\"g1\">could have <u>combined</u></mark> many different nights. An <u>independent</u> physicist called the July date an <u>intriguing</u> <u>hypothesis</u> rather than a settled answer, but he agreed that the famous sky is not pure fantasy."
+  ],
+  "vocab": [
+   {
+    "word": "inspire",
+    "ipa": "[ɪnspáɪər]",
+    "pos": "v.",
+    "meaning": "영감을 주다"
+   },
+   {
+    "word": "match",
+    "ipa": "[mætʃ]",
+    "pos": "v.",
+    "meaning": "(~와) 맞춰 보다, 일치시키다"
+   },
+   {
+    "word": "predawn",
+    "ipa": "[prìːdɔ́ːn]",
+    "pos": "adj.",
+    "meaning": "동트기 전의, 새벽녘의"
+   },
+   {
+    "word": "crescent",
+    "ipa": "[krésənt]",
+    "pos": "n.",
+    "meaning": "초승달(모양)"
+   },
+   {
+    "word": "cluster",
+    "ipa": "[klʌ́stər]",
+    "pos": "n.",
+    "meaning": "무리, 성단"
+   },
+   {
+    "word": "combine",
+    "ipa": "[kəmbáɪn]",
+    "pos": "v.",
+    "meaning": "결합하다, 합치다"
+   },
+   {
+    "word": "independent",
+    "ipa": "[ìndɪpéndənt]",
+    "pos": "adj.",
+    "meaning": "(연구에) 관여하지 않은, 독립적인"
+   },
+   {
+    "word": "intriguing",
+    "ipa": "[ɪntríːɡɪŋ]",
+    "pos": "adj.",
+    "meaning": "아주 흥미로운"
+   },
+   {
+    "word": "hypothesis",
+    "ipa": "[haɪpɑ́θəsɪs]",
+    "pos": "n.",
+    "meaning": "가설"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "조동사 + have p.p. (과거에 대한 추측)",
+    "explain": "과거 일을 추측할 때 씁니다. may/could have p.p.는 '~했을지도 모른다', would not have p.p.는 '~하지 않았을 것이다', must have p.p.는 '~했음이 틀림없다'. 수동이면 have been p.p.입니다.",
+    "examples": [
+     {
+      "en": "She <mark class=\"g1\">must have left</mark> her phone at the café.",
+      "ko": "그녀는 카페에 휴대폰을 두고 온 게 틀림없다."
+     },
+     {
+      "en": "The old city <mark class=\"g1\">may have been destroyed</mark> by an earthquake.",
+      "ko": "그 옛 도시는 지진으로 파괴되었을지도 모른다."
+     }
+    ]
+   },
+   {
+    "name": "관계대명사의 계속적 용법 (, who / , which)",
+    "explain": "콤마 뒤 who(사람)·which(사물)가 앞 명사에 대한 부가 정보를 덧붙입니다. 빼도 문장이 성립하며, that은 이 용법에 쓰지 않습니다.",
+    "examples": [
+     {
+      "en": "My sister, <mark class=\"g2\">who lives in Busan</mark>, visits us every summer.",
+      "ko": "내 여동생은 부산에 사는데, 매년 여름 우리를 찾아온다."
+     },
+     {
+      "en": "The bridge, <mark class=\"g2\">which opened in 1932</mark>, is still in use today.",
+      "ko": "그 다리는 1932년에 개통되었는데, 오늘날에도 여전히 쓰이고 있다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "빈센트 반 고흐의 「별이 빛나는 밤」이 실제 밤하늘에서 영감을 받았을지도 모른다는 한국의 새 연구가 나왔다. 학술지 『사이언티픽 리포트』에 결과를 발표한 연구팀은 이 그림을 1889년 7월 22일 무렵 프랑스 생레미드프로방스의 동트기 전 하늘과 맞춰 보았다. 이는 미술사학자들이 오랫동안 받아들여 온 시기보다 한 달가량 늦다.",
+   "연구는 서울에서 망원경 회사를 운영하며 경희대학교에서 공부하는 김정현(Elijah Jeong-hyun Kim) 씨가 이끌었다. 연구팀은 6월 중순의 달은 그림 속 가느다란 초승달처럼 보이지 않았을 것이라는 점을 발견했다. 반면 7월 말에는 달의 모양이 잘 들어맞았고, 금성과 밝은 성단이 동쪽에서 떠오르고 있었다. 기상 기록으로 보아 이를 볼 수 있을 만큼 하늘도 맑았던 것으로 보인다.",
+   "그래도 반 고흐는 작업실에서 스케치와 기억에 의존해 그렸기 때문에, 그림 속 장면은 여러 밤이 합쳐진 것일 수도 있다. 연구에 참여하지 않은 한 물리학자는 7월이라는 날짜를 확정된 답이라기보다는 흥미로운 가설이라고 평가했지만, 이 유명한 하늘이 순전한 상상만은 아니라는 데는 동의했다."
+  ],
+  "date": "2026-10-23",
+  "pdf": "pdf/2026-10-23.pdf"
+ },
+ {
+  "no": "003",
+  "date_display": "2026. 10. 24",
+  "weekday": "토요일 · SAT",
+  "title": "Personalized mRNA Vaccine Cuts Melanoma Return Risk by 42%",
+  "source": "The Associated Press (ABC7 News 게재)",
+  "published_display": "2026년 10월 23일",
+  "url": "https://abc7news.com/story/novel-mrna-cancer-vaccine-helps-reduce-chances-melanoma-patients-tumors-returning/19972474/",
+  "passage": [
+   "A <u>personalized</u> cancer vaccine made with mRNA technology has shown strong results in a large <u>clinical</u> trial, Moderna and Merck announced on October 22. The study included more than 1,100 people with high-risk melanoma whose tumors had been <u>surgically</u> removed. All of them received the standard drug Keytruda, and about half also got a <u>custom</u> vaccine.",
+   "The results were <u>encouraging</u>. Adding the vaccine <mark class=\"g2\">cut the risk of the cancer returning by 42%</mark> over two years. After that time, 82% of vaccinated patients were still cancer-free, compared with 70% of those who took Keytruda alone. To make each vaccine, scientists study a patient's tumor and find <u>mutations</u> that exist only in that cancer. The vaccine then <mark class=\"g1\">trains the immune system to <u>recognize</u></mark> and attack cells carrying them. Side effects were mostly mild, such as a sore arm or <u>fatigue</u>.",
+   "The companies are now talking with <u>regulators</u> about seeking <u>approval</u>. Similar vaccines are being tested against lung, kidney and pancreatic cancers, so the technology <mark class=\"g1\">could one day allow doctors to fight</mark> many more cancers. Even so, Moderna's shares <mark class=\"g2\">fell by 18%</mark> on Thursday."
+  ],
+  "vocab": [
+   {
+    "word": "personalized",
+    "ipa": "[pə́ːrsənəlàɪzd]",
+    "pos": "adj.",
+    "meaning": "개인 맞춤형의"
+   },
+   {
+    "word": "clinical",
+    "ipa": "[klínɪkəl]",
+    "pos": "adj.",
+    "meaning": "임상(시험)의"
+   },
+   {
+    "word": "surgically",
+    "ipa": "[sə́ːrdʒɪkəli]",
+    "pos": "adv.",
+    "meaning": "수술로, 외과적으로"
+   },
+   {
+    "word": "custom",
+    "ipa": "[kʌ́stəm]",
+    "pos": "adj.",
+    "meaning": "주문 제작한, 맞춤의"
+   },
+   {
+    "word": "encouraging",
+    "ipa": "[ɪnkə́ːrɪdʒɪŋ]",
+    "pos": "adj.",
+    "meaning": "고무적인, 희망을 주는"
+   },
+   {
+    "word": "mutation",
+    "ipa": "[mjuːtéɪʃən]",
+    "pos": "n.",
+    "meaning": "(유전자) 돌연변이"
+   },
+   {
+    "word": "recognize",
+    "ipa": "[rékəɡnàɪz]",
+    "pos": "v.",
+    "meaning": "알아보다, 인식하다"
+   },
+   {
+    "word": "fatigue",
+    "ipa": "[fətíːɡ]",
+    "pos": "n.",
+    "meaning": "피로, 피곤함"
+   },
+   {
+    "word": "regulator",
+    "ipa": "[réɡjəlèɪtər]",
+    "pos": "n.",
+    "meaning": "규제 기관, 감독 당국"
+   },
+   {
+    "word": "approval",
+    "ipa": "[əprúːvəl]",
+    "pos": "n.",
+    "meaning": "승인, 허가"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "동사 + 목적어 + to부정사 (train / allow A to V)",
+    "explain": "'A가 ~하도록 …하다'라는 뜻으로, 목적어 뒤의 to부정사가 목적어가 할 행동을 나타냅니다. allow, ask, want, train, encourage 등이 이렇게 쓰이고, help는 to를 빼도 됩니다.",
+    "examples": [
+     {
+      "en": "My teacher <mark class=\"g1\">encouraged me to join</mark> the club.",
+      "ko": "선생님은 내게 그 동아리에 들어가 보라고 격려했다."
+     },
+     {
+      "en": "The new app <mark class=\"g1\">allows users to pay</mark> with their phones.",
+      "ko": "새 앱은 사용자가 휴대폰으로 결제할 수 있게 해 준다."
+     }
+    ]
+   },
+   {
+    "name": "증감의 폭을 나타내는 by (rise / fall / cut by + 수치)",
+    "explain": "늘거나 줄어든 '차이'의 크기를 말할 때 by를 씁니다. to는 변화한 뒤의 '최종 값'을 나타내므로 구별하세요.",
+    "examples": [
+     {
+      "en": "Sales <mark class=\"g2\">rose by 15%</mark> last year.",
+      "ko": "작년 매출이 15% 늘었다."
+     },
+     {
+      "en": "The temperature <mark class=\"g2\">fell by 10 degrees</mark> overnight.",
+      "ko": "밤사이 기온이 10도 떨어졌다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "mRNA 기술로 만든 개인 맞춤형 암 백신이 대규모 임상시험에서 뛰어난 결과를 보였다고 모더나와 머크가 10월 22일 발표했다. 이 연구에는 수술로 종양을 제거한 고위험 흑색종 환자 1,100여 명이 참여했다. 모두 표준 치료제인 키트루다를 투여받았고, 그중 약 절반은 맞춤형 백신도 함께 맞았다.",
+   "결과는 고무적이었다. 백신을 추가하자 2년 동안 암이 재발할 위험이 42% 줄었다. 2년 뒤 백신을 맞은 환자의 82%가 여전히 암이 없었던 반면, 키트루다만 투여받은 환자는 70%였다. 백신을 만들기 위해 과학자들은 환자의 종양을 분석해 그 암에만 있는 돌연변이를 찾는다. 그러면 백신이 면역 체계가 그런 세포를 알아보고 공격하도록 훈련시킨다. 부작용은 팔의 통증이나 피로처럼 대부분 가벼웠다.",
+   "두 회사는 현재 승인 신청을 위해 규제 당국과 논의하고 있다. 비슷한 백신이 폐암·신장암·췌장암을 대상으로도 시험 중이어서, 이 기술로 언젠가 의사들이 훨씬 더 많은 암과 싸울 수 있게 될지도 모른다. 그럼에도 모더나 주가는 목요일에 18% 떨어졌다."
+  ],
+  "workbook": {
+   "cloze": {
+    "bank": [
+     "recognize",
+     "fatigue",
+     "surgically",
+     "regulators",
+     "encouraging",
+     "custom",
+     "mutations"
+    ],
+    "items": [
+     "The patients in the trial had their tumors ___ removed.",
+     "About half of the patients got a ___ vaccine made for them.",
+     "Scientists look for ___ that exist only in each patient's cancer.",
+     "The vaccine trains the immune system to ___ cancer cells.",
+     "The companies are talking with ___ about seeking approval."
+    ],
+    "answers": [
+     "surgically",
+     "custom",
+     "mutations",
+     "recognize",
+     "regulators"
+    ]
+   },
+   "transform": [
+    {
+     "g": 1,
+     "task": "'목적어 + to부정사'로 바꾸기",
+     "given": "The doctor said, \"You should rest for a week.\"",
+     "template": "The doctor advised me ___ for a week.",
+     "answer": "to rest"
+    },
+    {
+     "g": 2,
+     "task": "by를 써서 변화의 폭 나타내기",
+     "given": "The price was $100 last year. Now it is $80.",
+     "template": "The price has dropped ___.",
+     "answer": "by $20 (by 20%)"
+    }
+   ],
+   "ko2en": [
+    {
+     "ko": "그 백신은 면역 체계가 암세포를 알아보도록 훈련시킨다.",
+     "hint": "train ... to recognize",
+     "answer": "The vaccine trains the immune system to recognize cancer cells."
+    },
+    {
+     "ko": "암이 재발할 위험이 42% 줄었다.",
+     "hint": "by 42%",
+     "answer": "The risk of the cancer returning dropped by 42%."
+    }
+   ]
+  },
+  "date": "2026-10-24",
+  "pdf": "pdf/2026-10-24.pdf"
+ },
+ {
+  "no": "004",
+  "date_display": "2026. 10. 25",
+  "weekday": "일요일 · SUN",
+  "title": "U.S. Flu Hospitalizations Hit Highest Early-Season Level Since 2010",
+  "source": "ABC News (Youri Benadjaoud)",
+  "published_display": "2026년 10월 23일",
+  "url": "https://abcnews.com/Health/flu-hospitalization-rate-highest-level-time-year-2010/story?id=137519511",
+  "passage": [
+   "Flu season has arrived early in the United States. According to a new report from the Centers for Disease Control and Prevention (CDC), the flu <u>hospitalization</u> rate is now <mark class=\"g1\">the highest it has been at this time of year since the 2010 season</mark>. Positive flu tests and emergency room visits have been rising <u>steadily</u> since late August. Still, health officials <u>stress</u> that overall flu activity remains <u>relatively</u> low across the country.",
+   "Older adults are being hit the hardest. People over 65 have the highest hospitalization rate, followed by adults aged 50 to 64 and young children. Pharmacy chain Walgreens says flu activity is about four weeks ahead of recent seasons, and its sales of cold and flu products have jumped 17% from last year. The CDC is also tracking <u>mutations</u> in the virus, but it says it is too early to know which <u>strains</u> will <u>predominate</u>.",
+   "Experts <u>urge</u> everyone six months and older to get a yearly flu shot. For people who do get sick, prescription <u>antiviral</u> drugs can reduce how <u>severe</u> the illness is and how long it lasts. <mark class=\"g2\">The sooner patients start treatment, the better</mark> the medicine works."
+  ],
+  "vocab": [
+   {
+    "word": "hospitalization",
+    "ipa": "[hɑ̀spɪtələzéɪʃən]",
+    "pos": "n.",
+    "meaning": "입원"
+   },
+   {
+    "word": "steadily",
+    "ipa": "[stédəli]",
+    "pos": "adv.",
+    "meaning": "꾸준히, 계속해서"
+   },
+   {
+    "word": "stress",
+    "ipa": "[stres]",
+    "pos": "v.",
+    "meaning": "강조하다"
+   },
+   {
+    "word": "relatively",
+    "ipa": "[rélətɪvli]",
+    "pos": "adv.",
+    "meaning": "비교적, 상대적으로"
+   },
+   {
+    "word": "mutation",
+    "ipa": "[mjuːtéɪʃən]",
+    "pos": "n.",
+    "meaning": "(유전자) 변이, 돌연변이"
+   },
+   {
+    "word": "strain",
+    "ipa": "[streɪn]",
+    "pos": "n.",
+    "meaning": "(바이러스의) 변종, 계통"
+   },
+   {
+    "word": "predominate",
+    "ipa": "[prɪdɑ́mənèɪt]",
+    "pos": "v.",
+    "meaning": "우세하다, 주를 이루다"
+   },
+   {
+    "word": "urge",
+    "ipa": "[əːrdʒ]",
+    "pos": "v.",
+    "meaning": "강력히 권고하다, 촉구하다"
+   },
+   {
+    "word": "antiviral",
+    "ipa": "[æ̀ntiváɪrəl]",
+    "pos": "adj.",
+    "meaning": "항바이러스성의"
+   },
+   {
+    "word": "severe",
+    "ipa": "[səvíər]",
+    "pos": "adj.",
+    "meaning": "심한, 심각한"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "최상급 + since (…이후로 가장 ~한)",
+    "explain": "'the + 최상급 + (주어 + have been) + since 시점'은 '그때 이후로 가장 ~한'이라는 뜻입니다. 지금까지 이어지는 기간을 말하므로 뒤에 현재완료가 자주 옵니다.",
+    "examples": [
+     {
+      "en": "This is <mark class=\"g1\">the coldest winter we have had since 2012</mark>.",
+      "ko": "올해는 2012년 이후로 가장 추운 겨울이다."
+     },
+     {
+      "en": "Gas prices are <mark class=\"g1\">the lowest they have been since last spring</mark>.",
+      "ko": "기름값이 지난봄 이후로 가장 낮은 수준이다."
+     }
+    ]
+   },
+   {
+    "name": "the 비교급 ~, the 비교급 … (~할수록 더 …하다)",
+    "explain": "두 가지가 함께 늘거나 줄어드는 관계를 나타냅니다. 앞쪽이 조건, 뒤쪽이 결과이며 두 부분 모두 'the + 비교급'으로 시작합니다.",
+    "examples": [
+     {
+      "en": "<mark class=\"g2\">The more you practice, the easier</mark> it gets.",
+      "ko": "연습을 많이 할수록 더 쉬워진다."
+     },
+     {
+      "en": "<mark class=\"g2\">The earlier you leave, the less traffic</mark> you will meet.",
+      "ko": "일찍 출발할수록 차가 덜 막힐 것이다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "미국에 독감 시즌이 일찍 찾아왔다. 미국 질병통제예방센터(CDC)의 새 보고서에 따르면, 독감 입원율이 현재 2010년 시즌 이후로 이맘때 기준 가장 높은 수준이다. 독감 양성 판정과 응급실 방문은 8월 말부터 꾸준히 늘고 있다. 그래도 보건 당국은 전국적인 독감 활동이 전반적으로 비교적 낮은 수준이라고 강조한다.",
+   "가장 큰 타격을 받는 것은 노년층이다. 65세 이상의 입원율이 가장 높고, 그다음은 50~64세 성인과 어린아이들이다. 약국 체인 월그린은 독감 활동이 최근 시즌보다 약 4주 앞서 있으며, 감기·독감 관련 제품 판매가 작년보다 17% 늘었다고 밝혔다. CDC는 바이러스의 변이도 추적하고 있지만, 어떤 변종이 우세할지는 아직 알기 이르다고 말한다.",
+   "전문가들은 생후 6개월 이상 모든 사람에게 매년 독감 예방 주사를 맞으라고 권고한다. 실제로 독감에 걸린 사람에게는 처방 항바이러스제가 증상의 정도와 앓는 기간을 줄여 줄 수 있다. 환자가 치료를 빨리 시작할수록 약이 더 잘 듣는다."
+  ],
+  "workbook": {
+   "cloze": {
+    "bank": [
+     "severe",
+     "urge",
+     "hospitalization",
+     "predominate",
+     "relatively",
+     "antiviral",
+     "mutations"
+    ],
+    "items": [
+     "The flu ___ rate is the highest at this time of year since 2010.",
+     "Overall flu activity remains ___ low across the country.",
+     "The CDC is tracking ___ in the flu virus.",
+     "Experts ___ everyone six months and older to get a flu shot.",
+     "Prescription ___ drugs can shorten the illness."
+    ],
+    "answers": [
+     "hospitalization",
+     "relatively",
+     "mutations",
+     "urge",
+     "antiviral"
+    ]
+   },
+   "transform": [
+    {
+     "g": 1,
+     "task": "최상급 + since 를 써서 바꾸기",
+     "given": "The rate has not been this high since 2010.",
+     "template": "The rate is ___ since 2010.",
+     "answer": "the highest it has been"
+    },
+    {
+     "g": 2,
+     "task": "the 비교급, the 비교급으로 한 문장 만들기",
+     "given": "If you start treatment early, the medicine works well.",
+     "template": "___ the medicine works.",
+     "answer": "The earlier you start treatment, the better"
+    }
+   ],
+   "ko2en": [
+    {
+     "ko": "전문가들은 모두에게 독감 예방 주사를 맞으라고 권고한다.",
+     "hint": "urge ... to",
+     "answer": "Experts urge everyone to get a flu shot."
+    },
+    {
+     "ko": "잠을 많이 잘수록 기분이 더 좋아진다.",
+     "hint": "The more ..., the better",
+     "answer": "The more you sleep, the better you feel."
+    }
+   ]
+  },
+  "date": "2026-10-25",
+  "pdf": "pdf/2026-10-25.pdf"
+ },
+ {
+  "no": "005",
+  "date_display": "2026. 10. 26",
+  "weekday": "월요일 · MON",
+  "title": "Australian Students Plant 1,000 Trees to Grow a Playground Microforest",
+  "source": "ABC News Australia (Mikayla McGuirk-Scolaro)",
+  "published_display": "2026년 10월 25일",
+  "url": "https://www.abc.net.au/news/2026-10-25/microforest-planted-with-1000-native-trees-at-broulee-school/107292384",
+  "passage": [
+   "Students at a school on Australia's southeast coast have turned a bare corner of their playground into a tiny forest. Over one week, Year 4 students at St Peter's Anglican College in Broulee, New South Wales, planted about 1,000 <u>native</u> trees, shrubs and climbing plants. All of the species come from the region's <u>endangered</u> coastal rainforest, and the project is the first of its kind in the state to be built into a school's <u>curriculum</u>.",
+   "The children worked with Microforest Collective, a not-for-profit group, using the Miyawaki method from Japan. This technique packs many local species close together, which <mark class=\"g2\">helps the plants grow</mark> up to ten times faster than usual. Because the soil is sandy, the team also dug clay-lined <u>trenches</u> to <u>capture</u> rainwater. The forest <mark class=\"g1\">is expected to reach</mark> about seven metres in two to three years.",
+   "Students also used maths, science and geography, and practised teamwork. They hope the forest will increase <u>biodiversity</u>, bring back species lost in the 2019–2020 <u>bushfires</u>, and <mark class=\"g2\">help the community <u>adapt</u></mark> to a changing climate. More schools <mark class=\"g1\">are expected to follow</mark>, since the group has created design <u>templates</u> they can copy."
+  ],
+  "vocab": [
+   {
+    "word": "native",
+    "ipa": "[néɪtɪv]",
+    "pos": "adj.",
+    "meaning": "(그 지역) 토종의, 자생하는"
+   },
+   {
+    "word": "endangered",
+    "ipa": "[ɪndéɪndʒərd]",
+    "pos": "adj.",
+    "meaning": "멸종 위기에 처한"
+   },
+   {
+    "word": "curriculum",
+    "ipa": "[kərɪ́kjələm]",
+    "pos": "n.",
+    "meaning": "교육과정, 커리큘럼"
+   },
+   {
+    "word": "trench",
+    "ipa": "[trentʃ]",
+    "pos": "n.",
+    "meaning": "도랑, 길게 판 구덩이"
+   },
+   {
+    "word": "capture",
+    "ipa": "[kǽptʃər]",
+    "pos": "v.",
+    "meaning": "(물·빛 등을) 모으다, 붙잡다"
+   },
+   {
+    "word": "biodiversity",
+    "ipa": "[bàɪoʊdəvə́ːrsəti]",
+    "pos": "n.",
+    "meaning": "생물 다양성"
+   },
+   {
+    "word": "bushfire",
+    "ipa": "[bʊ́ʃfàɪər]",
+    "pos": "n.",
+    "meaning": "(호주의) 산불, 들불"
+   },
+   {
+    "word": "adapt",
+    "ipa": "[ədǽpt]",
+    "pos": "v.",
+    "meaning": "적응하다"
+   },
+   {
+    "word": "template",
+    "ipa": "[témplət]",
+    "pos": "n.",
+    "meaning": "본보기, 견본 틀"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "be expected to + 동사원형",
+    "explain": "'~할 것으로 예상된다'라는 뜻으로, 앞으로 일어날 일을 객관적으로 전할 때 뉴스에서 자주 씁니다. to 뒤에는 동사원형이 옵니다.",
+    "examples": [
+     {
+      "en": "The new library <mark class=\"g1\">is expected to open</mark> next spring.",
+      "ko": "새 도서관은 내년 봄에 문을 열 것으로 예상된다."
+     },
+     {
+      "en": "Thousands of fans <mark class=\"g1\">are expected to attend</mark> the concert.",
+      "ko": "수천 명의 팬이 그 콘서트에 올 것으로 예상된다."
+     }
+    ]
+   },
+   {
+    "name": "help + 목적어 + 동사원형",
+    "explain": "'(목적어)가 ~하도록 돕다'. 목적어 뒤에 동사원형을 바로 쓰며, to부정사(to grow)를 써도 되지만 원형이 더 흔합니다.",
+    "examples": [
+     {
+      "en": "Regular exercise <mark class=\"g2\">helps you sleep</mark> better.",
+      "ko": "규칙적인 운동은 잠을 더 잘 자도록 도와준다."
+     },
+     {
+      "en": "My teacher <mark class=\"g2\">helped me choose</mark> a good book.",
+      "ko": "선생님은 내가 좋은 책을 고르도록 도와주셨다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "호주 남동부 해안의 한 학교 학생들이 운동장의 휑한 구석을 작은 숲으로 바꿨다. 뉴사우스웨일스주 브룰리의 세인트피터스 앵글리칸 칼리지 4학년 학생들은 일주일 동안 토종 나무·관목·덩굴식물 약 1,000그루를 심었다. 모든 종은 이 지역의 멸종 위기 해안 열대우림에서 나온 것이며, 이 프로젝트는 주 내에서 학교 교육과정에 포함된 첫 사례다.",
+   "아이들은 비영리 단체 '마이크로포레스트 콜렉티브'와 함께 일본의 미야와키 방식을 사용했다. 이 기법은 여러 지역 수종을 촘촘히 심어 식물이 평소보다 최대 10배 빨리 자라도록 돕는다. 토양이 모래땅이라 팀은 빗물을 모으기 위해 점토를 바른 도랑도 팠다. 이 숲은 2~3년 안에 약 7미터 높이에 이를 것으로 예상된다.",
+   "학생들은 수학·과학·지리도 활용했고 협동도 연습했다. 그들은 이 숲이 생물 다양성을 높이고, 2019~2020년 산불로 사라진 종들을 되살리며, 지역 사회가 변화하는 기후에 적응하도록 돕기를 바란다. 단체가 그대로 따라 할 수 있는 설계 견본을 만들어 두었기 때문에, 더 많은 학교가 뒤따를 것으로 예상된다."
+  ],
+  "workbook": {
+   "cloze": {
+    "bank": [
+     "trenches",
+     "adapt",
+     "native",
+     "templates",
+     "capture",
+     "curriculum",
+     "biodiversity"
+    ],
+    "items": [
+     "The students planted about 1,000 ___ trees, shrubs and climbing plants.",
+     "The project was built into the school's ___.",
+     "The team dug clay-lined ___ to collect rainwater.",
+     "They hope the forest will increase ___ in the area.",
+     "The group has created design ___ that other schools can copy."
+    ],
+    "answers": [
+     "native",
+     "curriculum",
+     "trenches",
+     "biodiversity",
+     "templates"
+    ]
+   },
+   "transform": [
+    {
+     "g": 1,
+     "task": "be expected to를 써서 바꾸기",
+     "given": "People expect the forest to reach seven metres.",
+     "template": "The forest ___ seven metres.",
+     "answer": "is expected to reach"
+    },
+    {
+     "g": 2,
+     "task": "help + 목적어 + 동사원형으로 바꾸기",
+     "given": "The method makes the plants grow faster.",
+     "template": "The method ___ faster.",
+     "answer": "helps the plants grow"
+    }
+   ],
+   "ko2en": [
+    {
+     "ko": "그 숲은 3년 안에 7미터에 이를 것으로 예상된다.",
+     "hint": "is expected to",
+     "answer": "The forest is expected to reach seven metres in three years."
+    },
+    {
+     "ko": "나무는 우리가 기후 변화에 적응하도록 도와준다.",
+     "hint": "help us adapt",
+     "answer": "Trees help us adapt to climate change."
+    }
+   ]
+  },
+  "date": "2026-10-26",
+  "pdf": "pdf/2026-10-26.pdf"
+ },
+ {
+  "no": "006",
+  "date_display": "2026. 10. 27",
+  "weekday": "화요일 · TUE",
+  "title": "After a Failed Rescue, NASA Ends the Swift Telescope's Mission",
+  "source": "Space.com (Mike Wall)",
+  "published_display": "2026년 10월 26일",
+  "url": "https://www.space.com/space-exploration/missions/nasa-ends-swift-space-telescope-mission-after-failed-rescue-attempt",
+  "passage": [
+   "NASA has officially ended the science mission of the Neil Gehrels Swift Observatory after more than two <u>decades</u> in space. <mark class=\"g1\">Although Swift was designed to work for only two years</mark>, it kept <u>operating</u> for over 20. The telescope collected its final data on October 20, and it is now expected to fall back into Earth's <u>atmosphere</u> within a few weeks.",
+   "Swift was built to catch gamma-ray bursts, which are brief but extremely powerful <u>explosions</u> in deep space. Over its long life, it <mark class=\"g2\">observed not only more than 2,000 of these bursts but also over 1,400 supernovae</mark>. It also studied comets and black holes, and its observations have <u>contributed</u> to about 7,000 scientific papers.",
+   "Because Swift had no <u>thrusters</u>, it could not fight the <u>drag</u> that was slowly pulling it downward. NASA paid a private company $30 million to send a robotic spacecraft to <u>grab</u> Swift and push it into a higher orbit. <mark class=\"g1\">Although the <u>rescue</u> craft got within about 12 kilometers</mark>, technical problems left it spinning, and it never <u>captured</u> the telescope. A NASA official called the effort a \"high-risk, high-reward mission.\""
+  ],
+  "vocab": [
+   {
+    "word": "decade",
+    "ipa": "[dékeɪd]",
+    "pos": "n.",
+    "meaning": "10년"
+   },
+   {
+    "word": "operate",
+    "ipa": "[ɑ́pərèɪt]",
+    "pos": "v.",
+    "meaning": "작동하다, 가동되다"
+   },
+   {
+    "word": "atmosphere",
+    "ipa": "[ǽtməsfɪ̀ər]",
+    "pos": "n.",
+    "meaning": "대기, 대기권"
+   },
+   {
+    "word": "explosion",
+    "ipa": "[ɪksplóʊʒən]",
+    "pos": "n.",
+    "meaning": "폭발"
+   },
+   {
+    "word": "contribute",
+    "ipa": "[kəntríbjuːt]",
+    "pos": "v.",
+    "meaning": "기여하다, 보탬이 되다"
+   },
+   {
+    "word": "thruster",
+    "ipa": "[θrʌ́stər]",
+    "pos": "n.",
+    "meaning": "(우주선의) 추진기"
+   },
+   {
+    "word": "drag",
+    "ipa": "[dræɡ]",
+    "pos": "n.",
+    "meaning": "(공기) 저항, 항력"
+   },
+   {
+    "word": "grab",
+    "ipa": "[ɡræb]",
+    "pos": "v.",
+    "meaning": "붙잡다, 움켜잡다"
+   },
+   {
+    "word": "rescue",
+    "ipa": "[réskjuː]",
+    "pos": "n.",
+    "meaning": "구조, 구출"
+   },
+   {
+    "word": "capture",
+    "ipa": "[kǽptʃər]",
+    "pos": "v.",
+    "meaning": "붙잡다, 포획하다"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "양보의 접속사 Although (비록 ~이지만)",
+    "explain": "Although 뒤에 '주어 + 동사'를 써서 '비록 ~이지만, ~했다'처럼 예상과 반대되는 내용을 연결합니다. Although 절 뒤에는 쉼표를 찍고, but은 함께 쓰지 않습니다.",
+    "examples": [
+     {
+      "en": "<mark class=\"g1\">Although it was raining</mark>, the game continued.",
+      "ko": "비가 오고 있었지만 경기는 계속되었다."
+     },
+     {
+      "en": "<mark class=\"g1\">Although my phone is old</mark>, it still works well.",
+      "ko": "내 휴대폰은 오래됐지만 여전히 잘 작동한다."
+     }
+    ]
+   },
+   {
+    "name": "not only A but also B (A뿐만 아니라 B도)",
+    "explain": "두 가지를 함께 강조할 때 씁니다. A와 B는 같은 형태(명사-명사, 동사-동사)로 맞추고, also는 생략할 수도 있습니다.",
+    "examples": [
+     {
+      "en": "She speaks <mark class=\"g2\">not only English but also Spanish</mark>.",
+      "ko": "그녀는 영어뿐만 아니라 스페인어도 한다."
+     },
+     {
+      "en": "The festival attracts <mark class=\"g2\">not only local families but also tourists</mark>.",
+      "ko": "그 축제는 지역 가족들뿐 아니라 관광객들도 끌어모은다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "NASA가 20년 넘게 우주에서 활동한 닐 게렐스 스위프트 관측선의 과학 임무를 공식 종료했다. 스위프트는 겨우 2년간 쓰도록 설계되었지만 20년 넘게 작동을 이어 갔다. 이 망원경은 10월 20일에 마지막 데이터를 수집했으며, 이제 몇 주 안에 지구 대기권으로 떨어질 것으로 예상된다.",
+   "스위프트는 깊은 우주에서 일어나는 짧지만 매우 강력한 폭발인 감마선 폭발을 포착하기 위해 만들어졌다. 오랜 활동 기간 동안 이 망원경은 2,000건이 넘는 감마선 폭발뿐 아니라 1,400개가 넘는 초신성도 관측했다. 혜성과 블랙홀도 연구했으며, 그 관측 결과는 약 7,000편의 과학 논문에 기여했다.",
+   "스위프트에는 추진기가 없어서 자신을 서서히 아래로 끌어내리는 공기 저항을 이겨낼 수 없었다. NASA는 한 민간 기업에 3천만 달러를 주고, 로봇 우주선을 보내 스위프트를 붙잡아 더 높은 궤도로 밀어 올리게 했다. 구조선은 약 12킬로미터 거리까지 다가갔지만, 기술적 문제로 빙빙 돌게 되었고 끝내 망원경을 붙잡지 못했다. NASA의 한 관계자는 이 시도를 '위험은 크지만 성과도 큰 임무'라고 불렀다."
+  ],
+  "workbook": {
+   "cloze": {
+    "bank": [
+     "captured",
+     "grab",
+     "atmosphere",
+     "thrusters",
+     "contributed",
+     "operating",
+     "explosions"
+    ],
+    "items": [
+     "Although Swift was designed to work for two years, it kept ___ for over 20.",
+     "The telescope will fall back into Earth's ___ within a few weeks.",
+     "Gamma-ray bursts are brief but extremely powerful ___ in deep space.",
+     "Swift had no ___, so it could not fight the drag.",
+     "The rescue craft got close, but it never ___ the telescope."
+    ],
+    "answers": [
+     "operating",
+     "atmosphere",
+     "explosions",
+     "thrusters",
+     "captured"
+    ]
+   },
+   "transform": [
+    {
+     "g": 1,
+     "task": "Although를 써서 한 문장으로 만들기",
+     "given": "The rescue craft got close. It failed to capture Swift.",
+     "template": "___, it failed to capture Swift.",
+     "answer": "Although the rescue craft got close"
+    },
+    {
+     "g": 2,
+     "task": "not only A but also B로 한 문장 만들기",
+     "given": "Swift observed gamma-ray bursts. It also observed supernovae.",
+     "template": "Swift observed ___.",
+     "answer": "not only gamma-ray bursts but also supernovae"
+    }
+   ],
+   "ko2en": [
+    {
+     "ko": "그 망원경은 오래됐지만 여전히 잘 작동한다.",
+     "hint": "Although / operate",
+     "answer": "Although the telescope is old, it still operates well."
+    },
+    {
+     "ko": "스위프트는 폭발뿐만 아니라 혜성도 관측했다.",
+     "hint": "not only ~ but also",
+     "answer": "Swift observed not only explosions but also comets."
+    }
+   ]
+  },
+  "date": "2026-10-27",
+  "pdf": "pdf/2026-10-27.pdf"
+ },
+ {
+  "no": "007",
+  "date_display": "2026. 10. 28",
+  "weekday": "수요일 · WED",
+  "title": "Blind Woman Says AI Smart Glasses Replaced Her Guide Dog",
+  "source": "ABC News Australia (Charlotte Wilkes · Mary Card)",
+  "published_display": "2026년 10월 27일",
+  "url": "https://www.abc.net.au/news/2026-10-27/blind-woman-says-smart-glasses-have-replaced-her-guide-dog/107266650",
+  "passage": [
+   "Heidi Biggin, a mother of three from Ballarat, Australia, <mark class=\"g1\">has been <u>legally</u> blind since she was 22</mark>. For years, she <u>relied</u> on a guide dog to cross roads and buy groceries. But she <mark class=\"g1\">has used AI smart glasses for about six months</mark>, and she says she may never need another dog. When she asks the glasses to <u>describe</u> a store, a voice gives her directions in her ear. They help her <u>blend in</u> like any other shopper.",
+   "The glasses also cause trouble. At least three times a week, Biggin is stopped by <mark class=\"g2\">people who <u>accuse</u> her of filming them</mark>, because the glasses light up when recording. She also worries about a new ban on smart glasses in Victorian schools, since the rules for getting an <u>exemption</u> are unclear.",
+   "Guide Dogs Victoria says the glasses will not replace dogs any time soon. Erin Goedhart, <mark class=\"g2\">who has low vision herself</mark>, says a dog or a white cane should stay the <u>primary</u> <u>mobility</u> aid, because glasses alone are not <u>sufficient</u>. Training a guide dog takes nearly two years, and <u>waitlists</u> can be just as long."
+  ],
+  "vocab": [
+   {
+    "word": "legally",
+    "ipa": "[líːɡəli]",
+    "pos": "adv.",
+    "meaning": "법적으로, 법률상"
+   },
+   {
+    "word": "rely",
+    "ipa": "[rɪláɪ]",
+    "pos": "v.",
+    "meaning": "(~ on) ~에 의지하다"
+   },
+   {
+    "word": "describe",
+    "ipa": "[dɪskráɪb]",
+    "pos": "v.",
+    "meaning": "묘사하다, 설명하다"
+   },
+   {
+    "word": "blend in",
+    "ipa": "[blénd ín]",
+    "pos": "phr. v.",
+    "meaning": "(주변에) 자연스럽게 섞이다"
+   },
+   {
+    "word": "accuse",
+    "ipa": "[əkjúːz]",
+    "pos": "v.",
+    "meaning": "(~ of) ~했다고 비난하다"
+   },
+   {
+    "word": "exemption",
+    "ipa": "[ɪɡzémpʃən]",
+    "pos": "n.",
+    "meaning": "(규칙의) 예외 허용, 면제"
+   },
+   {
+    "word": "primary",
+    "ipa": "[práɪmèri]",
+    "pos": "adj.",
+    "meaning": "주된, 가장 중요한"
+   },
+   {
+    "word": "mobility",
+    "ipa": "[moʊbíləti]",
+    "pos": "n.",
+    "meaning": "이동성, 움직일 수 있는 능력"
+   },
+   {
+    "word": "sufficient",
+    "ipa": "[səfíʃənt]",
+    "pos": "adj.",
+    "meaning": "충분한"
+   },
+   {
+    "word": "waitlist",
+    "ipa": "[wéɪtlɪ̀st]",
+    "pos": "n.",
+    "meaning": "대기자 명단"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "현재완료 계속 (have/has + p.p. + since/for)",
+    "explain": "과거에 시작된 일이 지금까지 이어질 때 '~해 왔다', '~한 지 …되었다'. since 뒤에는 시작 시점, for 뒤에는 기간이 옵니다.",
+    "examples": [
+     {
+      "en": "I <mark class=\"g1\">have lived</mark> in Seoul since 2015.",
+      "ko": "나는 2015년부터 서울에 살아 왔다."
+     },
+     {
+      "en": "She <mark class=\"g1\">has worked</mark> at this school for ten years.",
+      "ko": "그녀는 10년 동안 이 학교에서 일해 왔다."
+     }
+    ]
+   },
+   {
+    "name": "주격 관계대명사 who (사람 + who + 동사)",
+    "explain": "사람 명사 뒤에 who를 붙여 '~하는 사람'이라고 설명을 덧붙입니다. 쉼표(,) 뒤의 who는 이미 아는 사람에 대한 추가 정보입니다.",
+    "examples": [
+     {
+      "en": "I have a friend <mark class=\"g2\">who speaks three languages</mark>.",
+      "ko": "나에게는 3개 국어를 하는 친구가 있다."
+     },
+     {
+      "en": "My uncle, <mark class=\"g2\">who lives in Busan</mark>, visited us yesterday.",
+      "ko": "부산에 사는 삼촌이 어제 우리 집에 오셨다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "호주 밸러랫에 사는 세 아이의 엄마 하이디 비긴은 22살 때부터 법적 시각장애인이다. 여러 해 동안 그녀는 길을 건너고 장을 볼 때 안내견에 의지했다. 하지만 약 6개월 전부터 AI 스마트 안경을 써 왔고, 이제 다른 안내견은 필요 없을지도 모른다고 말한다. 안경에 가게를 설명해 달라고 하면 귀에 음성으로 길을 알려 준다. 안경 덕분에 그녀는 다른 손님들처럼 자연스럽게 섞일 수 있다.",
+   "하지만 안경 때문에 곤란한 일도 생긴다. 녹화할 때 안경에 불이 켜지기 때문에, 비긴은 일주일에 적어도 세 번은 자기를 찍고 있다고 비난하는 사람들에게 붙잡힌다. 또한 빅토리아주 학교에서 새로 시행되는 스마트 안경 금지가 걱정이다. 예외 허가를 받는 규정이 분명하지 않기 때문이다.",
+   "빅토리아 안내견협회는 안경이 당분간 안내견을 대신하지 못할 것이라고 말한다. 본인도 시각장애가 있는 에린 고하트는 안경만으로는 충분하지 않기 때문에 안내견이나 흰 지팡이가 주된 이동 보조 수단이어야 한다고 말한다. 안내견 한 마리를 훈련하는 데는 거의 2년이 걸리고, 대기 기간도 그만큼 길어질 수 있다."
+  ],
+  "workbook": {
+   "cloze": {
+    "bank": [
+     "sufficient",
+     "describe",
+     "relied",
+     "exemption",
+     "primary",
+     "accuse",
+     "blend in"
+    ],
+    "items": [
+     "For years, Heidi ___ on a guide dog to cross roads.",
+     "The smart glasses help her ___ like any other shopper.",
+     "Some people ___ her of filming them.",
+     "The rules for getting an ___ from the school ban are unclear.",
+     "Glasses alone are not ___ for getting around safely."
+    ],
+    "answers": [
+     "relied",
+     "blend in",
+     "accuse",
+     "exemption",
+     "sufficient"
+    ]
+   },
+   "transform": [
+    {
+     "g": 1,
+     "task": "현재완료(for)로 한 문장 만들기",
+     "given": "Heidi started using smart glasses six months ago. She still uses them.",
+     "template": "Heidi ___ smart glasses for six months.",
+     "answer": "has used"
+    },
+    {
+     "g": 2,
+     "task": "관계대명사 who로 한 문장 만들기",
+     "given": "Some people stop her. They think she is filming them.",
+     "template": "Some people ___ she is filming them stop her.",
+     "answer": "who think"
+    }
+   ],
+   "ko2en": [
+    {
+     "ko": "나는 3년 동안 이 휴대폰에 의지해 왔다.",
+     "hint": "have relied on",
+     "answer": "I have relied on this phone for three years."
+    },
+    {
+     "ko": "나는 영어를 쉽게 설명해 주는 선생님이 필요하다.",
+     "hint": "a teacher who",
+     "answer": "I need a teacher who explains English easily."
+    }
+   ]
+  },
+  "date": "2026-10-28",
+  "pdf": "pdf/2026-10-28.pdf",
+  "mp3": "audio/2026-10-28.mp3",
+  "mp3_normal_at": "1:32"
+ },
+ {
+  "no": "008",
+  "date_display": "2026. 10. 29",
+  "weekday": "목요일 · THU",
+  "title": "Halloween Spending Hits a Record Despite Higher Prices",
+  "source": "CBS News (MoneyWatch · Maya Blackstone)",
+  "published_display": "2026년 10월 26일",
+  "url": "https://www.cbsnews.com/news/consumers-face-scarier-halloween-costs-this-year-heres-why/",
+  "passage": [
+   "Halloween is getting more expensive, but Americans are still ready to celebrate. According to the National Retail Federation, shoppers are expected to spend a <u>record</u> $13.5 billion this year, <mark class=\"g2\">$400 million more than in 2025</mark>. Candy alone is <u>forecast</u> to reach $4.1 billion. <mark class=\"g1\">Despite higher prices</mark>, about half of shoppers started buying in September or even earlier.",
+   "The manager of a Chicago costume shop says <u>tariffs</u> and fuel <u>surcharges</u> are pushing costume prices up. Candy is pricier, too. A 100-piece bag now costs about $16.96 on average, <mark class=\"g2\">71% higher than in 2021</mark>. Cocoa prices have dropped from their peak, but candy makers are still using cocoa bought after heat waves and heavy rains damaged <u>crops</u> in West Africa.",
+   "In one <u>survey</u>, two-thirds of Americans said Halloween has become too expensive. Some companies <u>swap</u> cocoa for cheaper vegetable oil, so certain treats cannot be <u>labeled</u> milk chocolate. After complaints, Hershey said it will <u>revert</u> to its original recipes in 2027. <mark class=\"g1\">Despite that promise</mark>, one analyst expects prices to keep climbing through 2028."
+  ],
+  "vocab": [
+   {
+    "word": "record",
+    "ipa": "[rékərd]",
+    "pos": "adj.",
+    "meaning": "기록적인, 사상 최고의"
+   },
+   {
+    "word": "forecast",
+    "ipa": "[fɔ́ːrkæ̀st]",
+    "pos": "v.",
+    "meaning": "예측하다, 전망하다"
+   },
+   {
+    "word": "tariff",
+    "ipa": "[tǽrif]",
+    "pos": "n.",
+    "meaning": "관세"
+   },
+   {
+    "word": "surcharge",
+    "ipa": "[sə́ːrtʃɑ̀ːrdʒ]",
+    "pos": "n.",
+    "meaning": "추가 요금, 할증료"
+   },
+   {
+    "word": "crop",
+    "ipa": "[krɑp]",
+    "pos": "n.",
+    "meaning": "농작물, 수확물"
+   },
+   {
+    "word": "survey",
+    "ipa": "[sə́ːrvei]",
+    "pos": "n.",
+    "meaning": "설문 조사"
+   },
+   {
+    "word": "swap",
+    "ipa": "[swɑp]",
+    "pos": "v.",
+    "meaning": "바꾸다, 교체하다 (swap A for B: A를 B로)"
+   },
+   {
+    "word": "label",
+    "ipa": "[léibəl]",
+    "pos": "v.",
+    "meaning": "(상품에) 표시하다, ~라고 이름 붙이다"
+   },
+   {
+    "word": "revert",
+    "ipa": "[rivə́ːrt]",
+    "pos": "v.",
+    "meaning": "(예전 상태로) 되돌아가다"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "despite + 명사(구): ~에도 불구하고",
+    "explain": "despite 뒤에는 문장(주어+동사)이 아니라 명사나 명사구가 옵니다. 문장을 쓰려면 although를 씁니다. despite of 는 틀린 표현이에요.",
+    "examples": [
+     {
+      "en": "<mark class=\"g1\">Despite the rain</mark>, the children went trick-or-treating.",
+      "ko": "비가 왔는데도 아이들은 사탕을 받으러 다녔다."
+     },
+     {
+      "en": "<mark class=\"g1\">Despite its small size</mark>, the shop sells hundreds of costumes.",
+      "ko": "작은 규모에도 불구하고 그 가게는 의상을 수백 벌 판다."
+     }
+    ]
+   },
+   {
+    "name": "비교 표현: 수치 + 비교급 + than",
+    "explain": "얼마나 차이가 나는지는 비교급 앞에 숫자나 퍼센트를 둡니다. '~보다 …만큼 더 많은/높은'이라는 뜻이며, than 뒤에 비교 대상(in 2021 등)을 씁니다.",
+    "examples": [
+     {
+      "en": "This bag is <mark class=\"g2\">two dollars cheaper than</mark> that one.",
+      "ko": "이 봉지는 저것보다 2달러 더 싸다."
+     },
+     {
+      "en": "Sales were <mark class=\"g2\">10% higher than last year</mark>.",
+      "ko": "매출이 작년보다 10% 더 높았다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "핼러윈 비용이 점점 비싸지고 있지만, 미국인들은 여전히 축제를 즐길 준비가 되어 있다. 전미소매협회(NRF)에 따르면 올해 소비자들은 기록적인 135억 달러를 쓸 것으로 예상되는데, 이는 2025년보다 4억 달러 많은 금액이다. 사탕만 해도 41억 달러에 이를 것으로 전망된다. 높아진 가격에도 불구하고 쇼핑객의 약 절반은 9월이나 그보다 더 일찍 구매를 시작했다.",
+   "시카고의 한 의상 가게 매니저는 관세와 유류 할증료가 의상 가격을 끌어올리고 있다고 말한다. 사탕도 더 비싸졌다. 100개들이 사탕 한 봉지는 현재 평균 약 16.96달러로, 2021년보다 71% 높다. 코코아 가격은 최고치에서 내려왔지만, 사탕 회사들은 폭염과 폭우가 서아프리카의 농작물에 피해를 준 뒤 사들인 코코아를 아직 쓰고 있다.",
+   "한 설문 조사에서 미국인의 3분의 2는 핼러윈이 너무 비싸졌다고 답했다. 일부 회사는 코코아를 더 싼 식물성 기름으로 바꾸기 때문에, 어떤 과자는 밀크 초콜릿이라고 표시할 수 없다. 비판이 이어지자 허쉬는 2027년에 원래 레시피로 되돌아가겠다고 밝혔다. 그런 약속에도 불구하고, 한 분석가는 가격이 2028년까지 계속 오를 것으로 내다본다."
+  ],
+  "workbook": {
+   "cloze": {
+    "bank": [
+     "survey",
+     "forecast",
+     "record",
+     "revert",
+     "tariffs",
+     "swap",
+     "crops"
+    ],
+    "items": [
+     "Americans are expected to spend a ___ $13.5 billion on Halloween.",
+     "Costume prices are rising partly because of ___ and fuel surcharges.",
+     "Heat waves and heavy rains damaged cocoa ___ in West Africa.",
+     "In one ___, two-thirds of Americans said Halloween is too expensive.",
+     "Hershey said it will ___ to its original recipes in 2027."
+    ],
+    "answers": [
+     "record",
+     "tariffs",
+     "crops",
+     "survey",
+     "revert"
+    ]
+   },
+   "transform": [
+    {
+     "g": 1,
+     "task": "despite를 써서 한 문장으로 만들기",
+     "given": "Prices are higher. But people still buy candy.",
+     "template": "___, people still buy candy.",
+     "answer": "Despite higher prices"
+    },
+    {
+     "g": 2,
+     "task": "수치 + 비교급 + than 으로 바꾸기",
+     "given": "Spending is $13.5 billion this year. It was $13.1 billion in 2025.",
+     "template": "Spending this year is $400 million ___ in 2025.",
+     "answer": "more than"
+    }
+   ],
+   "ko2en": [
+    {
+     "ko": "높은 가격에도 불구하고 우리는 사탕을 많이 샀다.",
+     "hint": "Despite",
+     "answer": "Despite the high prices, we bought a lot of candy."
+    },
+    {
+     "ko": "올해 의상은 작년보다 20달러 더 비싸다.",
+     "hint": "more expensive than",
+     "answer": "Costumes are 20 dollars more expensive this year than last year."
+    }
+   ]
+  },
+  "date": "2026-10-29",
+  "pdf": "pdf/2026-10-29.pdf",
+  "mp3": "audio/2026-10-29.mp3",
+  "mp3_normal_at": "1:53"
+ },
+ {
+  "no": "009",
+  "date_display": "2026. 10. 30",
+  "weekday": "금요일 · FRI",
+  "title": "LA Fire Smoke Carried 80 Times the Normal Level of Lead",
+  "source": "The Associated Press (ABC News 게재 · Dorany Pineda)",
+  "published_display": "2026년 10월 28일",
+  "url": "https://abcnews.com/Health/wireStory/smoke-la-fires-exposed-millions-people-high-levels-137649520",
+  "passage": [
+   "At the <u>peak</u> of the 2025 Los Angeles fires, the smoke <mark class=\"g1\">that spread across the city</mark> was full of <u>toxic</u> metals. A new study from Caltech, published in the journal Science Advances, found that about 7 million people breathed air with lead levels <mark class=\"g2\">more than 80 times higher than</mark> normal for an entire day.",
+   "The researchers used a new network of air monitors <mark class=\"g1\">that measures the chemical makeup of tiny <u>particles</u></mark> every hour. When they compared the city smoke with smoke from a 2024 wildfire <mark class=\"g1\">which burned mostly plants</mark>, the urban <u>plume</u> had <mark class=\"g2\">50 times more lead</mark> and <mark class=\"g2\">three times more <u>arsenic</u></mark>. Burning cars, buildings and electronics <u>released</u> these harmful substances into the air.",
+   "Lead is a <u>neurotoxin</u> that can harm children's development, and arsenic is linked to several cancers. Scientists still do not know how a short burst of heavy <u>exposure</u> affects human health. Experts say the findings show the need for better <u>monitoring</u> and public alerts, because climate change is pushing more fires into cities."
+  ],
+  "vocab": [
+   {
+    "word": "peak",
+    "ipa": "[piːk]",
+    "pos": "n.",
+    "meaning": "절정, 최고조"
+   },
+   {
+    "word": "toxic",
+    "ipa": "[tɑ́ksɪk]",
+    "pos": "adj.",
+    "meaning": "유독한, 독성이 있는"
+   },
+   {
+    "word": "particle",
+    "ipa": "[pɑ́ːrtɪkl]",
+    "pos": "n.",
+    "meaning": "입자, 미세한 조각"
+   },
+   {
+    "word": "plume",
+    "ipa": "[pluːm]",
+    "pos": "n.",
+    "meaning": "(연기 등이) 길게 피어오른 기둥"
+   },
+   {
+    "word": "arsenic",
+    "ipa": "[ɑ́ːrsənɪk]",
+    "pos": "n.",
+    "meaning": "비소(독성 원소)"
+   },
+   {
+    "word": "release",
+    "ipa": "[rɪlíːs]",
+    "pos": "v.",
+    "meaning": "방출하다, 내보내다"
+   },
+   {
+    "word": "neurotoxin",
+    "ipa": "[njʊ̀ərətɑ́ksɪn]",
+    "pos": "n.",
+    "meaning": "신경독소"
+   },
+   {
+    "word": "exposure",
+    "ipa": "[ɪkspóʊʒər]",
+    "pos": "n.",
+    "meaning": "노출"
+   },
+   {
+    "word": "monitoring",
+    "ipa": "[mɑ́nɪtərɪŋ]",
+    "pos": "n.",
+    "meaning": "감시, 관측"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "주격 관계대명사 that / which",
+    "explain": "명사 바로 뒤에 that/which + 동사를 붙여 '~하는 (명사)'라고 설명을 덧붙입니다. 관계대명사가 주어 역할이라 바로 동사가 오고, 동사는 앞의 명사에 수를 맞춥니다.",
+    "examples": [
+     {
+      "en": "The girl <mark class=\"g1\">that lives next door</mark> plays the piano.",
+      "ko": "옆집에 사는 그 소녀는 피아노를 친다."
+     },
+     {
+      "en": "I bought a bag <mark class=\"g1\">which holds three laptops</mark>.",
+      "ko": "나는 노트북 세 대가 들어가는 가방을 샀다."
+     }
+    ]
+   },
+   {
+    "name": "배수 비교 (숫자 + times + 비교급 + than)",
+    "explain": "'~보다 몇 배 더 …한/많은'을 나타냅니다. 숫자 times 뒤에 비교급(higher, more 등)을 쓰고, 비교 대상은 than 뒤에 둡니다. 두 배는 보통 twice를 씁니다.",
+    "examples": [
+     {
+      "en": "This phone is <mark class=\"g2\">three times faster than</mark> my old one.",
+      "ko": "이 휴대폰은 내 예전 것보다 세 배 더 빠르다."
+     },
+     {
+      "en": "The new library has <mark class=\"g2\">ten times more books than</mark> the old one.",
+      "ko": "새 도서관에는 옛 도서관보다 책이 열 배 더 많다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "2025년 로스앤젤레스 산불이 절정에 달했을 때, 도시 전역에 퍼진 연기에는 유독한 금속이 가득했다. 학술지 '사이언스 어드밴시스'에 실린 캘리포니아공대(Caltech)의 새 연구에 따르면, 약 700만 명이 하루 종일 평소보다 80배 이상 높은 납 농도의 공기를 들이마셨다.",
+   "연구진은 미세 입자의 화학 성분을 매시간 측정하는 새로운 대기 관측망을 활용했다. 도시의 연기를 주로 식물을 태운 2024년 산불의 연기와 비교했더니, 도시 연기 기둥에는 납이 50배, 비소가 3배 더 많았다. 불타는 자동차와 건물, 전자제품이 이런 해로운 물질을 공기 중으로 내뿜은 것이다.",
+   "납은 아이들의 발달을 해칠 수 있는 신경독소이며, 비소는 여러 암과 관련이 있다. 짧은 시간의 강한 노출이 사람의 건강에 어떤 영향을 주는지는 아직 밝혀지지 않았다. 전문가들은 기후 변화로 도시까지 번지는 화재가 늘고 있어, 이번 결과가 더 나은 관측과 대국민 경보의 필요성을 보여 준다고 말한다."
+  ],
+  "workbook": {
+   "cloze": {
+    "bank": [
+     "released",
+     "peak",
+     "monitoring",
+     "plume",
+     "toxic",
+     "exposure",
+     "particles"
+    ],
+    "items": [
+     "At the ___ of the fires, about 7 million people breathed dangerous air.",
+     "The smoke was full of ___ metals such as lead.",
+     "The monitors measure the chemical makeup of tiny ___ every hour.",
+     "The urban ___ had 50 times more lead than the wildfire smoke.",
+     "Burning cars and electronics ___ harmful substances into the air."
+    ],
+    "answers": [
+     "peak",
+     "toxic",
+     "particles",
+     "plume",
+     "released"
+    ]
+   },
+   "transform": [
+    {
+     "g": 1,
+     "task": "관계대명사 that으로 한 문장 만들기",
+     "given": "The smoke spread across the city. It was full of toxic metals.",
+     "template": "The smoke ___ was full of toxic metals.",
+     "answer": "that spread across the city"
+    },
+    {
+     "g": 2,
+     "task": "배수 비교 표현으로 바꾸기 (도시 연기 납 50 : 산불 연기 납 1)",
+     "given": "The city smoke had a lot of lead. The wildfire smoke had much less.",
+     "template": "The city smoke had ___ the wildfire smoke.",
+     "answer": "50 times more lead than"
+    }
+   ],
+   "ko2en": [
+    {
+     "ko": "납은 아이들의 발달을 해칠 수 있는 신경독소이다.",
+     "hint": "a neurotoxin that",
+     "answer": "Lead is a neurotoxin that can harm children's development."
+    },
+    {
+     "ko": "도시 연기에는 비소가 세 배 더 많이 들어 있었다.",
+     "hint": "three times more",
+     "answer": "The city smoke contained three times more arsenic."
+    }
+   ]
+  },
+  "date": "2026-10-30",
+  "pdf": "pdf/2026-10-30.pdf",
+  "mp3": "audio/2026-10-30.mp3",
+  "mp3_normal_at": "1:35"
+ },
+ {
+  "no": "010",
+  "date_display": "2026. 10. 31",
+  "weekday": "토요일 · SAT",
+  "title": "Even Seabirds Get Jet Lag on Long Flights",
+  "source": "NPR (Geoff Brumfiel)",
+  "published_display": "2026년 10월 29일",
+  "url": "https://www.npr.org/2026/10/29/nx-s1-6019228/manx-shearwater-jet-lag-birds",
+  "passage": [
+   "Jet lag is not just a problem for human travelers. According to a new study in the journal Science, Manx shearwaters, seabirds <mark class=\"g2\">that are closely related to the albatross</mark>, can become slightly <u>disoriented</u> after long trips over the Atlantic. The birds mate for life, and the partners take turns <u>incubating</u> their single egg while the other <u>forages</u> for fish and squid out at sea.",
+   "Researchers at the University of Oxford studied GPS data that colleagues had collected for 20 years. Shearwaters are believed to use the sun <mark class=\"g1\">to <u>navigate</u></mark>. <mark class=\"g1\">To use the sun as a <u>compass</u></mark>, however, a bird must know the time of day. If its <u>internal</u> clock is out of step with the sun, its sense of direction will be wrong, too.",
+   "That is what the team found. Birds flying home <u>veered</u> slightly off course. The largest <u>deviation</u> was seven degrees, <mark class=\"g2\">which moved one bird about three miles off its route</mark> on a 600-mile journey. The mistake is small, and the birds still make it back to their <u>colony</u>. An outside expert called the paper “so cool,” since studies that show animals making navigation choices are rare."
+  ],
+  "vocab": [
+   {
+    "word": "disoriented",
+    "ipa": "[dɪsɔ́ːriəntɪd]",
+    "pos": "adj.",
+    "meaning": "방향 감각을 잃은, 혼란스러운"
+   },
+   {
+    "word": "incubate",
+    "ipa": "[ɪ́ŋkjəbèɪt]",
+    "pos": "v.",
+    "meaning": "(알을) 품다"
+   },
+   {
+    "word": "forage",
+    "ipa": "[fɔ́ːrɪdʒ]",
+    "pos": "v.",
+    "meaning": "먹이를 찾아다니다"
+   },
+   {
+    "word": "navigate",
+    "ipa": "[nǽvəɡèɪt]",
+    "pos": "v.",
+    "meaning": "길을 찾다, 항해하다"
+   },
+   {
+    "word": "compass",
+    "ipa": "[kʌ́mpəs]",
+    "pos": "n.",
+    "meaning": "나침반"
+   },
+   {
+    "word": "internal",
+    "ipa": "[ɪntə́ːrnl]",
+    "pos": "adj.",
+    "meaning": "내부의, 체내의"
+   },
+   {
+    "word": "veer",
+    "ipa": "[vɪər]",
+    "pos": "v.",
+    "meaning": "(방향이) 갑자기 벗어나다"
+   },
+   {
+    "word": "deviation",
+    "ipa": "[dìːviéɪʃən]",
+    "pos": "n.",
+    "meaning": "벗어남, 편차"
+   },
+   {
+    "word": "colony",
+    "ipa": "[kɑ́ləni]",
+    "pos": "n.",
+    "meaning": "(동물의) 집단 서식지, 군집"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "to부정사의 부사적 용법 (목적: ~하기 위해)",
+    "explain": "to + 동사원형이 '~하기 위해'라는 목적을 나타냅니다. 문장 맨 앞에 오면 뒤에 쉼표를 찍습니다.",
+    "examples": [
+     {
+      "en": "She woke up early <mark class=\"g1\">to catch the first train</mark>.",
+      "ko": "그녀는 첫 기차를 타기 위해 일찍 일어났다."
+     },
+     {
+      "en": "<mark class=\"g1\">To stay healthy</mark>, you need enough sleep.",
+      "ko": "건강을 유지하려면 충분한 잠이 필요하다."
+     }
+    ]
+   },
+   {
+    "name": "주격 관계대명사 that / which",
+    "explain": "앞의 명사(사물·동물)를 뒤에서 설명합니다. 쉼표 뒤의 which는 앞 내용 전체에 '그런데 그것이 ~했다'처럼 정보를 덧붙이며, 이때는 that을 쓰지 않습니다.",
+    "examples": [
+     {
+      "en": "I bought a phone <mark class=\"g2\">that takes great photos</mark>.",
+      "ko": "나는 사진이 아주 잘 나오는 휴대폰을 샀다."
+     },
+     {
+      "en": "The train was late, <mark class=\"g2\">which made us miss the show</mark>.",
+      "ko": "기차가 늦었고, 그 바람에 우리는 공연을 놓쳤다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "시차 피로는 사람 여행자만의 문제가 아니다. 학술지 '사이언스'에 실린 새 연구에 따르면, 앨버트로스와 가까운 친척인 바닷새 맹크스슴새는 대서양을 오가는 긴 여행 뒤에 방향 감각을 조금 잃을 수 있다. 이 새들은 평생 한 짝과 지내며, 한쪽이 바다에서 물고기와 오징어를 찾아다니는 동안 다른 쪽이 하나뿐인 알을 번갈아 품는다.",
+   "옥스퍼드대 연구진은 동료들이 20년 동안 모은 GPS 자료를 분석했다. 슴새는 길을 찾기 위해 태양을 이용한다고 알려져 있다. 그런데 태양을 나침반으로 쓰려면 새는 지금이 하루 중 몇 시인지 알아야 한다. 체내 시계가 태양과 어긋나 있으면 방향 감각도 함께 틀어지게 된다.",
+   "연구진이 발견한 것이 그것이었다. 집으로 돌아오는 새들은 경로에서 살짝 벗어났다. 가장 크게 벗어난 각도는 7도였는데, 이 때문에 한 새는 약 600마일(약 965km)의 여정에서 경로를 3마일(약 5km)가량 벗어났다. 오차는 작고, 새들은 결국 서식지로 무사히 돌아온다. 연구에 참여하지 않은 한 전문가는 동물이 길을 찾으며 내리는 선택을 보여 주는 연구가 드물다며 이 논문을 '정말 멋지다'고 평가했다."
+  ],
+  "workbook": {
+   "cloze": {
+    "bank": [
+     "veered",
+     "internal",
+     "compass",
+     "colony",
+     "forages",
+     "disoriented",
+     "incubating"
+    ],
+    "items": [
+     "Manx shearwaters can become slightly ___ after long trips over the Atlantic.",
+     "The partners take turns ___ their single egg.",
+     "To use the sun as a ___, a bird must know the time of day.",
+     "Birds flying home ___ slightly off course.",
+     "The birds still make it back to their ___."
+    ],
+    "answers": [
+     "disoriented",
+     "incubating",
+     "compass",
+     "veered",
+     "colony"
+    ]
+   },
+   "transform": [
+    {
+     "g": 1,
+     "task": "to부정사(목적)로 한 문장 만들기",
+     "given": "Scientists studied GPS data. They wanted to understand bird navigation.",
+     "template": "Scientists studied GPS data ___ bird navigation.",
+     "answer": "to understand"
+    },
+    {
+     "g": 2,
+     "task": "쉼표 + 관계대명사로 한 문장 만들기",
+     "given": "The bird flew 600 miles. The trip took about a day.",
+     "template": "The bird flew 600 miles, ___ about a day.",
+     "answer": "which took"
+    }
+   ],
+   "ko2en": [
+    {
+     "ko": "새들은 길을 찾기 위해 태양을 이용한다.",
+     "hint": "to navigate",
+     "answer": "Birds use the sun to navigate."
+    },
+    {
+     "ko": "나는 긴 비행 뒤에 방향 감각을 잃은 느낌이었다.",
+     "hint": "disoriented",
+     "answer": "I felt disoriented after a long flight."
+    }
+   ]
+  },
+  "date": "2026-10-31",
+  "pdf": "pdf/2026-10-31.pdf",
+  "mp3": "audio/2026-10-31.mp3",
+  "mp3_normal_at": "1:40"
+ }
+]
