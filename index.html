@@ -138,6 +138,24 @@ mark.g1{background:var(--g1)} mark.g2{background:var(--g2)} mark.g3{background:v
 .reading p:last-child{margin:0}
 .gw{cursor:help;border-radius:2px}
 .gw:hover{background:var(--en-soft)}
+.vlist .w.rk,.reading u.rk{cursor:pointer;text-decoration-style:solid}
+.vlist .w.rk{border-bottom:1.5px dashed var(--en)}
+.vlist .w.rk:hover,.reading u.rk:hover{color:var(--en)}
+.rootcard{position:absolute;z-index:60;width:min(330px,calc(100vw - 32px));background:var(--paper);color:var(--ink);border:1px solid var(--line);border-top:3px solid var(--en);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.18);padding:11px 13px 12px;font-size:13.5px;line-height:1.5}
+.rootcard .rh{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
+.rootcard .rh b{font-family:var(--enS);font-size:17px}
+.rootcard .rh span{color:var(--muted);font-size:12.5px;flex:1}
+.rootcard .x{border:0;background:none;color:var(--muted);font-size:16px;cursor:pointer;padding:0 2px;line-height:1}
+.rootcard .parts{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-bottom:7px}
+.rootcard .pc{display:inline-flex;flex-direction:column;align-items:center;background:var(--en-soft);border-radius:6px;padding:3px 7px;line-height:1.25}
+.rootcard .pc i{font-style:normal;font-family:var(--enS);font-weight:700;color:var(--en)}
+.rootcard .pc small{font-size:11px;color:var(--muted)}
+.rootcard .plus{color:var(--muted);font-size:12px}
+.rootcard .core{margin:0 0 8px;font-weight:600}
+.rootcard .fam{margin:0;padding:0;list-style:none;border-top:1px dotted var(--line);padding-top:6px}
+.rootcard .fam li{padding:1.5px 0}
+.rootcard .fam li b{font-family:var(--enS)}
+.rootcard .tip{margin-top:7px;background:var(--sunk);border-radius:6px;padding:5px 8px;font-size:12.5px}
 .say{font-family:var(--ko);font-size:12px;font-weight:500;color:var(--en);text-decoration:none;margin-left:6px;white-space:nowrap}
 .study2{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px}
 @media (max-width:680px){.study2{grid-template-columns:1fr}}
@@ -262,7 +280,7 @@ const dowOf=iso=>new Date(iso+'T00:00:00Z').getUTCDay();
 const md=iso=>`${+iso.slice(5,7)}/${+iso.slice(8)}`;
 const tag=iso=>iso.replace(/-/g,'');
 
-const D={en:[],ja:[],enT:[],jaT:[],sched:null,gloss:{}};
+const D={en:[],ja:[],enT:[],jaT:[],sched:null,gloss:{},roots:{}};
 
 /* ── 단어 뜻 (마우스를 올리면 브라우저 기본 말풍선으로 표시) ── */
 function glossOf(word, e){
@@ -273,6 +291,35 @@ function glossOf(word, e){
   for(const c of cands){ if(c && g[c]) return g[c]; }
   return '';
 }
+/* ── 핵심 단어 어원 카드 (단어를 누르면 작은 카드) ── */
+function rootKey(word){
+  const r=D.roots||{}; const w=word.toLowerCase().trim();
+  const c=[w,w.replace(/s$/,''),w.replace(/es$/,''),w.replace(/ies$/,'y'),w.replace(/ed$/,''),w.replace(/d$/,''),w.replace(/ing$/,''),w.replace(/ing$/,'e'),w.replace(/ly$/,'')];
+  return c.find(x=>x&&r[x])||'';
+}
+function closeRoot(){ const c=document.getElementById('rootCard'); if(c) c.remove(); }
+function showRoot(word, anchor, meaning){
+  const k=rootKey(word); if(!k) return; const r=D.roots[k];
+  if(document.getElementById('rootCard')?.dataset.k===k){ closeRoot(); return; }
+  closeRoot();
+  const c=document.createElement('div'); c.id='rootCard'; c.className='rootcard'; c.dataset.k=k; c.setAttribute('role','dialog');
+  c.innerHTML=`<div class="rh"><b>${esc(k)}</b><span>${esc(meaning||'')}</span><button class="x" type="button" aria-label="닫기">✕</button></div>`
+   +(r.s?`<div class="parts">${r.s.map(([p,m])=>`<span class="pc"><i>${esc(p)}</i><small>${esc(m)}</small></span>`).join('<span class="plus">+</span>')}</div>`:'')
+   +`<p class="core">→ ${esc(r.c)}</p>`
+   +(r.f?`<ul class="fam">${r.f.map(([w,m])=>`<li><b>${esc(w)}</b> · ${esc(m)}</li>`).join('')}</ul>`:'')
+   +(r.t?`<div class="tip">💡 ${esc(r.t)}</div>`:'');
+  document.body.append(c);
+  const a=anchor.getBoundingClientRect(), W=c.offsetWidth, H=c.offsetHeight;
+  let x=a.left+window.scrollX, y=a.bottom+window.scrollY+6;
+  x=Math.max(window.scrollX+16, Math.min(x, window.scrollX+document.documentElement.clientWidth-W-16));
+  if(a.bottom+H+12>window.innerHeight && a.top>H+12) y=a.top+window.scrollY-H-6;
+  c.style.left=x+'px'; c.style.top=y+'px';
+  c.querySelector('.x').onclick=closeRoot;
+}
+document.addEventListener('click',ev=>{ if(!ev.target.closest('#rootCard,.rk')) closeRoot(); });
+document.addEventListener('keydown',ev=>{ if(ev.key==='Escape') closeRoot(); });
+window.addEventListener('resize',closeRoot);
+
 function glossify(root, e){
   if(!root) return;
   const walker=document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode:n=>n.parentElement.closest('a,button,.say,.gw')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
@@ -457,6 +504,7 @@ $('calNext').onclick=()=>{ const [y,m]=calMonth.split('-').map(Number); const d=
 /* ── 영어 학습지 ── */
 let enCur=null;
 function renderEN(date){
+  closeRoot();
   const list=[...D.en].sort((a,b)=>b.date.localeCompare(a.date));
   if(!list.length){ $('enSheet').innerHTML='<div class="empty">아직 영어 학습지가 없습니다.</div>'; return; }
   const e=list.find(x=>x.date===date)||list[0]; enCur=e;
@@ -479,6 +527,14 @@ function renderEN(date){
     <section class="trans"><b>전체 해석</b>${e.translation.map(t=>`<p>${esc(t)}</p>`).join('')}</section>`;
   glossify($('enSheet').querySelector('.reading'), e);
   $('enSheet').querySelectorAll('.exs .e1.enf').forEach(x=>glossify(x,e));
+  const vm=w=>{ const k=rootKey(w); const v=e.vocab.find(v=>rootKey(v.word)===k&&k); return v?v.meaning:''; };
+  $('enSheet').querySelectorAll('.vlist .w, .reading u').forEach(el=>{
+    const w=el.textContent.trim(); if(!rootKey(w)) return;
+    el.classList.add('rk'); el.tabIndex=0; const gm=vm(w)||glossOf(w,e); el.title=(el.tagName==='U'&&gm?gm+' · ':'')+'눌러서 어원 보기';
+    el.querySelectorAll('.gw').forEach(g=>g.removeAttribute('title'));
+    el.onclick=ev=>{ ev.stopPropagation(); showRoot(w, el, vm(w)); };
+    el.onkeydown=ev=>{ if(ev.key==='Enter'){ ev.preventDefault(); showRoot(w, el, vm(w)); } };
+  });
   $('enDay').onchange=ev=>{ stopPlay(); renderEN(ev.target.value); };
   if(e.pdf) $('enPdf').onclick=ev=>savePdf('en/'+e.pdf,`EnglishDaily_${e.date}.pdf`,ev.currentTarget,$('enNote'));
   $('enSheet').querySelectorAll('button[data-i]').forEach(b=>b.onclick=()=>play([e.vocab[+b.dataset.i].word],b));
@@ -567,8 +623,8 @@ function renderTests(){
 
 /* ── 시작 ── */
 (async()=>{
-  const [en,ja,enT,jaT,sched,gloss]=await Promise.all([getJSON('en/entries.json'),getJSON('ja/entries.json'),getJSON('en/tests.json'),getJSON('ja/tests.json'),getJSON('ja/schedule.json'),getJSON('en/gloss.json')]);
-  D.gloss=gloss||{};
+  const [en,ja,enT,jaT,sched,gloss,roots]=await Promise.all([getJSON('en/entries.json'),getJSON('ja/entries.json'),getJSON('en/tests.json'),getJSON('ja/tests.json'),getJSON('ja/schedule.json'),getJSON('en/gloss.json'),getJSON('en/roots.json')]);
+  D.gloss=gloss||{}; D.roots=roots||{};
   D.en=en||[]; D.ja=ja||[]; D.enT=enT||[]; D.jaT=jaT||[]; D.sched=sched;
   START=[...D.en,...D.ja].map(x=>x.date).sort()[0]||TODAY;
   renderHome(); renderCal(TODAY); renderEN(); renderJA(); renderJAPlan(); renderTests();
@@ -577,5 +633,4 @@ function renderTests(){
   if(m){ const iso=`${m[2].slice(0,4)}-${m[2].slice(4,6)}-${m[2].slice(6)}`; show(m[1],iso); }
   else show(VIEWS.includes(h)?h:'home');
 })();
-</script>
-</body></html>
+</script></body></html>
