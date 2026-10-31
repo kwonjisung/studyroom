@@ -1,0 +1,523 @@
+{
+ "lang": "en",
+ "date": "2026-11-01",
+ "no": "T01",
+ "title": "영어 복습 테스트 T01",
+ "pass": 80,
+ "sections": [
+  {
+   "id": "A",
+   "title": "단어 뜻 고르기",
+   "guide": "영어 단어의 뜻을 고르세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "<b>boost</b>",
+     "from": "#001",
+     "choices": [
+      "심한, 심각한",
+      "토종의",
+      "생물 다양성",
+      "끌어올리다, 활성화하다"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>intriguing</b>",
+     "from": "#002",
+     "choices": [
+      "고무적인, 희망을 주는",
+      "내부의, 체내의",
+      "아주 흥미로운",
+      "유독한, 독성이 있는"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>encouraging</b>",
+     "from": "#003",
+     "choices": [
+      "면제",
+      "방향 감각을 잃은",
+      "관세",
+      "고무적인, 희망을 주는"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>severe</b>",
+     "from": "#004",
+     "choices": [
+      "끌어올리다, 활성화하다",
+      "입원",
+      "심한, 심각한",
+      "관세"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>biodiversity</b>",
+     "from": "#005",
+     "choices": [
+      "끌어올리다, 활성화하다",
+      "심한, 심각한",
+      "생물 다양성",
+      "(~ on) ~에 의지하다"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>explosion</b>",
+     "from": "#006",
+     "choices": [
+      "가설",
+      "끌어올리다, 활성화하다",
+      "폭발",
+      "끌어당기다"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>rely</b>",
+     "from": "#007",
+     "choices": [
+      "가설",
+      "(~ on) ~에 의지하다",
+      "끌어당기다",
+      "유독한, 독성이 있는"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>forecast</b>",
+     "from": "#008",
+     "choices": [
+      "아주 흥미로운",
+      "돌연변이",
+      "예측하다, 전망하다",
+      "면제"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>toxic</b>",
+     "from": "#009",
+     "choices": [
+      "유독한, 독성이 있는",
+      "교육과정",
+      "관세",
+      "폭발"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>internal</b>",
+     "from": "#010",
+     "choices": [
+      "토종의",
+      "내부의, 체내의",
+      "심한, 심각한",
+      "생물 다양성"
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "title": "단어 쓰기",
+   "guide": "한국어 뜻에 맞는 영어 단어를 쓰세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "text",
+     "q": "화산의",
+     "hint": "v… (8글자)",
+     "from": "#001",
+     "answer": "volcanic"
+    },
+    {
+     "kind": "text",
+     "q": "결합하다, 합치다",
+     "hint": "c… (7글자)",
+     "from": "#002",
+     "answer": "combine"
+    },
+    {
+     "kind": "text",
+     "q": "피로, 피곤함",
+     "hint": "f… (7글자)",
+     "from": "#003",
+     "answer": "fatigue"
+    },
+    {
+     "kind": "text",
+     "q": "강조하다",
+     "hint": "s… (6글자)",
+     "from": "#004",
+     "answer": "stress"
+    },
+    {
+     "kind": "text",
+     "q": "적응하다",
+     "hint": "a… (5글자)",
+     "from": "#005",
+     "answer": "adapt"
+    },
+    {
+     "kind": "text",
+     "q": "대기, 대기권",
+     "hint": "a… (10글자)",
+     "from": "#006",
+     "answer": "atmosphere"
+    },
+    {
+     "kind": "text",
+     "q": "충분한",
+     "hint": "s… (10글자)",
+     "from": "#007",
+     "answer": "sufficient"
+    },
+    {
+     "kind": "text",
+     "q": "설문 조사",
+     "hint": "s… (6글자)",
+     "from": "#008",
+     "answer": "survey"
+    },
+    {
+     "kind": "text",
+     "q": "노출",
+     "hint": "e… (8글자)",
+     "from": "#009",
+     "answer": "exposure"
+    },
+    {
+     "kind": "text",
+     "q": "나침반",
+     "hint": "c… (7글자)",
+     "from": "#010",
+     "answer": "compass"
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "title": "빈칸 채우기",
+   "guide": "보기에서 알맞은 단어를 고르세요. (남는 단어 있음)",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "Officials hope the new national park will ___ more visitors.",
+     "from": "#001",
+     "choices": [
+      "swap",
+      "drag",
+      "plume",
+      "attract",
+      "navigate",
+      "mutations",
+      "incubate",
+      "accuse"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "Scientists look for ___ that exist only in the patient's own tumor.",
+     "from": "#003",
+     "choices": [
+      "swap",
+      "drag",
+      "plume",
+      "attract",
+      "navigate",
+      "mutations",
+      "incubate",
+      "accuse"
+     ],
+     "answer": 5
+    },
+    {
+     "kind": "choice",
+     "q": "Swift had no thrusters, so it could not fight the ___ pulling it down.",
+     "from": "#006",
+     "choices": [
+      "swap",
+      "drag",
+      "plume",
+      "attract",
+      "navigate",
+      "mutations",
+      "incubate",
+      "accuse"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "Some people ___ Biggin of filming them with her glasses.",
+     "from": "#007",
+     "choices": [
+      "swap",
+      "drag",
+      "plume",
+      "attract",
+      "navigate",
+      "mutations",
+      "incubate",
+      "accuse"
+     ],
+     "answer": 7
+    },
+    {
+     "kind": "choice",
+     "q": "Some candy makers ___ cocoa for cheaper vegetable oil.",
+     "from": "#008",
+     "choices": [
+      "swap",
+      "drag",
+      "plume",
+      "attract",
+      "navigate",
+      "mutations",
+      "incubate",
+      "accuse"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "Shearwaters use the sun to ___ over the ocean.",
+     "from": "#010",
+     "choices": [
+      "swap",
+      "drag",
+      "plume",
+      "attract",
+      "navigate",
+      "mutations",
+      "incubate",
+      "accuse"
+     ],
+     "answer": 4
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "title": "문법 고르기",
+   "guide": "빈칸에 알맞은 것을 고르세요.",
+   "each": 3,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "Van Gogh may ___ many different nights in one painting.",
+     "from": "#002",
+     "choices": [
+      "combined",
+      "have combined",
+      "combining",
+      "to combine"
+     ],
+     "answer": 1,
+     "explain": "과거에 대한 추측: may + have p.p. (~했을지도 모른다)"
+    },
+    {
+     "kind": "choice",
+     "q": "The flu rate is the highest it ___ since 2010.",
+     "from": "#004",
+     "choices": [
+      "is",
+      "was",
+      "will be",
+      "has been"
+     ],
+     "answer": 3,
+     "explain": "최상급 + since: '그 이후로 지금까지' → 현재완료 has been"
+    },
+    {
+     "kind": "choice",
+     "q": "___ the rescue craft got close, it never captured Swift.",
+     "from": "#006",
+     "choices": [
+      "Although",
+      "Despite",
+      "Because",
+      "So"
+     ],
+     "answer": 0,
+     "explain": "뒤에 주어+동사(절) + '비록 ~이지만' → Although (Despite 뒤에는 명사)"
+    },
+    {
+     "kind": "choice",
+     "q": "___ higher prices, people still bought a lot of candy.",
+     "from": "#008",
+     "choices": [
+      "Although",
+      "Because",
+      "Despite",
+      "Unless"
+     ],
+     "answer": 2,
+     "explain": "뒤에 명사구만 옴 → Despite + 명사"
+    },
+    {
+     "kind": "choice",
+     "q": "The city smoke had 50 times ___ lead than the wildfire smoke.",
+     "from": "#009",
+     "choices": [
+      "much",
+      "more",
+      "most",
+      "many"
+     ],
+     "answer": 1,
+     "explain": "배수 비교: 숫자 + times + 비교급(more) + than"
+    },
+    {
+     "kind": "choice",
+     "q": "The birds use the sun ___ their way home.",
+     "from": "#010",
+     "choices": [
+      "find",
+      "found",
+      "finding",
+      "to find"
+     ],
+     "answer": 3,
+     "explain": "목적(~하기 위해)의 to부정사"
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "title": "문법 바꿔 쓰기",
+   "guide": "빈칸에 들어갈 말을 쓰세요.",
+   "each": 4,
+   "items": [
+    {
+     "kind": "text",
+     "q": "<span class='sub'>현재완료 수동태로</span>The government began to protect the area in 1924, and it still protects it.<br>→ The area ___ since 1924.",
+     "from": "#001",
+     "answer": "has been protected",
+     "accept": [
+      "has been protected"
+     ],
+     "explain": "과거부터 지금까지 '보호되어 왔다' → has been + p.p."
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>allow + 목적어 + to부정사로</span>Thanks to the technology, doctors can fight more cancers.<br>→ The technology allows ___ more cancers.",
+     "from": "#003",
+     "answer": "doctors to fight",
+     "accept": [],
+     "explain": "allow A to V (A가 ~하게 해 주다)"
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>be expected to로</span>Experts expect more schools to follow the project.<br>→ More schools ___ the project.",
+     "from": "#005",
+     "answer": "are expected to follow",
+     "accept": [],
+     "explain": "be expected to + 동사원형, 주어가 복수 → are"
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "title": "기사 내용 O / X",
+   "guide": "맞으면 O, 틀리면 X",
+   "each": 1,
+   "items": [
+    {
+     "kind": "ox",
+     "q": "The study matched the painting to a sky in late July 1889.",
+     "from": "#002",
+     "answer": "O",
+     "explain": "1889년 7월 22일 무렵의 새벽 하늘"
+    },
+    {
+     "kind": "ox",
+     "q": "After two years, 82% of vaccinated patients were still cancer-free.",
+     "from": "#003",
+     "answer": "O",
+     "explain": "백신 그룹 82%, 키트루다만 70%"
+    },
+    {
+     "kind": "ox",
+     "q": "Flu activity is now very high across the whole country.",
+     "from": "#004",
+     "answer": "X",
+     "explain": "전체 독감 활동은 아직 비교적 낮음"
+    },
+    {
+     "kind": "ox",
+     "q": "The microforest should reach about seven metres in two to three years.",
+     "from": "#005",
+     "answer": "O",
+     "explain": "2~3년 안에 약 7m 예상"
+    },
+    {
+     "kind": "ox",
+     "q": "Heidi Biggin has been legally blind since she was 12.",
+     "from": "#007",
+     "answer": "X",
+     "explain": "12살이 아니라 22살부터"
+    },
+    {
+     "kind": "ox",
+     "q": "Most Americans in one survey said Halloween is still cheap.",
+     "from": "#008",
+     "answer": "X",
+     "explain": "3분의 2가 너무 비싸졌다고 답함"
+    },
+    {
+     "kind": "ox",
+     "q": "The city smoke had less lead than smoke from a plant wildfire.",
+     "from": "#009",
+     "answer": "X",
+     "explain": "도시 연기의 납이 50배 더 많음"
+    },
+    {
+     "kind": "ox",
+     "q": "The biggest error moved one bird about three miles off course.",
+     "from": "#010",
+     "answer": "O",
+     "explain": "최대 7도, 약 3마일 벗어남"
+    }
+   ]
+  },
+  {
+   "id": "G",
+   "title": "한국어 → 영어",
+   "guide": "힌트 표현을 넣어 영작하고, 모범 답과 비교해 스스로 채점하세요.",
+   "each": 5,
+   "items": [
+    {
+     "kind": "self",
+     "q": "비가 왔음에도 불구하고, 아이들은 사탕을 사러 갔다.",
+     "hint": "힌트: Despite + 명사",
+     "answer": "Despite the rain, the children went to buy candy."
+    },
+    {
+     "kind": "self",
+     "q": "이 숲은 보통보다 열 배 더 빨리 자란다.",
+     "hint": "힌트: ten times + 비교급 + than",
+     "answer": "This forest grows ten times faster than usual."
+    }
+   ]
+  }
+ ]
+}

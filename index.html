@@ -235,6 +235,34 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
 .tcov{font-size:13.5px} .tcov summary{cursor:pointer;color:var(--c);font-weight:600} .tcov ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:3px} .tcov .jaf{font-family:var(--jaS);font-size:15px;line-height:1.9} .tcov .enf{font-family:var(--enS)}
 .tview .btn.on{outline:2px solid var(--c);outline-offset:1px}
 .tpages{display:flex;flex-direction:column;gap:10px}
+.qdone small{font-weight:400;opacity:.8;margin-left:4px}
+.quiz{display:flex;flex-direction:column;gap:14px}
+.qhead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:10px}
+.qhead .k{font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--c)} .qhead h2{margin:2px 0;font-size:20px}
+.quiz .m{font-size:12.5px;color:var(--muted)}
+.qscore{display:flex;align-items:baseline;gap:8px;padding:12px 14px;border-radius:10px;background:var(--sunk)} .qscore b{font-size:34px;line-height:1} .qscore em{font-style:normal;font-size:13px;color:var(--muted);margin-left:auto}
+.qscore.pass{background:color-mix(in srgb,var(--ok) 14%,transparent)} .qscore.pass b{color:var(--ok)}
+.qsec ol{margin:0;padding-left:22px;display:flex;flex-direction:column;gap:12px}
+.qsec>.m{margin:6px 0 10px}
+.qitem.ok::marker{color:var(--ok)} .qitem.ng::marker{color:#c0392b}
+.qq{font-size:15px;line-height:1.7} .qq.jaf{font-family:var(--jaS);font-size:17px;line-height:2.1} .qq .sub{display:block;font-size:12.5px;color:var(--muted);font-family:var(--ko)}
+.qh{margin:2px 0 4px}
+.qblank{display:inline-block;min-width:3.2em;border-bottom:1.5px solid var(--ink);margin:0 2px}
+.qch{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.qc{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:7px 11px;cursor:pointer;min-height:38px;text-align:left}
+.qc.ox{min-width:52px;text-align:center;font-weight:700}
+.qc.sel{border-color:var(--c);background:color-mix(in srgb,var(--c) 14%,var(--paper));font-weight:600}
+.qc.right{border-color:var(--ok);box-shadow:inset 0 0 0 1px var(--ok)}
+.qc:disabled{cursor:default;opacity:1}
+.qc ruby rt,.qq ruby rt,.qans ruby rt{font-size:.5em}
+.qin{font:inherit;font-size:16px;width:100%;max-width:520px;margin-top:6px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--paper);color:var(--ink)}
+.qin:focus{outline:2px solid var(--c);outline-offset:1px}
+.qitem.ng .qin{border-color:#c0392b} .qitem.ok .qin{border-color:var(--ok)}
+.qok{color:var(--ok);font-weight:700;margin-right:6px} .qng{color:#c0392b;font-weight:700;margin-right:6px}
+.qans{margin-top:6px;font-size:13.5px;background:var(--sunk);border-radius:6px;padding:6px 9px}
+.qans .jaf{font-family:var(--jaS)}
+.qend{position:sticky;bottom:0;background:var(--paper);padding:10px 0;border-top:1px solid var(--line);align-items:center}
+.qrow{display:flex}
 .tpages img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:#fff}
 .tsec{display:flex;flex-wrap:wrap;gap:6px}.tsec span{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 9px}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
@@ -291,6 +319,7 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
       <div class="ph"><h2>복습 테스트</h2><span class="sub">목·일요일 아침 · 지난 테스트 이후 학습지로 출제</span></div>
       <div class="tlist" id="testList"></div>
     </div>
+    <div class="panel quiz" id="quizBox" hidden></div>
   </section>
 </div>
 
@@ -490,10 +519,10 @@ function renderHome(){
     const t=ET[TODAY], u=JT[TODAY];
     enCard=`<div class="tcard" style="--c:var(--en)"><div class="k">ENGLISH<span>복습 테스트</span></div>
       <div class="tt">${t?esc(t.no+' 영어 복습 테스트'):'영어 복습 테스트'}</div>
-      ${t?`<span class="status done">✓ 도착</span><div class="m">범위 ${md(t.range_start)} ~ ${md(t.range_end)}</div><div class="bar"><button class="btn test" data-goto="tests">테스트 보기</button></div>`:wait}</div>`;
+      ${t?`${qStatus('en',TODAY,1)}<div class="m">범위 ${md(t.range_start)} ~ ${md(t.range_end)}</div><div class="bar"><button class="btn test" data-goto="tests">테스트 보기</button></div>`:wait}</div>`;
     jaCard=`<div class="tcard" style="--c:var(--ja)"><div class="k">日本語<span>復習テスト</span></div>
       <div class="tt">${u?esc(u.title||u.no):'일본어 복습 테스트'}</div>
-      ${u?`<span class="status done">✓ 도착</span><div class="m">${esc(u.range_display||'')}</div><div class="bar"><button class="btn test" data-goto="tests">테스트 보기</button></div>`:wait}</div>`;
+      ${u?`${qStatus('ja',TODAY,1)}<div class="m">${esc(u.range_display||'')}</div><div class="bar"><button class="btn test" data-goto="tests">테스트 보기</button></div>`:wait}</div>`;
     tCards=enCard+jaCard; enCard=''; jaCard='';
   }
   if(!isTestOnly(TODAY)){
@@ -699,6 +728,116 @@ function renderJAPlan(){
 }
 
 /* ── 테스트 ── */
+/* ── 앱에서 풀기: 복습 테스트 퀴즈 (결과는 내 계정에 저장, 안 되면 이 기기에만) ── */
+const QR={};                 // 'en|2026-11-01' → {score,total,pass,at,pending,no}
+let QDB=null, QUID=null;
+const hasQuiz=(lang,date)=>((D.quiz||{})[lang]||[]).includes(date);
+function qStatus(lang,date,arrived){
+  const r=QR[lang+'|'+date];
+  if(r) return `<span class="status done qdone">✓ 완료 · ${r.score}점${r.pending?' (채점 중)':r.score>=(r.pass||80)?' 통과':''} <small>${md(new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul'}).format(new Date(r.at)))}</small></span>`;
+  if(hasQuiz(lang,date)) return `<span class="status wait">아직 안 풀었어요</span>`;
+  return arrived?'<span class="status done">✓ 도착</span>':'';
+}
+function lsGet(k){ try{ return JSON.parse(localStorage.getItem(k)||'null'); }catch(e){ return null; } }
+function lsSet(k,v){ try{ localStorage.setItem(k,JSON.stringify(v)); }catch(e){} }
+function loadLocalResults(){ ['en','ja'].forEach(l=>((D.quiz||{})[l]||[]).forEach(d=>{ const r=lsGet(`sr-qr-${l}-${d}`); if(r) QR[l+'|'+d]=r; })); }
+async function loadCloudResults(){
+  try{
+    const db=await window.claude?.use?.('db'), user=await window.claude?.use?.('user');
+    if(!db||!user) return; const uid=await user.id(); if(!uid) return; QDB=db; QUID=uid;
+    let changed=false;
+    for(const l of ['en','ja']) for(const d of ((D.quiz||{})[l]||[])){
+      try{ const sn=await db.doc(`data/users/${uid}/quiz_${l}_${d}`).get();
+        if(sn.exists){ const r=sn.data(); const cur=QR[l+'|'+d]; if(!cur||cur.at<r.at){ QR[l+'|'+d]=r; lsSet(`sr-qr-${l}-${d}`,r); changed=true; } } }catch(e){}
+    }
+    if(changed&&!QZ){ renderHome(); renderTests(); }
+  }catch(e){}
+}
+async function saveResult(lang,date,r){
+  QR[lang+'|'+date]=r; lsSet(`sr-qr-${lang}-${date}`,r);
+  try{ if(QDB&&QUID) await QDB.doc(`data/users/${QUID}/quiz_${lang}_${date}`).set(r); }catch(e){}
+}
+const normEN=t=>String(t||'').toLowerCase().replace(/[’']/g,"'").replace(/[^a-z0-9' ]+/g,' ').replace(/\s+/g,' ').trim();
+const kata2hira=t=>String(t||'').replace(/[ァ-ヶ]/g,c=>String.fromCharCode(c.charCodeAt(0)-0x60));
+const normJA=t=>kata2hira(String(t||'').normalize('NFKC')).replace(/[\s。、．，.!！?？「」]/g,'');
+/* 문제 글: <b> <br> <span class='sub'> 만 허용, 일본어는 후리가나 */
+const qText=(lang,t)=>{ let h=esc(t).replace(/&lt;(\/?)(b|br)&gt;/g,'<$1$2>').replace(/&lt;span class=['"]?sub['"]?&gt;/g,'<span class="sub">').replace(/&lt;\/span&gt;/g,'</span>'); if(lang==='ja') h=jaH(h); return h.replace(/___/g,'<span class="qblank">　　　</span>'); };
+const qPlain=(lang,t)=>lang==='ja'?jaH(esc(t)):esc(t);
+let QZ=null;   // {lang,date,data,ans:{},self:{},done:false}
+async function openQuiz(lang,date){
+  const data=await getJSON(`${lang}/quiz/${date}.json`);
+  if(!data){ const it=document.querySelector(`[data-quiz="${lang}|${date}"]`); if(it) it.closest('.titem').querySelector('.note').textContent='문제를 불러오지 못했습니다. 잠시 뒤 다시 눌러 주세요.'; return; }
+  QZ={lang,date,data,ans:lsGet(`sr-qd-${lang}-${date}`)||{},self:{},done:false};
+  $('testList').closest('.panel').hidden=true; $('quizBox').hidden=false; drawQuiz(); window.scrollTo({top:0});
+}
+function closeQuiz(){ QZ=null; $('quizBox').hidden=true; $('quizBox').innerHTML=''; $('testList').closest('.panel').hidden=false; renderTests(); renderHome(); window.scrollTo({top:0}); }
+function gradeItem(it,a){
+  if(it.kind==='choice') return a!==undefined&&a!==''&&+a===it.answer;
+  if(it.kind==='ox') return a===it.answer;
+  if(it.kind==='text'){ const n=QZ.lang==='ja'?normJA:normEN; const ok=[it.answer,...(it.accept||[])].map(n); return a!==undefined&&ok.includes(n(a)); }
+  return null;
+}
+function quizScore(){
+  let sc=0, need=0;
+  QZ.data.sections.forEach((s,si)=>s.items.forEach((it,ii)=>{ const k=si+'-'+ii;
+    if(it.kind==='self'){ if(QZ.self[k]===true) sc+=s.each; if(QZ.self[k]===undefined) need++; }
+    else if(gradeItem(it,QZ.ans[k])) sc+=s.each; }));
+  return {sc,need};
+}
+function drawQuiz(){
+  const {lang:L,data}=QZ, done=QZ.done, pass=data.pass||80;
+  const total=data.sections.reduce((a,s)=>a+s.items.length,0);
+  const answered=Object.keys(QZ.ans).filter(k=>String(QZ.ans[k]).trim()!=='').length;
+  const {sc,need}=done?quizScore():{sc:0,need:0};
+  const prev=QR[L+'|'+QZ.date];
+  const jf=L==='ja'?' class="jaf" lang="ja"':'';
+  let h=`<div class="qhead"><div><span class="k">${L==='en'?'ENGLISH':'日本語'} · ${esc(data.no)}</span><h2>${esc(data.title)}</h2>
+      <span class="m">${done?(need?`'스스로 채점' 문항 ${need}개를 표시하면 점수가 확정돼요`:`채점 끝 · ${pass}점 이상 통과`):`${answered} / ${total} 문항 답함 · 다 풀고 맨 아래 '채점하기'`}${prev&&!done?` · 지난 기록 ${prev.score}점`:''}</span></div>
+      <button class="btn" type="button" id="qClose">✕ 닫기</button></div>`;
+  if(done) h+=`<div class="qscore ${!need&&sc>=pass?'pass':''}"><b>${sc}</b><span>/ 100</span><em>${need?'스스로 채점 전':sc>=pass?'통과! 🎉':'틀린 문항의 학습지를 다시 보세요'}</em></div>`;
+  data.sections.forEach((s,si)=>{
+    h+=`<section class="qsec"><div class="sec"><span>${esc(s.id)}. ${esc(s.title)}</span><span class="m">${s.items.length}문항 × ${s.each}점</span></div><p class="m">${esc(s.guide||'')}</p><ol>`;
+    s.items.forEach((it,ii)=>{
+      const k=si+'-'+ii, a=QZ.ans[k], g=done?gradeItem(it,a):null;
+      const mark=done&&it.kind!=='self'?(g?'<span class="qok">✓</span>':'<span class="qng">✗</span>'):'';
+      h+=`<li class="qitem ${done&&it.kind!=='self'?(g?'ok':'ng'):''}"><div class="qq${L==='ja'?' jaf':''}"${L==='ja'?' lang="ja"':''}>${mark}${qText(L,it.q)}${it.from?` <small class="m">${esc(it.from)}</small>`:''}</div>${it.hint?`<div class="m qh">${esc(it.hint)}</div>`:''}`;
+      if(it.kind==='choice'){
+        h+=`<div class="qch"${L==='ja'?' lang="ja"':''}>${it.choices.map((c,ci)=>`<button type="button" class="qc ${a!==undefined&&a!==''&&+a===ci?'sel':''} ${done&&ci===it.answer?'right':''}" data-k="${k}" data-v="${ci}" ${done?'disabled':''}>${qPlain(L,c)}</button>`).join('')}</div>`;
+      }else if(it.kind==='ox'){
+        h+=`<div class="qch">${['O','X'].map(v=>`<button type="button" class="qc ox ${a===v?'sel':''} ${done&&v===it.answer?'right':''}" data-k="${k}" data-v="${v}" ${done?'disabled':''}>${v}</button>`).join('')}</div>`;
+      }else{
+        h+=`<input class="qin" data-k="${k}" value="${esc(a||'')}" ${done?'disabled':''} autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"${L==='ja'?' lang="ja"':''} placeholder="${it.kind==='self'?'여기에 써 보세요':'답 입력'}" aria-label="${si+1}-${ii+1} 답">`;
+      }
+      if(done){
+        if(it.kind==='self') h+=`<div class="qans">모범 답: <b${jf}>${qPlain(L,it.answer)}</b></div><div class="qch">
+          <button type="button" class="qc ${QZ.self[k]===true?'sel right':''}" data-self="${k}" data-v="1">맞았어요</button><button type="button" class="qc ${QZ.self[k]===false?'sel':''}" data-self="${k}" data-v="0">틀렸어요</button></div>`;
+        else if(!g||it.explain) h+=`<div class="qans">${!g?`정답: <b${jf}>${qPlain(L,it.kind==='choice'?it.choices[it.answer]:it.answer)}</b> `:''}${it.explain?`<span class="m">${esc(it.explain)}</span>`:''}</div>`;
+      }
+      h+='</li>';
+    });
+    h+='</ol></section>';
+  });
+  h+=`<div class="bar qend">${done?`<button class="btn test" type="button" id="qRetry">처음부터 다시 풀기</button><button class="btn" type="button" id="qClose2">목록으로</button>`:`<button class="btn test" type="button" id="qGrade">채점하기</button><span class="m" id="qCount">${answered} / ${total} 문항 답함</span>`}</div><div class="note" id="qNote"></div>`;
+  const box=$('quizBox'); box.innerHTML=h; box.style.setProperty('--c',`var(--${L})`);
+  $('qClose').onclick=closeQuiz; if($('qClose2')) $('qClose2').onclick=closeQuiz;
+  const keep=fn=>{ const y=window.scrollY; fn(); window.scrollTo(0,y); };
+  const save=()=>lsSet(`sr-qd-${QZ.lang}-${QZ.date}`,QZ.ans);
+  box.querySelectorAll('.qc[data-k]').forEach(b=>b.onclick=()=>{ QZ.ans[b.dataset.k]=b.dataset.v; save(); keep(drawQuiz); });
+  box.querySelectorAll('.qin').forEach(i=>i.oninput=()=>{ QZ.ans[i.dataset.k]=i.value; save();
+    const c=$('qCount'); if(c) c.textContent=`${Object.keys(QZ.ans).filter(k=>String(QZ.ans[k]).trim()!=='').length} / ${total} 문항 답함`; });
+  box.querySelectorAll('[data-self]').forEach(b=>b.onclick=async()=>{ QZ.self[b.dataset.self]=b.dataset.v==='1'; await finish(); keep(drawQuiz); });
+  if($('qGrade')) $('qGrade').onclick=async()=>{
+    const left=total-Object.keys(QZ.ans).filter(k=>String(QZ.ans[k]).trim()!=='').length;
+    if(left&&$('qGrade').dataset.warned!=='1'){ $('qGrade').dataset.warned='1'; $('qGrade').textContent='그래도 채점하기'; $('qNote').textContent=`아직 ${left}문항이 비어 있어요. 한 번 더 누르면 빈 문항은 틀린 것으로 채점해요.`; return; }
+    QZ.done=true; await finish(); drawQuiz(); window.scrollTo({top:0});
+  };
+  if($('qRetry')) $('qRetry').onclick=()=>{ QZ.ans={}; QZ.self={}; QZ.done=false; save(); drawQuiz(); window.scrollTo({top:0}); };
+}
+async function finish(){
+  const {sc,need}=quizScore();
+  await saveResult(QZ.lang,QZ.date,{score:sc,total:100,pass:QZ.data.pass||80,at:new Date().toISOString(),pending:need,no:QZ.data.no});
+}
+
 function renderTests(){
   const items=[
     ...D.enT.map(t=>({lang:'en',date:t.date,t})),
@@ -709,8 +848,9 @@ function renderTests(){
     $('testList').innerHTML=`<div class="empty">아직 복습 테스트가 없습니다.<br>다음 테스트는 ${md(nextT)}(${DOW[dowOf(nextT)]}) 아침, 영어·일본어 각각 도착합니다. 목요일은 월~수, 일요일은 목~토 학습지가 범위예요.</div>`; return;
   }
   const pagesOf=(lang,date)=>((D.timg||{})[lang]||{})[date]||0;
-  const viewer=(lang,t)=>{ const n=pagesOf(lang,t.date); if(!n) return '';
-    return `<div class="bar tview"><button class="btn ${lang}" type="button" data-show="q">📄 문제 보기</button>${n>2?`<button class="btn" type="button" data-show="a">✓ 정답·해설 보기</button>`:''}</div>
+  const viewer=(lang,t)=>{ const n=pagesOf(lang,t.date); const qz=hasQuiz(lang,t.date);
+    if(!n&&!qz) return '';
+    return `<div class="qrow">${qStatus(lang,t.date)}</div><div class="bar tview">${qz?`<button class="btn test" type="button" data-quiz="${lang}|${t.date}">✏️ ${QR[lang+'|'+t.date]?'다시 풀기':'앱에서 풀기'}</button>`:''}${n?`<button class="btn ${lang}" type="button" data-show="q">📄 문제 보기</button>${n>2?`<button class="btn" type="button" data-show="a">✓ 정답·해설 보기</button>`:''}`:''}</div>
       <div class="tpages" hidden data-lang="${lang}" data-date="${t.date}" data-n="${n}"></div>`; };
   $('testList').innerHTML=items.map((x,i)=>{
     const t=x.t;
@@ -729,6 +869,7 @@ function renderTests(){
       ${viewer('ja',t)}
       <div class="bar">${t.pdf?`<button class="btn" type="button" data-pdf="ja/${esc(t.pdf)}" data-fn="${esc(t.file||'JapaneseTest_'+t.date+'.pdf')}">PDF 저장</button>`:''}</div><div class="note"></div></div>`;
   }).join('');
+  $('testList').querySelectorAll('[data-quiz]').forEach(b=>b.onclick=()=>{ const [l,d]=b.dataset.quiz.split('|'); openQuiz(l,d); });
   $('testList').querySelectorAll('[data-show]').forEach(b=>b.onclick=()=>{
     const it=b.closest('.titem'), box=it.querySelector('.tpages'), mode=b.dataset.show, n=+box.dataset.n;
     const on=!box.hidden&&box.dataset.mode===mode;
@@ -743,11 +884,13 @@ function renderTests(){
 
 /* ── 시작 ── */
 (async()=>{
-  const [en,ja,enT,jaT,sched,gloss,roots,timg]=await Promise.all([getJSON('en/entries.json'),getJSON('ja/entries.json'),getJSON('en/tests.json'),getJSON('ja/tests.json'),getJSON('ja/schedule.json'),getJSON('en/gloss.json'),getJSON('en/roots.json'),getJSON('testimg.json')]);
-  D.gloss=gloss||{}; D.roots=roots||{}; D.timg=timg||{};
+  const [en,ja,enT,jaT,sched,gloss,roots,timg,quiz]=await Promise.all([getJSON('en/entries.json'),getJSON('ja/entries.json'),getJSON('en/tests.json'),getJSON('ja/tests.json'),getJSON('ja/schedule.json'),getJSON('en/gloss.json'),getJSON('en/roots.json'),getJSON('testimg.json'),getJSON('quiz.json')]);
+  D.gloss=gloss||{}; D.roots=roots||{}; D.timg=timg||{}; D.quiz=quiz||{};
   D.en=en||[]; D.ja=ja||[]; D.enT=enT||[]; D.jaT=jaT||[]; D.sched=sched;
   START=[...D.en,...D.ja].map(x=>x.date).sort()[0]||TODAY;
+  loadLocalResults();
   renderHome(); renderCal(TODAY); renderEN(); renderJA(); renderJAPlan(); renderTests();
+  loadCloudResults();
   const h=(location.hash||'').slice(1);
   const m=h.match(/^(en|ja)-(\d{8})$/);
   if(m){ const iso=`${m[2].slice(0,4)}-${m[2].slice(4,6)}-${m[2].slice(6)}`; show(m[1],iso); }
