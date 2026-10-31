@@ -134,6 +134,19 @@ mark.g1{background:var(--g1)} mark.g2{background:var(--g2)} mark.g3{background:v
 .player{display:flex;flex-direction:column;gap:6px;border-radius:10px;padding:10px 12px;background:var(--en-soft)}
 .player .pl{font-size:13.5px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline} .player .pl b{color:var(--en)} .player .pl span{font-size:12.5px;color:var(--muted)}
 .player audio{width:100%;height:40px}
+.player.ja{background:var(--ja-soft)} .player.ja .pl b{color:var(--ja)}
+#jaSheet .psay button{color:var(--ja)} #jaSheet .psay button:hover{background:var(--ja-soft)} #jaSheet .psay button.on{background:var(--ja);border-color:var(--ja);color:var(--paper)}
+.quote .qs{display:block;border-radius:8px} .quote .qs.playing{background:var(--ja-soft);box-shadow:0 0 0 6px var(--ja-soft)}
+.quote .pr .psay{font-size:14px}
+.trans u{text-decoration-thickness:1.5px;text-underline-offset:3px}
+.trans mark{color:inherit;border-radius:3px;padding:0 1px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.gbub{position:absolute;z-index:61;max-width:min(260px,calc(100vw - 32px));background:var(--ink);color:var(--paper);font-size:13px;line-height:1.4;border-radius:7px;padding:5px 9px;box-shadow:0 4px 14px rgba(0,0,0,.2);pointer-events:none}
+.gbub b{font-family:var(--enS);margin-right:6px}
+.gw.tapped{background:var(--en-soft)}
+.view.swl{animation:swl .22s ease-out} .view.swr{animation:swr .22s ease-out}
+@keyframes swl{from{opacity:.3;transform:translateX(36px)}to{opacity:1;transform:none}}
+@keyframes swr{from{opacity:.3;transform:translateX(-36px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.view.swl,.view.swr{animation:none}}
 .reading p{font-family:var(--enS);font-size:17px;line-height:1.75;margin:0 0 12px;text-wrap:pretty}
 .reading p:last-child{margin:0}
 .gw{cursor:help;border-radius:2px}
@@ -218,7 +231,7 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
 <div class="app">
   <div class="top">
     <div class="brandrow">
-      <h1 class="brand">스터디룸<small>영어 · 일본어 데일리</small></h1>
+      <h1 class="brand">스터디룸</h1>
       <div class="today" id="todayLabel"></div>
     </div>
     <nav class="tabs" role="tablist" aria-label="스터디룸 메뉴">
@@ -323,28 +336,54 @@ function showRoot(word, anchor, meaning){
 }
 document.addEventListener('click',ev=>{ if(!ev.target.closest('#rootCard,.rk')) closeRoot(); });
 document.addEventListener('keydown',ev=>{ if(ev.key==='Escape') closeRoot(); });
-window.addEventListener('resize',closeRoot);
+window.addEventListener('resize',()=>{ closeRoot(); closeBub(); });
 
 /* ── 문단별 듣기: 본문 MP3의 문단 구간만 재생 ── */
 let seg=null;
-function segOff(){ if(!seg) return; seg.btn.classList.remove('on'); const p=document.querySelector('.reading p.playing'); if(p) p.classList.remove('playing'); seg=null; }
-function setupSeg(e){
-  segOff(); const a=$('enAud'); if(!a||!e.mp3_marks) return;
-  a.addEventListener('timeupdate',()=>{ if(seg&&a.currentTime>=seg.end){ a.pause(); segOff(); } });
-  a.addEventListener('pause',()=>{ if(seg&&Date.now()-seg.t>400&&a.currentTime<seg.end-0.3) segOff(); });
-  a.addEventListener('seeking',()=>{ if(seg&&(a.currentTime<seg.start-0.5||a.currentTime>seg.end)) segOff(); });
-  $('enSheet').querySelectorAll('.psay button').forEach(b=>b.onclick=async ev=>{
+function segOff(){ if(!seg) return; seg.btn.classList.remove('on'); if(seg.host) seg.host.classList.remove('playing'); seg=null; }
+function setupSeg(e, audId, sheetId, noteId){
+  const a=$(audId); if(!a||!e.mp3_marks) return;
+  if(!a.dataset.seg){ a.dataset.seg='1';
+    a.addEventListener('timeupdate',()=>{ if(seg&&seg.a===a&&a.currentTime>=seg.end){ a.pause(); segOff(); } });
+    a.addEventListener('pause',()=>{ if(seg&&seg.a===a&&Date.now()-seg.t>400&&a.currentTime<seg.end-0.3) segOff(); });
+    a.addEventListener('seeking',()=>{ if(seg&&seg.a===a&&(a.currentTime<seg.start-0.5||a.currentTime>seg.end)) segOff(); });
+  }
+  $(sheetId).querySelectorAll('.psay button').forEach(b=>b.onclick=async ev=>{
     ev.stopPropagation();
     if(seg&&seg.btn===b){ a.pause(); segOff(); return; }
     const [st,en]=e.mp3_marks[b.dataset.seg][+b.dataset.p];
     stopPlay(); segOff();
-    seg={btn:b,start:st,end:en,t:Date.now()}; b.classList.add('on'); b.closest('p').classList.add('playing');
+    seg={a,btn:b,start:st,end:en,t:Date.now(),host:b.parentElement.closest('[data-p]')}; b.classList.add('on'); seg.host.classList.add('playing');
     try{
       if(a.readyState<1){ a.preload='auto'; a.load(); await new Promise((ok,no)=>{ a.addEventListener('loadedmetadata',ok,{once:true}); a.addEventListener('error',no,{once:true}); }); }
       a.currentTime=st; await a.play();
-    }catch(err){ segOff(); $('enNote').textContent='MP3를 재생하지 못했습니다. 잠시 뒤 다시 눌러 주세요.'; }
+    }catch(err){ segOff(); $(noteId).textContent='MP3를 재생하지 못했습니다. 잠시 뒤 다시 눌러 주세요.'; }
   });
 }
+const psay=(e,i,what)=>e.mp3_marks&&e.mp3_marks.slow[i]?`<span class="psay"><button type="button" data-seg="slow" data-p="${i}" aria-label="${what} ${i+1} 느리게 듣기">▶ 느리게</button><button type="button" data-seg="normal" data-p="${i}" aria-label="${what} ${i+1} 보통 속도로 듣기">▶ 보통</button></span>`:'';
+
+/* 해석 표시용: <u>, <mark class="g1|g2|g3"> 만 허용 */
+function safeMark(t){ return esc(t).replace(/&lt;(\/?)u&gt;/g,'<$1u>').replace(/&lt;mark class=&quot;(g[123])&quot;&gt;/g,'<mark class="$1">').replace(/&lt;\/mark&gt;/g,'</mark>'); }
+
+/* ── 단어 뜻: 누르면(터치 포함) 작은 말풍선 ── */
+function closeBub(){ const b=document.getElementById('gBub'); if(b) b.remove(); document.querySelectorAll('.gw.tapped').forEach(x=>x.classList.remove('tapped')); }
+function showBub(el){
+  const m=el.dataset.m||el.title; if(!m) return;
+  if(el.classList.contains('tapped')){ closeBub(); return; }
+  closeBub(); el.classList.add('tapped');
+  const b=document.createElement('div'); b.id='gBub'; b.className='gbub'; b.setAttribute('role','status');
+  b.innerHTML=`<b>${esc(el.textContent)}</b>${esc(m)}`; b.dataset.y=window.scrollY; document.body.append(b);
+  const r=el.getBoundingClientRect(), W=b.offsetWidth, H=b.offsetHeight;
+  let x=r.left+window.scrollX+r.width/2-W/2; x=Math.max(window.scrollX+12,Math.min(x,window.scrollX+document.documentElement.clientWidth-W-12));
+  let y=r.top+window.scrollY-H-6; if(r.top<H+12) y=r.bottom+window.scrollY+6;
+  b.style.left=x+'px'; b.style.top=y+'px';
+}
+document.addEventListener('click',ev=>{
+  const g=ev.target.closest('.gw');
+  if(g&&!g.closest('.rk')){ showBub(g); return; }
+  if(!ev.target.closest('#gBub')) closeBub();
+});
+window.addEventListener('scroll',()=>{ const b=document.getElementById('gBub'); if(b&&Math.abs(window.scrollY-(+b.dataset.y||0))>40) closeBub(); },{passive:true});
 
 function glossify(root, e){
   if(!root) return;
@@ -356,7 +395,7 @@ function glossify(root, e){
     t.replace(/[A-Za-z]+(?:['’][A-Za-z]+)?/g,(m,i)=>{
       const k=glossOf(m,e); if(!k) return m;
       if(i>last) frag.append(t.slice(last,i));
-      const sp=document.createElement('span'); sp.className='gw'; sp.title=k; sp.textContent=m; frag.append(sp);
+      const sp=document.createElement('span'); sp.className='gw'; sp.title=k; sp.dataset.m=k; sp.textContent=m; frag.append(sp);
       last=i+m.length; return m;
     });
     if(last===0) return;
@@ -393,6 +432,28 @@ function show(view, date){
   window.scrollTo({top:0});
 }
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>show(b.dataset.view));
+/* 휴대폰: 화면을 좌우로 밀어 탭 이동 (홈 ↔ 영어 ↔ 일본어 ↔ 테스트) */
+(()=>{
+  let sx=0, sy=0, st=0, ok=false;
+  const cur=()=>VIEWS.find(v=>!$('v-'+v).hidden)||'home';
+  document.addEventListener('touchstart',ev=>{
+    if(ev.touches.length!==1){ ok=false; return; }
+    const t=ev.target; ok=!t.closest('audio,select,input,textarea,.rootcard,.gbub,[data-noswipe]');
+    // 가로 스크롤 영역(달력 등) 안에서 시작하면 제외
+    for(let n=t; n&&n!==document.body; n=n.parentElement){ if(n.scrollWidth>n.clientWidth+4&&/(auto|scroll)/.test(getComputedStyle(n).overflowX)){ ok=false; break; } }
+    sx=ev.touches[0].clientX; sy=ev.touches[0].clientY; st=Date.now();
+  },{passive:true});
+  document.addEventListener('touchend',ev=>{
+    if(!ok) return; ok=false;
+    const t=ev.changedTouches[0], dx=t.clientX-sx, dy=t.clientY-sy;
+    if(Date.now()-st>700||Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy)*1.6) return;
+    if(window.getSelection&&String(window.getSelection()).length) return;
+    const i=VIEWS.indexOf(cur()), j=i+(dx<0?1:-1);
+    if(j<0||j>=VIEWS.length) return;
+    closeRoot(); closeBub(); show(VIEWS[j]);
+    const v=$('v-'+VIEWS[j]); v.classList.remove('swl','swr'); void v.offsetWidth; v.classList.add(dx<0?'swl':'swr');
+  },{passive:true});
+})();
 
 /* ── 상태 계산 ── */
 const enBy=()=>Object.fromEntries(D.en.map(e=>[e.date,e]));
@@ -543,14 +604,14 @@ function renderEN(date){
     ${e.pdf?'<div class="bar"><button class="btn" type="button" id="enPdf">PDF 저장</button></div>':''}
     <div class="note" id="enNote">${e.mp3_marks?'문단 끝의 ▶느리게 / ▶보통 을 누르면 본문 MP3에서 그 문단만 재생합니다.':''}</div>
     <section class="reading" style="display:flex;flex-direction:column;gap:10px"><div class="sec"><span>READING</span><span class="lg"><u>밑줄</u> 핵심 단어 · <mark class="g1">분홍</mark> 문법 1 · <mark class="g2">파랑</mark> 문법 2</span></div>
-      <div>${e.passage.map((p,i)=>`<p data-p="${i}">${p}${e.mp3_marks&&e.mp3_marks.slow[i]?`<span class="psay"><button type="button" data-seg="slow" data-p="${i}" aria-label="${i+1}문단 느리게 듣기">▶ 느리게</button><button type="button" data-seg="normal" data-p="${i}" aria-label="${i+1}문단 보통 속도로 듣기">▶ 보통</button></span>`:''}</p>`).join('')}</div></section>
+      <div>${e.passage.map((p,i)=>`<p data-p="${i}">${p}${psay(e,i,'문단')}</p>`).join('')}</div></section>
     <div class="study2">
       <section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>KEY WORDS</span><button class="say3" type="button" id="allWords">▶ 전체 3번씩</button></div>
         <ul class="vlist">${e.vocab.map((v,i)=>`<li><span class="vt"><span class="w">${esc(v.word)}</span> <span class="pr">${esc(v.ipa||'')}</span> <span class="pos">${esc(v.pos)}</span> ${esc(v.meaning)}</span><button class="say3" type="button" data-i="${i}" aria-label="${esc(v.word)} 3번 듣기">▶×3</button></li>`).join('')}</ul></section>
       <section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>GRAMMAR</span></div>
         ${e.grammar.map((g,i)=>`<div class="gbox b${i+1}"><div><span class="gt g${i+1}">문법 ${i+1}</span><b>${esc(g.name)}</b></div><p class="gx">${g.explain}</p><ol class="exs">${g.examples.map(x=>`<li><span class="e1 enf">${x.en}</span><span class="e2">${esc(x.ko)}</span></li>`).join('')}</ol></div>`).join('')}</section>
     </div>
-    <section class="trans"><b>전체 해석</b>${e.translation.map(t=>`<p>${esc(t)}</p>`).join('')}</section>`;
+    <section class="trans"><b>전체 해석</b>${(e.translation_marked||e.translation).map(t=>`<p>${e.translation_marked?safeMark(t):esc(t)}</p>`).join('')}</section>`;
   glossify($('enSheet').querySelector('.reading'), e);
   $('enSheet').querySelectorAll('.exs .e1.enf').forEach(x=>glossify(x,e));
   const vm=w=>{ const k=rootKey(w); const v=e.vocab.find(v=>rootKey(v.word)===k&&k); return v?v.meaning:''; };
@@ -562,7 +623,7 @@ function renderEN(date){
     el.onkeydown=ev=>{ if(ev.key==='Enter'){ ev.preventDefault(); showRoot(w, el, vm(w)); } };
   });
   $('enDay').onchange=ev=>{ stopPlay(); renderEN(ev.target.value); };
-  setupSeg(e);
+  setupSeg(e,'enAud','enSheet','enNote');
   if(e.pdf) $('enPdf').onclick=ev=>savePdf('en/'+e.pdf,`EnglishDaily_${e.date}.pdf`,ev.currentTarget,$('enNote'));
   $('enSheet').querySelectorAll('button[data-i]').forEach(b=>b.onclick=()=>play([e.vocab[+b.dataset.i].word],b));
   $('allWords').onclick=ev=>play(e.vocab.map(v=>v.word),ev.currentTarget);
@@ -572,7 +633,7 @@ function renderEN(date){
 const tts=('speechSynthesis' in window)&&typeof SpeechSynthesisUtterance!=='undefined';
 let playing=null;
 function enVoice(){ try{ const vs=speechSynthesis.getVoices(); return vs.find(v=>/en[-_]US/i.test(v.lang)&&/Google|Samantha|Aria|Jenny/i.test(v.name))||vs.find(v=>/en[-_]US/i.test(v.lang))||vs.find(v=>/^en/i.test(v.lang))||null; }catch(e){return null;} }
-function stopPlay(){ try{ if(tts) speechSynthesis.cancel(); }catch(e){} if(playing){ playing.classList.remove('on'); if(playing.id==='allWords') playing.textContent='▶ 전체 3번씩'; } playing=null; const a=$('enAud'); if(a) a.pause(); }
+function stopPlay(){ try{ if(tts) speechSynthesis.cancel(); }catch(e){} if(playing){ playing.classList.remove('on'); if(playing.id==='allWords') playing.textContent='▶ 전체 3번씩'; } playing=null; ['enAud','jaAud'].forEach(id=>{ const a=$(id); if(a) a.pause(); }); }
 function play(words,btn){
   if(playing===btn){ stopPlay(); return; }
   stopPlay();
@@ -596,11 +657,12 @@ function renderJA(date){
     <div class="sheethead"><div><div class="no">JAPANESE DAILY · No.${esc(e.no)}</div><h2>${esc(e.work_ko)} <span lang="ja" style="font-family:var(--jaF);font-weight:400;font-size:.7em;color:var(--muted)">${esc(e.work_ja)}</span></h2></div>
       <div class="rt"><b>${esc(e.date_display)}</b><span>${esc(e.weekday)}</span>
         <select id="jaDay" aria-label="일본어 학습지 날짜">${list.map(x=>`<option value="${x.date}" ${x.date===e.date?'selected':''}>${md(x.date)} ${esc(x.work_ko)}</option>`).join('')}</select></div></div>
-    <p class="quote" lang="ja">${e.quote.map((s,i)=>`<span class="ln">${jaH(s)}</span><span class="pr" lang="ko">(${esc((e.quote_pron||[])[i]||'')})</span>`).join('')}</p>
+    <p class="quote" lang="ja">${e.quote.map((s,i)=>`<span class="qs" data-p="${i}"><span class="ln">${jaH(s)}</span><span class="pr" lang="ko">(${esc((e.quote_pron||[])[i]||'')})${psay(e,i,'문장')}</span></span>`).join('')}</p>
     <div class="kor">${esc(e.korean)}</div>
     <div class="who">— ${esc(e.speaker)} · ${esc(e.source)}</div>
-    <div class="bar"><a class="btn ja" href="${esc(gtJA(e.quote.map(jaP).join('')))}" target="_blank" rel="noopener">▶ 대사 듣기 (Google 번역)</a>${e.pdf?'<button class="btn" type="button" id="jaPdf">PDF 저장</button>':''}</div>
-    <div class="note" id="jaNote">Google 번역 창이 열리면 일본어 칸의 스피커 버튼을 누르세요.</div>
+    ${e.mp3?`<div class="player ja"><div class="pl"><b>▶ 대사 MP3</b><span>느린 발음 1회 → 보통 발음 1회${e.mp3_normal_at?` (보통 발음은 ${esc(e.mp3_normal_at)}부터)`:''}</span></div><audio id="jaAud" controls preload="none" src="ja/${esc(e.mp3)}"></audio></div>`:''}
+    ${e.pdf?'<div class="bar"><button class="btn" type="button" id="jaPdf">PDF 저장</button></div>':''}
+    <div class="note" id="jaNote">${e.mp3_marks?'문장 끝의 ▶느리게 / ▶보통 을 누르면 그 문장만 재생합니다.':''}</div>
     ${e.scene?`<div class="scene"><b>장면</b>${esc(e.scene)}</div>`:''}
     <div class="study2">
       <section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>WORDS · 단어</span></div>
@@ -613,7 +675,8 @@ function renderJA(date){
     </div>
     ${(e.similar||[]).length?`<section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>SIMILAR · 비슷한 표현 · 반대 표현</span></div><div class="sim">${e.similar.map(x=>`<div><span class="sj" lang="ja">${jaH(x.ja)}</span><span class="kp">(${esc(x.pron)})</span><span class="tag">${esc(x.tag)}</span><span class="sm">${esc(x.meaning)}</span></div>`).join('')}</div></section>`:''}
     ${e.credit?`<div class="who">출처: ${esc(e.credit)} · 대사는 학습 목적의 짧은 인용입니다.</div>`:''}`;
-  $('jaDay').onchange=ev=>renderJA(ev.target.value);
+  setupSeg(e,'jaAud','jaSheet','jaNote');
+  $('jaDay').onchange=ev=>{ stopPlay(); segOff(); renderJA(ev.target.value); };
   if(e.pdf) $('jaPdf').onclick=ev=>savePdf('ja/'+e.pdf,`JapaneseDaily_${e.date}.pdf`,ev.currentTarget,$('jaNote'));
 }
 function renderJAPlan(){
