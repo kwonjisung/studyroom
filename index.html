@@ -232,6 +232,10 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
 .titem .k{font-size:12px;font-weight:700;color:var(--c);letter-spacing:.08em}
 .titem .t{font-weight:700}
 .titem .m{font-size:13px;color:var(--muted)}
+.tcov{font-size:13.5px} .tcov summary{cursor:pointer;color:var(--c);font-weight:600} .tcov ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:3px} .tcov .jaf{font-family:var(--jaS);font-size:15px;line-height:1.9} .tcov .enf{font-family:var(--enS)}
+.tview .btn.on{outline:2px solid var(--c);outline-offset:1px}
+.tpages{display:flex;flex-direction:column;gap:10px}
+.tpages img{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:#fff}
 .tsec{display:flex;flex-wrap:wrap;gap:6px}.tsec span{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 9px}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
 </style>
@@ -704,23 +708,43 @@ function renderTests(){
   if(!items.length){
     $('testList').innerHTML=`<div class="empty">아직 복습 테스트가 없습니다.<br>다음 테스트는 ${md(nextT)}(${DOW[dowOf(nextT)]}) 아침, 영어·일본어 각각 도착합니다. 목요일은 월~수, 일요일은 목~토 학습지가 범위예요.</div>`; return;
   }
+  const pagesOf=(lang,date)=>((D.timg||{})[lang]||{})[date]||0;
+  const viewer=(lang,t)=>{ const n=pagesOf(lang,t.date); if(!n) return '';
+    return `<div class="bar tview"><button class="btn ${lang}" type="button" data-show="q">📄 문제 보기</button>${n>2?`<button class="btn" type="button" data-show="a">✓ 정답·해설 보기</button>`:''}</div>
+      <div class="tpages" hidden data-lang="${lang}" data-date="${t.date}" data-n="${n}"></div>`; };
   $('testList').innerHTML=items.map((x,i)=>{
     const t=x.t;
-    if(x.lang==='en') return `<div class="titem" style="--c:var(--en)"><span class="k">ENGLISH · ${esc(t.no)}</span><span class="t">영어 복습 테스트 · ${md(t.date)}(${DOW[dowOf(t.date)]})</span>
-      <span class="m">범위 ${md(t.range_start)} ~ ${md(t.range_end)}${t.covers?` · 학습지 ${t.covers.length}장`:''}</span>
-      <div class="bar">${t.pdf?`<button class="btn en" type="button" data-pdf="en/${esc(t.pdf)}" data-fn="EnglishTest_${t.date}.pdf">테스트지 PDF 저장</button>`:''}</div><div class="note"></div></div>`;
+    if(x.lang==='en'){
+      const cov=(t.covers||[]).map(no=>D.en.find(e=>e.no===no)).filter(Boolean);
+      return `<div class="titem" style="--c:var(--en)"><span class="k">ENGLISH · ${esc(t.no)}</span><span class="t">영어 복습 테스트 · ${md(t.date)}(${DOW[dowOf(t.date)]})</span>
+      <span class="m">범위 ${md(t.range_start)} ~ ${md(t.range_end)}${t.covers?` · 학습지 ${t.covers.length}장`:''} · 단어·빈칸·문법·O/X·영작 100점</span>
+      ${cov.length?`<details class="tcov"><summary>시험 범위 학습지 ${cov.length}장</summary><ul>${cov.map(e=>`<li><b>${md(e.date)}</b> <span class="enf">${esc(e.title)}</span><span class="m"> · ${e.grammar.map(g=>esc(g.name)).join(' / ')}</span></li>`).join('')}</ul></details>`:''}
+      ${viewer('en',t)}
+      <div class="bar">${t.pdf?`<button class="btn" type="button" data-pdf="en/${esc(t.pdf)}" data-fn="EnglishTest_${t.date}.pdf">PDF 저장</button>`:''}</div><div class="note"></div></div>`;
+    }
     return `<div class="titem" style="--c:var(--ja)"><span class="k">日本語 · ${esc(t.no)}</span><span class="t">${esc(t.title||'일본어 복습 테스트')} · ${md(t.date)}(${DOW[dowOf(t.date)]})</span>
       <span class="m">${esc(t.range_display||'')}</span>
       ${(t.sections||[]).length?`<div class="tsec">${t.sections.map(s=>`<span>${esc(s.id)}. ${esc(s.title)} · ${esc(s.count)}문항</span>`).join('')}</div>`:''}
-      <div class="bar">${t.pdf?`<button class="btn ja" type="button" data-pdf="ja/${esc(t.pdf)}" data-fn="${esc(t.file||'JapaneseTest_'+t.date+'.pdf')}">테스트지 PDF 저장</button>`:''}</div><div class="note"></div></div>`;
+      ${(t.review||[]).length?`<details class="tcov"><summary>시험 범위 대사 ${t.review.length}개</summary><ul>${t.review.map(r=>`<li><b>${esc(r.date)}</b> <span class="jaf" lang="ja">${jaH(r.quote)}</span><span class="m"> · ${esc(r.work)} ${esc(r.speaker)}</span></li>`).join('')}</ul></details>`:''}
+      ${viewer('ja',t)}
+      <div class="bar">${t.pdf?`<button class="btn" type="button" data-pdf="ja/${esc(t.pdf)}" data-fn="${esc(t.file||'JapaneseTest_'+t.date+'.pdf')}">PDF 저장</button>`:''}</div><div class="note"></div></div>`;
   }).join('');
+  $('testList').querySelectorAll('[data-show]').forEach(b=>b.onclick=()=>{
+    const it=b.closest('.titem'), box=it.querySelector('.tpages'), mode=b.dataset.show, n=+box.dataset.n;
+    const on=!box.hidden&&box.dataset.mode===mode;
+    it.querySelectorAll('[data-show]').forEach(x=>x.classList.remove('on'));
+    if(on){ box.hidden=true; box.dataset.mode=''; return; }
+    const pg=mode==='a'?[n]:Array.from({length:n>2?n-1:n},(_,k)=>k+1);
+    box.innerHTML=pg.map(k=>`<a href="${box.dataset.lang}/testimg/${box.dataset.date}-${k}.jpg" target="_blank" rel="noopener"><img loading="lazy" src="${box.dataset.lang}/testimg/${box.dataset.date}-${k}.jpg" alt="${mode==='a'?'정답·해설':'문제'} ${k}쪽"></a>`).join('');
+    box.dataset.mode=mode; box.hidden=false; b.classList.add('on');
+  });
   $('testList').querySelectorAll('[data-pdf]').forEach(b=>b.onclick=()=>savePdf(b.dataset.pdf,b.dataset.fn,b,b.closest('.titem').querySelector('.note')));
 }
 
 /* ── 시작 ── */
 (async()=>{
-  const [en,ja,enT,jaT,sched,gloss,roots]=await Promise.all([getJSON('en/entries.json'),getJSON('ja/entries.json'),getJSON('en/tests.json'),getJSON('ja/tests.json'),getJSON('ja/schedule.json'),getJSON('en/gloss.json'),getJSON('en/roots.json')]);
-  D.gloss=gloss||{}; D.roots=roots||{};
+  const [en,ja,enT,jaT,sched,gloss,roots,timg]=await Promise.all([getJSON('en/entries.json'),getJSON('ja/entries.json'),getJSON('en/tests.json'),getJSON('ja/tests.json'),getJSON('ja/schedule.json'),getJSON('en/gloss.json'),getJSON('en/roots.json'),getJSON('testimg.json')]);
+  D.gloss=gloss||{}; D.roots=roots||{}; D.timg=timg||{};
   D.en=en||[]; D.ja=ja||[]; D.enT=enT||[]; D.jaT=jaT||[]; D.sched=sched;
   START=[...D.en,...D.ja].map(x=>x.date).sort()[0]||TODAY;
   renderHome(); renderCal(TODAY); renderEN(); renderJA(); renderJAPlan(); renderTests();
