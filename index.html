@@ -157,6 +157,11 @@ mark.g1{background:var(--g1)} mark.g2{background:var(--g2)} mark.g3{background:v
 .rootcard .fam li b{font-family:var(--enS)}
 .rootcard .tip{margin-top:7px;background:var(--sunk);border-radius:6px;padding:5px 8px;font-size:12.5px}
 .say{font-family:var(--ko);font-size:12px;font-weight:500;color:var(--en);text-decoration:none;margin-left:6px;white-space:nowrap}
+.psay{display:inline-flex;gap:4px;margin-left:6px;vertical-align:1px;white-space:nowrap}
+.psay button{font-family:var(--ko);font-size:11.5px;font-weight:500;line-height:1.4;border:1px solid var(--line);border-radius:999px;padding:1px 8px;background:var(--paper);color:var(--en);cursor:pointer}
+.psay button:hover{background:var(--en-soft)}
+.psay button.on{background:var(--en);border-color:var(--en);color:var(--paper)}
+.reading p.playing{background:var(--en-soft);border-radius:6px;box-shadow:0 0 0 6px var(--en-soft)}
 .study2{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px}
 @media (max-width:680px){.study2{grid-template-columns:1fr}}
 .vlist{list-style:none;margin:0;padding:0;font-size:14.5px}
@@ -319,6 +324,27 @@ function showRoot(word, anchor, meaning){
 document.addEventListener('click',ev=>{ if(!ev.target.closest('#rootCard,.rk')) closeRoot(); });
 document.addEventListener('keydown',ev=>{ if(ev.key==='Escape') closeRoot(); });
 window.addEventListener('resize',closeRoot);
+
+/* ── 문단별 듣기: 본문 MP3의 문단 구간만 재생 ── */
+let seg=null;
+function segOff(){ if(!seg) return; seg.btn.classList.remove('on'); const p=document.querySelector('.reading p.playing'); if(p) p.classList.remove('playing'); seg=null; }
+function setupSeg(e){
+  segOff(); const a=$('enAud'); if(!a||!e.mp3_marks) return;
+  a.addEventListener('timeupdate',()=>{ if(seg&&a.currentTime>=seg.end){ a.pause(); segOff(); } });
+  a.addEventListener('pause',()=>{ if(seg&&Date.now()-seg.t>400&&a.currentTime<seg.end-0.3) segOff(); });
+  a.addEventListener('seeking',()=>{ if(seg&&(a.currentTime<seg.start-0.5||a.currentTime>seg.end)) segOff(); });
+  $('enSheet').querySelectorAll('.psay button').forEach(b=>b.onclick=async ev=>{
+    ev.stopPropagation();
+    if(seg&&seg.btn===b){ a.pause(); segOff(); return; }
+    const [st,en]=e.mp3_marks[b.dataset.seg][+b.dataset.p];
+    stopPlay(); segOff();
+    seg={btn:b,start:st,end:en,t:Date.now()}; b.classList.add('on'); b.closest('p').classList.add('playing');
+    try{
+      if(a.readyState<1){ a.preload='auto'; a.load(); await new Promise((ok,no)=>{ a.addEventListener('loadedmetadata',ok,{once:true}); a.addEventListener('error',no,{once:true}); }); }
+      a.currentTime=st; await a.play();
+    }catch(err){ segOff(); $('enNote').textContent='MP3를 재생하지 못했습니다. 잠시 뒤 다시 눌러 주세요.'; }
+  });
+}
 
 function glossify(root, e){
   if(!root) return;
@@ -514,10 +540,10 @@ function renderEN(date){
         <select id="enDay" aria-label="영어 학습지 날짜">${list.map(x=>`<option value="${x.date}" ${x.date===e.date?'selected':''}>${md(x.date)} No.${esc(x.no)}</option>`).join('')}</select></div></div>
     <div class="src">출처: <b>${esc(e.source)}</b> · 발행일 ${esc(e.published_display)} · <a href="${esc(e.url)}" target="_blank" rel="noopener">원문 기사 보기 ↗</a><br>※ 학습용으로 기사 내용을 요약·재구성한 본문입니다.</div>
     ${e.mp3?`<div class="player"><div class="pl"><b>▶ 본문 MP3</b><span>느린 발음 1회 → 보통 발음 1회${e.mp3_normal_at?` (보통 발음은 ${esc(e.mp3_normal_at)}부터)`:''}</span></div><audio id="enAud" controls preload="none" src="en/${esc(e.mp3)}"></audio></div>`:''}
-    <div class="bar"><a class="btn en" href="${esc(gtEN(e.passage.map(strip).join(' ')))}" target="_blank" rel="noopener">▶ 본문 듣기 (Google 번역)</a>${e.pdf?'<button class="btn" type="button" id="enPdf">PDF 저장</button>':''}</div>
-    <div class="note" id="enNote">Google 번역 창이 열리면 영어 칸의 스피커 버튼을 누르세요.</div>
+    ${e.pdf?'<div class="bar"><button class="btn" type="button" id="enPdf">PDF 저장</button></div>':''}
+    <div class="note" id="enNote">${e.mp3_marks?'문단 끝의 ▶느리게 / ▶보통 을 누르면 본문 MP3에서 그 문단만 재생합니다.':''}</div>
     <section class="reading" style="display:flex;flex-direction:column;gap:10px"><div class="sec"><span>READING</span><span class="lg"><u>밑줄</u> 핵심 단어 · <mark class="g1">분홍</mark> 문법 1 · <mark class="g2">파랑</mark> 문법 2</span></div>
-      <div>${e.passage.map(p=>`<p>${p}<a class="say" href="${esc(gtEN(strip(p)))}" target="_blank" rel="noopener">▶ 듣기</a></p>`).join('')}</div></section>
+      <div>${e.passage.map((p,i)=>`<p data-p="${i}">${p}${e.mp3_marks&&e.mp3_marks.slow[i]?`<span class="psay"><button type="button" data-seg="slow" data-p="${i}" aria-label="${i+1}문단 느리게 듣기">▶ 느리게</button><button type="button" data-seg="normal" data-p="${i}" aria-label="${i+1}문단 보통 속도로 듣기">▶ 보통</button></span>`:''}</p>`).join('')}</div></section>
     <div class="study2">
       <section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>KEY WORDS</span><button class="say3" type="button" id="allWords">▶ 전체 3번씩</button></div>
         <ul class="vlist">${e.vocab.map((v,i)=>`<li><span class="vt"><span class="w">${esc(v.word)}</span> <span class="pr">${esc(v.ipa||'')}</span> <span class="pos">${esc(v.pos)}</span> ${esc(v.meaning)}</span><button class="say3" type="button" data-i="${i}" aria-label="${esc(v.word)} 3번 듣기">▶×3</button></li>`).join('')}</ul></section>
@@ -536,6 +562,7 @@ function renderEN(date){
     el.onkeydown=ev=>{ if(ev.key==='Enter'){ ev.preventDefault(); showRoot(w, el, vm(w)); } };
   });
   $('enDay').onchange=ev=>{ stopPlay(); renderEN(ev.target.value); };
+  setupSeg(e);
   if(e.pdf) $('enPdf').onclick=ev=>savePdf('en/'+e.pdf,`EnglishDaily_${e.date}.pdf`,ev.currentTarget,$('enNote'));
   $('enSheet').querySelectorAll('button[data-i]').forEach(b=>b.onclick=()=>play([e.vocab[+b.dataset.i].word],b));
   $('allWords').onclick=ev=>play(e.vocab.map(v=>v.word),ev.currentTarget);
