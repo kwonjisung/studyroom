@@ -124,6 +124,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .sheethead .rt{text-align:right;flex:none;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
 .sheethead .rt b{font-size:17px;font-variant-numeric:tabular-nums}
 .sheethead .rt span{font-size:12px;color:var(--muted)}
+.sheethead .rtrow{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:6px}
+.sheethead .pdfb{padding:5px 11px;font-size:13px;white-space:nowrap}
+@media (max-width:560px){
+  .sheethead{flex-direction:column;align-items:stretch;gap:8px}
+  .sheethead .rt{flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;text-align:left;gap:6px 10px}
+  .sheethead .rt>b{font-size:15px}
+  .sheethead .rtrow{margin-left:auto}
+}
 select{font:inherit;font-size:13px;padding:5px 8px;border:1px solid var(--line);border-radius:7px;background:var(--paper);color:var(--ink);max-width:100%}
 .src{font-size:13px;color:var(--muted)} .src a{color:var(--en)}
 .sec{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap;font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--c);border-bottom:1px solid var(--line);padding-bottom:4px}
@@ -598,10 +606,9 @@ function renderEN(date){
   $('enSheet').innerHTML=`
     <div class="sheethead"><div><div class="no">ENGLISH DAILY · No.${esc(e.no)}</div><h2 class="enf">${esc(e.title)}</h2></div>
       <div class="rt"><b>${esc(e.date_display)}</b><span>${esc(e.weekday)}</span>
-        <select id="enDay" aria-label="영어 학습지 날짜">${list.map(x=>`<option value="${x.date}" ${x.date===e.date?'selected':''}>${md(x.date)} No.${esc(x.no)}</option>`).join('')}</select></div></div>
+        <div class="rtrow"><select id="enDay" aria-label="영어 학습지 날짜">${list.map(x=>`<option value="${x.date}" ${x.date===e.date?'selected':''}>${md(x.date)} No.${esc(x.no)}</option>`).join('')}</select>${e.pdf?'<button class="btn pdfb" type="button" id="enPdf">PDF 저장</button>':''}</div></div></div>
     <div class="src">출처: <b>${esc(e.source)}</b> · 발행일 ${esc(e.published_display)} · <a href="${esc(e.url)}" target="_blank" rel="noopener">원문 기사 보기 ↗</a><br>※ 학습용으로 기사 내용을 요약·재구성한 본문입니다.</div>
     ${e.mp3?`<div class="player"><div class="pl"><b>▶ 본문 MP3</b><span>느린 발음 1회 → 보통 발음 1회${e.mp3_normal_at?` (보통 발음은 ${esc(e.mp3_normal_at)}부터)`:''}</span></div><audio id="enAud" controls preload="none" src="en/${esc(e.mp3)}"></audio></div>`:''}
-    ${e.pdf?'<div class="bar"><button class="btn" type="button" id="enPdf">PDF 저장</button></div>':''}
     <div class="note" id="enNote">${e.mp3_marks?'문단 끝의 ▶느리게 / ▶보통 을 누르면 본문 MP3에서 그 문단만 재생합니다.':''}</div>
     <section class="reading" style="display:flex;flex-direction:column;gap:10px"><div class="sec"><span>READING</span><span class="lg"><u>밑줄</u> 핵심 단어 · <mark class="g1">분홍</mark> 문법 1 · <mark class="g2">파랑</mark> 문법 2</span></div>
       <div>${e.passage.map((p,i)=>`<p data-p="${i}">${p}${psay(e,i,'문단')}</p>`).join('')}</div></section>
@@ -656,12 +663,11 @@ function renderJA(date){
   $('jaSheet').innerHTML=`
     <div class="sheethead"><div><div class="no">JAPANESE DAILY · No.${esc(e.no)}</div><h2>${esc(e.work_ko)} <span lang="ja" style="font-family:var(--jaF);font-weight:400;font-size:.7em;color:var(--muted)">${esc(e.work_ja)}</span></h2></div>
       <div class="rt"><b>${esc(e.date_display)}</b><span>${esc(e.weekday)}</span>
-        <select id="jaDay" aria-label="일본어 학습지 날짜">${list.map(x=>`<option value="${x.date}" ${x.date===e.date?'selected':''}>${md(x.date)} ${esc(x.work_ko)}</option>`).join('')}</select></div></div>
+        <div class="rtrow"><select id="jaDay" aria-label="일본어 학습지 날짜">${list.map(x=>`<option value="${x.date}" ${x.date===e.date?'selected':''}>${md(x.date)} ${esc(x.work_ko)}</option>`).join('')}</select>${e.pdf?'<button class="btn pdfb" type="button" id="jaPdf">PDF 저장</button>':''}</div></div></div>
     <p class="quote" lang="ja">${e.quote.map((s,i)=>`<span class="qs" data-p="${i}"><span class="ln">${jaH(s)}</span><span class="pr" lang="ko">(${esc((e.quote_pron||[])[i]||'')})${psay(e,i,'문장')}</span></span>`).join('')}</p>
     <div class="kor">${esc(e.korean)}</div>
     <div class="who">— ${esc(e.speaker)} · ${esc(e.source)}</div>
     ${e.mp3?`<div class="player ja"><div class="pl"><b>▶ 대사 MP3</b><span>느린 발음 1회 → 보통 발음 1회${e.mp3_normal_at?` (보통 발음은 ${esc(e.mp3_normal_at)}부터)`:''}</span></div><audio id="jaAud" controls preload="none" src="ja/${esc(e.mp3)}"></audio></div>`:''}
-    ${e.pdf?'<div class="bar"><button class="btn" type="button" id="jaPdf">PDF 저장</button></div>':''}
     <div class="note" id="jaNote">${e.mp3_marks?'문장 끝의 ▶느리게 / ▶보통 을 누르면 그 문장만 재생합니다.':''}</div>
     ${e.scene?`<div class="scene"><b>장면</b>${esc(e.scene)}</div>`:''}
     <div class="study2">
