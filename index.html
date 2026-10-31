@@ -1,11 +1,4 @@
-<!doctype html>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<style>:root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
-</head>
-<body>
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>스터디룸</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@500&display=swap">
@@ -143,6 +136,8 @@ mark.g1{background:var(--g1)} mark.g2{background:var(--g2)} mark.g3{background:v
 .player audio{width:100%;height:40px}
 .reading p{font-family:var(--enS);font-size:17px;line-height:1.75;margin:0 0 12px;text-wrap:pretty}
 .reading p:last-child{margin:0}
+.gw{cursor:help;border-radius:2px}
+.gw:hover{background:var(--en-soft)}
 .say{font-family:var(--ko);font-size:12px;font-weight:500;color:var(--en);text-decoration:none;margin-left:6px;white-space:nowrap}
 .study2{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:20px}
 @media (max-width:680px){.study2{grid-template-columns:1fr}}
@@ -218,7 +213,7 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
       <div class="todaygrid" id="todayCards"><div class="empty">학습지를 불러오는 중입니다.</div></div>
     </div>
     <div class="panel">
-      <div class="ph"><h2>이번 주</h2><span class="sub">월~토 학습지 · 일요일 주간 테스트</span></div>
+      <div class="ph"><h2>이번 주</h2><span class="sub">월~토 학습지 · 목·일 복습 테스트</span></div>
       <div class="week" id="weekStrip"></div>
       <div class="stats" id="stats"></div>
     </div>
@@ -245,7 +240,7 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
   <!-- 테스트 -->
   <section class="view" id="v-tests" role="tabpanel" aria-labelledby="t-tests" hidden>
     <div class="panel" style="--c:var(--test)">
-      <div class="ph"><h2>주간 테스트</h2><span class="sub">매주 일요일 아침 · 그 주 학습지로 출제</span></div>
+      <div class="ph"><h2>복습 테스트</h2><span class="sub">목·일요일 아침 · 지난 테스트 이후 학습지로 출제</span></div>
       <div class="tlist" id="testList"></div>
     </div>
   </section>
@@ -267,7 +262,35 @@ const dowOf=iso=>new Date(iso+'T00:00:00Z').getUTCDay();
 const md=iso=>`${+iso.slice(5,7)}/${+iso.slice(8)}`;
 const tag=iso=>iso.replace(/-/g,'');
 
-const D={en:[],ja:[],enT:[],jaT:[],sched:null};
+const D={en:[],ja:[],enT:[],jaT:[],sched:null,gloss:{}};
+
+/* ── 단어 뜻 (마우스를 올리면 브라우저 기본 말풍선으로 표시) ── */
+function glossOf(word, e){
+  const g=D.gloss||{}; const w=word.toLowerCase().replace(/’/g,"'");
+  const vocab={}; (e&&e.vocab||[]).forEach(v=>{ vocab[v.word.toLowerCase()]=v.meaning; });
+  const cands=[w, w.replace(/'s$/,''), w.replace(/s$/,''), w.replace(/es$/,''), w.replace(/ies$/,'y'), w.replace(/ed$/,''), w.replace(/d$/,''), w.replace(/ing$/,''), w.replace(/ing$/,'e'), w.replace(/ly$/,'')];
+  for(const c of cands){ if(vocab[c]) return vocab[c]; }      // 오늘의 핵심 단어 뜻이 먼저
+  for(const c of cands){ if(c && g[c]) return g[c]; }
+  return '';
+}
+function glossify(root, e){
+  if(!root) return;
+  const walker=document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode:n=>n.parentElement.closest('a,button,.say,.gw')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
+  const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(n=>{
+    const t=n.nodeValue; if(!/[A-Za-z]/.test(t)) return;
+    const frag=document.createDocumentFragment(); let last=0;
+    t.replace(/[A-Za-z]+(?:['’][A-Za-z]+)?/g,(m,i)=>{
+      const k=glossOf(m,e); if(!k) return m;
+      if(i>last) frag.append(t.slice(last,i));
+      const sp=document.createElement('span'); sp.className='gw'; sp.title=k; sp.textContent=m; frag.append(sp);
+      last=i+m.length; return m;
+    });
+    if(last===0) return;
+    if(last<t.length) frag.append(t.slice(last));
+    n.replaceWith(frag);
+  });
+}
 let downloads=null;
 (async()=>{ try{ downloads=await window.claude?.use?.("downloads"); }catch(e){ downloads=null; } })();
 
@@ -305,26 +328,29 @@ const schedBy=()=>Object.fromEntries((D.sched?.days||[]).map(d=>[d.date,d]));
 const enTestBy=()=>Object.fromEntries(D.enT.map(t=>[t.date,t]));
 const jaTestBy=()=>Object.fromEntries(D.jaT.map(t=>[t.date,t]));
 const TEST_START='2026-11-01';
-const isTestDay=iso=>dowOf(iso)===0 && iso>=TEST_START;
+const isTestDay=iso=>(dowOf(iso)===0||dowOf(iso)===4) && iso>=TEST_START;
+const isTestOnly=iso=>dowOf(iso)===0 && iso>=TEST_START;
 let START='9999';
 
 /* ── 홈 ── */
 function renderHome(){
   const [y,m,d]=TODAY.split('-');
   $('todayLabel').textContent=`${+y}. ${+m}. ${+d} (${DOW[dowOf(TODAY)]})`;
-  $('homeTitle').textContent=isTestDay(TODAY)?'오늘은 주간 테스트 날':'오늘의 공부';
+  $('homeTitle').textContent=isTestOnly(TODAY)?'오늘은 복습 테스트 날':isTestDay(TODAY)?'오늘의 공부 + 복습 테스트':'오늘의 공부';
   const E=enBy(), J=jaBy(), S=schedBy(), ET=enTestBy(), JT=jaTestBy();
   const wait='<span class="status wait">오전 5시 무렵 도착 예정</span>';
-  let enCard, jaCard;
+  let enCard='', jaCard='', tCards='';
   if(isTestDay(TODAY)){
     const t=ET[TODAY], u=JT[TODAY];
-    enCard=`<div class="tcard" style="--c:var(--en)"><div class="k">ENGLISH<span>주간 테스트</span></div>
-      <div class="tt">${t?esc(t.no+' 영어 주간 테스트'):'영어 주간 테스트'}</div>
+    enCard=`<div class="tcard" style="--c:var(--en)"><div class="k">ENGLISH<span>복습 테스트</span></div>
+      <div class="tt">${t?esc(t.no+' 영어 복습 테스트'):'영어 복습 테스트'}</div>
       ${t?`<span class="status done">✓ 도착</span><div class="m">범위 ${md(t.range_start)} ~ ${md(t.range_end)}</div><div class="bar"><button class="btn test" data-goto="tests">테스트 보기</button></div>`:wait}</div>`;
-    jaCard=`<div class="tcard" style="--c:var(--ja)"><div class="k">日本語<span>週間テスト</span></div>
-      <div class="tt">${u?esc(u.title||u.no):'일본어 주간 테스트'}</div>
+    jaCard=`<div class="tcard" style="--c:var(--ja)"><div class="k">日本語<span>復習テスト</span></div>
+      <div class="tt">${u?esc(u.title||u.no):'일본어 복습 테스트'}</div>
       ${u?`<span class="status done">✓ 도착</span><div class="m">${esc(u.range_display||'')}</div><div class="bar"><button class="btn test" data-goto="tests">테스트 보기</button></div>`:wait}</div>`;
-  }else{
+    tCards=enCard+jaCard; enCard=''; jaCard='';
+  }
+  if(!isTestOnly(TODAY)){
     const e=E[TODAY], j=J[TODAY], s=S[TODAY];
     const latestE=[...D.en].sort((a,b)=>b.date.localeCompare(a.date))[0];
     const latestJ=[...D.ja].sort((a,b)=>b.date.localeCompare(a.date))[0];
@@ -337,7 +363,7 @@ function renderHome(){
         <div class="bar"><button class="btn ja" data-open="ja" data-date="${j.date}">학습지 열기</button></div>`
       :`<div class="tt jaf" lang="ja">${s?esc(s.quote):'오늘 일본어 학습지'}</div>${wait}<div class="m">${s?esc(s.work_ko)+' · '+esc(s.speaker):''}</div>${latestJ?`<div class="bar"><button class="btn ghost-ja" data-open="ja" data-date="${latestJ.date}">최근 학습지 ${md(latestJ.date)}</button></div>`:''}`}</div>`;
   }
-  $('todayCards').innerHTML=enCard+jaCard;
+  $('todayCards').innerHTML=enCard+jaCard+tCards;
   bindJumps($('todayCards'));
 
   // 이번 주 (월~일)
@@ -346,10 +372,10 @@ function renderHome(){
   for(let i=0;i<7;i++){
     const iso=addDays(mon,i); const dw=dowOf(iso);
     let marks='';
-    if(isTestDay(iso)){ marks+=`<span class="mk ${ET[iso]||JT[iso]?'t':'off'}">테스트</span>`; }
-    else{
+    if(!isTestOnly(iso)){
       marks+=`<span class="mk ${E[iso]?'en':'off'}">EN</span><span class="mk ${J[iso]?'ja':'off'}">JA</span>`;
     }
+    if(isTestDay(iso)){ marks+=`<span class="mk ${ET[iso]||JT[iso]?'t':'off'}">테스트</span>`; }
     w+=`<button type="button" class="wd ${iso===TODAY?'is-today':''}" data-cal="${iso}" aria-label="${md(iso)} ${DOW[dw]}요일"><span class="dn">${DOW[dw]}</span><span class="dd">${+iso.slice(8)}</span><span class="marks">${marks}</span></button>`;
   }
   $('weekStrip').innerHTML=w;
@@ -360,7 +386,7 @@ function renderHome(){
   let streak=0, cur=have.has(TODAY)?TODAY:addDays(TODAY,-1);
   while(have.has(cur)){ streak++; cur=addDays(cur,-1); }
   $('stats').innerHTML=[
-    [D.en.length,'영어 학습지'],[D.ja.length,'일본어 학습지'],[D.enT.length+D.jaT.length,'주간 테스트'],[streak,'연속 학습일']
+    [D.en.length,'영어 학습지'],[D.ja.length,'일본어 학습지'],[D.enT.length+D.jaT.length,'복습 테스트'],[streak,'연속 학습일']
   ].map(([n,l])=>`<div class="stat"><b>${n}</b><span>${l}</span></div>`).join('');
 }
 
@@ -376,7 +402,7 @@ function renderCal(selIso){
   const E=enBy(), J=jaBy(), S=schedBy(), ET=enTestBy(), JT=jaTestBy();
   const [y,m]=calMonth.split('-').map(Number);
   $('calMonth').textContent=`${y}년 ${m}월`;
-  $('calLegend').innerHTML='<span><i class="dot" style="background:var(--en)"></i>영어 (뉴스)</span><span><i class="dot" style="background:var(--ja)"></i>일본어 (명대사)</span><span><i class="dot" style="background:var(--test)"></i>일요일 주간 테스트</span><span>✓ 도착 · 예정은 회색</span>';
+  $('calLegend').innerHTML='<span><i class="dot" style="background:var(--en)"></i>영어 (뉴스)</span><span><i class="dot" style="background:var(--ja)"></i>일본어 (명대사)</span><span><i class="dot" style="background:var(--test)"></i>목·일 복습 테스트</span><span>✓ 도착 · 예정은 회색</span>';
   const first=`${calMonth}-01`; const days=new Date(Date.UTC(y,m,0)).getUTCDate();
   let h=[...DOW].map((c,i)=>`<div class="dh ${i===0?'sun':''}">${c}</div>`).join('');
   for(let i=0;i<dowOf(first);i++) h+='<div class="cell off" aria-hidden="true"></div>';
@@ -384,14 +410,15 @@ function renderCal(selIso){
     const iso=`${calMonth}-${String(d).padStart(2,'0')}`;
     let rows='';
     if(iso<START){ h+=`<div class="cell pre" aria-hidden="true"><span class="n">${d}</span></div>`; continue; }
-    if(isTestDay(iso)){
-      const any=ET[iso]||JT[iso];
-      rows=`<div class="row t"><span class="lab">테스트</span><span class="s ${any?'ok':''}">${any?'✓':''}</span></div>`;
-    }else{
+    if(!isTestOnly(iso)){
       const e=E[iso], j=J[iso], s=S[iso];
       const future=iso>TODAY;
       rows+=`<div class="row en"><span class="lab">EN</span><span class="s ${e?'ok':''}">${e?'✓':(future?'예정':'')}</span></div>`;
       rows+=`<div class="row ja"><span class="lab">JA</span><span class="s ${j?'ok':''}">${j?'✓ '+esc(j.work_ko):(s&&s.type!=='test'?esc(s.work_ko):'')}</span></div>`;
+    }
+    if(isTestDay(iso)){
+      const any=ET[iso]||JT[iso];
+      rows+=`<div class="row t"><span class="lab">테스트</span><span class="s ${any?'ok':''}">${any?'✓':''}</span></div>`;
     }
     h+=`<button type="button" class="cell ${iso===TODAY?'is-today':''} ${iso===selIso?'sel':''}" data-iso="${iso}" aria-label="${m}월 ${d}일"><span class="n">${d}</span>${rows}</button>`;
   }
@@ -404,13 +431,14 @@ function renderDetail(iso){
   const e=E[iso], j=J[iso], s=S[iso];
   const head=`<h3>${+iso.slice(5,7)}월 ${+iso.slice(8)}일 (${DOW[dowOf(iso)]})</h3>`;
   const pending=iso>=TODAY?'오전 5시 무렵 도착 예정':'학습지 없음';
-  let body='';
+  let body='', tb='';
   if(isTestDay(iso)){
     const t=ET[iso], u=JT[iso];
-    body=`<div class="dline" style="--c:var(--en)"><span class="lab">영어 주간 테스트</span><span class="m">${t?`✓ ${esc(t.no)} · 범위 ${md(t.range_start)}~${md(t.range_end)}`:pending}</span></div>
-      <div class="dline" style="--c:var(--ja)"><span class="lab">일본어 주간 테스트</span><span class="m">${u?`✓ ${esc(u.title||u.no)} · ${esc(u.range_display||'')}`:(s?esc(s.source)+' · '+pending:pending)}</span></div>
+    tb=`<div class="dline" style="--c:var(--en)"><span class="lab">영어 복습 테스트</span><span class="m">${t?`✓ ${esc(t.no)} · 범위 ${md(t.range_start)}~${md(t.range_end)}`:pending}</span></div>
+      <div class="dline" style="--c:var(--ja)"><span class="lab">일본어 복습 테스트</span><span class="m">${u?`✓ ${esc(u.title||u.no)} · ${esc(u.range_display||'')}`:(s&&s.type==='test'?esc(s.source)+' · '+pending:(s&&s.test_note?esc(s.test_note)+' · '+pending:pending))}</span></div>
       ${(t||u)?'<div><button class="btn test" data-goto="tests">테스트 탭에서 보기</button></div>':''}`;
-  }else{
+  }
+  if(!isTestOnly(iso)){
     body=`<div class="dline" style="--c:var(--en)"><span class="lab">영어</span>
         ${e?`<span class="q enf">${esc(e.title)}</span><span class="m">${esc(e.source)} · 문법 ${e.grammar.map(g=>esc(g.name.split(' (')[0])).join(', ')}</span><a href="#en-${tag(iso)}" data-open="en" data-date="${iso}">학습지 열기 →</a>`
           :`<span class="m">${pending} · 그날의 주요 영어 뉴스 기사</span>`}</div>
@@ -419,7 +447,7 @@ function renderDetail(iso){
           : s?`<span class="q jaf" lang="ja">${esc(s.quote)}</span><span class="m">${esc(s.speaker)} · ${esc(s.source)} · ${pending}</span><div class="chips">${s.grammar.map(g=>`<span class="chip">${esc(g)}</span>`).join('')}</div>`
           :`<span class="m">${pending}</span>`}</div>`;
   }
-  $('calDetail').innerHTML=head+body;
+  $('calDetail').innerHTML=head+body+tb;
   $('calDetail').querySelectorAll('a[data-open]').forEach(a=>a.onclick=ev=>{ev.preventDefault();show(a.dataset.open,a.dataset.date);});
   bindJumps($('calDetail'));
 }
@@ -449,6 +477,8 @@ function renderEN(date){
         ${e.grammar.map((g,i)=>`<div class="gbox b${i+1}"><div><span class="gt g${i+1}">문법 ${i+1}</span><b>${esc(g.name)}</b></div><p class="gx">${g.explain}</p><ol class="exs">${g.examples.map(x=>`<li><span class="e1 enf">${x.en}</span><span class="e2">${esc(x.ko)}</span></li>`).join('')}</ol></div>`).join('')}</section>
     </div>
     <section class="trans"><b>전체 해석</b>${e.translation.map(t=>`<p>${esc(t)}</p>`).join('')}</section>`;
+  glossify($('enSheet').querySelector('.reading'), e);
+  $('enSheet').querySelectorAll('.exs .e1.enf').forEach(x=>glossify(x,e));
   $('enDay').onchange=ev=>{ stopPlay(); renderEN(ev.target.value); };
   if(e.pdf) $('enPdf').onclick=ev=>savePdf('en/'+e.pdf,`EnglishDaily_${e.date}.pdf`,ev.currentTarget,$('enNote'));
   $('enSheet').querySelectorAll('button[data-i]').forEach(b=>b.onclick=()=>play([e.vocab[+b.dataset.i].word],b));
@@ -508,7 +538,7 @@ function renderJAPlan(){
   const J=jaBy();
   const up=s.days.filter(d=>d.date>=TODAY).slice(0,7);
   $('jaPlan').innerHTML=`<div class="ph"><h2>앞으로 7일 · 일본어 일정</h2><span class="sub">${md(s.range[0])} ~ ${md(s.range[1])} 계획 · 홈 달력에서 한 달 전체를 볼 수 있어요</span></div>
-    <div style="display:flex;flex-direction:column;gap:8px">${up.map(d=>`<div class="dline" style="--c:${d.type==='test'?'var(--test)':'var(--'+d.work+')'}"><span class="lab">${md(d.date)} (${esc(d.dow)}) · ${esc(d.work_ko)}${J[d.date]?' · ✓ 도착':''}</span><span class="q jaf" lang="ja">${esc(d.quote)}</span><span class="m">${esc(d.speaker)} · ${d.grammar.map(esc).join(', ')}</span></div>`).join('')||'<div class="empty">예정된 일정이 없습니다.</div>'}</div>
+    <div style="display:flex;flex-direction:column;gap:8px">${up.map(d=>`<div class="dline" style="--c:${d.type==='test'?'var(--test)':'var(--'+d.work+')'}"><span class="lab">${md(d.date)} (${esc(d.dow)}) · ${esc(d.work_ko)}${J[d.date]?' · ✓ 도착':''}</span><span class="q jaf" lang="ja">${esc(d.quote)}</span><span class="m">${esc(d.speaker)} · ${d.grammar.map(esc).join(', ')}</span>${d.test_note&&d.type!=='test'?`<span class="m" style="color:var(--test);font-weight:700">+ ${esc(d.test_note)}</span>`:''}</div>`).join('')||'<div class="empty">예정된 일정이 없습니다.</div>'}</div>
     <div class="sub" style="font-size:12.5px;color:var(--muted)">주차 테마: ${s.weeks.map(w=>esc(w.label+' '+w.theme)).join(' · ')}</div>`;
 }
 
@@ -518,16 +548,16 @@ function renderTests(){
     ...D.enT.map(t=>({lang:'en',date:t.date,t})),
     ...D.jaT.map(t=>({lang:'ja',date:t.date,t}))
   ].sort((a,b)=>b.date.localeCompare(a.date)||a.lang.localeCompare(b.lang));
-  const nextSun=addDays(TODAY,(7-dowOf(TODAY))%7||0);
+  let nextT=TEST_START; for(let i=0;i<7;i++){ const x=addDays(TODAY,i); if(isTestDay(x)){ nextT=x; break; } }
   if(!items.length){
-    $('testList').innerHTML=`<div class="empty">아직 주간 테스트가 없습니다.<br>첫 테스트는 ${md(nextSun>=TEST_START?nextSun:TEST_START)}(일) 아침, 영어·일본어 각각 도착합니다.</div>`; return;
+    $('testList').innerHTML=`<div class="empty">아직 복습 테스트가 없습니다.<br>다음 테스트는 ${md(nextT)}(${DOW[dowOf(nextT)]}) 아침, 영어·일본어 각각 도착합니다. 목요일은 월~수, 일요일은 목~토 학습지가 범위예요.</div>`; return;
   }
   $('testList').innerHTML=items.map((x,i)=>{
     const t=x.t;
-    if(x.lang==='en') return `<div class="titem" style="--c:var(--en)"><span class="k">ENGLISH · ${esc(t.no)}</span><span class="t">영어 주간 테스트 · ${md(t.date)}(일)</span>
+    if(x.lang==='en') return `<div class="titem" style="--c:var(--en)"><span class="k">ENGLISH · ${esc(t.no)}</span><span class="t">영어 복습 테스트 · ${md(t.date)}(${DOW[dowOf(t.date)]})</span>
       <span class="m">범위 ${md(t.range_start)} ~ ${md(t.range_end)}${t.covers?` · 학습지 ${t.covers.length}장`:''}</span>
       <div class="bar">${t.pdf?`<button class="btn en" type="button" data-pdf="en/${esc(t.pdf)}" data-fn="EnglishTest_${t.date}.pdf">테스트지 PDF 저장</button>`:''}</div><div class="note"></div></div>`;
-    return `<div class="titem" style="--c:var(--ja)"><span class="k">日本語 · ${esc(t.no)}</span><span class="t">${esc(t.title||'일본어 주간 테스트')} · ${md(t.date)}(일)</span>
+    return `<div class="titem" style="--c:var(--ja)"><span class="k">日本語 · ${esc(t.no)}</span><span class="t">${esc(t.title||'일본어 복습 테스트')} · ${md(t.date)}(${DOW[dowOf(t.date)]})</span>
       <span class="m">${esc(t.range_display||'')}</span>
       ${(t.sections||[]).length?`<div class="tsec">${t.sections.map(s=>`<span>${esc(s.id)}. ${esc(s.title)} · ${esc(s.count)}문항</span>`).join('')}</div>`:''}
       <div class="bar">${t.pdf?`<button class="btn ja" type="button" data-pdf="ja/${esc(t.pdf)}" data-fn="${esc(t.file||'JapaneseTest_'+t.date+'.pdf')}">테스트지 PDF 저장</button>`:''}</div><div class="note"></div></div>`;
@@ -537,7 +567,8 @@ function renderTests(){
 
 /* ── 시작 ── */
 (async()=>{
-  const [en,ja,enT,jaT,sched]=await Promise.all([getJSON('en/entries.json'),getJSON('ja/entries.json'),getJSON('en/tests.json'),getJSON('ja/tests.json'),getJSON('ja/schedule.json')]);
+  const [en,ja,enT,jaT,sched,gloss]=await Promise.all([getJSON('en/entries.json'),getJSON('ja/entries.json'),getJSON('en/tests.json'),getJSON('ja/tests.json'),getJSON('ja/schedule.json'),getJSON('en/gloss.json')]);
+  D.gloss=gloss||{};
   D.en=en||[]; D.ja=ja||[]; D.enT=enT||[]; D.jaT=jaT||[]; D.sched=sched;
   START=[...D.en,...D.ja].map(x=>x.date).sort()[0]||TODAY;
   renderHome(); renderCal(TODAY); renderEN(); renderJA(); renderJAPlan(); renderTests();
@@ -547,6 +578,4 @@ function renderTests(){
   else show(VIEWS.includes(h)?h:'home');
 })();
 </script>
-
-</body>
-</html>
+</body></html>
