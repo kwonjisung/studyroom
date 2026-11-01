@@ -144,6 +144,8 @@ mark.g1{background:var(--g1)} mark.g2{background:var(--g2)} mark.g3{background:v
 .player audio{width:100%;height:40px}
 .player.ja{background:var(--ja-soft)} .player.ja .pl b{color:var(--ja)}
 #jaSheet .psay button{color:var(--ja)} #jaSheet .psay button:hover{background:var(--ja-soft)} #jaSheet .psay button.on{background:var(--ja);border-color:var(--ja);color:var(--paper)}
+.tw.cur{background:color-mix(in srgb,var(--muted) 30%,transparent);border-radius:3px;box-shadow:0 0 0 2px color-mix(in srgb,var(--muted) 30%,transparent);transition:background .08s}
+.quote .qs.speaking{background:color-mix(in srgb,var(--muted) 16%,transparent);box-shadow:0 0 0 6px color-mix(in srgb,var(--muted) 16%,transparent)}
 .quote .qs{display:block;border-radius:8px} .quote .qs.playing{background:var(--ja-soft);box-shadow:0 0 0 6px var(--ja-soft)}
 .quote .pr .psay{font-size:14px}
 .trans u{text-decoration-thickness:1.5px;text-underline-offset:3px}
@@ -426,6 +428,69 @@ document.addEventListener('click',ev=>{
 });
 window.addEventListener('scroll',()=>{ const b=document.getElementById('gBub'); if(b&&Math.abs(window.scrollY-(+b.dataset.y||0))>40) closeBub(); },{passive:true});
 
+/* ── MP3 따라 읽기 표시: 재생 중인 단어(영어)·문장(일본어)에 회색 블록, 멈추면 사라짐 ── */
+function wrapTokens(sheet){
+  sheet.querySelectorAll('.reading p[data-p]').forEach(p=>{
+    const pi=p.dataset.p, walker=document.createTreeWalker(p,NodeFilter.SHOW_TEXT,{acceptNode:n=>n.parentElement.closest('.psay,button,a')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
+    const nodes=[]; while(walker.nextNode()) nodes.push(walker.currentNode);
+    let idx=-1, inTok=false;
+    nodes.forEach(n=>{
+      const t=n.nodeValue; if(!t) return;
+      const frag=document.createDocumentFragment();
+      t.split(/(\s+)/).forEach(part=>{
+        if(!part) return;
+        if(/^\s+$/.test(part)){ inTok=false; frag.append(part); return; }
+        if(!inTok){ idx++; inTok=true; }
+        const sp=document.createElement('span'); sp.className='tw'; sp.dataset.w=pi+'-'+idx; sp.textContent=part; frag.append(sp);
+      });
+      n.replaceWith(frag);
+    });
+    p.dataset.nw=idx+1;
+  });
+}
+const twWeight=s=>Math.max(1.5,s.replace(/[^A-Za-z0-9]/g,'').length+1.5+(/[,;:]['”’"]?$/.test(s)?3:0));
+function followSetup(e){
+  const a=$('enAud'), sheet=$('enSheet'); if(!a||!e.mp3_marks) return;
+  wrapTokens(sheet);
+  // 단어 시작 시각: mp3_words 가 있으면 그것, 없으면 문단 구간 안에서 글자 수 비례
+  const words={};
+  ['slow','normal'].forEach(m=>{ words[m]=e.mp3_marks[m].map(([st,en],pi)=>{
+    if(e.mp3_words&&e.mp3_words[m]&&e.mp3_words[m][pi]) return e.mp3_words[m][pi];
+    const toks=[...sheet.querySelectorAll(`.reading p[data-p="${pi}"] .tw`)].reduce((acc,s)=>{ const [,i]=s.dataset.w.split('-'); acc[+i]=(acc[+i]||'')+s.textContent; return acc; },[]);
+    const w=toks.map(twWeight), tot=w.reduce((x,y)=>x+y,0)||1; let acc=0;
+    return w.map(x=>{ const t=st+0.12+(en-st-0.24)*acc/tot; acc+=x; return +t.toFixed(2); });
+  }); });
+  let cur='', raf=0;
+  const clear=()=>{ sheet.querySelectorAll('.tw.cur').forEach(s=>s.classList.remove('cur')); sheet.querySelectorAll('.reading p.reading-now').forEach(p=>p.classList.remove('reading-now')); cur=''; };
+  const tick=()=>{
+    const t=a.currentTime; let key='';
+    for(const m of ['slow','normal']){ const segs=e.mp3_marks[m];
+      for(let pi=0;pi<segs.length;pi++){ const [st,en]=segs[pi]; if(t>=st&&t<=en){
+        const ws=words[m][pi]; let i=0; while(i+1<ws.length&&ws[i+1]<=t) i++; key=pi+'-'+i; break; } }
+      if(key) break; }
+    if(key!==cur){ clear(); if(key){ cur=key; sheet.querySelectorAll(`.tw[data-w="${key}"]`).forEach(s=>s.classList.add('cur')); const p=sheet.querySelector(`.reading p[data-p="${key.split('-')[0]}"]`); if(p) p.classList.add('reading-now'); } }
+    if(!a.paused) raf=requestAnimationFrame(tick);
+  };
+  a.addEventListener('play',()=>{ cancelAnimationFrame(raf); raf=requestAnimationFrame(tick); });
+  a.addEventListener('pause',()=>{ cancelAnimationFrame(raf); clear(); });
+  a.addEventListener('ended',()=>{ cancelAnimationFrame(raf); clear(); });
+  a.addEventListener('seeked',()=>{ if(!a.paused){ cancelAnimationFrame(raf); raf=requestAnimationFrame(tick); } });
+}
+function followSetupJA(e){
+  const a=$('jaAud'), sheet=$('jaSheet'); if(!a||!e.mp3_marks) return;
+  let raf=0, cur=-1;
+  const clear=()=>{ sheet.querySelectorAll('.qs.speaking').forEach(x=>x.classList.remove('speaking')); cur=-1; };
+  const tick=()=>{
+    const t=a.currentTime; let k=-1;
+    ['slow','normal'].forEach(m=>e.mp3_marks[m].forEach(([st,en],i)=>{ if(t>=st&&t<=en) k=i; }));
+    if(k!==cur){ clear(); cur=k; if(k>=0){ const q=sheet.querySelector(`.qs[data-p="${k}"]`); if(q) q.classList.add('speaking'); } }
+    if(!a.paused) raf=requestAnimationFrame(tick);
+  };
+  a.addEventListener('play',()=>{ cancelAnimationFrame(raf); raf=requestAnimationFrame(tick); });
+  a.addEventListener('pause',()=>{ cancelAnimationFrame(raf); clear(); });
+  a.addEventListener('ended',()=>{ cancelAnimationFrame(raf); clear(); });
+}
+
 function glossify(root, e){
   if(!root) return;
   const walker=document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {acceptNode:n=>n.parentElement.closest('a,button,.say,.gw')?NodeFilter.FILTER_REJECT:NodeFilter.FILTER_ACCEPT});
@@ -652,6 +717,7 @@ function renderEN(date){
         ${e.grammar.map((g,i)=>`<div class="gbox b${i+1}"><div><span class="gt g${i+1}">문법 ${i+1}</span><b>${esc(g.name)}</b></div><p class="gx">${g.explain}</p><ol class="exs">${g.examples.map(x=>`<li><span class="e1 enf">${x.en}</span><span class="e2">${esc(x.ko)}</span></li>`).join('')}</ol></div>`).join('')}</section>
     </div>
     <section class="trans"><b>전체 해석</b>${(e.translation_marked||e.translation).map(t=>`<p>${e.translation_marked?safeMark(t):esc(t)}</p>`).join('')}</section>`;
+  followSetup(e);
   glossify($('enSheet').querySelector('.reading'), e);
   $('enSheet').querySelectorAll('.exs .e1.enf').forEach(x=>glossify(x,e));
   const vm=w=>{ const k=rootKey(w); const v=e.vocab.find(v=>rootKey(v.word)===k&&k); return v?v.meaning:''; };
@@ -715,6 +781,7 @@ function renderJA(date){
     ${(e.similar||[]).length?`<section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>SIMILAR · 비슷한 표현 · 반대 표현</span></div><div class="sim">${e.similar.map(x=>`<div><span class="sj" lang="ja">${jaH(x.ja)}</span><span class="kp">(${esc(x.pron)})</span><span class="tag">${esc(x.tag)}</span><span class="sm">${esc(x.meaning)}</span></div>`).join('')}</div></section>`:''}
     ${e.credit?`<div class="who">출처: ${esc(e.credit)} · 대사는 학습 목적의 짧은 인용입니다.</div>`:''}`;
   setupSeg(e,'jaAud','jaSheet','jaNote');
+  followSetupJA(e);
   $('jaDay').onchange=ev=>{ stopPlay(); segOff(); renderJA(ev.target.value); };
   if(e.pdf) $('jaPdf').onclick=ev=>savePdf('ja/'+e.pdf,`JapaneseDaily_${e.date}.pdf`,ev.currentTarget,$('jaNote'));
 }
