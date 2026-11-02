@@ -237,6 +237,11 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
 .tcov{font-size:13.5px} .tcov summary{cursor:pointer;color:var(--c);font-weight:600} .tcov ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:3px} .tcov .jaf{font-family:var(--jaS);font-size:15px;line-height:1.9} .tcov .enf{font-family:var(--enS)}
 .tview .btn.on{outline:2px solid var(--c);outline-offset:1px}
 .tpages{display:flex;flex-direction:column;gap:10px}
+.kanji{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px}
+.kj{display:flex;align-items:baseline;gap:5px;border-bottom:1px dotted var(--line);padding:3px 0;font-size:14px}
+.kj b{font-family:var(--jaF);font-weight:500;font-size:22px;line-height:1.2}
+.kj i{font-style:normal;font-family:var(--jaF);color:var(--muted);font-size:14px}
+.kj.q b{color:var(--ja)}
 .qdone small{font-weight:400;opacity:.8;margin-left:4px}
 .quiz{display:flex;flex-direction:column;gap:14px}
 .qhead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;border-bottom:2px solid var(--ink);padding-bottom:10px}
@@ -779,6 +784,9 @@ function renderJA(date){
           <ol class="exs">${g.examples.map(x=>`<li><span class="e1 jaf" lang="ja">${jaH(x.ja)} <span class="kp">(${esc(x.pron||'')})</span></span><span class="e2">${esc(x.ko)}</span></li>`).join('')}</ol></div>`).join('')}</section>
     </div>
     ${(e.similar||[]).length?`<section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>SIMILAR · 비슷한 표현 · 반대 표현</span></div><div class="sim">${e.similar.map(x=>`<div><span class="sj" lang="ja">${jaH(x.ja)}</span><span class="kp">(${esc(x.pron)})</span><span class="tag">${esc(x.tag)}</span><span class="sm">${esc(x.meaning)}</span></div>`).join('')}</div></section>`:''}
+    ${(e.kanji||[]).length?(()=>{ const qk=new Set((e.quote.join('').replace(/\{([^|{}]+)\|[^{}]+\}/g,'$1').match(/[\u4e00-\u9fff]/g))||[]);
+      return `<section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>漢字 · 한자 훈음</span><span class="m">오늘 나온 한자의 한국식 뜻과 음 · <b style="color:var(--ja)">색 글자</b> = 대사 속 한자 · ( ) = 한국 정자</span></div>
+      <div class="kanji">${e.kanji.map(k=>`<span class="kj${qk.has(k.k)?' q':''}"><b lang="ja">${esc(k.k)}</b>${k.t?`<i lang="ko">(${esc(k.t)})</i>`:''}<span>${esc(k.ko)}</span></span>`).join('')}</div></section>`; })():''}
     ${e.credit?`<div class="who">출처: ${esc(e.credit)} · 대사는 학습 목적의 짧은 인용입니다.</div>`:''}`;
   setupSeg(e,'jaAud','jaSheet','jaNote');
   followSetupJA(e);
@@ -963,5 +971,4 @@ function renderTests(){
   if(m){ const iso=`${m[2].slice(0,4)}-${m[2].slice(4,6)}-${m[2].slice(6)}`; show(m[1],iso); }
   else show(VIEWS.includes(h)?h:'home');
 })();
-</script>
-</body></html>
+</script></body></html>
