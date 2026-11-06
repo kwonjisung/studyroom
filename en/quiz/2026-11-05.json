@@ -1,0 +1,521 @@
+{
+ "lang": "en",
+ "date": "2026-11-05",
+ "no": "T02",
+ "title": "영어 복습 테스트 T02",
+ "pass": 80,
+ "sections": [
+  {
+   "id": "A",
+   "title": "단어 뜻 고르기",
+   "guide": "영어 단어의 뜻을 고르세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "<b>seasonal</b>",
+     "from": "#011",
+     "choices": [
+      "(동물의) 이동, 이주",
+      "계절적인, 계절에 따른",
+      "추정하다, 어림잡다",
+      "혹독한, 가혹한"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>conserve</b>",
+     "from": "#011",
+     "choices": [
+      "아끼다, 절약하다",
+      "계절적인, 계절에 따른",
+      "탐험, 원정",
+      "살충제, 농약"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>territory</b>",
+     "from": "#011",
+     "choices": [
+      "(미국의) 자치령, 영토",
+      "혹독한, 가혹한",
+      "(동물의) 이동, 이주",
+      "아끼다, 절약하다"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>expedition</b>",
+     "from": "#012",
+     "choices": [
+      "혹독한, 가혹한",
+      "아끼다, 절약하다",
+      "(동물의) 이동, 이주",
+      "탐험, 원정"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>obstacle</b>",
+     "from": "#012",
+     "choices": [
+      "장애물, 어려움",
+      "아끼다, 절약하다",
+      "(미국의) 자치령, 영토",
+      "시급한, 긴급한"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>harsh</b>",
+     "from": "#012",
+     "choices": [
+      "탐험, 원정",
+      "아끼다, 절약하다",
+      "혹독한, 가혹한",
+      "살충제, 농약"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>estimate</b>",
+     "from": "#012",
+     "choices": [
+      "탐험, 원정",
+      "아끼다, 절약하다",
+      "추정하다, 어림잡다",
+      "살충제, 농약"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>migration</b>",
+     "from": "#013",
+     "choices": [
+      "탐험, 원정",
+      "(동물의) 이동, 이주",
+      "계절적인, 계절에 따른",
+      "혹독한, 가혹한"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>urgent</b>",
+     "from": "#013",
+     "choices": [
+      "시급한, 긴급한",
+      "혹독한, 가혹한",
+      "(미국의) 자치령, 영토",
+      "아끼다, 절약하다"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>pesticide</b>",
+     "from": "#013",
+     "choices": [
+      "아끼다, 절약하다",
+      "살충제, 농약",
+      "장애물, 어려움",
+      "(미국의) 자치령, 영토"
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "title": "단어 쓰기",
+   "guide": "한국어 뜻에 맞는 영어 단어를 쓰세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "text",
+     "q": "(제도·방식을) 채택하다",
+     "hint": "a… (5글자)",
+     "from": "#011",
+     "answer": "adopt"
+    },
+    {
+     "kind": "text",
+     "q": "영구적인, 영원한",
+     "hint": "p… (9글자)",
+     "from": "#011",
+     "answer": "permanent"
+    },
+    {
+     "kind": "text",
+     "q": "(기한이) 만료되다, 효력을 잃다",
+     "hint": "e… (6글자)",
+     "from": "#011",
+     "answer": "expire"
+    },
+    {
+     "kind": "text",
+     "q": "대륙",
+     "hint": "c… (9글자)",
+     "from": "#012",
+     "answer": "continent"
+    },
+    {
+     "kind": "text",
+     "q": "외딴, 멀리 떨어진",
+     "hint": "r… (6글자)",
+     "from": "#012",
+     "answer": "remote"
+    },
+    {
+     "kind": "text",
+     "q": "다시 만나다, 재회하다",
+     "hint": "r… (7글자)",
+     "from": "#012",
+     "answer": "reunite"
+    },
+    {
+     "kind": "text",
+     "q": "붙이다, 부착하다",
+     "hint": "a… (6글자)",
+     "from": "#013",
+     "answer": "attach"
+    },
+    {
+     "kind": "text",
+     "q": "경로, 길",
+     "hint": "r… (5글자)",
+     "from": "#013",
+     "answer": "route"
+    },
+    {
+     "kind": "text",
+     "q": "서식지",
+     "hint": "h… (7글자)",
+     "from": "#013",
+     "answer": "habitat"
+    },
+    {
+     "kind": "text",
+     "q": "줄어들다, 감소하다",
+     "hint": "d… (7글자)",
+     "from": "#013",
+     "answer": "decline"
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "title": "빈칸 채우기",
+   "guide": "보기에서 알맞은 단어를 고르세요. (남는 단어 있음)",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "Some ___ warn that permanent daylight saving time would keep winter mornings dark.",
+     "from": "#011",
+     "choices": [
+      "critics",
+      "receiver",
+      "paratrooper",
+      "jailed",
+      "lawmakers",
+      "custom",
+      "pollinators",
+      "banner"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "If the Senate does not act soon, ___ will have to start over with a new bill.",
+     "from": "#011",
+     "choices": [
+      "critics",
+      "receiver",
+      "paratrooper",
+      "jailed",
+      "lawmakers",
+      "custom",
+      "pollinators",
+      "banner"
+     ],
+     "answer": 4
+    },
+    {
+     "kind": "choice",
+     "q": "A cheering crowd held a “Welcome Home Son” ___ for Bushby.",
+     "from": "#012",
+     "choices": [
+      "critics",
+      "receiver",
+      "paratrooper",
+      "jailed",
+      "lawmakers",
+      "custom",
+      "pollinators",
+      "banner"
+     ],
+     "answer": 7
+    },
+    {
+     "kind": "choice",
+     "q": "Bushby was ___ in Panama for entering a restricted zone.",
+     "from": "#012",
+     "choices": [
+      "critics",
+      "receiver",
+      "paratrooper",
+      "jailed",
+      "lawmakers",
+      "custom",
+      "pollinators",
+      "banner"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "When a tagged butterfly flies near a ___, its signal is recorded.",
+     "from": "#013",
+     "choices": [
+      "critics",
+      "receiver",
+      "paratrooper",
+      "jailed",
+      "lawmakers",
+      "custom",
+      "pollinators",
+      "banner"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "Monarchs are important ___ that help keep ecosystems healthy.",
+     "from": "#013",
+     "choices": [
+      "critics",
+      "receiver",
+      "paratrooper",
+      "jailed",
+      "lawmakers",
+      "custom",
+      "pollinators",
+      "banner"
+     ],
+     "answer": 6
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "title": "문법 고르기",
+   "guide": "빈칸에 알맞은 것을 고르세요.",
+   "each": 3,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "Daylight saving time ___ first adopted in the U.S. in 1918.",
+     "from": "#011",
+     "choices": [
+      "is",
+      "was",
+      "has",
+      "were"
+     ],
+     "answer": 1,
+     "explain": "1918년 과거 + 단수 주어 + '채택되었다' → 과거 수동태 was + p.p."
+    },
+    {
+     "kind": "choice",
+     "q": "Most of Arizona stays on standard time, ___ means its clocks never change.",
+     "from": "#011",
+     "choices": [
+      "that",
+      "who",
+      "which",
+      "what"
+     ],
+     "answer": 2,
+     "explain": "콤마 뒤에서 앞 내용을 이어 설명 → 계속적 용법 , which (that은 쓸 수 없음)"
+    },
+    {
+     "kind": "choice",
+     "q": "By the time he got home, Bushby ___ his mother for a decade.",
+     "from": "#012",
+     "choices": [
+      "had not seen",
+      "has not seen",
+      "does not see",
+      "will not see"
+     ],
+     "answer": 0,
+     "explain": "과거 시점(집에 왔을 때)까지 이어진 일 → 과거완료 had + p.p."
+    },
+    {
+     "kind": "choice",
+     "q": "___ visa problems, he spent almost ten years crossing Russia.",
+     "from": "#012",
+     "choices": [
+      "Face",
+      "Faced",
+      "To facing",
+      "Facing"
+     ],
+     "answer": 3,
+     "explain": "'~에 부딪히면서' 주어(he)가 직접 하는 일 → 분사구문 -ing"
+    },
+    {
+     "kind": "choice",
+     "q": "Each new tag weighs about as ___ as a drop of water.",
+     "from": "#013",
+     "choices": [
+      "more",
+      "much",
+      "most",
+      "many"
+     ],
+     "answer": 1,
+     "explain": "무게·양의 동등 비교 → as much as (비교급 more는 as ~ as 사이에 못 씀)"
+    },
+    {
+     "kind": "choice",
+     "q": "Scientists want to learn where ___ to rest.",
+     "from": "#013",
+     "choices": [
+      "the butterflies stop",
+      "do the butterflies stop",
+      "stop the butterflies",
+      "does the butterflies stop"
+     ],
+     "answer": 0,
+     "explain": "간접의문문은 의문사 + 주어 + 동사 순서, do/does 없이"
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "title": "문법 바꿔 쓰기",
+   "guide": "빈칸에 들어갈 말을 쓰세요.",
+   "each": 4,
+   "items": [
+    {
+     "kind": "text",
+     "q": "<span class='sub'>수동태로 바꾸기</span>Every state except Hawaii and most of Arizona observes daylight saving time.<br>→ Daylight saving time ___ in every state except Hawaii and most of Arizona.",
+     "from": "#011",
+     "answer": "is observed",
+     "accept": [],
+     "explain": "현재 + 단수 주어 → is + p.p. (지켜진다)"
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>과거완료로 바꾸기</span>First he estimated five years. In the end, the trip took 28 years.<br>→ The trip took 28 years, but he ___ that it would take about five.",
+     "from": "#012",
+     "answer": "had estimated",
+     "accept": [],
+     "explain": "28년 걸린 것보다 먼저 한 추정 → had + p.p."
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>간접의문문으로 바꾸기</span>Which places do the butterflies depend on? Scientists want to know.<br>→ Scientists want to know which places ___.",
+     "from": "#013",
+     "answer": "the butterflies depend on",
+     "accept": [],
+     "explain": "의문사 + 주어 + 동사, do는 빼기"
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "title": "기사 내용 O / X",
+   "guide": "맞으면 O, 틀리면 X",
+   "each": 1,
+   "items": [
+    {
+     "kind": "ox",
+     "q": "Daylight saving time was first adopted in the U.S. during World War II.",
+     "from": "#011",
+     "answer": "X",
+     "explain": "2차가 아니라 1차 세계대전(1918년)"
+    },
+    {
+     "kind": "ox",
+     "q": "Hawaii does not change its clocks for daylight saving time.",
+     "from": "#011",
+     "answer": "O",
+     "explain": "하와이는 1년 내내 표준시"
+    },
+    {
+     "kind": "ox",
+     "q": "The Sunshine Protection Act has already become law.",
+     "from": "#011",
+     "answer": "X",
+     "explain": "하원 통과, 상원에서 대기 중"
+    },
+    {
+     "kind": "ox",
+     "q": "Bushby walked about 31,000 miles across four continents.",
+     "from": "#012",
+     "answer": "O",
+     "explain": "4개 대륙·30개국, 약 3만 1천 마일"
+    },
+    {
+     "kind": "ox",
+     "q": "Bushby crossed the Caspian Sea by boat.",
+     "from": "#012",
+     "answer": "X",
+     "explain": "배를 타지 않고 헤엄쳐 건넘"
+    },
+    {
+     "kind": "ox",
+     "q": "At first, Bushby thought the trip would take about five years.",
+     "from": "#012",
+     "answer": "O",
+     "explain": "출발 때 약 5년으로 추정"
+    },
+    {
+     "kind": "ox",
+     "q": "Each fall, monarchs fly about 3,000 miles from Canada to Mexico.",
+     "from": "#013",
+     "answer": "O",
+     "explain": "캐나다 남부 → 멕시코 중부, 약 3,000마일"
+    },
+    {
+     "kind": "ox",
+     "q": "The eastern monarch population has grown by 80 percent since the 1990s.",
+     "from": "#013",
+     "answer": "X",
+     "explain": "늘어난 게 아니라 80% 넘게 줄어듦"
+    }
+   ]
+  },
+  {
+   "id": "G",
+   "title": "한국어 → 영어",
+   "guide": "힌트 표현을 넣어 영작하고, 모범 답과 비교해 스스로 채점하세요.",
+   "each": 5,
+   "items": [
+    {
+     "kind": "self",
+     "q": "내가 역에 도착했을 때, 기차는 이미 떠났었다.",
+     "hint": "힌트: had + p.p. · already",
+     "answer": "When I arrived at the station, the train had already left."
+    },
+    {
+     "kind": "self",
+     "q": "이 가방은 대략 사과 한 개만큼 무게가 나간다.",
+     "hint": "힌트: weigh about as much as",
+     "answer": "This bag weighs about as much as an apple."
+    }
+   ]
+  }
+ ]
+}
