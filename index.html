@@ -127,6 +127,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .sheethead .rt span{font-size:12px;color:var(--muted)}
 .todayb{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:6px 10px;cursor:pointer;min-height:34px}
 .todayb:disabled{opacity:.45;cursor:default}
+.sheethead .sht{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.sheethead .sht>div{min-width:0}
+.sheethead .timg{width:64px;height:64px;flex:none;object-fit:contain}
+@media (max-width:560px){.sheethead .timg{width:52px;height:52px}}
+.trans .tko span{font-weight:700;color:var(--en);margin-right:4px}
 .sheethead .rtrow{display:flex;flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:6px}
 .sheethead .pdfb{padding:5px 11px;font-size:13px;white-space:nowrap}
 @media (max-width:560px){
@@ -711,7 +716,7 @@ function renderEN(date){
   if(!list.length){ $('enSheet').innerHTML='<div class="empty">아직 영어 학습지가 없습니다.</div>'; return; }
   const e=list.find(x=>x.date===date)||list[0]; enCur=e;
   $('enSheet').innerHTML=`
-    <div class="sheethead"><div><div class="no">ENGLISH DAILY · No.${esc(e.no)}</div><h2 class="enf">${esc(e.title)}</h2></div>
+    <div class="sheethead"><div class="sht"><div><div class="no">ENGLISH DAILY · No.${esc(e.no)}</div><h2 class="enf">${esc(e.title)}</h2></div>${e.image?`<img class="timg" src="en/${esc(e.image)}" alt="">`:''}</div>
       <div class="rt"><b>${esc(e.date_display)}</b><span>${esc(e.weekday)}</span>
         <div class="rtrow"><select id="enDay" aria-label="영어 학습지 날짜">${list.map(x=>`<option value="${x.date}" ${x.date===e.date?'selected':''}>${md(x.date)} No.${esc(x.no)}</option>`).join('')}</select><button type="button" class="todayb" id="enToday" ${e.date===(list.find(x=>x.date===TODAY)||list[0]).date?'disabled':''} title="오늘 학습지로">오늘</button>${e.pdf?'<button class="btn pdfb" type="button" id="enPdf">PDF 저장</button>':''}</div></div></div>
     <div class="src">출처: <b>${esc(e.source)}</b> · 발행일 ${esc(e.published_display)} · <a href="${esc(e.url)}" target="_blank" rel="noopener">원문 기사 보기 ↗</a><br>※ 학습용으로 기사 내용을 요약·재구성한 본문입니다.</div>
@@ -725,7 +730,7 @@ function renderEN(date){
       <section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>GRAMMAR</span></div>
         ${e.grammar.map((g,i)=>`<div class="gbox b${i+1}"><div><span class="gt g${i+1}">문법 ${i+1}</span><b>${esc(g.name)}</b></div><p class="gx">${g.explain}</p><ol class="exs">${g.examples.map(x=>`<li><span class="e1 enf">${x.en}</span><span class="e2">${esc(x.ko)}</span></li>`).join('')}</ol></div>`).join('')}</section>
     </div>
-    <section class="trans"><b>전체 해석</b>${(e.translation_marked||e.translation).map(t=>`<p>${e.translation_marked?safeMark(t):esc(t)}</p>`).join('')}</section>`;
+    <section class="trans"><b>전체 해석</b>${e.title_ko?`<p class="tko"><span>제목</span> ${esc(e.title_ko)}</p>`:''}${(e.translation_marked||e.translation).map(t=>`<p>${e.translation_marked?safeMark(t):esc(t)}</p>`).join('')}</section>`;
   followSetup(e);
   glossify($('enSheet').querySelector('.reading'), e);
   $('enSheet').querySelectorAll('.exs .e1.enf').forEach(x=>glossify(x,e));
