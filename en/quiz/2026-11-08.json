@@ -1,0 +1,521 @@
+{
+ "lang": "en",
+ "date": "2026-11-08",
+ "no": "T03",
+ "title": "영어 복습 테스트 T03",
+ "pass": 80,
+ "sections": [
+  {
+   "id": "A",
+   "title": "단어 뜻 고르기",
+   "guide": "영어 단어의 뜻을 고르세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "<b>interpretation</b>",
+     "from": "#014",
+     "choices": [
+      "해석, 이해",
+      "살아남다, 남아 있다",
+      "고립된, 떨어져 있는",
+      "열의, 열을 감지하는"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>metabolism</b>",
+     "from": "#014",
+     "choices": [
+      "신진대사",
+      "애호가, 열성적인 사람",
+      "무리, 군락",
+      "화석"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>mineralized</b>",
+     "from": "#014",
+     "choices": [
+      "광물화된, 돌처럼 굳은",
+      "퍼지다, 퍼져 나가다",
+      "확신하는",
+      "서식지"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>enthusiast</b>",
+     "from": "#015",
+     "choices": [
+      "재배, 경작",
+      "드문, 흔치 않은",
+      "제안하다, 권하다",
+      "애호가, 열성적인 사람"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>canopy</b>",
+     "from": "#015",
+     "choices": [
+      "(숲의) 덮개, 숲 지붕",
+      "살아남다, 남아 있다",
+      "영양분, 양분",
+      "(동물의) 배설물, 똥"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>significant</b>",
+     "from": "#015",
+     "choices": [
+      "증거",
+      "다양성",
+      "중요한, 의미 있는",
+      "해석, 이해"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>cultivation</b>",
+     "from": "#015",
+     "choices": [
+      "재배, 경작",
+      "화석",
+      "광물화된, 돌처럼 굳은",
+      "번성하는, 잘 자라는"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>thriving</b>",
+     "from": "#016",
+     "choices": [
+      "살아남다, 남아 있다",
+      "번성하는, 잘 자라는",
+      "무리, 군락",
+      "감염"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>isolated</b>",
+     "from": "#016",
+     "choices": [
+      "나타나다, 모습을 드러내다",
+      "고립된, 떨어져 있는",
+      "화석",
+      "멸종 위기에 처한"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>infection</b>",
+     "from": "#016",
+     "choices": [
+      "(숲의) 덮개, 숲 지붕",
+      "감염",
+      "다양성",
+      "드문, 흔치 않은"
+     ],
+     "answer": 1
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "title": "단어 쓰기",
+   "guide": "한국어 뜻에 맞는 영어 단어를 쓰세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "text",
+     "q": "흔적, 자취",
+     "hint": "t… (5글자)",
+     "from": "#014",
+     "answer": "trace"
+    },
+    {
+     "kind": "text",
+     "q": "화석",
+     "hint": "f… (6글자)",
+     "from": "#014",
+     "answer": "fossil"
+    },
+    {
+     "kind": "text",
+     "q": "살아남다, 남아 있다",
+     "hint": "s… (7글자)",
+     "from": "#014",
+     "answer": "survive"
+    },
+    {
+     "kind": "text",
+     "q": "무리, 군락",
+     "hint": "c… (7글자)",
+     "from": "#015",
+     "answer": "cluster"
+    },
+    {
+     "kind": "text",
+     "q": "확인하다, 사실임을 입증하다",
+     "hint": "c… (7글자)",
+     "from": "#015",
+     "answer": "confirm"
+    },
+    {
+     "kind": "text",
+     "q": "영양분, 양분",
+     "hint": "n… (8글자)",
+     "from": "#015",
+     "answer": "nutrient"
+    },
+    {
+     "kind": "text",
+     "q": "서식지",
+     "hint": "h… (7글자)",
+     "from": "#016",
+     "answer": "habitat"
+    },
+    {
+     "kind": "text",
+     "q": "제안하다, 권하다",
+     "hint": "s… (7글자)",
+     "from": "#016",
+     "answer": "suggest"
+    },
+    {
+     "kind": "text",
+     "q": "드문, 흔치 않은",
+     "hint": "u… (7글자)",
+     "from": "#016",
+     "answer": "unusual"
+    },
+    {
+     "kind": "text",
+     "q": "퍼지다, 퍼져 나가다",
+     "hint": "s… (6글자)",
+     "from": "#016",
+     "answer": "spread"
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "title": "빈칸 채우기",
+   "guide": "보기에서 알맞은 단어를 고르세요. (남는 단어 있음)",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "The tiny oval shapes could be ___ that blood cells lasted for millions of years.",
+     "from": "#014",
+     "choices": [
+      "thermal",
+      "convinced",
+      "evidence",
+      "emerges",
+      "droppings",
+      "feathered",
+      "preserve",
+      "endangered"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "A mat of microbes may have helped ___ the soft tissue so it did not break down.",
+     "from": "#014",
+     "choices": [
+      "thermal",
+      "convinced",
+      "evidence",
+      "emerges",
+      "droppings",
+      "feathered",
+      "preserve",
+      "endangered"
+     ],
+     "answer": 6
+    },
+    {
+     "kind": "choice",
+     "q": "The orchid ___ only when it is ready to flower, so it is hard to find.",
+     "from": "#015",
+     "choices": [
+      "thermal",
+      "convinced",
+      "evidence",
+      "emerges",
+      "droppings",
+      "feathered",
+      "preserve",
+      "endangered"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "Because it is critically ___, the orchid needs a safe place to grow.",
+     "from": "#015",
+     "choices": [
+      "thermal",
+      "convinced",
+      "evidence",
+      "emerges",
+      "droppings",
+      "feathered",
+      "preserve",
+      "endangered"
+     ],
+     "answer": 7
+    },
+    {
+     "kind": "choice",
+     "q": "Drones with ___ cameras can see the body heat of koalas at night.",
+     "from": "#016",
+     "choices": [
+      "thermal",
+      "convinced",
+      "evidence",
+      "emerges",
+      "droppings",
+      "feathered",
+      "preserve",
+      "endangered"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "The team tested koala ___ instead of catching the animals.",
+     "from": "#016",
+     "choices": [
+      "thermal",
+      "convinced",
+      "evidence",
+      "emerges",
+      "droppings",
+      "feathered",
+      "preserve",
+      "endangered"
+     ],
+     "answer": 4
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "title": "문법 고르기",
+   "guide": "빈칸에 알맞은 것을 고르세요.",
+   "each": 3,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "The microbes might ___ the soft tissue millions of years ago.",
+     "from": "#014",
+     "choices": [
+      "help",
+      "helped",
+      "have helped",
+      "helping"
+     ],
+     "answer": 2,
+     "explain": "과거 일에 대한 추측 → might/may + have p.p. (~했을지도 모른다)"
+    },
+    {
+     "kind": "choice",
+     "q": "The results ___ in PNAS show traces of heme.",
+     "from": "#014",
+     "choices": [
+      "published",
+      "publishing",
+      "publish",
+      "to publish"
+     ],
+     "answer": 0,
+     "explain": "'발표된' 결과 → 명사 뒤에서 과거분사(p.p.)가 꾸밈"
+    },
+    {
+     "kind": "choice",
+     "q": "The orchid was thought ___ in only one place.",
+     "from": "#015",
+     "choices": [
+      "grow",
+      "growing",
+      "grew",
+      "to grow"
+     ],
+     "answer": 3,
+     "explain": "be thought to + 동사원형 (~하는 것으로 여겨지다)"
+    },
+    {
+     "kind": "choice",
+     "q": "Copeland is a botanist ___ found the species in 2018.",
+     "from": "#015",
+     "choices": [
+      "which",
+      "who",
+      "whom",
+      "what"
+     ],
+     "answer": 1,
+     "explain": "사람(botanist) + 바로 뒤에 동사 → 주격 관계대명사 who"
+    },
+    {
+     "kind": "choice",
+     "q": "___ is important to protect the koalas' habitat.",
+     "from": "#016",
+     "choices": [
+      "That",
+      "It",
+      "This",
+      "What"
+     ],
+     "answer": 1,
+     "explain": "가주어 It + is + 형용사 + to부정사(진짜 주어)"
+    },
+    {
+     "kind": "choice",
+     "q": "The team found the koalas by ___ drones.",
+     "from": "#016",
+     "choices": [
+      "fly",
+      "flew",
+      "to fly",
+      "flying"
+     ],
+     "answer": 3,
+     "explain": "전치사 by 뒤에는 동명사(-ing) → by flying (~함으로써)"
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "title": "문법 바꿔 쓰기",
+   "guide": "빈칸에 들어갈 말을 쓰세요.",
+   "each": 4,
+   "items": [
+    {
+     "kind": "text",
+     "q": "<span class='sub'>과거분사 후치 수식으로 한 문장 만들기</span>The fossil was discovered in 2008. It belonged to a feathered dinosaur.<br>→ The fossil ___ in 2008 belonged to a feathered dinosaur.",
+     "from": "#014",
+     "answer": "discovered",
+     "accept": [],
+     "explain": "'발견된' 화석 → 명사 + p.p. (which was 생략)"
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>be known to로 바꾸기</span>People know that more than 60 plants exist now.<br>→ More than 60 plants ___ now.",
+     "from": "#015",
+     "answer": "are known to exist",
+     "accept": [],
+     "explain": "be known to + 동사원형, 주어가 복수 → are"
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>by + 동명사로 한 문장 만들기</span>They will build fences. That is how they will keep the koalas safe.<br>→ They will keep the koalas safe ___ fences.",
+     "from": "#016",
+     "answer": "by building",
+     "accept": [],
+     "explain": "방법(~함으로써) → by + 동명사"
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "title": "기사 내용 O / X",
+   "guide": "맞으면 O, 틀리면 X",
+   "each": 1,
+   "items": [
+    {
+     "kind": "ox",
+     "q": "The dinosaur bone in the study is about 115 million years old.",
+     "from": "#014",
+     "answer": "O",
+     "explain": "약 1억 1,500만 년 된 뼈"
+    },
+    {
+     "kind": "ox",
+     "q": "Aratasaurus was discovered in a mine in Australia.",
+     "from": "#014",
+     "answer": "X",
+     "explain": "호주가 아니라 브라질 북동부 광산"
+    },
+    {
+     "kind": "ox",
+     "q": "Every expert agrees that the shapes are dinosaur blood cells.",
+     "from": "#014",
+     "answer": "X",
+     "explain": "모든 전문가가 확신하지는 않음"
+    },
+    {
+     "kind": "ox",
+     "q": "The orchid gets its nutrients from a fungus in the soil.",
+     "from": "#015",
+     "answer": "O",
+     "explain": "햇빛 대신 흙 속 곰팡이에서 양분을 얻음"
+    },
+    {
+     "kind": "ox",
+     "q": "Nick Lambert found about 500 plants at the new site.",
+     "from": "#015",
+     "answer": "X",
+     "explain": "500개가 아니라 약 50개"
+    },
+    {
+     "kind": "ox",
+     "q": "The orchid appears above ground for only one or two weeks a year.",
+     "from": "#015",
+     "answer": "O",
+     "explain": "1년에 1~2주만 땅 위로 나옴"
+    },
+    {
+     "kind": "ox",
+     "q": "The koala forest is about 35 minutes by car from the city centre.",
+     "from": "#016",
+     "answer": "O",
+     "explain": "도심에서 차로 35분"
+    },
+    {
+     "kind": "ox",
+     "q": "Three of the 27 tested koalas showed signs of infection.",
+     "from": "#016",
+     "answer": "X",
+     "explain": "27마리 모두 감염 흔적 없음"
+    }
+   ]
+  },
+  {
+   "id": "G",
+   "title": "한국어 → 영어",
+   "guide": "힌트 표현을 넣어 영작하고, 모범 답과 비교해 스스로 채점하세요.",
+   "each": 5,
+   "items": [
+    {
+     "kind": "self",
+     "q": "숲에서 코알라를 찾는 것은 어렵다.",
+     "hint": "힌트: It is hard to",
+     "answer": "It is hard to find koalas in the forest."
+    },
+    {
+     "kind": "self",
+     "q": "그 공룡은 깃털이 있었을지도 모른다.",
+     "hint": "힌트: may have + p.p.",
+     "answer": "The dinosaur may have had feathers."
+    }
+   ]
+  }
+ ]
+}
