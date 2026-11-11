@@ -1,0 +1,521 @@
+{
+ "lang": "en",
+ "date": "2026-11-12",
+ "no": "T04",
+ "title": "영어 복습 테스트 T04",
+ "pass": 80,
+ "sections": [
+  {
+   "id": "A",
+   "title": "단어 뜻 고르기",
+   "guide": "영어 단어의 뜻을 고르세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "<b>habitat</b>",
+     "from": "#017",
+     "choices": [
+      "유전적 특징, 유전자",
+      "서식지",
+      "사육 상태, 갇혀 있음",
+      "지원자"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>tadpole</b>",
+     "from": "#017",
+     "choices": [
+      "유전적 특징, 유전자",
+      "올챙이",
+      "깨지기 쉬운, 불안정한",
+      "달의"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>captivity</b>",
+     "from": "#017",
+     "choices": [
+      "달의",
+      "사육 상태, 갇혀 있음",
+      "유전적 특징, 유전자",
+      "서식지"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>genetics</b>",
+     "from": "#017",
+     "choices": [
+      "자격 요건, 필요조건",
+      "지원자",
+      "유전적 특징, 유전자",
+      "가속하다, 앞당기다"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>requirement</b>",
+     "from": "#018",
+     "choices": [
+      "달의",
+      "자격 요건, 필요조건",
+      "사육 상태, 갇혀 있음",
+      "가속하다, 앞당기다"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>applicant</b>",
+     "from": "#018",
+     "choices": [
+      "자격 요건, 필요조건",
+      "서식지",
+      "지원자",
+      "깨지기 쉬운, 불안정한"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>lunar</b>",
+     "from": "#018",
+     "choices": [
+      "가속하다, 앞당기다",
+      "연례의, 매년의",
+      "깨지기 쉬운, 불안정한",
+      "달의"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>annual</b>",
+     "from": "#019",
+     "choices": [
+      "깨지기 쉬운, 불안정한",
+      "연례의, 매년의",
+      "달의",
+      "올챙이"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>fragile</b>",
+     "from": "#019",
+     "choices": [
+      "서식지",
+      "자격 요건, 필요조건",
+      "깨지기 쉬운, 불안정한",
+      "올챙이"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>accelerate</b>",
+     "from": "#019",
+     "choices": [
+      "유전적 특징, 유전자",
+      "자격 요건, 필요조건",
+      "올챙이",
+      "가속하다, 앞당기다"
+     ],
+     "answer": 3
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "title": "단어 쓰기",
+   "guide": "한국어 뜻에 맞는 영어 단어를 쓰세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "text",
+     "q": "풀어 주다, (야생에) 방사하다",
+     "hint": "r… (7글자)",
+     "from": "#017",
+     "answer": "release"
+    },
+    {
+     "kind": "text",
+     "q": "황폐하게 하다, 완전히 파괴하다",
+     "hint": "d… (9글자)",
+     "from": "#017",
+     "answer": "devastate"
+    },
+    {
+     "kind": "text",
+     "q": "관찰하다, 추적 감시하다",
+     "hint": "m… (7글자)",
+     "from": "#017",
+     "answer": "monitor"
+    },
+    {
+     "kind": "text",
+     "q": "엄격한",
+     "hint": "s… (6글자)",
+     "from": "#018",
+     "answer": "strict"
+    },
+    {
+     "kind": "text",
+     "q": "신입 대원, 신병",
+     "hint": "r… (7글자)",
+     "from": "#018",
+     "answer": "recruit"
+    },
+    {
+     "kind": "text",
+     "q": "개척하다, 선구자가 되다",
+     "hint": "p… (7글자)",
+     "from": "#018",
+     "answer": "pioneer"
+    },
+    {
+     "kind": "text",
+     "q": "수요, 요구",
+     "hint": "d… (6글자)",
+     "from": "#019",
+     "answer": "demand"
+    },
+    {
+     "kind": "text",
+     "q": "혼란, 차질, 중단",
+     "hint": "d… (10글자)",
+     "from": "#019",
+     "answer": "disruption"
+    },
+    {
+     "kind": "text",
+     "q": "예산, (쓸 수 있는) 허용량",
+     "hint": "b… (6글자)",
+     "from": "#019",
+     "answer": "budget"
+    },
+    {
+     "kind": "text",
+     "q": "(일시적으로) 약간 떨어지다",
+     "hint": "d… (3글자)",
+     "from": "#019",
+     "answer": "dip"
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "title": "빈칸 채우기",
+   "guide": "보기에서 알맞은 단어를 고르세요. (남는 단어 있음)",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "Song meters will help scientists ___ the frogs' calls in the forest.",
+     "from": "#017",
+     "choices": [
+      "mission",
+      "detect",
+      "projected",
+      "log",
+      "position",
+      "secured",
+      "peat",
+      "candidate"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "A keeper said the program has ___ the frogs' genetics for future generations.",
+     "from": "#017",
+     "choices": [
+      "mission",
+      "detect",
+      "projected",
+      "log",
+      "position",
+      "secured",
+      "peat",
+      "candidate"
+     ],
+     "answer": 5
+    },
+    {
+     "kind": "choice",
+     "q": "Pilots have to ___ hundreds of hours of flight time.",
+     "from": "#018",
+     "choices": [
+      "mission",
+      "detect",
+      "projected",
+      "log",
+      "position",
+      "secured",
+      "peat",
+      "candidate"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "Every ___ faces medical tests, a background check and a swimming test.",
+     "from": "#018",
+     "choices": [
+      "mission",
+      "detect",
+      "projected",
+      "log",
+      "position",
+      "secured",
+      "peat",
+      "candidate"
+     ],
+     "answer": 7
+    },
+    {
+     "kind": "choice",
+     "q": "Total carbon emissions are ___ to rise to 43.3 billion tonnes.",
+     "from": "#019",
+     "choices": [
+      "mission",
+      "detect",
+      "projected",
+      "log",
+      "position",
+      "secured",
+      "peat",
+      "candidate"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "___ fires in Southeast Asia are adding extra carbon to the air.",
+     "from": "#019",
+     "choices": [
+      "mission",
+      "detect",
+      "projected",
+      "log",
+      "position",
+      "secured",
+      "peat",
+      "candidate"
+     ],
+     "answer": 6
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "title": "문법 고르기",
+   "guide": "빈칸에 알맞은 것을 고르세요.",
+   "each": 3,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "Wild frog numbers ___ hit hard by fire, drought and disease.",
+     "from": "#017",
+     "choices": [
+      "has been",
+      "have been",
+      "have",
+      "was"
+     ],
+     "answer": 1,
+     "explain": "복수 주어(numbers) + 현재완료 수동태 → have been + p.p."
+    },
+    {
+     "kind": "choice",
+     "q": "East Gippsland is the region ___ the frogs were released.",
+     "from": "#017",
+     "choices": [
+      "who",
+      "which",
+      "what",
+      "where"
+     ],
+     "answer": 3,
+     "explain": "장소 명사 + 완전한 문장 → 관계부사 where"
+    },
+    {
+     "kind": "choice",
+     "q": "A pilot ___ log hundreds of hours of flight time.",
+     "from": "#018",
+     "choices": [
+      "have to",
+      "must to",
+      "has to",
+      "having to"
+     ],
+     "answer": 2,
+     "explain": "3인칭 단수 주어 → has to + 동사원형 (must 뒤에는 to 없음)"
+    },
+    {
+     "kind": "choice",
+     "q": "The new astronauts may get the chance ___ on the moon.",
+     "from": "#018",
+     "choices": [
+      "to walk",
+      "walk",
+      "walking",
+      "walked"
+     ],
+     "answer": 0,
+     "explain": "명사(chance) + to부정사: '걸을 기회'"
+    },
+    {
+     "kind": "choice",
+     "q": "Fossil fuel emissions are expected ___ by about 0.4 percent.",
+     "from": "#019",
+     "choices": [
+      "fall",
+      "falling",
+      "to falling",
+      "to fall"
+     ],
+     "answer": 3,
+     "explain": "be expected to + 동사원형 (~할 것으로 예상된다)"
+    },
+    {
+     "kind": "choice",
+     "q": "___ clean energy is spreading, the carbon budget may run out soon.",
+     "from": "#019",
+     "choices": [
+      "Although",
+      "Despite",
+      "Because",
+      "Unless"
+     ],
+     "answer": 0,
+     "explain": "뒤에 주어+동사 + 반대 내용 → Although (Despite 뒤에는 명사)"
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "title": "문법 바꿔 쓰기",
+   "guide": "빈칸에 들어갈 말을 쓰세요.",
+   "each": 4,
+   "items": [
+    {
+     "kind": "text",
+     "q": "<span class='sub'>현재완료 수동태로 바꾸기</span>Zoos Victoria has released 53 frogs into the forest.<br>→ 53 frogs ___ into the forest.",
+     "from": "#017",
+     "answer": "have been released",
+     "accept": [],
+     "explain": "복수 주어 → have been + p.p. (~되었다)"
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>명사 + to부정사로 바꾸기</span>NASA is looking for people who will join its next class.<br>→ NASA is looking for people ___ its next class.",
+     "from": "#018",
+     "answer": "to join",
+     "accept": [],
+     "explain": "who will join → to join (합류할 사람들)"
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>Although로 한 문장 만들기</span>Fossil fuel emissions may dip. But total emissions will rise.<br>→ ___, total emissions will rise.",
+     "from": "#019",
+     "answer": "Although fossil fuel emissions may dip",
+     "accept": [],
+     "explain": "Although + 주어 + 동사, but은 빼기"
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "title": "기사 내용 O / X",
+   "guide": "맞으면 O, 틀리면 X",
+   "each": 1,
+   "items": [
+    {
+     "kind": "ox",
+     "q": "The frogs were released in a region hit by the Black Summer fires.",
+     "from": "#017",
+     "answer": "O",
+     "explain": "이스트 깁스랜드 = 산불 피해 지역"
+    },
+    {
+     "kind": "ox",
+     "q": "Southern giant burrowing frogs spend most of their time in trees.",
+     "from": "#017",
+     "answer": "X",
+     "explain": "주로 땅속에서 지냄"
+    },
+    {
+     "kind": "ox",
+     "q": "Victoria has more than ten known breeding sites for the frog.",
+     "from": "#017",
+     "answer": "X",
+     "explain": "다섯 곳도 안 됨"
+    },
+    {
+     "kind": "ox",
+     "q": "People can apply online to NASA until December 3.",
+     "from": "#018",
+     "answer": "O",
+     "explain": "12월 3일까지 온라인 지원"
+    },
+    {
+     "kind": "ox",
+     "q": "New astronauts can train from home anywhere in the country.",
+     "from": "#018",
+     "answer": "X",
+     "explain": "휴스턴으로 이사해 훈련"
+    },
+    {
+     "kind": "ox",
+     "q": "Astronaut candidates must also pass a swimming test.",
+     "from": "#018",
+     "answer": "O",
+     "explain": "수영 시험까지 거침"
+    },
+    {
+     "kind": "ox",
+     "q": "Oil emissions are expected to rise by 2 percent in 2026.",
+     "from": "#019",
+     "answer": "X",
+     "explain": "2% 증가가 아니라 감소"
+    },
+    {
+     "kind": "ox",
+     "q": "Emissions in India are still climbing.",
+     "from": "#019",
+     "answer": "O",
+     "explain": "인도 배출량은 여전히 증가"
+    }
+   ]
+  },
+  {
+   "id": "G",
+   "title": "한국어 → 영어",
+   "guide": "힌트 표현을 넣어 영작하고, 모범 답과 비교해 스스로 채점하세요.",
+   "each": 5,
+   "items": [
+    {
+     "kind": "self",
+     "q": "과학자들은 개구리들이 번식할 수 있는 장소를 찾고 있다.",
+     "hint": "힌트: places where · breed",
+     "answer": "Scientists are looking for places where the frogs can breed."
+    },
+    {
+     "kind": "self",
+     "q": "비록 자격 요건은 엄격하지만, 많은 사람들이 지원할 것이다.",
+     "hint": "힌트: Although · strict",
+     "answer": "Although the requirements are strict, many people will apply."
+    }
+   ]
+  }
+ ]
+}
