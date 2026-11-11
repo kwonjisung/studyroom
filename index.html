@@ -245,6 +245,43 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
 .tcov{font-size:13.5px} .tcov summary{cursor:pointer;color:var(--c);font-weight:600} .tcov ul{margin:6px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:3px} .tcov .jaf{font-family:var(--jaS);font-size:15px;line-height:1.9} .tcov .enf{font-family:var(--enS)}
 .tview .btn.on{outline:2px solid var(--c);outline-offset:1px}
 .tpages{display:flex;flex-direction:column;gap:10px}
+.brandr{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tipb{font:inherit;font-size:13px;font-weight:600;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:5px 12px;cursor:pointer;min-height:32px}
+.verb{font:inherit;font-size:11px;font-weight:600;border:0;background:transparent;color:var(--muted);padding:4px 2px;cursor:pointer;font-variant-numeric:tabular-nums;text-decoration:underline dotted;text-underline-offset:3px}
+.dlg{border:1px solid var(--line);border-radius:14px;padding:0;max-width:min(680px,calc(100vw - 24px));width:100%;max-height:calc(100dvh - 32px);background:var(--paper);color:var(--ink);box-shadow:0 18px 60px rgba(0,0,0,.25)}
+.dlg::backdrop{background:rgba(15,20,30,.45)}
+.dlg .dh{position:sticky;top:0;background:var(--paper);display:flex;justify-content:space-between;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--line);z-index:1}
+.dlg .dh h2{margin:0;font-size:18px}
+.dlg .db{padding:14px 18px 20px;display:flex;flex-direction:column;gap:14px;font-size:14.5px;line-height:1.65}
+.dlg .x{font:inherit;font-size:14px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:8px;padding:5px 10px;cursor:pointer}
+.tipd ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px;counter-reset:st}
+.tipd li{border:1px solid var(--line);border-radius:10px;padding:10px 12px 10px 48px;position:relative;counter-increment:st}
+.tipd li::before{content:counter(st);position:absolute;left:12px;top:10px;width:26px;height:26px;border-radius:50%;background:var(--en);color:#fff;font-weight:700;font-size:13px;display:grid;place-items:center}
+.tipd li.extra::before{background:var(--test)}
+.tipd li b.h{display:block;font-size:15px;margin-bottom:2px}
+.tipd .how{color:var(--muted);font-size:13.5px}
+.tipd .ex{margin-top:6px;background:var(--sunk);border-radius:8px;padding:8px 10px;font-size:13.5px}
+.tipd .ex .en{font-family:var(--serif,Georgia,serif);font-size:15px;line-height:1.7}
+.tipd .ex .ko{color:var(--muted)}
+.tipd .sample{border:1px dashed var(--line);border-radius:10px;padding:12px;display:flex;flex-direction:column;gap:8px}
+.tipd .sample .en{font-family:var(--serif,Georgia,serif);font-size:16px;line-height:1.75}
+.tipd .sample .en.blur{filter:blur(6px);user-select:none;cursor:pointer}
+.tipd .row{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.tipd .sb{font:inherit;font-size:13px;border:1px solid var(--line);background:var(--paper);color:var(--en);border-radius:999px;padding:4px 11px;cursor:pointer}
+.tipd .sb.on{background:var(--en);color:#fff;border-color:var(--en)}
+.tipd h3{margin:4px 0 0;font-size:15px}
+.tipd .grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+.tipd .card{border:1px solid var(--line);border-radius:10px;padding:9px 11px;font-size:13.5px}
+.tipd .card b{display:block;margin-bottom:2px}
+.verlist{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.verlist>li{display:block;border-left:3px solid var(--line);padding:2px 0 2px 12px}
+.verlist>li:first-child{border-left-color:var(--en)}
+.verlist ul>li{display:list-item;border:0;padding:0;margin:1px 0}
+.verlist .vh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+.verlist .vh b{font-variant-numeric:tabular-nums}
+.verlist .vh span{font-size:12.5px;color:var(--muted)}
+.verlist ul{margin:2px 0 0;padding-left:18px;font-size:13.5px}
+
 .kanji{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px 14px}
 .kj{display:flex;align-items:baseline;gap:5px;border-bottom:1px dotted var(--line);padding:3px 0;font-size:14px}
 .kj b{font-family:var(--jaF);font-weight:500;font-size:22px;line-height:1.2}
@@ -287,7 +324,7 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
   <div class="top">
     <div class="brandrow">
       <h1 class="brand">스터디룸</h1>
-      <div class="today" id="todayLabel"></div>
+      <div class="brandr"><button type="button" class="tipb" id="tipsBtn">💡 학습 팁</button><div class="today" id="todayLabel"></div><button type="button" class="verb" id="verBtn" aria-label="버전 정보와 업데이트 기록"></button></div>
     </div>
     <nav class="tabs" role="tablist" aria-label="스터디룸 메뉴">
       <button class="tab" role="tab" id="t-home" data-view="home">홈</button>
@@ -297,6 +334,39 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
     </nav>
   </div>
 
+<dialog class="dlg" id="verDlg" aria-labelledby="verT"><div class="dh"><h2 id="verT">업데이트 기록</h2><button type="button" class="x" data-close>닫기</button></div><div class="db"><ul class="verlist" id="verList"></ul></div></dialog>
+<dialog class="dlg tipd" id="tipsDlg" aria-labelledby="tipsT"><div class="dh"><h2 id="tipsT">💡 학습 팁 · 하루 학습지 이렇게 공부해요</h2><button type="button" class="x" data-close>닫기</button></div>
+<div class="db">
+  <p style="margin:0">영어 학습지 하나를 <b>듣기 → 이해 → 다시 듣기</b> 순서로 20~30분 공부하는 방법이에요. 아래 샘플은 11/7 학습지 「Koalas Near Newcastle…」의 3문단이에요. 버튼을 눌러 실제로 따라 해 보세요.</p>
+  <div class="sample">
+    <div class="row"><b style="font-size:13px">샘플 문단</b><button type="button" class="sb" id="tsN">▶ 보통 속도</button><button type="button" class="sb" id="tsS">▶ 느리게</button><button type="button" class="sb" id="tsShow">본문 보기</button><button type="button" class="sb" id="tsKo">한글 해석</button></div>
+    <div class="en blur" id="tsEn" title="눌러서 본문 보기">Scientists think these koalas have been <u>isolated</u> from other groups for a long time. This may have kept them safe, but it also means they have low genetic <u>diversity</u>. Now the koalas are starting to <u>spread</u> west, where they could meet sick animals. <mark class="g1">It is important to protect their <u>habitat</u></mark>, the researchers say. They <u>suggest</u> keeping the koalas safe <mark class="g2">by building fences and checking their health for many years</mark>.</div>
+    <div class="ko" id="tsKoTxt" hidden style="font-size:14px;color:var(--muted)">과학자들은 이 코알라들이 오랫동안 다른 무리와 <u>고립되어</u> 있었다고 생각한다. 그 덕분에 안전했을 수 있지만, 유전적 <u>다양성</u>이 낮다는 뜻이기도 하다. 이제 코알라들은 서쪽으로 <u>퍼져 나가기</u> 시작해, 병든 동물들과 마주칠 수도 있다. 연구진은 <mark class="g1">이들의 <u>서식지</u>를 보호하는 것이 중요하다</mark>고 말한다. 그들은 <mark class="g2">울타리를 세우고 여러 해 동안 건강 상태를 확인함으로써</mark> 코알라를 안전하게 지킬 것을 <u>제안한다</u>.</div>
+    <audio id="tsAud" preload="none" src="en/audio/2026-11-07.mp3"></audio>
+  </div>
+  <ol>
+    <li><b class="h">본문 보지 않고 MP3부터 듣기</b><span class="how">사전 학습 없이 <b>보통 속도</b>로 한 번 듣고, 몇 % 알아들었는지 적어 두세요(예: 40%). 단어보다 <b>누가·무엇을·왜</b>만 잡으면 충분해요.</span>
+      <div class="ex">샘플로 해 보기: 위 <b>▶ 보통 속도</b> → "코알라에게 어떤 위험이 생길 수 있지? 연구진은 무엇을 하자고 하지?"에 답해 보기</div></li>
+    <li><b class="h">느리게 들으며 본문과 맞춰 보기 (2~3회)</b><span class="how">이제 본문을 열고 <b>▶ 느리게</b>로 들어요. 학습지 탭에서는 재생 중인 단어에 회색 표시가 따라가요. 안 들렸던 곳에 연필로 표시하세요.</span>
+      <div class="ex">샘플: 빠르게 들으면 뭉개지는 곳 — <span class="en">have been isolated</span>(해브 빈 아이솔레이티드), <span class="en">It is important to</span>(잇츠 임포턴 투)</div></li>
+    <li><b class="h">핵심 단어·문법 이해 후 다시 읽기</b><span class="how"><u>밑줄 단어</u>를 누르면 뜻과 <b>어원 카드</b>가 나와요. <mark class="g1">분홍</mark>·<mark class="g2">파랑</mark> 문장은 아래 문법 설명과 짝이에요. 이해한 뒤 본문을 소리 내어 한 번 읽어요.</span>
+      <div class="ex"><span class="en"><mark class="g1">It is important to protect…</mark></span> <span class="ko">— 가주어 it: '보호하는 것이 중요하다'</span><br><span class="en"><mark class="g2">by building fences…</mark></span> <span class="ko">— by + -ing: '울타리를 세움으로써'</span><br><span class="en"><u>diversity</u></span> <span class="ko">— di(따로) + vers(돌다) → 갈래갈래 나뉨 → 다양성</span></div></li>
+    <li><b class="h">그래도 모르는 단어·부분 체크</b><span class="how">밑줄이 없는 단어도 <b>눌러 보면 뜻</b>이 떠요. 계속 헷갈리는 단어·구절은 학습지 메모칸에 적어 두면 복습 테스트 전에 다시 보기 좋아요.</span>
+      <div class="ex">샘플: <span class="en">genetic</span>(유전의), <span class="en">may have kept them safe</span> → '지켜 주었을 수도 있다'(may have + p.p. = 과거 추측)</div></li>
+    <li><b class="h">한글 해석으로 전체 확인 → 다시 MP3</b><span class="how"><b>전체 해석</b>으로 뜻을 확인하고, 본문을 덮고 다시 보통 속도로 들어요. 1단계에서 적은 %와 비교해 보세요. 오르는 게 눈에 보여요.</span>
+      <div class="ex">샘플: 위 <b>한글 해석</b> → 본문 가리고 <b>▶ 보통 속도</b> 다시 듣기</div></li>
+    <li class="extra"><b class="h">더하면 좋은 것 ① 쉐도잉</b><span class="how">문단별 <b>▶보통</b>을 틀고 반 박자 뒤에서 그림자처럼 따라 말해요. 발음·억양·연음이 함께 늘어요. 하루 한 문단이면 충분해요.</span></li>
+    <li class="extra"><b class="h">더하면 좋은 것 ② 워크북 · 한 줄 요약</b><span class="how">PDF 2쪽 워크북(따라 쓰기·빈칸·문법 바꾸기·영작)을 풀고, 맨 아래 칸에 <b>영어로 한 줄 요약</b>을 써요. 예: <span class="en" style="font-family:var(--serif,Georgia,serif)">Healthy koalas near Newcastle need protection.</span></span></li>
+    <li class="extra"><b class="h">더하면 좋은 것 ③ 간격 두고 복습</b><span class="how">다음 날 아침 새 학습지 전에 어제 MP3를 한 번 듣고, 목·일 <b>복습 테스트</b>(앱에서 풀기)로 확인해요. 틀린 문항의 학습지로 돌아가 3~5단계만 다시 하면 돼요.</span></li>
+  </ol>
+  <h3>일본어 학습지는 이렇게</h3>
+  <div class="grid2">
+    <div class="card"><b>① 대사 먼저 듣기</b>느린 → 보통 MP3를 듣고, 장면을 떠올리며 무슨 감정인지 느껴 보기</div>
+    <div class="card"><b>② 문장별로 따라 말하기</b>문장마다 ▶느리게 → ▶보통, 한글 발음을 보며 같은 리듬으로</div>
+    <div class="card"><b>③ 한자 훈음으로 추리하기</b>맨 아래 한자 칸: 時間(때 시·사이 간)=시간, 人生(사람 인·날 생)=인생처럼 우리말 한자어와 뜻이 같은 게 많아요. 大切(소중함)처럼 다른 것도 있으니 비교해 보기</div>
+    <div class="card"><b>④ 따라 쓰기 · 대사 외우기</b>PDF 2쪽 칸에 대사를 쓰고, 하루 동안 대사를 입으로 3번 말해 보기</div>
+  </div>
+</div></dialog>
   <!-- 홈 -->
   <section class="view" id="v-home" role="tabpanel" aria-labelledby="t-home">
     <div class="panel">
@@ -539,6 +609,42 @@ async function savePdf(path,filename,btn,note){
   }catch(err){ note.textContent= err&&err.code==='declined' ? '저장을 취소했습니다.' : 'PDF를 저장하지 못했습니다. 잠시 뒤 다시 눌러 주세요.'; }
   finally{ btn.disabled=false; btn.textContent=label; }
 }
+
+/* ── 버전 정보 · 업데이트 기록 ── */
+const VERSIONS=[
+  {v:'1.8',d:'2026-11-12',items:['상단에 버전 정보와 업데이트 기록','💡 학습 팁(공부 순서 가이드 + 실제 본문 샘플)','학습지 PDF의 QR이 스터디룸 사이트(그날 학습지)로 연결','영어 MP3가 제목부터 읽음(새 학습지부터)']},
+  {v:'1.7',d:'2026-11-08',items:['영어 학습지 제목 옆 그림','전체 해석 맨 앞에 제목 해석(새 학습지부터)']},
+  {v:'1.6',d:'2026-11-08',items:['날짜 옆·달력에 "오늘" 버튼','매일 05:05 GitHub(사이트) 자동 업데이트']},
+  {v:'1.5',d:'2026-11-03',items:['일본어 학습지에 한자 훈음(한국식 뜻·음) 칸']},
+  {v:'1.4',d:'2026-11-02',items:['MP3 재생 중인 단어에 회색 표시(따라 읽기)','영어 전체 해석에 핵심 단어 밑줄·문법 표시']},
+  {v:'1.3',d:'2026-11-01',items:['복습 테스트 쪽 보기와 앱에서 풀기 · 완료 표시']},
+  {v:'1.2',d:'2026-11-01',items:['영어 문단별 · 일본어 문장별 MP3 듣기','휴대폰에서 좌우로 밀어 탭 이동','PDF 저장 버튼을 제목 줄로']},
+  {v:'1.1',d:'2026-10-31',items:['영어 단어에 손가락·마우스를 대면 뜻 표시','핵심 단어 어원 카드']},
+  {v:'1.0',d:'2026-10-30',items:['스터디룸 시작: 홈 · 영어 · 일본어 · 테스트 탭, 달력, PDF 저장']}
+];
+$('verBtn').textContent='v'+VERSIONS[0].v;
+$('verList').innerHTML=VERSIONS.map(x=>`<li><div class="vh"><b>v${x.v}</b><span>${+x.d.slice(5,7)}/${+x.d.slice(8)}</span></div><ul>${x.items.map(i=>`<li>${esc(i)}</li>`).join('')}</ul></li>`).join('');
+const openDlg=id=>{ const d=$(id); try{ d.showModal(); }catch(e){ d.setAttribute('open',''); } };
+document.querySelectorAll('.dlg').forEach(d=>{
+  d.addEventListener('click',ev=>{ if(ev.target===d||ev.target.closest('[data-close]')){ d.close?d.close():d.removeAttribute('open'); } });
+  d.addEventListener('close',()=>{ const a=$('tsAud'); if(a) a.pause(); });
+});
+$('verBtn').onclick=()=>openDlg('verDlg');
+$('tipsBtn').onclick=()=>{ stopPlay(); openDlg('tipsDlg'); };
+(()=>{ // 학습 팁 샘플: 11/7 3문단 구간 재생
+  const a=$('tsAud'), seg={n:[139.77,165.25],s:[59.19,93.63]}; let end=0, on=null;
+  const stop=()=>{ a.pause(); if(on) on.classList.remove('on'); on=null; };
+  const play=(k,b)=>{ if(on===b){ stop(); return; } stop(); on=b; b.classList.add('on'); end=seg[k][1];
+    const go=()=>{ a.currentTime=seg[k][0]; a.play().catch(stop); };
+    if(a.readyState>=1) go(); else { a.addEventListener('loadedmetadata',go,{once:true}); a.load(); } };
+  a.addEventListener('timeupdate',()=>{ if(on&&a.currentTime>=end) stop(); });
+  a.addEventListener('pause',()=>{ if(on&&a.currentTime<end-0.3) { on.classList.remove('on'); on=null; } });
+  $('tsN').onclick=e=>play('n',e.currentTarget); $('tsS').onclick=e=>play('s',e.currentTarget);
+  const showEn=()=>{ $('tsEn').classList.remove('blur'); $('tsShow').textContent='본문 가리기'; };
+  $('tsEn').onclick=()=>{ if($('tsEn').classList.contains('blur')) showEn(); };
+  $('tsShow').onclick=()=>{ if($('tsEn').classList.contains('blur')) showEn(); else { $('tsEn').classList.add('blur'); $('tsShow').textContent='본문 보기'; } };
+  $('tsKo').onclick=e=>{ const k=$('tsKoTxt'); k.hidden=!k.hidden; e.currentTarget.classList.toggle('on',!k.hidden); };
+})();
 
 /* ── 탭 ── */
 const VIEWS=['home','en','ja','tests'];
@@ -982,5 +1088,4 @@ function renderTests(){
   if(m){ const iso=`${m[2].slice(0,4)}-${m[2].slice(4,6)}-${m[2].slice(6)}`; show(m[1],iso); }
   else show(VIEWS.includes(h)?h:'home');
 })();
-</script>
-</body></html>
+</script></body></html>
