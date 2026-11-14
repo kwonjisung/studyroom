@@ -1,0 +1,521 @@
+{
+ "lang": "en",
+ "date": "2026-11-15",
+ "no": "T05",
+ "title": "영어 복습 테스트 T05",
+ "pass": 80,
+ "sections": [
+  {
+   "id": "A",
+   "title": "단어 뜻 고르기",
+   "guide": "영어 단어의 뜻을 고르세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "<b>remote</b>",
+     "from": "#020",
+     "choices": [
+      "(생물의) 군체, 군집",
+      "전용의, 한 용도로만 쓰는",
+      "외딴, 멀리 떨어진",
+      "우회하다, 건너뛰다"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>colony</b>",
+     "from": "#020",
+     "choices": [
+      "외딴, 멀리 떨어진",
+      "(생물의) 군체, 군집",
+      "줄어드는, 감소하는",
+      "우회하다, 건너뛰다"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>bleaching</b>",
+     "from": "#020",
+     "choices": [
+      "외딴, 멀리 떨어진",
+      "(규정의) 틀, 체계",
+      "(산호의) 백화 현상",
+      "추정치, 어림"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>offset</b>",
+     "from": "#021",
+     "choices": [
+      "(산호의) 백화 현상",
+      "외딴, 멀리 떨어진",
+      "추정치, 어림",
+      "상쇄하다, 벌충하다"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>framework</b>",
+     "from": "#021",
+     "choices": [
+      "(산호의) 백화 현상",
+      "전용의, 한 용도로만 쓰는",
+      "(규정의) 틀, 체계",
+      "상쇄하다, 벌충하다"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>bypass</b>",
+     "from": "#021",
+     "choices": [
+      "줄어드는, 감소하는",
+      "외딴, 멀리 떨어진",
+      "(산호의) 백화 현상",
+      "우회하다, 건너뛰다"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>dedicated</b>",
+     "from": "#021",
+     "choices": [
+      "추정치, 어림",
+      "우회하다, 건너뛰다",
+      "전용의, 한 용도로만 쓰는",
+      "(규정의) 틀, 체계"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>estimate</b>",
+     "from": "#022",
+     "choices": [
+      "전용의, 한 용도로만 쓰는",
+      "추정치, 어림",
+      "무한한, 끝없는",
+      "줄어드는, 감소하는"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>infinite</b>",
+     "from": "#022",
+     "choices": [
+      "추정치, 어림",
+      "외딴, 멀리 떨어진",
+      "무한한, 끝없는",
+      "우회하다, 건너뛰다"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>shrinking</b>",
+     "from": "#022",
+     "choices": [
+      "상쇄하다, 벌충하다",
+      "추정치, 어림",
+      "무한한, 끝없는",
+      "줄어드는, 감소하는"
+     ],
+     "answer": 3
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "title": "단어 쓰기",
+   "guide": "한국어 뜻에 맞는 영어 단어를 쓰세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "text",
+     "q": "발견하다, 알아채다",
+     "hint": "s… (4글자)",
+     "from": "#020",
+     "answer": "spot"
+    },
+    {
+     "kind": "text",
+     "q": "생물, 유기체",
+     "hint": "o… (8글자)",
+     "from": "#020",
+     "answer": "organism"
+    },
+    {
+     "kind": "text",
+     "q": "피난처, 은신처",
+     "hint": "r… (6글자)",
+     "from": "#020",
+     "answer": "refuge"
+    },
+    {
+     "kind": "text",
+     "q": "표본, 샘플",
+     "hint": "s… (6글자)",
+     "from": "#020",
+     "answer": "sample"
+    },
+    {
+     "kind": "text",
+     "q": "기기, 장치",
+     "hint": "d… (6글자)",
+     "from": "#021",
+     "answer": "device"
+    },
+    {
+     "kind": "text",
+     "q": "우려, 걱정",
+     "hint": "c… (7글자)",
+     "from": "#021",
+     "answer": "concern"
+    },
+    {
+     "kind": "text",
+     "q": "예측, 예언",
+     "hint": "p… (10글자)",
+     "from": "#022",
+     "answer": "prediction"
+    },
+    {
+     "kind": "text",
+     "q": "출산율, 생식력",
+     "hint": "f… (9글자)",
+     "from": "#022",
+     "answer": "fertility"
+    },
+    {
+     "kind": "text",
+     "q": "감소하다, 줄어들다",
+     "hint": "d… (7글자)",
+     "from": "#022",
+     "answer": "decline"
+    },
+    {
+     "kind": "text",
+     "q": "예측하다, 예보하다",
+     "hint": "f… (8글자)",
+     "from": "#022",
+     "answer": "forecast"
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "title": "빈칸 채우기",
+   "guide": "보기에서 알맞은 단어를 고르세요. (남는 단어 있음)",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "The rose coral is one of the largest coral colonies ever ___.",
+     "from": "#020",
+     "choices": [
+      "declared",
+      "overload",
+      "tracking",
+      "peaked",
+      "recorded",
+      "advocates",
+      "legalised",
+      "overpopulation"
+     ],
+     "answer": 4
+    },
+    {
+     "kind": "choice",
+     "q": "The waters around the islands were ___ a marine park in 2022.",
+     "from": "#020",
+     "choices": [
+      "declared",
+      "overload",
+      "tracking",
+      "peaked",
+      "recorded",
+      "advocates",
+      "legalised",
+      "overpopulation"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "Some ___ want Australia to allow plug-in solar by mid-2027.",
+     "from": "#021",
+     "choices": [
+      "declared",
+      "overload",
+      "tracking",
+      "peaked",
+      "recorded",
+      "advocates",
+      "legalised",
+      "overpopulation"
+     ],
+     "answer": 5
+    },
+    {
+     "kind": "choice",
+     "q": "If several panels share one circuit, they could ___ the household wiring.",
+     "from": "#021",
+     "choices": [
+      "declared",
+      "overload",
+      "tracking",
+      "peaked",
+      "recorded",
+      "advocates",
+      "legalised",
+      "overpopulation"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "The world's population growth rate ___ at about 2.3 percent in 1963.",
+     "from": "#022",
+     "choices": [
+      "declared",
+      "overload",
+      "tracking",
+      "peaked",
+      "recorded",
+      "advocates",
+      "legalised",
+      "overpopulation"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "In 1960, three scientists said ___ would end the world in 2026.",
+     "from": "#022",
+     "choices": [
+      "declared",
+      "overload",
+      "tracking",
+      "peaked",
+      "recorded",
+      "advocates",
+      "legalised",
+      "overpopulation"
+     ],
+     "answer": 7
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "title": "문법 고르기",
+   "guide": "빈칸에 알맞은 것을 고르세요.",
+   "each": 3,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "Gerhard ___ the coral long before the scientists measured it.",
+     "from": "#020",
+     "choices": [
+      "had spotted",
+      "spots",
+      "has spotted",
+      "will spot"
+     ],
+     "answer": 0,
+     "explain": "과거(measured)보다 더 먼저 일어난 일 → 과거완료 had + p.p."
+    },
+    {
+     "kind": "choice",
+     "q": "Genetic tests will show ___ the coral is one organism or not.",
+     "from": "#020",
+     "choices": [
+      "what",
+      "which",
+      "whether",
+      "who"
+     ],
+     "answer": 2,
+     "explain": "'~인지 아닌지' → whether + 주어 + 동사 (or not과 자주 함께 씀)"
+    },
+    {
+     "kind": "choice",
+     "q": "The panels should ___ to a dedicated circuit.",
+     "from": "#021",
+     "choices": [
+      "connect",
+      "be connected",
+      "been connected",
+      "connecting"
+     ],
+     "answer": 1,
+     "explain": "패널은 '연결되는' 것 → 조동사 + be + p.p."
+    },
+    {
+     "kind": "choice",
+     "q": "Western Australia released draft rules ___ would permit one system per household.",
+     "from": "#021",
+     "choices": [
+      "who",
+      "what",
+      "where",
+      "which"
+     ],
+     "answer": 3,
+     "explain": "사물 선행사(rules) + 동사 앞 → 주격 관계대명사 which"
+    },
+    {
+     "kind": "choice",
+     "q": "In 1960, the scientists predicted that the world ___ in 2026.",
+     "from": "#022",
+     "choices": [
+      "ends",
+      "would end",
+      "will end",
+      "has ended"
+     ],
+     "answer": 1,
+     "explain": "과거(predicted)에서 본 미래 → would + 동사원형"
+    },
+    {
+     "kind": "choice",
+     "q": "Today, an aging population is a ___ bigger worry than crowding.",
+     "from": "#022",
+     "choices": [
+      "very",
+      "more",
+      "most",
+      "far"
+     ],
+     "answer": 3,
+     "explain": "비교급(bigger)을 강조할 때는 very가 아니라 far / much"
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "title": "문법 바꿔 쓰기",
+   "guide": "빈칸에 들어갈 말을 쓰세요.",
+   "each": 4,
+   "items": [
+    {
+     "kind": "text",
+     "q": "<span class='sub'>과거완료로 한 문장 만들기</span>The divers ran out of air many times. Then they switched to GPS.<br>→ The divers ___ out of air many times before they switched to GPS.",
+     "from": "#020",
+     "answer": "had run",
+     "accept": [],
+     "explain": "switched(과거)보다 먼저 → had + p.p. (run-ran-run)"
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>조동사 수동태로 바꾸기</span>Standards Australia must finish the safety rules first.<br>→ The safety rules ___ first.",
+     "from": "#021",
+     "answer": "must be finished",
+     "accept": [],
+     "explain": "목적어가 주어로 → must + be + p.p."
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>far를 넣어 '훨씬 더'의 뜻 더하기</span>A shrinking population is a bigger worry than crowding.<br>→ A shrinking population is ___ than crowding.",
+     "from": "#022",
+     "answer": "a far bigger worry",
+     "accept": [],
+     "explain": "far + 비교급 (훨씬 더 ~한)"
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "title": "기사 내용 O / X",
+   "guide": "맞으면 O, 틀리면 X",
+   "each": 1,
+   "items": [
+    {
+     "kind": "ox",
+     "q": "The rose coral colony is about 1.56 kilometers long.",
+     "from": "#020",
+     "answer": "O",
+     "explain": "약 1.56km"
+    },
+    {
+     "kind": "ox",
+     "q": "Dieter Gerhard first saw the coral only three years ago.",
+     "from": "#020",
+     "answer": "X",
+     "explain": "30년도 더 전에 처음 봄"
+    },
+    {
+     "kind": "ox",
+     "q": "The team mapped the whole colony in just one dive.",
+     "from": "#020",
+     "answer": "X",
+     "explain": "12번 잠수해야 했음"
+    },
+    {
+     "kind": "ox",
+     "q": "Germany has added over one million plug-in solar systems in two years.",
+     "from": "#021",
+     "answer": "O",
+     "explain": "2년 만에 100만 개 넘게"
+    },
+    {
+     "kind": "ox",
+     "q": "Western Australia's draft rules would allow two systems per household.",
+     "from": "#021",
+     "answer": "X",
+     "explain": "가구당 1개"
+    },
+    {
+     "kind": "ox",
+     "q": "Electricians worry that several units on one circuit could start a fire.",
+     "from": "#021",
+     "answer": "O",
+     "explain": "배선 과부하로 화재 우려"
+    },
+    {
+     "kind": "ox",
+     "q": "The 1960 paper said overpopulation would end the world.",
+     "from": "#022",
+     "answer": "O",
+     "explain": "원인은 인구 과잉"
+    },
+    {
+     "kind": "ox",
+     "q": "Global population growth peaked in 1980.",
+     "from": "#022",
+     "answer": "X",
+     "explain": "1963년에 약 2.3%로 정점"
+    }
+   ]
+  },
+  {
+   "id": "G",
+   "title": "한국어 → 영어",
+   "guide": "힌트 표현을 넣어 영작하고, 모범 답과 비교해 스스로 채점하세요.",
+   "each": 5,
+   "items": [
+    {
+     "kind": "self",
+     "q": "산호 표본들은 실험실에서 검사될 것이다.",
+     "hint": "힌트: will be tested",
+     "answer": "The coral samples will be tested in a lab."
+    },
+    {
+     "kind": "self",
+     "q": "나는 그 예측이 맞을지 궁금했다.",
+     "hint": "힌트: whether · would",
+     "answer": "I wondered whether the prediction would be right."
+    }
+   ]
+  }
+ ]
+}
