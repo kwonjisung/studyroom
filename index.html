@@ -35,7 +35,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .brand{font-family:var(--display);font-size:26px;font-weight:700;letter-spacing:.02em;margin:0}
 .brand small{font-family:var(--ko);font-size:12.5px;font-weight:500;color:var(--muted);margin-left:8px;letter-spacing:0}
 .today{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
-.tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:4px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:4px}
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:4px}
 .tab{font:inherit;font-size:14.5px;font-weight:500;border:0;border-radius:9px;padding:9px 6px;background:transparent;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px}
 .tab[aria-selected="true"]{background:var(--ink);color:var(--paper)}
 .tab .pip{width:8px;height:8px;border-radius:50%}
@@ -246,9 +246,17 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
 .tview .btn.on{outline:2px solid var(--c);outline-offset:1px}
 .tpages{display:flex;flex-direction:column;gap:10px}
 @media (max-width:430px){.tab{font-size:13px;gap:4px;padding:9px 2px}.tab .pip{width:6px;height:6px}}
+.subsw{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:4px}
+.subsw button{font:inherit;font-size:14px;font-weight:600;border:0;border-radius:9px;padding:8px 6px;background:transparent;color:var(--muted);cursor:pointer}
+.subsw button.on{background:var(--c,var(--en));color:#fff}
+#v-en .subsw{--c:var(--en)} #v-ja .subsw{--c:var(--ja)}
+.vb-ja .vb-w,.vb-ja .vb-card .big,.vb-ja .vb-quiz .q,.vb-ja .vb-fam .ws button,.vb-ja .vb-it b{font-family:var(--jaF)}
+.vb-ja .vb-fam .fh b,.vb-ja .vb-dl{font-family:var(--jaF)}
+.vb-ja rt{font-size:.5em;color:var(--muted)}
+.vb-ja .vb-ex{font-family:var(--jaF)}
 .vb-modes{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
 .vb-modes button{flex:none;font:inherit;font-size:13.5px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;white-space:nowrap}
-.vb-modes button.on{background:var(--en);color:#fff;border-color:var(--en);font-weight:600}
+.vb-modes button.on{background:var(--c);color:#fff;border-color:var(--c);font-weight:600}
 .vb-box{display:flex;flex-direction:column;gap:10px}
 .vb-top{display:flex;flex-direction:column;gap:8px}
 .vb-cnt{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
@@ -392,7 +400,6 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
     <nav class="tabs" role="tablist" aria-label="스터디룸 메뉴">
       <button class="tab" role="tab" id="t-home" data-view="home">홈</button>
       <button class="tab" role="tab" id="t-en" data-view="en"><i class="pip" style="background:var(--en)"></i>영어</button>
-      <button class="tab" role="tab" id="t-words" data-view="words"><i class="pip" style="background:var(--ok)"></i>단어장</button>
       <button class="tab" role="tab" id="t-ja" data-view="ja"><i class="pip" style="background:var(--ja)"></i>일본어</button>
       <button class="tab" role="tab" id="t-tests" data-view="tests"><i class="pip" style="background:var(--test)"></i>테스트</button>
     </nav>
@@ -453,24 +460,25 @@ rt{font-family:var(--jaF);font-size:.45em;color:var(--muted)}
 
   <!-- 영어 -->
   <section class="view" id="v-en" role="tabpanel" aria-labelledby="t-en" hidden>
+    <div class="subsw" role="tablist" aria-label="영어 보기"><button type="button" data-sub="sheet" data-lang="en">📄 학습지</button><button type="button" data-sub="words" data-lang="en">📚 영어 단어장</button></div>
+    <div class="panel vb" id="vb-en" style="--c:var(--en)" hidden>
+      <div class="ph"><h2>영어 단어장</h2><span class="sub" id="vbSub-en"></span></div>
+      <div class="vb-modes" id="vbModes-en" role="tablist" aria-label="단어장 보기 방식"><button type="button" data-m="list">📅 날짜별</button><button type="button" data-m="cards">🃏 카드</button><button type="button" data-m="roots">🌳 어원 가족</button><button type="button" data-m="az">🔤 A–Z·★</button><button type="button" data-m="board">📈 암기 보드</button></div>
+      <div class="vb-box" id="vbBox-en"><div class="empty">단어를 불러오는 중입니다.</div></div>
+    </div>
     <div class="panel" id="enSheet" style="--c:var(--en)"><div class="empty">영어 학습지를 불러오는 중입니다.</div></div>
   </section>
 
   <!-- 일본어 -->
   <section class="view" id="v-ja" role="tabpanel" aria-labelledby="t-ja" hidden>
+    <div class="subsw" role="tablist" aria-label="일본어 보기"><button type="button" data-sub="sheet" data-lang="ja">📄 학습지</button><button type="button" data-sub="words" data-lang="ja">📚 일본어 단어장</button></div>
+    <div class="panel vb vb-ja" id="vb-ja" style="--c:var(--ja)" hidden>
+      <div class="ph"><h2>일본어 단어장</h2><span class="sub" id="vbSub-ja"></span></div>
+      <div class="vb-modes" id="vbModes-ja" role="tablist" aria-label="단어장 보기 방식"><button type="button" data-m="list">📅 날짜별</button><button type="button" data-m="cards">🃏 카드</button><button type="button" data-m="roots">🈷️ 한자 가족</button><button type="button" data-m="az">あ 50음·★</button><button type="button" data-m="board">📈 암기 보드</button></div>
+      <div class="vb-box" id="vbBox-ja"><div class="empty">단어를 불러오는 중입니다.</div></div>
+    </div>
     <div class="panel" id="jaSheet" style="--c:var(--ja)"><div class="empty">일본어 학습지를 불러오는 중입니다.</div></div>
     <div class="panel" id="jaPlan" style="--c:var(--ja)"></div>
-  </section>
-
-  <!-- 단어장 -->
-  <section class="view" id="v-words" role="tabpanel" aria-labelledby="t-words" hidden>
-    <div class="panel vb" style="--c:var(--en)">
-      <div class="ph"><h2>영어 단어장</h2><span class="sub" id="vbSub">학습지 핵심 단어 모음</span></div>
-      <div class="vb-modes" id="vbModes" role="tablist" aria-label="단어장 보기 방식">
-        <button type="button" data-m="list">📅 날짜별</button><button type="button" data-m="cards">🃏 카드</button><button type="button" data-m="roots">🌳 어원 가족</button><button type="button" data-m="az">🔤 A–Z·★</button><button type="button" data-m="board">📈 암기 보드</button>
-      </div>
-      <div class="vb-box" id="vbBox"><div class="empty">단어를 불러오는 중입니다.</div></div>
-    </div>
   </section>
 
   <!-- 테스트 -->
@@ -687,7 +695,8 @@ async function savePdf(path,filename,btn,note){
 
 /* ── 버전 정보 · 업데이트 기록 ── */
 const VERSIONS=[
-  {v:'1.9',d:'2026-11-16',items:['영어 단어장 탭: 날짜별 · 카드 · 어원 가족 · A–Z·★ · 암기 보드(오늘의 10단어)','별표·외운 단어 기록은 내 계정(안 되면 이 기기)에 저장']},
+  {v:'1.10',d:'2026-11-16',items:['단어장을 영어·일본어 탭 안으로 이동(📄 학습지 / 📚 단어장)','일본어 단어장 추가: 날짜별 · 카드 · 한자 가족 · 50음·★ · 암기 보드']},
+  {v:'1.9',d:'2026-11-16',items:['영어 단어장: 날짜별 · 카드 · 어원 가족 · A–Z·★ · 암기 보드(오늘의 10단어)','별표·외운 단어 기록은 내 계정(안 되면 이 기기)에 저장']},
   {v:'1.8',d:'2026-11-12',items:['상단에 버전 정보와 업데이트 기록','💡 학습 팁(공부 순서 가이드 + 실제 본문 샘플)','학습지 PDF의 QR이 스터디룸 사이트(그날 학습지)로 연결','영어 MP3가 제목부터 읽음(새 학습지부터)']},
   {v:'1.7',d:'2026-11-08',items:['영어 학습지 제목 옆 그림','전체 해석 맨 앞에 제목 해석(새 학습지부터)']},
   {v:'1.6',d:'2026-11-08',items:['날짜 옆·달력에 "오늘" 버튼','매일 05:05 GitHub(사이트) 자동 업데이트']},
@@ -722,119 +731,149 @@ $('tipsBtn').onclick=()=>{ stopPlay(); openDlg('tipsDlg'); };
   $('tsKo').onclick=e=>{ const k=$('tsKoTxt'); k.hidden=!k.hidden; e.currentTarget.classList.toggle('on',!k.hidden); };
 })();
 
-/* ── 영어 단어장 (날짜별 · 카드 · 어원 가족 · A–Z·★ · 암기 보드) ── */
-let VW=null; const VS={star:[],box:{},mode:'list'}; let VDB=null, VUID=null, vbQ='', vbF='all';
+/* ── 단어장 (영어·일본어 공통: 날짜별 · 카드 · 어원/한자 가족 · A–Z/50음·★ · 암기 보드) ── */
+const SUB={en:'sheet',ja:'sheet'};
+const VB={en:{star:[],box:{},mode:'list',q:'',f:'all',sel:null,only:false,vc:null,vq:null,exp:{},data:null,db:null,uid:null,t:null},
+          ja:{star:[],box:{},mode:'list',q:'',f:'all',sel:null,only:false,vc:null,vq:null,exp:{},data:null,db:null,uid:null,t:null}};
+const vbKey=L=>L==='en'?'sr-vocab':'sr-vocab-ja', vbDoc=L=>L==='en'?'vocab':'vocab_ja';
 const vbRe=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
-function vbLoad(){ const o=lsGet('sr-vocab'); if(o){ VS.star=o.star||[]; VS.box=o.box||{}; VS.mode=o.mode||'list'; } }
-async function vbCloud(){ try{ const db=await window.claude?.use?.('db'), user=await window.claude?.use?.('user'); if(!db||!user) return; const uid=await user.id(); if(!uid) return; VDB=db; VUID=uid;
-  const sn=await db.doc(`data/users/${uid}/vocab`).get(); if(sn.exists){ const o=sn.data(); if((o.at||'')>(lsGet('sr-vocab')?.at||'')){ VS.star=o.star||[]; VS.box=o.box||{}; lsSet('sr-vocab',{...VS,at:o.at}); if(!$('v-words').hidden) renderWords(); } } }catch(e){} }
-let vbT=null; function vbSave(){ const at=new Date().toISOString(); lsSet('sr-vocab',{...VS,at}); clearTimeout(vbT); vbT=setTimeout(()=>{ try{ if(VDB&&VUID) VDB.doc(`data/users/${VUID}/vocab`).set({star:VS.star,box:VS.box,at}); }catch(e){} },600); }
-function vbData(){ if(VW&&VW.n===D.en.length) return VW.list;
-  const list=[]; [...D.en].sort((a,b)=>a.date.localeCompare(b.date)).forEach(e=>{
-    const sents=e.passage.map(p=>p.replace(/<[^>]+>/g,'').replace(/&amp;/g,'&')).join(' ').split(/(?<=[.!?])\s+/);
-    e.vocab.forEach(v=>{ const b=v.word.toLowerCase(); const stem=b.slice(0,Math.max(4,b.length-2)); const re=new RegExp('\\b'+vbRe(stem),'i');
-      const r=D.roots[b]||{}; list.push({w:v.word,i:v.ipa||'',p:v.pos,m:v.meaning,d:e.date,n:e.no,t:e.title,x:sents.find(s=>re.test(s))||'',s:r.s||[],c:r.c||''}); }); });
-  VW={n:D.en.length,list}; return list; }
-const vbHi=(x,w)=>{ const b=w.toLowerCase().slice(0,Math.max(4,w.length-2)); return esc(x).replace(new RegExp('\\b('+vbRe(b)+'\\w*)','i'),'<mark>$1</mark>'); };
+const plainJa=t=>String(t||'').replace(/<[^>]+>/g,'').replace(/\{([^|{}]+)\|[^{}]+\}/g,'$1').replace(/[\^⟦⟧]/g,'');
+function setSub(L,sub){ SUB[L]=sub==='words'?'words':'sheet'; const w=SUB[L]==='words';
+  document.querySelectorAll(`#v-${L} .subsw button`).forEach(b=>b.classList.toggle('on',b.dataset.sub===SUB[L]));
+  $('vb-'+L).hidden=!w; [L==='en'?'enSheet':'jaSheet', L==='ja'?'jaPlan':null].filter(Boolean).forEach(id=>{ const el=$(id); if(el) el.hidden=w; });
+  if(w){ stopPlay(); renderWords(L); } }
+document.querySelectorAll('.subsw button').forEach(b=>b.onclick=()=>{ setSub(b.dataset.lang,b.dataset.sub); window.scrollTo({top:0}); });
+function vbLoad(L){ const o=lsGet(vbKey(L)); if(o){ const S=VB[L]; S.star=o.star||[]; S.box=o.box||{}; S.mode=o.mode||'list'; } }
+async function vbCloud(L){ try{ const db=await window.claude?.use?.('db'), user=await window.claude?.use?.('user'); if(!db||!user) return; const uid=await user.id(); if(!uid) return; const S=VB[L]; S.db=db; S.uid=uid;
+  const sn=await db.doc(`data/users/${uid}/${vbDoc(L)}`).get(); if(sn.exists){ const o=sn.data(); if((o.at||'')>(lsGet(vbKey(L))?.at||'')){ S.star=o.star||[]; S.box=o.box||{}; lsSet(vbKey(L),{star:S.star,box:S.box,mode:S.mode,at:o.at}); if(SUB[L]==='words'&&!$('v-'+L).hidden) renderWords(L); } } }catch(e){} }
+function vbSave(L){ const S=VB[L], at=new Date().toISOString(); lsSet(vbKey(L),{star:S.star,box:S.box,mode:S.mode,at}); clearTimeout(S.t);
+  S.t=setTimeout(()=>{ try{ if(S.db&&S.uid) S.db.doc(`data/users/${S.uid}/${vbDoc(L)}`).set({star:S.star,box:S.box,at}); }catch(e){} },600); }
+/* 단어 목록 만들기: {k 고유키, w 표시(HTML), plain, i 발음, p 품사, m 뜻, d 날짜, n 번호, t 제목, x 예문(HTML), s 조각[[글자,뜻]], c 풀이, sort 정렬키} */
+function vbData(L){ const S=VB[L], src=L==='en'?D.en:D.ja; if(S.data&&S.data.n===src.length) return S.data.list;
+  const list=[];
+  if(L==='en'){
+    [...src].sort((a,b)=>a.date.localeCompare(b.date)).forEach(e=>{
+      const sents=e.passage.map(p=>p.replace(/<[^>]+>/g,'').replace(/&amp;/g,'&')).join(' ').split(/(?<=[.!?])\s+/);
+      e.vocab.forEach(v=>{ const b=v.word.toLowerCase(), stem=b.slice(0,Math.max(4,b.length-2)), re=new RegExp('\\b('+vbRe(stem)+'\\w*)','i'), r=D.roots[b]||{};
+        const x=sents.find(s=>re.test(s))||'';
+        list.push({k:v.word,w:esc(v.word),plain:v.word,i:v.ipa||'',p:v.pos,m:v.meaning,d:e.date,n:e.no,t:e.title,x:x?esc(x).replace(re,'<mark>$1</mark>'):'',s:r.s||[],c:r.c||'',sort:b}); }); });
+  } else {
+    const KJ={}; src.forEach(e=>(e.kanji||[]).forEach(k=>{ if(!KJ[k.k]) KJ[k.k]=(k.t?`(${k.t}) `:'')+k.ko; }));
+    [...src].sort((a,b)=>a.date.localeCompare(b.date)).forEach(e=>{
+      const qs=e.quote.map(q=>q.replace(/<[^>]+>/g,''));
+      e.words.forEach(v=>{ const pl=plainJa(v.word), stem=pl.length>1?pl.replace(/[ぁ-ん]+$/,'')||pl:pl;
+        const q=qs.find(x=>plainJa(x).includes(stem));
+        const ks=[...pl].filter(ch=>/[一-鿿]/.test(ch));
+        list.push({k:pl,w:jaH(v.word),plain:pl,i:`${v.reading||''} (${v.pron||''})`,p:v.pos,m:v.meaning,d:e.date,n:e.no,t:`${e.work_ko} · ${e.speaker||''}`,
+          x:q?jaH(q):'',s:ks.map(ch=>[ch,KJ[ch]||'']),c:'',sort:kata2hira(v.reading||pl)}); }); });
+  }
+  S.data={n:src.length,list}; return list; }
 const vbPieces=v=>v.s.length?`<div class="vb-pieces">${v.s.map(p=>`<span><b>${esc(p[0])}</b> ${esc(p[1])}</span>`).join('')}</div>`:'';
-const vbDetail=v=>`${vbPieces(v)}${v.c?`<div>${esc(v.c)}</div>`:''}${v.x?`<div class="vb-ex" style="margin-top:4px">${vbHi(v.x,v.w)}</div>`:''}<div class="vb-mut" style="margin-top:4px">${md(v.d)} No.${esc(v.n)} · <a href="#en-${v.d.replace(/-/g,'')}" data-go="${v.d}" style="color:var(--en)">학습지 보기</a></div>`;
-const vbStar=v=>`<button type="button" class="vb-star ${VS.star.includes(v.w)?'on':''}" data-star="${esc(v.w)}" aria-label="${esc(v.w)} 별표">★</button>`;
-function vbWire(box){
-  box.querySelectorAll('[data-star]').forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); const w=b.dataset.star, i=VS.star.indexOf(w); i<0?VS.star.push(w):VS.star.splice(i,1); b.classList.toggle('on',i<0); vbSave(); const c=$('vbStarCnt'); if(c) c.textContent=VS.star.length; });
-  box.querySelectorAll('[data-go]').forEach(a=>a.onclick=ev=>{ ev.preventDefault(); ev.stopPropagation(); show('en',a.dataset.go); });
+const vbDetail=(L,v)=>`${vbPieces(v)}${v.c?`<div>${esc(v.c)}</div>`:''}${v.x?`<div class="vb-ex" style="margin-top:4px"${L==='ja'?' lang="ja"':''}>${v.x}</div>`:''}<div class="vb-mut" style="margin-top:4px">${md(v.d)} No.${esc(v.n)} · <a href="#${L}-${v.d.replace(/-/g,'')}" data-go="${v.d}" style="color:var(--c)">학습지 보기</a></div>`;
+const vbStar=(L,v)=>`<button type="button" class="vb-star ${VB[L].star.includes(v.k)?'on':''}" data-star="${esc(v.k)}" aria-label="${esc(v.plain)} 별표">★</button>`;
+function vbWire(L,box){
+  box.querySelectorAll('[data-star]').forEach(b=>b.onclick=ev=>{ ev.stopPropagation(); const S=VB[L], w=b.dataset.star, i=S.star.indexOf(w); i<0?S.star.push(w):S.star.splice(i,1); b.classList.toggle('on',i<0); vbSave(L); const c=box.querySelector('.vbStarCnt'); if(c) c.textContent=S.star.length; $('vbSub-'+L).textContent=vbSubText(L); });
+  box.querySelectorAll('[data-go]').forEach(a=>a.onclick=ev=>{ ev.preventDefault(); ev.stopPropagation(); show(L,a.dataset.go,{sub:'sheet'}); });
 }
-function renderWords(mode){
-  if(mode){ VS.mode=mode; vbSave(); }
-  const V=vbData(), box=$('vbBox');
-  $('vbSub').textContent=`학습지 ${D.en.length}장 · 핵심 단어 ${V.length}개 · ★ ${VS.star.length}`;
-  $('vbModes').querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.m===VS.mode));
+const vbSubText=L=>{ const V=vbData(L); return `학습지 ${(L==='en'?D.en:D.ja).length}장 · 단어 ${V.length}개 · ★ ${VB[L].star.length}`; };
+function renderWords(L,mode){
+  const S=VB[L]; if(mode){ S.mode=mode; vbSave(L); }
+  const V=vbData(L), box=$('vbBox-'+L);
+  $('vbSub-'+L).textContent=vbSubText(L);
+  $('vbModes-'+L).querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.m===S.mode));
   if(!V.length){ box.innerHTML='<div class="empty">아직 단어가 없어요.</div>'; return; }
-  ({list:vbList,cards:vbCards,roots:vbRoots,az:vbAZ,board:vbBoard}[VS.mode]||vbList)(box,V);
+  ({list:vbList,cards:vbCards,roots:vbRoots,az:vbAZ,board:vbBoard}[S.mode]||vbList)(L,box,V);
 }
-$('vbModes').onclick=e=>{ const b=e.target.closest('[data-m]'); if(b) renderWords(b.dataset.m); };
-function vbList(box,V){
-  const dates=[...new Set(V.map(v=>v.d))].reverse();
-  box.innerHTML=`<div class="vb-top"><input class="vb-srch" id="vbQ" placeholder="단어·뜻 검색 (예: protect, 보호)" value="${esc(vbQ)}" aria-label="단어 검색"><div class="vb-chips" id="vbF" data-noswipe><button class="vb-chip" data-f="all">전체</button><button class="vb-chip" data-f="w">최근 6장</button><button class="vb-chip" data-f="star">★ 별표</button>${dates.map(d=>`<button class="vb-chip" data-f="${d}">${md(d)}</button>`).join('')}</div><span class="vb-cnt" id="vbCnt"></span></div><div id="vbL"></div>`;
-  const draw=()=>{ const q=vbQ.trim().toLowerCase(), wk=dates.slice(0,6);
-    $('vbF').querySelectorAll('.vb-chip').forEach(c=>c.classList.toggle('on',c.dataset.f===vbF));
-    const L=V.filter(v=>(vbF==='all'||(vbF==='w'?wk.includes(v.d):vbF==='star'?VS.star.includes(v.w):v.d===vbF))&&(!q||v.w.toLowerCase().includes(q)||v.m.includes(q)));
-    $('vbCnt').textContent=`${L.length}개 · 단어를 누르면 어원·예문`;
-    const by={}; L.forEach(v=>(by[v.d]=by[v.d]||[]).push(v));
-    $('vbL').innerHTML=Object.keys(by).sort().reverse().map(d=>`<div class="vb-grp"><h4><span>${md(d)} · No.${esc(by[d][0].n)} · ${esc(by[d][0].t)}</span><span>${by[d].length}개</span></h4>${by[d].map(v=>`<div class="vb-row" tabindex="0"><div class="l1"><span class="vb-w">${esc(v.w)}</span><span class="vb-ipa">${esc(v.i)}</span><span class="vb-pos">${esc(v.p)}</span><span style="margin-left:auto">${vbStar(v)}</span></div><div class="vb-mn">${esc(v.m)}</div><div class="vb-more">${vbDetail(v)}</div></div>`).join('')}</div>`).join('')||'<p class="vb-mut">찾는 단어가 없어요.</p>';
-    $('vbL').querySelectorAll('.vb-row').forEach(r=>{ r.onclick=()=>r.classList.toggle('open'); r.onkeydown=e=>{ if(e.key==='Enter') r.classList.toggle('open'); }; });
-    vbWire($('vbL')); };
-  $('vbQ').oninput=e=>{ vbQ=e.target.value; draw(); };
-  $('vbF').onclick=e=>{ const b=e.target.closest('[data-f]'); if(b){ vbF=b.dataset.f; draw(); } };
+['en','ja'].forEach(L=>{ $('vbModes-'+L).onclick=e=>{ const b=e.target.closest('[data-m]'); if(b) renderWords(L,b.dataset.m); }; });
+function vbList(L,box,V){
+  const S=VB[L], dates=[...new Set(V.map(v=>v.d))].reverse();
+  box.innerHTML=`<div class="vb-top"><input class="vb-srch" placeholder="${L==='en'?'단어·뜻 검색 (예: protect, 보호)':'단어·읽기·뜻 검색 (예: 心, こころ, 마음)'}" value="${esc(S.q)}" aria-label="단어 검색"><div class="vb-chips" data-noswipe><button class="vb-chip" data-f="all">전체</button><button class="vb-chip" data-f="w">최근 6장</button><button class="vb-chip" data-f="star">★ 별표</button>${dates.map(d=>`<button class="vb-chip" data-f="${d}">${md(d)}</button>`).join('')}</div><span class="vb-cnt"></span></div><div class="vb-l"></div>`;
+  const inp=box.querySelector('.vb-srch'), chips=box.querySelector('.vb-chips'), cnt=box.querySelector('.vb-cnt'), out=box.querySelector('.vb-l');
+  const draw=()=>{ const q=S.q.trim().toLowerCase(), wk=dates.slice(0,6);
+    chips.querySelectorAll('.vb-chip').forEach(c=>c.classList.toggle('on',c.dataset.f===S.f));
+    const Lw=V.filter(v=>(S.f==='all'||(S.f==='w'?wk.includes(v.d):S.f==='star'?S.star.includes(v.k):v.d===S.f))&&(!q||v.plain.toLowerCase().includes(q)||v.m.includes(q)||v.i.includes(q)||(L==='ja'&&v.sort.includes(kata2hira(q)))));
+    cnt.textContent=`${Lw.length}개 · 단어를 누르면 ${L==='en'?'어원·예문':'한자 훈음·대사'}`;
+    const by={}; Lw.forEach(v=>(by[v.d]=by[v.d]||[]).push(v));
+    out.innerHTML=Object.keys(by).sort().reverse().map(d=>`<div class="vb-grp"><h4><span>${md(d)} · No.${esc(by[d][0].n)} · ${esc(by[d][0].t)}</span><span>${by[d].length}개</span></h4>${by[d].map(v=>`<div class="vb-row" tabindex="0"><div class="l1"><span class="vb-w"${L==='ja'?' lang="ja"':''}>${v.w}</span><span class="vb-ipa">${esc(v.i)}</span><span class="vb-pos">${esc(v.p)}</span><span style="margin-left:auto">${vbStar(L,v)}</span></div><div class="vb-mn">${esc(v.m)}</div><div class="vb-more">${vbDetail(L,v)}</div></div>`).join('')}</div>`).join('')||'<p class="vb-mut">찾는 단어가 없어요.</p>';
+    out.querySelectorAll('.vb-row').forEach(r=>{ r.onclick=e=>{ if(!e.target.closest('a,button')) r.classList.toggle('open'); }; r.onkeydown=e=>{ if(e.key==='Enter') r.classList.toggle('open'); }; });
+    vbWire(L,out); };
+  inp.oninput=e=>{ S.q=e.target.value; draw(); };
+  chips.onclick=e=>{ const b=e.target.closest('[data-f]'); if(b){ S.f=b.dataset.f; draw(); } };
   draw();
 }
-let VC=null;
-function vbCards(box,V,src){
-  const dates=[...new Set(V.map(v=>v.d))].reverse();
-  const pick=k=>k==='r3'?V.filter(v=>dates.slice(0,3).includes(v.d)):k==='w'?V.filter(v=>dates.slice(0,6).includes(v.d)):k==='star'?V.filter(v=>VS.star.includes(v.w)):k==='weak'?V.filter(v=>(VS.box[v.w]||0)<2&&VS.box[v.w]!==undefined):V;
-  if(!VC||src){ const k=src||'r3'; VC={k,deck:pick(k).slice().reverse(),i:0,flip:false,ok:0,ng:[]}; }
-  const c=VC, v=c.deck[c.i];
-  box.innerHTML=`<div class="vb-top"><div class="vb-chips" id="vbCk" data-noswipe>${[['r3','최근 3장'],['w','최근 6장'],['all','전체'],['star','★ 별표'],['weak','헷갈린 단어']].map(([k,n])=>`<button class="vb-chip ${c.k===k?'on':''}" data-k="${k}">${n}</button>`).join('')}</div><div class="vb-prog"><i style="width:${c.deck.length?c.i/c.deck.length*100:0}%"></i></div><span class="vb-cnt">${c.deck.length?Math.min(c.i+1,c.deck.length)+' / '+c.deck.length:'카드 없음'} · 알아요 ${c.ok} · 몰라요 ${c.ng.length}</span></div>
-  ${!c.deck.length?'<div class="vb-card"><b>카드가 없어요</b><span class="vb-mut">★ 별표를 하거나 다른 묶음을 골라 보세요.</span></div>':v?`<div class="vb-card" id="vbC" tabindex="0" role="button" aria-label="카드 뒤집기">${c.flip?`<div class="vb-pos">${esc(v.p)}</div><div style="font-size:22px;font-weight:700">${esc(v.m)}</div><div class="back">${vbDetail(v)}</div>`:`<div class="big">${esc(v.w)}</div><div class="vb-ipa">${esc(v.i)}</div><div class="vb-mut">눌러서 뜻 보기 · ${vbStar(v)}</div>`}</div><div class="vb-btns"><button class="no" id="vbN">😵 몰라요</button><button class="yes" id="vbY">👍 알아요</button></div>`
-  :`<div class="vb-card"><div style="font-size:40px">🎉</div><b>한 바퀴 끝!</b><div class="vb-mut">알아요 ${c.ok} · 몰라요 ${c.ng.length}</div></div><div class="vb-btns"><button class="yes" id="vbR">${c.ng.length?`몰라요만 다시 (${c.ng.length})`:'처음부터 다시'}</button></div>`}
+function vbCards(L,box,V,src){
+  const S=VB[L], dates=[...new Set(V.map(v=>v.d))].reverse();
+  const pick=k=>k==='r3'?V.filter(v=>dates.slice(0,3).includes(v.d)):k==='w'?V.filter(v=>dates.slice(0,6).includes(v.d)):k==='star'?V.filter(v=>S.star.includes(v.k)):k==='weak'?V.filter(v=>S.box[v.k]===1):V;
+  if(!S.vc||src){ const k=src||'r3'; S.vc={k,deck:pick(k).slice().reverse(),i:0,flip:false,ok:0,ng:[]}; }
+  const c=S.vc, v=c.deck[c.i];
+  const front=v?(L==='en'?`<div class="big">${v.w}</div><div class="vb-ipa">${esc(v.i)}</div>`:`<div class="big" lang="ja">${esc(v.plain)}</div><div class="vb-ipa">읽기는 뒷면에</div>`):'';
+  box.innerHTML=`<div class="vb-top"><div class="vb-chips" data-noswipe>${[['r3','최근 3장'],['w','최근 6장'],['all','전체'],['star','★ 별표'],['weak','헷갈린 단어']].map(([k,n])=>`<button class="vb-chip ${c.k===k?'on':''}" data-k="${k}">${n}</button>`).join('')}</div><div class="vb-prog"><i style="width:${c.deck.length?c.i/c.deck.length*100:0}%;background:var(--c)"></i></div><span class="vb-cnt">${c.deck.length?Math.min(c.i+1,c.deck.length)+' / '+c.deck.length:'카드 없음'} · 알아요 ${c.ok} · 몰라요 ${c.ng.length}</span></div>
+  ${!c.deck.length?'<div class="vb-card"><b>카드가 없어요</b><span class="vb-mut">★ 별표를 하거나 다른 묶음을 골라 보세요.</span></div>':v?`<div class="vb-card" tabindex="0" role="button" aria-label="카드 뒤집기">${c.flip?`<div class="vb-w" style="font-size:24px"${L==='ja'?' lang="ja"':''}>${v.w}</div><div class="vb-ipa">${esc(v.i)} · <span class="vb-pos">${esc(v.p)}</span></div><div style="font-size:21px;font-weight:700">${esc(v.m)}</div><div class="back">${vbDetail(L,v)}</div>`:`${front}<div class="vb-mut">눌러서 뜻 보기 · ${vbStar(L,v)}</div>`}</div><div class="vb-btns"><button class="no" data-ans="0">😵 몰라요</button><button class="yes" data-ans="1">👍 알아요</button></div>`
+  :`<div class="vb-card"><div style="font-size:40px">🎉</div><b>한 바퀴 끝!</b><div class="vb-mut">알아요 ${c.ok} · 몰라요 ${c.ng.length}</div></div><div class="vb-btns"><button class="yes" data-again="1">${c.ng.length?`몰라요만 다시 (${c.ng.length})`:'처음부터 다시'}</button></div>`}
   <p class="vb-mut" style="margin:0">알아요·몰라요는 암기 보드에도 반영돼요(알아요 → 한 칸 앞으로, 몰라요 → 외우는 중).</p>`;
-  $('vbCk').onclick=e=>{ const b=e.target.closest('[data-k]'); if(b) vbCards(box,V,b.dataset.k); };
-  if(v&&$('vbC')){ const flip=()=>{ c.flip=!c.flip; vbCards(box,V); }; $('vbC').onclick=e=>{ if(!e.target.closest('[data-star],[data-go]')) flip(); }; $('vbC').onkeydown=e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flip(); } };
-    $('vbN').onclick=()=>{ c.ng.push(v); VS.box[v.w]=1; vbSave(); c.i++; c.flip=false; vbCards(box,V); };
-    $('vbY').onclick=()=>{ c.ok++; VS.box[v.w]=Math.min(2,(VS.box[v.w]||0)+1); vbSave(); c.i++; c.flip=false; vbCards(box,V); }; }
-  if($('vbR')) $('vbR').onclick=()=>{ c.deck=c.ng.length?c.ng:c.deck; c.ng=[]; c.ok=0; c.i=0; c.flip=false; vbCards(box,V); };
-  vbWire(box);
+  box.querySelector('.vb-chips').onclick=e=>{ const b=e.target.closest('[data-k]'); if(b) vbCards(L,box,V,b.dataset.k); };
+  const card=box.querySelector('.vb-card[role=button]');
+  if(v&&card){ const flip=()=>{ c.flip=!c.flip; vbCards(L,box,V); }; card.onclick=e=>{ if(!e.target.closest('[data-star],[data-go]')) flip(); }; card.onkeydown=e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); flip(); } };
+    box.querySelectorAll('[data-ans]').forEach(b=>b.onclick=()=>{ if(b.dataset.ans==='1'){ c.ok++; S.box[v.k]=Math.min(2,(S.box[v.k]||0)+1); } else { c.ng.push(v); S.box[v.k]=1; } vbSave(L); c.i++; c.flip=false; vbCards(L,box,V); }); }
+  const ag=box.querySelector('[data-again]'); if(ag) ag.onclick=()=>{ c.deck=c.ng.length?c.ng:c.deck; c.ng=[]; c.ok=0; c.i=0; c.flip=false; vbCards(L,box,V); };
+  vbWire(L,box);
 }
-let vbSel=null;
-function vbRoots(box,V){
-  const norm=p=>p.toLowerCase().replace(/\(.*?\)/g,'').replace(/[^a-z]/g,'');
-  const fam={}; V.forEach(v=>v.s.forEach(p=>{ if(/^\s*-/.test(p[0])) return; const k=norm(p[0]); if(k.length<2) return; const f=(fam[k]=fam[k]||{m:p[1],ws:[]}); if(!f.ws.some(x=>x.w===v.w)) f.ws.push(v); }));
+function vbRoots(L,box,V){
+  const S=VB[L], fam={};
+  if(L==='en'){ const norm=p=>p.toLowerCase().replace(/\(.*?\)/g,'').replace(/[^a-z]/g,'');
+    V.forEach(v=>v.s.forEach(p=>{ if(/^\s*-/.test(p[0])) return; const k=norm(p[0]); if(k.length<2) return; const f=(fam[k]=fam[k]||{h:k+'-',m:p[1],ws:[]}); if(!f.ws.some(x=>x.k===v.k)) f.ws.push(v); })); }
+  else V.forEach(v=>v.s.forEach(p=>{ const k=p[0]; const f=(fam[k]=fam[k]||{h:k,m:p[1],ws:[]}); if(!f.m&&p[1]) f.m=p[1]; if(!f.ws.some(x=>x.k===v.k)) f.ws.push(v); }));
   const top=Object.entries(fam).filter(([k,f])=>f.ws.length>=2).sort((a,b)=>b[1].ws.length-a[1].ws.length||a[0].localeCompare(b[0]));
-  box.innerHTML=`<div class="vb-top"><input class="vb-srch" id="vbRq" placeholder="조각 찾기 (예: spire, vers, re)" aria-label="어원 조각 찾기"><span class="vb-cnt">같은 접두사·어근을 가진 단어 ${top.length}가족 · 단어를 누르면 풀이</span></div><div id="vbRL" style="display:flex;flex-direction:column;gap:10px"></div>`;
-  const draw=q=>{ $('vbRL').innerHTML=top.filter(([k])=>!q||k.includes(q)).map(([k,f])=>`<div class="vb-fam"><div class="fh"><b>${esc(k)}-</b><span class="vb-mut">${esc(f.m)} · ${f.ws.length}단어</span></div><div class="ws">${f.ws.map(v=>`<button type="button" data-k="${esc(k)}" data-w="${esc(v.w)}" class="${vbSel===k+'|'+v.w?'on':''}">${esc(v.w)}</button>`).join('')}</div>${f.ws.filter(v=>vbSel===k+'|'+v.w).map(v=>`<div class="det"><b class="vb-w" style="font-size:15px">${esc(v.w)}</b> ${esc(v.m)} ${vbStar(v)}<div style="margin-top:4px">${vbDetail(v)}</div></div>`).join('')}</div>`).join('')||'<p class="vb-mut">그 조각을 가진 가족이 없어요.</p>';
-    $('vbRL').querySelectorAll('button[data-w]').forEach(b=>b.onclick=()=>{ const id=b.dataset.k+'|'+b.dataset.w; vbSel=vbSel===id?null:id; draw($('vbRq').value.trim().toLowerCase()); });
-    vbWire($('vbRL')); };
-  $('vbRq').oninput=e=>draw(e.target.value.trim().toLowerCase()); draw('');
+  box.innerHTML=`<div class="vb-top"><input class="vb-srch" placeholder="${L==='en'?'조각 찾기 (예: spire, vers, re)':'한자·뜻 찾기 (예: 心, 마음)'}" aria-label="찾기"><span class="vb-cnt">${L==='en'?'같은 접두사·어근을 가진 단어':'같은 한자가 들어간 단어'} ${top.length}가족 · 단어를 누르면 풀이</span></div><div class="vb-rl" style="display:flex;flex-direction:column;gap:10px"></div>`;
+  const inp=box.querySelector('.vb-srch'), out=box.querySelector('.vb-rl');
+  const draw=q=>{ out.innerHTML=top.filter(([k,f])=>!q||k.includes(q)||(f.m||'').includes(q)).map(([k,f])=>`<div class="vb-fam"><div class="fh"><b${L==='ja'?' lang="ja"':''}>${esc(f.h)}</b><span class="vb-mut">${esc(f.m||'')} · ${f.ws.length}단어</span></div><div class="ws">${f.ws.map(v=>`<button type="button" data-fk="${esc(k)}" data-w="${esc(v.k)}" class="${S.sel===k+'|'+v.k?'on':''}"${L==='ja'?' lang="ja"':''}>${L==='ja'?esc(v.plain):esc(v.plain)}</button>`).join('')}</div>${f.ws.filter(v=>S.sel===k+'|'+v.k).map(v=>`<div class="det"><b class="vb-w" style="font-size:15px"${L==='ja'?' lang="ja"':''}>${v.w}</b> <span class="vb-ipa">${esc(v.i)}</span> ${esc(v.m)} ${vbStar(L,v)}<div style="margin-top:4px">${vbDetail(L,v)}</div></div>`).join('')}</div>`).join('')||'<p class="vb-mut">찾는 가족이 없어요.</p>';
+    out.querySelectorAll('button[data-w]').forEach(b=>b.onclick=()=>{ const id=b.dataset.fk+'|'+b.dataset.w; S.sel=S.sel===id?null:id; draw(inp.value.trim().toLowerCase()); });
+    vbWire(L,out); };
+  inp.oninput=e=>draw(e.target.value.trim().toLowerCase()); draw('');
 }
-let vbOnly=false;
-function vbAZ(box,V){
-  const seen=new Set(), sorted=[...V].sort((a,b)=>a.w.toLowerCase().localeCompare(b.w.toLowerCase())).filter(v=>{ const k=v.w.toLowerCase(); if(seen.has(k)) return false; seen.add(k); return true; });
-  const L=sorted.filter(v=>!vbOnly||VS.star.includes(v.w)), letters=[...new Set(L.map(v=>v.w[0].toUpperCase()))];
-  box.innerHTML=`<div class="vb-top"><div class="vb-chips"><button class="vb-chip ${vbOnly?'':'on'}" id="vbAll">전체 ${sorted.length}</button><button class="vb-chip ${vbOnly?'on':''}" id="vbOnly">★ 별표만 <span id="vbStarCnt">${VS.star.length}</span></button></div><span class="vb-cnt">헷갈리는 단어는 ★ — 카드 · 날짜별에서도 "★ 별표"로 모아 볼 수 있어요</span></div>
-  <div class="vb-dict"><div>${letters.map(Lt=>`<div class="vb-dl" id="vbl-${Lt}">${Lt}</div>${L.filter(v=>v.w[0].toUpperCase()===Lt).map(v=>`<div class="vb-drow"><div><span class="vb-w" style="font-size:15.5px">${esc(v.w)}</span> <span class="vb-pos">${esc(v.p)}</span><div class="vb-mn" style="font-size:14px">${esc(v.m)} <a class="vb-mut" href="#en-${v.d.replace(/-/g,'')}" data-go="${v.d}" style="text-decoration:none">· ${md(v.d)}</a></div></div>${vbStar(v)}</div>`).join('')}`).join('')||'<p class="vb-mut">아직 별표한 단어가 없어요. 단어 옆 ★를 눌러 보세요.</p>'}</div>
-  <nav class="vb-az" aria-label="알파벳 바로가기" data-noswipe>${'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map(Lt=>`<button type="button" data-l="${Lt}" ${letters.includes(Lt)?'':'disabled'}>${Lt}</button>`).join('')}</nav></div>`;
-  box.querySelectorAll('.vb-az [data-l]').forEach(b=>b.onclick=()=>{ const t=$('vbl-'+b.dataset.l); if(t) t.scrollIntoView({block:'start'}); });
-  $('vbAll').onclick=()=>{ vbOnly=false; vbAZ(box,V); }; $('vbOnly').onclick=()=>{ vbOnly=true; vbAZ(box,V); };
-  if(vbOnly) box.querySelectorAll('[data-star]').forEach(b=>b.addEventListener('click',()=>setTimeout(()=>vbAZ(box,V),150)));
-  vbWire(box);
+const GOJU=[['あ','あいうえおぁぃぅぇぉ'],['か','かきくけこがぎぐげご'],['さ','さしすせそざじずぜぞ'],['た','たちつてとだぢづでどっ'],['な','なにぬねの'],['は','はひふへほばびぶべぼぱぴぷぺぽ'],['ま','まみむめも'],['や','やゆよゃゅょ'],['ら','らりるれろ'],['わ','わをんゎ']];
+const gojuOf=ch=>{ const r=GOJU.find(([h,cs])=>cs.includes(ch)); return r?r[0]:'#'; };
+function vbAZ(L,box,V){
+  const S=VB[L], seen=new Set();
+  const sorted=[...V].sort((a,b)=>a.sort.localeCompare(b.sort,L==='ja'?'ja':'en')).filter(v=>{ const k=v.k.toLowerCase(); if(seen.has(k)) return false; seen.add(k); return true; });
+  const head=v=>L==='en'?v.plain[0].toUpperCase():gojuOf(v.sort[0]);
+  const rail=L==='en'?'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split(''):GOJU.map(g=>g[0]);
+  const Lw=sorted.filter(v=>!S.only||S.star.includes(v.k)), heads=[...new Set(Lw.map(head))];
+  box.innerHTML=`<div class="vb-top"><div class="vb-chips"><button class="vb-chip ${S.only?'':'on'}" data-o="0">전체 ${sorted.length}</button><button class="vb-chip ${S.only?'on':''}" data-o="1">★ 별표만 <span class="vbStarCnt">${S.star.length}</span></button></div><span class="vb-cnt">${L==='en'?'알파벳 순':'읽기(히라가나) 50음 순'} · 헷갈리는 단어는 ★ — 카드·날짜별에서도 "★ 별표"로 모아 봐요</span></div>
+  <div class="vb-dict"><div>${heads.map(H=>`<div class="vb-dl" data-h="${H}">${H}</div>${Lw.filter(v=>head(v)===H).map(v=>`<div class="vb-drow"><div><span class="vb-w" style="font-size:15.5px"${L==='ja'?' lang="ja"':''}>${v.w}</span> ${L==='ja'?`<span class="vb-ipa">${esc(v.i)}</span> `:''}<span class="vb-pos">${esc(v.p)}</span><div class="vb-mn" style="font-size:14px">${esc(v.m)} <a class="vb-mut" href="#${L}-${v.d.replace(/-/g,'')}" data-go="${v.d}" style="text-decoration:none">· ${md(v.d)}</a></div></div>${vbStar(L,v)}</div>`).join('')}`).join('')||'<p class="vb-mut">아직 별표한 단어가 없어요. 단어 옆 ★를 눌러 보세요.</p>'}</div>
+  <nav class="vb-az" aria-label="바로가기" data-noswipe>${rail.map(H=>`<button type="button" data-l="${H}" ${heads.includes(H)?'':'disabled'}>${H}</button>`).join('')}</nav></div>`;
+  box.querySelectorAll('.vb-az [data-l]').forEach(b=>b.onclick=()=>{ const t=box.querySelector(`.vb-dl[data-h="${b.dataset.l}"]`); if(t) t.scrollIntoView({block:'start'}); });
+  box.querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>{ S.only=b.dataset.o==='1'; vbAZ(L,box,V); });
+  if(S.only) box.querySelectorAll('[data-star]').forEach(b=>b.addEventListener('click',()=>setTimeout(()=>vbAZ(L,box,V),150)));
+  vbWire(L,box);
 }
-let VQ=null, vbExp={};
-function vbBoard(box,V){
-  const uniq=[...new Map(V.map(v=>[v.w.toLowerCase(),v])).values()];
-  const lv=v=>VS.box[v.w]||0, names=['새 단어','외우는 중','외웠어요'];
-  if(!VQ||VQ.day!==TODAY){ const pool=uniq.filter(v=>lv(v)<2), recent=pool.slice(-40); const pickFrom=(recent.length>=10?recent:pool).slice().sort(()=>Math.random()-.5).slice(0,10); VQ={day:TODAY,qs:pickFrom,i:0,ans:null,ok:0,opts:null}; }
-  const q=VQ.qs[VQ.i], cnt=[0,1,2].map(k=>uniq.filter(v=>lv(v)===k).length);
-  if(q&&!VQ.opts) VQ.opts=[q,...uniq.filter(v=>v.w!==q.w).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);
+function vbBoard(L,box,V){
+  const S=VB[L], uniq=[...new Map(V.map(v=>[v.k.toLowerCase(),v])).values()];
+  const lv=v=>S.box[v.k]||0, names=['새 단어','외우는 중','외웠어요'];
+  if(!S.vq||S.vq.day!==TODAY){ const pool=uniq.filter(v=>lv(v)<2), recent=pool.slice(-40); S.vq={day:TODAY,qs:(recent.length>=10?recent:pool).slice().sort(()=>Math.random()-.5).slice(0,10),i:0,ans:null,ok:0,opts:null}; }
+  const Q=S.vq, q=Q.qs[Q.i], cnt=[0,1,2].map(k=>uniq.filter(v=>lv(v)===k).length);
+  if(q&&!Q.opts) Q.opts=[q,...uniq.filter(v=>v.k!==q.k).sort(()=>Math.random()-.5).slice(0,3)].sort(()=>Math.random()-.5);
   box.innerHTML=`<div class="vb-top"><span class="vb-cnt">외웠어요 ${cnt[2]} / ${uniq.length}</span><div class="vb-prog"><i style="width:${cnt[2]/uniq.length*100}%;background:var(--ok)"></i></div></div>
-  ${q?`<div class="vb-quiz"><div class="vb-mut">오늘의 10단어 · ${VQ.i+1}/${VQ.qs.length} · 맞히면 한 칸 앞으로</div><div class="q">${esc(q.w)}</div><div class="vb-opts">${VQ.opts.map(o=>`<button type="button" data-a="${esc(o.w)}" class="${VQ.ans?(o.w===q.w?'r':o.w===VQ.ans?'x':''):''}">${esc(o.m)}</button>`).join('')}</div>${VQ.ans?`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="vb-mut">${VQ.ans===q.w?'정답! 👍':'다음엔 맞혀요 — 외우는 중으로'} · ${md(q.d)}</span><button class="vb-chip on" id="vbNx">다음 →</button></div>`:''}</div>`
-  :`<div class="vb-quiz"><b>오늘의 10단어 끝! 🎉 ${VQ.ok} / ${VQ.qs.length}</b><span class="vb-mut">내일 새 10단어가 나와요. 칸의 단어를 눌러 직접 옮길 수도 있어요.</span></div>`}
-  <div class="vb-cols">${[0,1,2].map(k=>{ const L=uniq.filter(v=>lv(v)===k).reverse(), n=vbExp[k]?L.length:8; return `<div class="vb-col"><h5><span>${names[k]}</span><span>${cnt[k]}</span></h5>${L.slice(0,n).map(v=>`<button type="button" class="vb-it" data-mv="${esc(v.w)}" title="눌러서 다음 칸으로"><b>${esc(v.w)}</b>${esc(v.m.split(',')[0])}</button>`).join('')}${L.length>n?`<button class="vb-more2" data-exp="${k}">+${L.length-n}개 더</button>`:''}</div>`; }).join('')}</div>
+  ${q?`<div class="vb-quiz"><div class="vb-mut">오늘의 10단어 · ${Q.i+1}/${Q.qs.length} · 맞히면 한 칸 앞으로</div><div class="q"${L==='ja'?' lang="ja"':''}>${L==='ja'?(Q.ans?q.w:esc(q.plain)):q.w}</div>${L==='ja'&&Q.ans?`<div class="vb-ipa">${esc(q.i)}</div>`:''}<div class="vb-opts">${Q.opts.map(o=>`<button type="button" data-a="${esc(o.k)}" class="${Q.ans?(o.k===q.k?'r':o.k===Q.ans?'x':''):''}">${esc(o.m)}</button>`).join('')}</div>${Q.ans?`<div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><span class="vb-mut">${Q.ans===q.k?'정답! 👍':'다음엔 맞혀요 — 외우는 중으로'} · ${md(q.d)}</span><button class="vb-chip on" data-next="1">다음 →</button></div>`:''}</div>`
+  :`<div class="vb-quiz"><b>오늘의 10단어 끝! 🎉 ${Q.ok} / ${Q.qs.length}</b><span class="vb-mut">내일 새 10단어가 나와요. 칸의 단어를 눌러 직접 옮길 수도 있어요.</span></div>`}
+  <div class="vb-cols">${[0,1,2].map(k=>{ const Lw=uniq.filter(v=>lv(v)===k).reverse(), n=S.exp[k]?Lw.length:8; return `<div class="vb-col"><h5><span>${names[k]}</span><span>${cnt[k]}</span></h5>${Lw.slice(0,n).map(v=>`<button type="button" class="vb-it" data-mv="${esc(v.k)}" title="눌러서 다음 칸으로"><b${L==='ja'?' lang="ja"':''}>${esc(v.plain)}</b>${esc(v.m.split(',')[0])}</button>`).join('')}${Lw.length>n?`<button class="vb-more2" data-exp="${k}">+${Lw.length-n}개 더</button>`:''}</div>`; }).join('')}</div>
   <p class="vb-mut" style="margin:0">칸의 단어를 누르면 다음 칸으로(외웠어요 → 새 단어로 돌아감). 기록은 내 계정(안 되면 이 기기)에 저장돼요.</p>`;
-  box.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{ if(VQ.ans) return; VQ.ans=b.dataset.a; if(VQ.ans===q.w){ VQ.ok++; VS.box[q.w]=Math.min(2,lv(q)+1); } else VS.box[q.w]=1; vbSave(); vbBoard(box,V); });
-  if($('vbNx')) $('vbNx').onclick=()=>{ VQ.i++; VQ.ans=null; VQ.opts=null; vbBoard(box,V); };
-  box.querySelectorAll('[data-mv]').forEach(b=>b.onclick=()=>{ const w=b.dataset.mv; VS.box[w]=((VS.box[w]||0)+1)%3; vbSave(); vbBoard(box,V); });
-  box.querySelectorAll('[data-exp]').forEach(b=>b.onclick=()=>{ vbExp[b.dataset.exp]=1; vbBoard(box,V); });
+  box.querySelectorAll('[data-a]').forEach(b=>b.onclick=()=>{ if(Q.ans) return; Q.ans=b.dataset.a; if(Q.ans===q.k){ Q.ok++; S.box[q.k]=Math.min(2,lv(q)+1); } else S.box[q.k]=1; vbSave(L); vbBoard(L,box,V); });
+  const nx=box.querySelector('[data-next]'); if(nx) nx.onclick=()=>{ Q.i++; Q.ans=null; Q.opts=null; vbBoard(L,box,V); };
+  box.querySelectorAll('[data-mv]').forEach(b=>b.onclick=()=>{ const w=b.dataset.mv; S.box[w]=((S.box[w]||0)+1)%3; vbSave(L); vbBoard(L,box,V); });
+  box.querySelectorAll('[data-exp]').forEach(b=>b.onclick=()=>{ S.exp[b.dataset.exp]=1; vbBoard(L,box,V); });
 }
-vbLoad();
+vbLoad('en'); vbLoad('ja');
 
 /* ── 탭 ── */
-const VIEWS=['home','en','words','ja','tests'];
-function show(view, date){
+const VIEWS=['home','en','ja','tests'];
+function show(view, date, opts){
   if(!VIEWS.includes(view)) view='home';
   VIEWS.forEach(v=>{ $('v-'+v).hidden=v!==view; $('t-'+v).setAttribute('aria-selected',String(v===view)); });
   stopPlay();
+  if(view==='en'||view==='ja') setSub(view, (opts&&opts.sub)||(date?'sheet':SUB[view]));
   if(view==='en'&&date) renderEN(date);
   if(view==='ja'&&date) renderJA(date);
-  if(view==='words') renderWords();
   window.scrollTo({top:0});
 }
 document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>show(b.dataset.view));
@@ -1263,10 +1302,12 @@ function renderTests(){
   START=[...D.en,...D.ja].map(x=>x.date).sort()[0]||TODAY;
   loadLocalResults();
   renderHome(); renderCal(TODAY); renderEN(); renderJA(); renderJAPlan(); renderTests();
-  loadCloudResults(); vbCloud();
+  loadCloudResults(); vbCloud('en'); vbCloud('ja');
   const h=(location.hash||'').slice(1);
   const m=h.match(/^(en|ja)-(\d{8})$/);
-  if(m){ const iso=`${m[2].slice(0,4)}-${m[2].slice(4,6)}-${m[2].slice(6)}`; show(m[1],iso); }
+  if(m){ const iso=`${m[2].slice(0,4)}-${m[2].slice(4,6)}-${m[2].slice(6)}`; show(m[1],iso,{sub:'sheet'}); }
+  else if(h==='words'||h==='en-words') show('en',null,{sub:'words'});
+  else if(h==='ja-words') show('ja',null,{sub:'words'});
   else show(VIEWS.includes(h)?h:'home');
 })();
 </script></body></html>
