@@ -1,0 +1,521 @@
+{
+ "lang": "en",
+ "date": "2026-11-19",
+ "no": "T06",
+ "title": "영어 복습 테스트 T06",
+ "pass": 80,
+ "sections": [
+  {
+   "id": "A",
+   "title": "단어 뜻 고르기",
+   "guide": "영어 단어의 뜻을 고르세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "<b>heritage</b>",
+     "from": "#023",
+     "choices": [
+      "협곡",
+      "(문화)유산",
+      "흠이 있는, 결함 있는",
+      "고생물학자"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>paleontologist</b>",
+     "from": "#023",
+     "choices": [
+      "흠이 있는, 결함 있는",
+      "고생물학자",
+      "(공중에) 떠 있다, 맴돌다",
+      "지형, 풍경"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>flawed</b>",
+     "from": "#023",
+     "choices": [
+      "다양한",
+      "생물, 생명체",
+      "화석",
+      "흠이 있는, 결함 있는"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>milestone</b>",
+     "from": "#024",
+     "choices": [
+      "(정체를) 알아내다, 확인하다",
+      "이정표, 획기적인 사건",
+      "(문화)유산",
+      "보존하다, 지키다"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>recover</b>",
+     "from": "#024",
+     "choices": [
+      "회수하다, 되찾다",
+      "미생물",
+      "화석",
+      "(문화)유산"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>plunge</b>",
+     "from": "#024",
+     "choices": [
+      "(정체를) 알아내다, 확인하다",
+      "보존하다, 지키다",
+      "생물, 생명체",
+      "뛰어들다, 급강하하다"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>reusable</b>",
+     "from": "#024",
+     "choices": [
+      "협곡",
+      "생물, 생명체",
+      "(문화)유산",
+      "재사용할 수 있는"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>preserve</b>",
+     "from": "#025",
+     "choices": [
+      "대기, 대기권",
+      "보존하다, 지키다",
+      "지형, 풍경",
+      "재사용할 수 있는"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>diverse</b>",
+     "from": "#025",
+     "choices": [
+      "(문화)유산",
+      "다양한",
+      "지형, 풍경",
+      "이정표, 획기적인 사건"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>microbe</b>",
+     "from": "#025",
+     "choices": [
+      "미생물",
+      "보존하다, 지키다",
+      "생물, 생명체",
+      "(문화)유산"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "title": "단어 쓰기",
+   "guide": "한국어 뜻에 맞는 영어 단어를 쓰세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "text",
+     "q": "발자국",
+     "hint": "f… (9글자)",
+     "from": "#023",
+     "answer": "footprint"
+    },
+    {
+     "kind": "text",
+     "q": "(정체를) 알아내다, 확인하다",
+     "hint": "i… (8글자)",
+     "from": "#023",
+     "answer": "identify"
+    },
+    {
+     "kind": "text",
+     "q": "지형, 풍경",
+     "hint": "l… (9글자)",
+     "from": "#023",
+     "answer": "landscape"
+    },
+    {
+     "kind": "text",
+     "q": "고대의, 아주 오래된",
+     "hint": "a… (7글자)",
+     "from": "#023",
+     "answer": "ancient"
+    },
+    {
+     "kind": "text",
+     "q": "대기, 대기권",
+     "hint": "a… (10글자)",
+     "from": "#024",
+     "answer": "atmosphere"
+    },
+    {
+     "kind": "text",
+     "q": "방향을 잡다, 조종하다",
+     "hint": "s… (5글자)",
+     "from": "#024",
+     "answer": "steer"
+    },
+    {
+     "kind": "text",
+     "q": "(공중에) 떠 있다, 맴돌다",
+     "hint": "h… (5글자)",
+     "from": "#024",
+     "answer": "hover"
+    },
+    {
+     "kind": "text",
+     "q": "화석",
+     "hint": "f… (6글자)",
+     "from": "#025",
+     "answer": "fossil"
+    },
+    {
+     "kind": "text",
+     "q": "협곡",
+     "hint": "c… (6글자)",
+     "from": "#025",
+     "answer": "canyon"
+    },
+    {
+     "kind": "text",
+     "q": "생물, 생명체",
+     "hint": "c… (8글자)",
+     "from": "#025",
+     "answer": "creature"
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "title": "빈칸 채우기",
+   "guide": "보기에서 알맞은 단어를 고르세요. (남는 단어 있음)",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "The Petrie family opened the ___ in the 1860s, and its stone built famous landmarks.",
+     "from": "#023",
+     "choices": [
+      "status",
+      "reignite",
+      "quarry",
+      "released",
+      "shallow",
+      "booster",
+      "sandstone",
+      "flooded"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "Brisbane's General Post Office was built from local ___.",
+     "from": "#023",
+     "choices": [
+      "status",
+      "reignite",
+      "quarry",
+      "released",
+      "shallow",
+      "booster",
+      "sandstone",
+      "flooded"
+     ],
+     "answer": 6
+    },
+    {
+     "kind": "choice",
+     "q": "During the long flight, the ship ___ 26 Starlink satellites.",
+     "from": "#024",
+     "choices": [
+      "status",
+      "reignite",
+      "quarry",
+      "released",
+      "shallow",
+      "booster",
+      "sandstone",
+      "flooded"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "The Super Heavy ___ lifted the ship but did not return to the pad.",
+     "from": "#024",
+     "choices": [
+      "status",
+      "reignite",
+      "quarry",
+      "released",
+      "shallow",
+      "booster",
+      "sandstone",
+      "flooded"
+     ],
+     "answer": 5
+    },
+    {
+     "kind": "choice",
+     "q": "Over time, seawater ___ the huge underwater canyons.",
+     "from": "#025",
+     "choices": [
+      "status",
+      "reignite",
+      "quarry",
+      "released",
+      "shallow",
+      "booster",
+      "sandstone",
+      "flooded"
+     ],
+     "answer": 7
+    },
+    {
+     "kind": "choice",
+     "q": "The region hopes to win UNESCO World Heritage ___.",
+     "from": "#025",
+     "choices": [
+      "status",
+      "reignite",
+      "quarry",
+      "released",
+      "shallow",
+      "booster",
+      "sandstone",
+      "flooded"
+     ],
+     "answer": 0
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "title": "문법 고르기",
+   "guide": "빈칸에 알맞은 것을 고르세요.",
+   "each": 3,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "These heritage buildings ___ with local sandstone in the 1800s.",
+     "from": "#023",
+     "choices": [
+      "built",
+      "were built",
+      "have built",
+      "was building"
+     ],
+     "answer": 1,
+     "explain": "건물이 '지어진' 것 + 과거(1800년대) + 복수 주어 → were + p.p."
+    },
+    {
+     "kind": "choice",
+     "q": "Romilio studied the stone ___ contained the footprints.",
+     "from": "#023",
+     "choices": [
+      "who",
+      "where",
+      "that",
+      "what"
+     ],
+     "answer": 2,
+     "explain": "사물(the stone) 뒤 + 바로 동사 → 관계대명사 that (where 뒤에는 주어+동사)"
+    },
+    {
+     "kind": "choice",
+     "q": "Starship became the first spaceship ___ after a trip to orbit.",
+     "from": "#024",
+     "choices": [
+      "to be recovered",
+      "to recover",
+      "be recovered",
+      "has recovered"
+     ],
+     "answer": 0,
+     "explain": "the first + 명사 + to부정사, 우주선이 '회수된' 것 → to be + p.p."
+    },
+    {
+     "kind": "choice",
+     "q": "The ship slowed down near the ground, ___ itself upright.",
+     "from": "#024",
+     "choices": [
+      "flip",
+      "flips",
+      "to flipping",
+      "flipping"
+     ],
+     "answer": 3,
+     "explain": "쉼표 뒤 동시·연속 동작 → 분사구문 -ing"
+    },
+    {
+     "kind": "choice",
+     "q": "The Ediacaran fossils ___ first found in the region in 1946.",
+     "from": "#025",
+     "choices": [
+      "are",
+      "were",
+      "have",
+      "was"
+     ],
+     "answer": 1,
+     "explain": "과거(1946) + 복수 주어 + '발견된' → were + p.p."
+    },
+    {
+     "kind": "choice",
+     "q": "This is the shelf ___ soft-bodied creatures grew on microbe mats.",
+     "from": "#025",
+     "choices": [
+      "where",
+      "which",
+      "what",
+      "who"
+     ],
+     "answer": 0,
+     "explain": "장소(the shelf) + 주어+동사가 모두 있는 절 → 관계부사 where"
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "title": "문법 바꿔 쓰기",
+   "guide": "빈칸에 들어갈 말을 쓰세요.",
+   "each": 4,
+   "items": [
+    {
+     "kind": "text",
+     "q": "<span class='sub'>과거 수동태로 바꾸기</span>Stonemasons used the stone for the General Post Office.<br>→ The stone ___ for the General Post Office.",
+     "from": "#023",
+     "answer": "was used",
+     "accept": [],
+     "explain": "목적어(the stone)를 주어로 → was + p.p."
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>분사구문으로 한 문장 만들기</span>The ship circled Earth many times. It released 26 satellites.<br>→ The ship circled Earth many times, ___ 26 satellites.",
+     "from": "#024",
+     "answer": "releasing",
+     "accept": [],
+     "explain": "두 번째 문장의 주어(It)를 빼고 동사를 -ing로"
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>관계부사 where로 한 문장 만들기</span>Scientists studied the canyons. Early life made its home there.<br>→ Scientists studied the canyons ___.",
+     "from": "#025",
+     "answer": "where early life made its home",
+     "accept": [],
+     "explain": "there(장소)를 where로 바꿔 뒤에 연결"
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "title": "기사 내용 O / X",
+   "guide": "맞으면 O, 틀리면 X",
+   "each": 1,
+   "items": [
+    {
+     "kind": "ox",
+     "q": "The dinosaur footprints are about 230 million years old.",
+     "from": "#023",
+     "answer": "O",
+     "explain": "약 2억 3천만 년 전"
+    },
+    {
+     "kind": "ox",
+     "q": "Both pieces of sandstone were found in the 2010s.",
+     "from": "#023",
+     "answer": "X",
+     "explain": "2010년대가 아니라 1950년대"
+    },
+    {
+     "kind": "ox",
+     "q": "Long ago, the Albion area was a thick forest with many trees.",
+     "from": "#023",
+     "answer": "X",
+     "explain": "나무가 거의 없는 평평한 지형"
+    },
+    {
+     "kind": "ox",
+     "q": "Starship's flight lasted more than 22 hours.",
+     "from": "#024",
+     "answer": "O",
+     "explain": "22시간 넘게 비행"
+    },
+    {
+     "kind": "ox",
+     "q": "Two mechanical arms called “chopsticks” caught the ship.",
+     "from": "#024",
+     "answer": "O",
+     "explain": "'젓가락' 팔이 붙잡음"
+    },
+    {
+     "kind": "ox",
+     "q": "The Super Heavy booster also returned safely to the pad.",
+     "from": "#024",
+     "answer": "X",
+     "explain": "부스터는 돌아오지 못함"
+    },
+    {
+     "kind": "ox",
+     "q": "The Flinders Ranges were covered by an ocean about 550 million years ago.",
+     "from": "#025",
+     "answer": "O",
+     "explain": "약 5억 5천만 년 전 바다"
+    },
+    {
+     "kind": "ox",
+     "q": "The underwater canyons were up to 28 metres deep.",
+     "from": "#025",
+     "answer": "X",
+     "explain": "28m가 아니라 최대 280m"
+    }
+   ]
+  },
+  {
+   "id": "G",
+   "title": "한국어 → 영어",
+   "guide": "힌트 표현을 넣어 영작하고, 모범 답과 비교해 스스로 채점하세요.",
+   "each": 5,
+   "items": [
+    {
+     "kind": "self",
+     "q": "그 화석들은 박물관에 보존되었다.",
+     "hint": "힌트: were preserved",
+     "answer": "The fossils were preserved in a museum."
+    },
+    {
+     "kind": "self",
+     "q": "그녀는 그 산을 오른 최초의 여성이었다.",
+     "hint": "힌트: the first woman to",
+     "answer": "She was the first woman to climb the mountain."
+    }
+   ]
+  }
+ ]
+}

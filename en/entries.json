@@ -14660,5 +14660,538 @@
     ]
    ]
   }
+ },
+ {
+  "no": "026",
+  "date_display": "2026. 11. 19",
+  "weekday": "목요일 · THU",
+  "title": "Cambridge Dictionary Names “Human” Its Word of the Year",
+  "title_ko": "케임브리지 사전, '휴먼(human)'을 올해의 단어로 선정",
+  "image": "img/2026-11-19.png",
+  "source": "ABC News Australia (AFP)",
+  "published_display": "2026년 11월 18일",
+  "url": "https://www.abc.net.au/news/2026-11-18/cambridge-dictionary-word-of-the-year-human/107398132",
+  "passage": [
+   "Cambridge Dictionary has named “human” its Word of the Year for 2026, a choice that many see as a <u>response</u> to the rapid rise of artificial intelligence. The dictionary <u>defines</u> the word as the qualities, faults and feelings that people have, as opposed to animals or machines.",
+   "According to Francesca Woodward of Cambridge University Press, people <mark class=\"g2\">have been thinking carefully</mark> about <mark class=\"g1\">what it means to be human</mark>, partly because of growing <u>concerns</u> that AI could take their jobs. <u>Lexicographers</u> also noticed the word appearing more often in phrases such as “human author.” A Cambridge philosopher asked <mark class=\"g1\">what separates a human mind from an artificial one</mark>: is it <u>consciousness</u>, creativity or <u>compassion</u>?",
+   "The word beat several other <u>contenders</u>, including “agent,” an AI system that can work without human control, and “dusking,” the practice of quietly watching daylight <u>fade</u>. Experts <mark class=\"g2\">have also been watching</mark> new terms such as FOBO, the fear of becoming <u>obsolete</u>."
+  ],
+  "vocab": [
+   {
+    "word": "response",
+    "ipa": "[rɪspɑ́ns]",
+    "pos": "n.",
+    "meaning": "반응, 대응"
+   },
+   {
+    "word": "define",
+    "ipa": "[dɪfáɪn]",
+    "pos": "v.",
+    "meaning": "(뜻을) 정의하다"
+   },
+   {
+    "word": "concern",
+    "ipa": "[kənsə́ːrn]",
+    "pos": "n.",
+    "meaning": "걱정, 우려"
+   },
+   {
+    "word": "lexicographer",
+    "ipa": "[lèksəkɑ́ɡrəfər]",
+    "pos": "n.",
+    "meaning": "사전 편찬자"
+   },
+   {
+    "word": "consciousness",
+    "ipa": "[kɑ́nʃəsnɪs]",
+    "pos": "n.",
+    "meaning": "의식, 자각"
+   },
+   {
+    "word": "compassion",
+    "ipa": "[kəmpǽʃən]",
+    "pos": "n.",
+    "meaning": "연민, 동정심"
+   },
+   {
+    "word": "contender",
+    "ipa": "[kənténdər]",
+    "pos": "n.",
+    "meaning": "경쟁자, (우승) 후보"
+   },
+   {
+    "word": "fade",
+    "ipa": "[feɪd]",
+    "pos": "v.",
+    "meaning": "서서히 사라지다, 희미해지다"
+   },
+   {
+    "word": "obsolete",
+    "ipa": "[ɑ̀bsəlíːt]",
+    "pos": "adj.",
+    "meaning": "쓸모없게 된, 구식의"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "what이 이끄는 명사절 (what + (주어) + 동사)",
+    "explain": "what으로 시작하는 절이 문장 안에서 목적어·주어 같은 명사 역할을 하며 '무엇이(무엇을) ~하는지'라는 뜻입니다. 의문문과 달리 어순은 '주어 + 동사'입니다.",
+    "examples": [
+     {
+      "en": "Nobody knows <mark class=\"g1\">what the robot will do next</mark>.",
+      "ko": "그 로봇이 다음에 무엇을 할지 아무도 모른다."
+     },
+     {
+      "en": "I asked her <mark class=\"g1\">what made her laugh</mark>.",
+      "ko": "나는 그녀에게 무엇이 그녀를 웃게 했는지 물었다."
+     }
+    ]
+   },
+   {
+    "name": "현재완료진행 (have/has been + -ing)",
+    "explain": "과거에 시작한 동작이 지금까지 계속되고 있을 때 '(계속) ~해 오고 있다'. since·for·lately와 자주 함께 씁니다.",
+    "examples": [
+     {
+      "en": "She <mark class=\"g2\">has been studying</mark> English for three years.",
+      "ko": "그녀는 3년째 영어를 공부해 오고 있다."
+     },
+     {
+      "en": "It <mark class=\"g2\">has been raining</mark> since this morning.",
+      "ko": "오늘 아침부터 계속 비가 내리고 있다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "케임브리지 사전은 '휴먼(human)'을 2026년 올해의 단어로 선정했는데, 많은 사람들은 이 선택을 인공지능의 빠른 부상에 대한 반응으로 본다. 이 사전은 이 단어를 동물이나 기계와 달리 사람이 지닌 자질과 결점, 감정이라고 정의한다.",
+   "케임브리지 대학 출판부의 프란체스카 우드워드에 따르면, 사람들은 인간이라는 것이 무엇을 의미하는지 깊이 생각해 오고 있는데, 이는 AI가 일자리를 빼앗을 수 있다는 우려가 커진 탓도 있다. 사전 편찬자들은 또한 이 단어가 '인간 작가' 같은 표현에서 더 자주 쓰이는 것을 발견했다. 케임브리지의 한 철학자는 무엇이 인간의 마음을 인공적인 마음과 구분하는지 물었다. 그것은 의식일까, 창의성일까, 아니면 연민일까?",
+   "이 단어는 여러 다른 후보를 제쳤는데, 여기에는 인간의 통제 없이 작동할 수 있는 AI 시스템을 뜻하는 '에이전트'와, 햇빛이 서서히 사라지는 것을 조용히 바라보는 행위인 '더스킹'이 포함된다. 전문가들은 또 쓸모없어질지도 모른다는 두려움을 뜻하는 FOBO 같은 새로운 용어들도 지켜봐 오고 있다."
+  ],
+  "translation_marked": [
+   "케임브리지 사전은 '휴먼(human)'을 2026년 올해의 단어로 선정했는데, 많은 사람들은 이 선택을 인공지능의 빠른 부상에 대한 <u>반응</u>으로 본다. 이 사전은 이 단어를 동물이나 기계와 달리 사람이 지닌 자질과 결점, 감정이라고 <u>정의한다</u>.",
+   "케임브리지 대학 출판부의 프란체스카 우드워드에 따르면, 사람들은 <mark class=\"g1\">인간이라는 것이 무엇을 의미하는지</mark> <mark class=\"g2\">깊이 생각해 오고 있는데</mark>, 이는 AI가 일자리를 빼앗을 수 있다는 <u>우려</u>가 커진 탓도 있다. <u>사전 편찬자들</u>은 또한 이 단어가 '인간 작가' 같은 표현에서 더 자주 쓰이는 것을 발견했다. 케임브리지의 한 철학자는 <mark class=\"g1\">무엇이 인간의 마음을 인공적인 마음과 구분하는지</mark> 물었다. 그것은 <u>의식</u>일까, 창의성일까, 아니면 <u>연민</u>일까?",
+   "이 단어는 여러 다른 <u>후보</u>를 제쳤는데, 여기에는 인간의 통제 없이 작동할 수 있는 AI 시스템을 뜻하는 '에이전트'와, 햇빛이 <u>서서히 사라지는</u> 것을 조용히 바라보는 행위인 '더스킹'이 포함된다. 전문가들은 또 <u>쓸모없어질</u>지도 모른다는 두려움을 뜻하는 FOBO 같은 새로운 용어들도 <mark class=\"g2\">지켜봐 오고 있다</mark>."
+  ],
+  "workbook": {
+   "cloze": {
+    "bank": [
+     "compassion",
+     "defines",
+     "obsolete",
+     "response",
+     "fade",
+     "contenders",
+     "lexicographers"
+    ],
+    "items": [
+     "Cambridge Dictionary ___ “human” as the qualities, faults and feelings of people.",
+     "Many people see the choice as a ___ to the rise of AI.",
+     "Some ___ noticed the word in phrases like “human author.”",
+     "The word beat several other ___, including “agent.”",
+     "FOBO is the fear of becoming ___."
+    ],
+    "answers": [
+     "defines",
+     "response",
+     "lexicographers",
+     "contenders",
+     "obsolete"
+    ]
+   },
+   "transform": [
+    {
+     "g": 1,
+     "task": "what 명사절을 써서 한 문장으로",
+     "given": "What does it mean to be human? People are asking.",
+     "template": "People are asking ___.",
+     "answer": "what it means to be human"
+    },
+    {
+     "g": 2,
+     "task": "현재완료진행으로 바꾸기",
+     "given": "Experts started watching new words last year. They are still watching them.",
+     "template": "Experts ___ new words since last year.",
+     "answer": "have been watching"
+    }
+   ],
+   "ko2en": [
+    {
+     "ko": "AI에 대한 우려가 커지고 있다.",
+     "hint": "concerns",
+     "answer": "Concerns about AI are growing."
+    },
+    {
+     "ko": "그는 오늘 아침부터 사전을 읽어 오고 있다.",
+     "hint": "has been reading",
+     "answer": "He has been reading the dictionary since this morning."
+    }
+   ]
+  },
+  "date": "2026-11-19",
+  "pdf": "pdf/2026-11-19.pdf",
+  "mp3": "audio/2026-11-19.mp3",
+  "mp3_normal_at": "1:38",
+  "mp3_marks": {
+   "slow": [
+    [
+     6.36,
+     33.07
+    ],
+    [
+     34.03,
+     70.41
+    ],
+    [
+     71.37,
+     95.27
+    ]
+   ],
+   "normal": [
+    [
+     102.92,
+     122.58
+    ],
+    [
+     123.14,
+     150.02
+    ],
+    [
+     150.58,
+     168.36
+    ]
+   ],
+   "title": [
+    [
+     0.28,
+     5.3
+    ],
+    [
+     98.23,
+     101.86
+    ]
+   ]
+  },
+  "mp3_words": {
+   "slow": [
+    [
+     6.48,
+     7.44,
+     8.49,
+     8.9,
+     9.49,
+     10.09,
+     10.5,
+     11.0,
+     11.32,
+     11.73,
+     12.24,
+     12.65,
+     13.42,
+     13.65,
+     14.34,
+     14.84,
+     15.34,
+     15.75,
+     16.07,
+     16.3,
+     17.17,
+     17.49,
+     17.9,
+     18.49,
+     19.0,
+     19.32,
+     20.37,
+     22.54,
+     22.88,
+     23.76,
+     24.41,
+     24.76,
+     25.18,
+     25.45,
+     25.79,
+     26.83,
+     27.4,
+     27.74,
+     28.47,
+     28.89,
+     29.47,
+     30.12,
+     30.39,
+     31.04,
+     31.3,
+     31.95,
+     32.22
+    ],
+    [
+     34.15,
+     34.9,
+     35.14,
+     35.89,
+     36.56,
+     36.81,
+     37.56,
+     38.37,
+     39.05,
+     39.58,
+     39.97,
+     40.36,
+     41.04,
+     41.78,
+     42.24,
+     42.63,
+     42.88,
+     43.34,
+     43.59,
+     43.84,
+     44.52,
+     45.05,
+     45.65,
+     45.9,
+     46.5,
+     47.18,
+     47.57,
+     47.82,
+     48.28,
+     48.67,
+     49.13,
+     50.3,
+     51.49,
+     51.91,
+     52.56,
+     52.9,
+     53.33,
+     54.13,
+     54.55,
+     55.05,
+     55.32,
+     55.97,
+     56.39,
+     56.66,
+     57.16,
+     58.81,
+     59.01,
+     59.86,
+     60.88,
+     61.41,
+     61.85,
+     62.7,
+     62.91,
+     63.43,
+     63.88,
+     64.33,
+     64.61,
+     65.54,
+     66.15,
+     66.44,
+     66.72,
+     68.14,
+     69.07,
+     69.36
+    ],
+    [
+     71.49,
+     71.86,
+     72.31,
+     72.75,
+     73.45,
+     73.98,
+     75.16,
+     76.02,
+     76.79,
+     77.08,
+     77.36,
+     77.97,
+     78.42,
+     78.79,
+     79.24,
+     79.93,
+     80.46,
+     81.4,
+     81.76,
+     82.7,
+     83.07,
+     83.84,
+     84.13,
+     84.82,
+     85.6,
+     86.37,
+     87.82,
+     88.47,
+     88.89,
+     89.31,
+     89.74,
+     90.47,
+     90.81,
+     91.31,
+     91.73,
+     92.0,
+     92.65,
+     93.0,
+     93.42,
+     93.69,
+     94.42
+    ]
+   ],
+   "normal": [
+    [
+     103.04,
+     103.74,
+     104.51,
+     104.81,
+     105.24,
+     105.68,
+     105.98,
+     106.35,
+     106.58,
+     106.88,
+     107.25,
+     107.55,
+     108.12,
+     108.28,
+     108.78,
+     109.15,
+     109.52,
+     109.82,
+     110.05,
+     110.22,
+     110.85,
+     111.09,
+     111.39,
+     111.82,
+     112.19,
+     112.42,
+     113.19,
+     114.8,
+     115.06,
+     115.7,
+     116.18,
+     116.44,
+     116.75,
+     116.94,
+     117.2,
+     117.96,
+     118.38,
+     118.63,
+     119.17,
+     119.48,
+     119.9,
+     120.38,
+     120.57,
+     121.05,
+     121.25,
+     121.73,
+     121.93
+    ],
+    [
+     123.26,
+     123.81,
+     123.99,
+     124.53,
+     125.03,
+     125.21,
+     125.75,
+     126.35,
+     126.85,
+     127.23,
+     127.52,
+     127.81,
+     128.3,
+     128.85,
+     129.18,
+     129.47,
+     129.65,
+     129.99,
+     130.17,
+     130.35,
+     130.85,
+     131.24,
+     131.68,
+     131.86,
+     132.3,
+     132.79,
+     133.08,
+     133.26,
+     133.6,
+     133.89,
+     134.22,
+     135.12,
+     136.0,
+     136.31,
+     136.8,
+     137.05,
+     137.36,
+     137.96,
+     138.28,
+     138.65,
+     138.84,
+     139.33,
+     139.64,
+     139.84,
+     140.21,
+     141.46,
+     141.61,
+     142.24,
+     142.98,
+     143.37,
+     143.7,
+     144.32,
+     144.47,
+     144.86,
+     145.19,
+     145.52,
+     145.73,
+     146.41,
+     146.86,
+     147.07,
+     147.28,
+     148.32,
+     149.01,
+     149.21
+    ],
+    [
+     150.7,
+     150.97,
+     151.31,
+     151.64,
+     152.15,
+     152.55,
+     153.42,
+     154.06,
+     154.63,
+     154.85,
+     155.06,
+     155.51,
+     155.84,
+     156.12,
+     156.45,
+     156.96,
+     157.36,
+     158.05,
+     158.33,
+     159.02,
+     159.29,
+     159.87,
+     160.08,
+     160.6,
+     161.17,
+     161.75,
+     162.83,
+     163.31,
+     163.62,
+     163.93,
+     164.24,
+     164.78,
+     165.04,
+     165.41,
+     165.72,
+     165.92,
+     166.4,
+     166.65,
+     166.96,
+     167.16,
+     167.7
+    ]
+   ]
+  }
  }
 ]
