@@ -1,0 +1,523 @@
+{
+ "lang": "en",
+ "date": "2026-11-22",
+ "no": "T07",
+ "title": "영어 복습 테스트 T07",
+ "pass": 80,
+ "sections": [
+  {
+   "id": "A",
+   "title": "단어 뜻 고르기",
+   "guide": "영어 단어의 뜻을 고르세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "<b>lexicographer</b>",
+     "from": "#026",
+     "choices": [
+      "관찰, 관찰 기록",
+      "경쟁자, (우승) 후보",
+      "(물고기·게 등이) 알을 낳다",
+      "사전 편찬자"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>contender</b>",
+     "from": "#026",
+     "choices": [
+      "경쟁자, (우승) 후보",
+      "의식, 자각",
+      "서서히 사라지다, 희미해지다",
+      "관찰, 관찰 기록"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>obsolete</b>",
+     "from": "#026",
+     "choices": [
+      "멸종된",
+      "쓸모없게 된, 구식의",
+      "목격하다, 직접 보다",
+      "갈퀴로 긁어모으다·치우다"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>consciousness</b>",
+     "from": "#026",
+     "choices": [
+      "앞지르다, 추월하다",
+      "반응, 대응",
+      "감시하다, 추적 관찰하다",
+      "의식, 자각"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>migration</b>",
+     "from": "#027",
+     "choices": [
+      "의식, 자각",
+      "(생물의) 종",
+      "(동물의) 이동, 이주",
+      "경쟁자, (우승) 후보"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>spawn</b>",
+     "from": "#027",
+     "choices": [
+      "갈퀴로 긁어모으다·치우다",
+      "앞지르다, 추월하다",
+      "(물고기·게 등이) 알을 낳다",
+      "주민, 거주자"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>rake</b>",
+     "from": "#027",
+     "choices": [
+      "(물고기·게 등이) 알을 낳다",
+      "감시하다, 추적 관찰하다",
+      "앞지르다, 추월하다",
+      "갈퀴로 긁어모으다·치우다"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>invertebrate</b>",
+     "from": "#028",
+     "choices": [
+      "멸종된",
+      "경쟁자, (우승) 후보",
+      "무척추동물",
+      "목격하다, 직접 보다"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>observation</b>",
+     "from": "#028",
+     "choices": [
+      "(생물의) 종",
+      "주민, 거주자",
+      "관찰, 관찰 기록",
+      "목격하다, 직접 보다"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>overtake</b>",
+     "from": "#028",
+     "choices": [
+      "주민, 거주자",
+      "사전 편찬자",
+      "반응, 대응",
+      "앞지르다, 추월하다"
+     ],
+     "answer": 3
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "title": "단어 쓰기",
+   "guide": "한국어 뜻에 맞는 영어 단어를 쓰세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "text",
+     "q": "반응, 대응",
+     "hint": "r… (8글자)",
+     "from": "#026",
+     "answer": "response"
+    },
+    {
+     "kind": "text",
+     "q": "연민, 동정심",
+     "hint": "c… (10글자)",
+     "from": "#026",
+     "answer": "compassion"
+    },
+    {
+     "kind": "text",
+     "q": "서서히 사라지다, 희미해지다",
+     "hint": "f… (4글자)",
+     "from": "#026",
+     "answer": "fade"
+    },
+    {
+     "kind": "text",
+     "q": "주민, 거주자",
+     "hint": "r… (8글자)",
+     "from": "#027",
+     "answer": "resident"
+    },
+    {
+     "kind": "text",
+     "q": "목격하다, 직접 보다",
+     "hint": "w… (7글자)",
+     "from": "#027",
+     "answer": "witness"
+    },
+    {
+     "kind": "text",
+     "q": "길을 찾다, 방향을 잡다",
+     "hint": "n… (8글자)",
+     "from": "#027",
+     "answer": "navigate"
+    },
+    {
+     "kind": "text",
+     "q": "자기의, 자석의",
+     "hint": "m… (8글자)",
+     "from": "#027",
+     "answer": "magnetic"
+    },
+    {
+     "kind": "text",
+     "q": "(생물의) 종",
+     "hint": "s… (7글자)",
+     "from": "#028",
+     "answer": "species"
+    },
+    {
+     "kind": "text",
+     "q": "멸종된",
+     "hint": "e… (7글자)",
+     "from": "#028",
+     "answer": "extinct"
+    },
+    {
+     "kind": "text",
+     "q": "감시하다, 추적 관찰하다",
+     "hint": "m… (7글자)",
+     "from": "#028",
+     "answer": "monitor"
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "title": "빈칸 채우기",
+   "guide": "보기에서 알맞은 단어를 고르세요. (남는 단어 있음)",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "Growing ___ about AI have made people think about what it means to be human.",
+     "from": "#026",
+     "choices": [
+      "spotted",
+      "endangered",
+      "concerns",
+      "polarized",
+      "defines",
+      "faded",
+      "streaming",
+      "database"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "The dictionary ___ “agent” as an AI system that can work without human control.",
+     "from": "#026",
+     "choices": [
+      "spotted",
+      "endangered",
+      "concerns",
+      "polarized",
+      "defines",
+      "faded",
+      "streaming",
+      "database"
+     ],
+     "answer": 4
+    },
+    {
+     "kind": "choice",
+     "q": "For the first time, Parks Australia is ___ the crab migration live online.",
+     "from": "#027",
+     "choices": [
+      "spotted",
+      "endangered",
+      "concerns",
+      "polarized",
+      "defines",
+      "faded",
+      "streaming",
+      "database"
+     ],
+     "answer": 6
+    },
+    {
+     "kind": "choice",
+     "q": "The crabs may use the Sun or ___ light as a compass.",
+     "from": "#027",
+     "choices": [
+      "spotted",
+      "endangered",
+      "concerns",
+      "polarized",
+      "defines",
+      "faded",
+      "streaming",
+      "database"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "Deb Taylor ___ an unusual brown and black beetle on a leaf.",
+     "from": "#028",
+     "choices": [
+      "spotted",
+      "endangered",
+      "concerns",
+      "polarized",
+      "defines",
+      "faded",
+      "streaming",
+      "database"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "She uploaded her photos to iNaturalist, a ___ that anyone can use.",
+     "from": "#028",
+     "choices": [
+      "spotted",
+      "endangered",
+      "concerns",
+      "polarized",
+      "defines",
+      "faded",
+      "streaming",
+      "database"
+     ],
+     "answer": 7
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "title": "문법 고르기",
+   "guide": "빈칸에 알맞은 것을 고르세요.",
+   "each": 3,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "Lately, people ___ carefully about what it means to be human.",
+     "from": "#026",
+     "choices": [
+      "think",
+      "thought",
+      "have been thinking",
+      "are thought"
+     ],
+     "answer": 2,
+     "explain": "lately(최근에)와 함께 '계속 ~해 오고 있다' → 현재완료진행 have been + -ing"
+    },
+    {
+     "kind": "choice",
+     "q": "A philosopher asked ___ separates a human mind from an artificial one.",
+     "from": "#026",
+     "choices": [
+      "what",
+      "that",
+      "how",
+      "it"
+     ],
+     "answer": 0,
+     "explain": "'무엇이 ~하는지'를 뜻하는 명사절이 asked의 목적어 → what (뒤에 주어가 빠진 절)"
+    },
+    {
+     "kind": "choice",
+     "q": "Scientists ___ traveled from Sweden were amazed by the crabs.",
+     "from": "#027",
+     "choices": [
+      "which",
+      "who",
+      "what",
+      "whose"
+     ],
+     "answer": 1,
+     "explain": "사람(Scientists) + 바로 동사 → 주격 관계대명사 who"
+    },
+    {
+     "kind": "choice",
+     "q": "Parks Australia streams the event so ___ people around the world can watch it.",
+     "from": "#027",
+     "choices": [
+      "what",
+      "because",
+      "which",
+      "that"
+     ],
+     "answer": 3,
+     "explain": "목적 '~할 수 있도록' → so that + 주어 + can"
+    },
+    {
+     "kind": "choice",
+     "q": "So far, Deb Taylor ___ about 4,500 creatures.",
+     "from": "#028",
+     "choices": [
+      "records",
+      "has recorded",
+      "have recorded",
+      "recording"
+     ],
+     "answer": 1,
+     "explain": "so far(지금까지) → 현재완료, 주어가 단수 → has recorded"
+    },
+    {
+     "kind": "choice",
+     "q": "Deb Taylor, ___ found a rare beetle, calls the hobby fun.",
+     "from": "#028",
+     "choices": [
+      "that",
+      "which",
+      "who",
+      "what"
+     ],
+     "answer": 2,
+     "explain": "사람 + 쉼표 뒤 → who (쉼표 뒤에는 that을 쓰지 않음)"
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "title": "문법 바꿔 쓰기",
+   "guide": "빈칸에 들어갈 말을 쓰세요.",
+   "each": 4,
+   "items": [
+    {
+     "kind": "text",
+     "q": "<span class='sub'>현재완료진행으로 바꾸기</span>People started using the phrase “human author” years ago. They still use it.<br>→ People ___ the phrase “human author” for years.",
+     "from": "#026",
+     "answer": "have been using",
+     "accept": [],
+     "explain": "과거에 시작해 지금도 계속 → have been + -ing"
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>who를 써서 한 문장으로</span>Some residents walk ahead of cars. They rake crabs off the road.<br>→ Some residents ___ ahead of cars rake crabs off the road.",
+     "from": "#027",
+     "answer": "who walk",
+     "accept": [],
+     "explain": "사람(residents) + who + 동사, 복수 주어 → walk"
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>which를 써서 한 문장으로</span>It is a national event. It asks Australians to photograph insects.<br>→ It is a national event ___ Australians to photograph insects.",
+     "from": "#028",
+     "answer": "which asks",
+     "accept": [
+      "that asks"
+     ],
+     "explain": "사물(event) + which + 동사 (that asks도 정답)"
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "title": "기사 내용 O / X",
+   "guide": "맞으면 O, 틀리면 X",
+   "each": 1,
+   "items": [
+    {
+     "kind": "ox",
+     "q": "Cambridge Dictionary chose “agent” as its Word of the Year for 2026.",
+     "from": "#026",
+     "answer": "X",
+     "explain": "선정 단어는 “human”, agent는 후보"
+    },
+    {
+     "kind": "ox",
+     "q": "“Dusking” means quietly watching daylight fade.",
+     "from": "#026",
+     "answer": "O",
+     "explain": "해가 지는 것을 조용히 지켜보기"
+    },
+    {
+     "kind": "ox",
+     "q": "FOBO is the fear of becoming famous.",
+     "from": "#026",
+     "answer": "X",
+     "explain": "famous가 아니라 obsolete(쓸모없어짐)"
+    },
+    {
+     "kind": "ox",
+     "q": "The crabs march to the ocean after the first rain of the wet season.",
+     "from": "#027",
+     "answer": "O",
+     "explain": "우기 첫 비 뒤에 이동"
+    },
+    {
+     "kind": "ox",
+     "q": "The crabs release their eggs in the middle of the afternoon.",
+     "from": "#027",
+     "answer": "X",
+     "explain": "새벽 직전, 썰물 때"
+    },
+    {
+     "kind": "ox",
+     "q": "Scientists know exactly how the crabs navigate.",
+     "from": "#027",
+     "answer": "X",
+     "explain": "아직 추측만 할 수 있음"
+    },
+    {
+     "kind": "ox",
+     "q": "Deb Taylor uploaded her beetle photos to iNaturalist.",
+     "from": "#028",
+     "answer": "O",
+     "explain": "iNaturalist에 사진을 올림"
+    },
+    {
+     "kind": "ox",
+     "q": "Invertebrates make up about 95 per cent of Australia's species diversity.",
+     "from": "#028",
+     "answer": "O",
+     "explain": "약 95%"
+    }
+   ]
+  },
+  {
+   "id": "G",
+   "title": "한국어 → 영어",
+   "guide": "힌트 표현을 넣어 영작하고, 모범 답과 비교해 스스로 채점하세요.",
+   "each": 5,
+   "items": [
+    {
+     "kind": "self",
+     "q": "그녀는 오늘 아침부터 게들을 지켜보고 있다.",
+     "hint": "힌트: has been watching",
+     "answer": "She has been watching the crabs since this morning."
+    },
+    {
+     "kind": "self",
+     "q": "모두가 볼 수 있도록 그들은 그 행사를 실시간 중계했다.",
+     "hint": "힌트: stream · so that · could",
+     "answer": "They streamed the event so that everyone could watch it."
+    }
+   ]
+  }
+ ]
+}
