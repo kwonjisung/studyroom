@@ -16372,5 +16372,554 @@
     ]
    ]
   }
+ },
+ {
+  "no": "029",
+  "date_display": "2026. 11. 23",
+  "weekday": "월요일 · MON",
+  "title": "Scientists Save Pollen From a Rare Corpse Flower",
+  "title_ko": "과학자들, 희귀한 시체꽃의 꽃가루를 보관하다",
+  "source": "ABC News Australia (Jonathon Kendall · ABC Geelong)",
+  "published_display": "2026년 11월 22일",
+  "url": "https://www.abc.net.au/news/2026-11-22/behind-the-scenes-scientists-are-working-to-bring-corpse-flowers/107402372",
+  "image": "img/2026-11-23.png",
+  "passage": [
+   "Thousands of visitors lined up at the Geelong Botanic Gardens in Victoria <mark class=\"g2\">to see a rare corpse flower in <u>bloom</u></mark>. The giant plant, <mark class=\"g1\">which its keepers named Pete</mark>, flowered for only about two days. Visitors compared its powerful smell to rotting fish and mouldy carpet.",
+   "The corpse flower is <u>endangered</u> in its native Indonesia, where fewer than 1,000 plants are thought to survive in the wild. <u>Poaching</u>, climate change and <u>deforestation</u> are major <u>threats</u>, and the plant blooms only once every seven to ten years.",
+   "Dr Rebecca Miller, <mark class=\"g1\">who works for Royal Botanic Gardens Victoria</mark>, used a scalpel <mark class=\"g2\">to collect pollen from Pete</mark>. It is the first time the flower's pollen has been stored at the Victorian Conservation Seedbank, an \"insurance policy\" against <u>extinction</u>. She will test different temperatures and <u>humidity</u> levels <mark class=\"g2\">to find the best way to keep it</mark>. Although she expects low <u>viability</u>, she hopes the pollen will one day <u>pollinate</u> flowers in other gardens around the world."
+  ],
+  "vocab": [
+   {
+    "word": "bloom",
+    "ipa": "[bluːm]",
+    "pos": "n.",
+    "meaning": "개화, 꽃이 핌 (in bloom: 꽃이 핀)"
+   },
+   {
+    "word": "endangered",
+    "ipa": "[ɪndéɪndʒərd]",
+    "pos": "adj.",
+    "meaning": "멸종 위기에 처한"
+   },
+   {
+    "word": "poaching",
+    "ipa": "[póʊtʃɪŋ]",
+    "pos": "n.",
+    "meaning": "밀렵, 불법 채취"
+   },
+   {
+    "word": "deforestation",
+    "ipa": "[diːfɔ̀ːrɪstéɪʃən]",
+    "pos": "n.",
+    "meaning": "삼림 벌채"
+   },
+   {
+    "word": "threat",
+    "ipa": "[θret]",
+    "pos": "n.",
+    "meaning": "위협"
+   },
+   {
+    "word": "extinction",
+    "ipa": "[ɪkstíŋkʃən]",
+    "pos": "n.",
+    "meaning": "멸종"
+   },
+   {
+    "word": "humidity",
+    "ipa": "[hjuːmídəti]",
+    "pos": "n.",
+    "meaning": "습도"
+   },
+   {
+    "word": "viability",
+    "ipa": "[vàɪəbíləti]",
+    "pos": "n.",
+    "meaning": "생존력, (씨앗·꽃가루의) 생식 능력"
+   },
+   {
+    "word": "pollinate",
+    "ipa": "[pɑ́lənèɪt]",
+    "pos": "v.",
+    "meaning": "수분(受粉)시키다"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "관계대명사 계속적 용법 (, who / , which)",
+    "explain": "콤마 뒤에 who(사람)나 which(사물)를 써서 앞 명사에 대한 추가 정보를 덧붙입니다. 이 부분을 빼도 문장이 완성되며, that은 쓸 수 없습니다.",
+    "examples": [
+     {
+      "en": "My sister, <mark class=\"g1\">who lives in Busan</mark>, visits us every summer.",
+      "ko": "부산에 사는 우리 언니는 매년 여름 우리를 찾아온다."
+     },
+     {
+      "en": "The museum, <mark class=\"g1\">which opened in 1990</mark>, is free on Sundays.",
+      "ko": "1990년에 문을 연 그 박물관은 일요일마다 무료이다."
+     }
+    ]
+   },
+   {
+    "name": "to부정사의 부사적 용법 — 목적 (~하기 위해)",
+    "explain": "동사 뒤에 to + 동사원형을 붙여 '무엇을 하려고' 그 행동을 했는지 목적을 나타냅니다. in order to로 바꿔 쓸 수 있습니다.",
+    "examples": [
+     {
+      "en": "She saves money <mark class=\"g2\">to buy a new bike</mark>.",
+      "ko": "그녀는 새 자전거를 사기 위해 돈을 모은다."
+     },
+     {
+      "en": "Many people visit the island <mark class=\"g2\">to watch the sunrise</mark>.",
+      "ko": "많은 사람들이 해돋이를 보기 위해 그 섬을 찾는다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "수천 명의 방문객이 꽃이 핀 희귀한 시체꽃을 보기 위해 빅토리아주 질롱 식물원에 줄을 섰다. 관리인들이 '피트'라고 이름 붙인 이 거대한 식물은 겨우 이틀 정도만 꽃을 피웠다. 방문객들은 그 강렬한 냄새를 썩은 생선과 곰팡이 핀 카펫에 비유했다.",
+   "시체꽃은 원산지인 인도네시아에서 멸종 위기에 처해 있는데, 그곳 야생에는 1,000그루도 안 되는 개체가 살아남은 것으로 여겨진다. 밀렵, 기후 변화, 삼림 벌채가 주요 위협이며, 이 식물은 7~10년에 한 번만 꽃을 피운다.",
+   "빅토리아 왕립식물원에서 일하는 레베카 밀러 박사는 피트에게서 꽃가루를 채취하기 위해 메스를 사용했다. 이 꽃의 꽃가루가 빅토리아 보존 종자은행에 보관된 것은 이번이 처음으로, 멸종에 대비한 '보험'인 셈이다. 그녀는 꽃가루를 보관할 가장 좋은 방법을 찾기 위해 여러 온도와 습도 조건을 시험할 예정이다. 그녀는 생존력이 낮을 것으로 예상하지만, 언젠가 이 꽃가루가 세계 다른 식물원의 꽃들을 수분시키기를 바란다."
+  ],
+  "translation_marked": [
+   "수천 명의 방문객이 <mark class=\"g2\"><u>꽃이 핀</u> 희귀한 시체꽃을 보기 위해</mark> 빅토리아주 질롱 식물원에 줄을 섰다. <mark class=\"g1\">관리인들이 '피트'라고 이름 붙인</mark> 이 거대한 식물은 겨우 이틀 정도만 꽃을 피웠다. 방문객들은 그 강렬한 냄새를 썩은 생선과 곰팡이 핀 카펫에 비유했다.",
+   "시체꽃은 원산지인 인도네시아에서 <u>멸종 위기에 처해</u> 있는데, 그곳 야생에는 1,000그루도 안 되는 개체가 살아남은 것으로 여겨진다. <u>밀렵</u>, 기후 변화, <u>삼림 벌채</u>가 주요 <u>위협</u>이며, 이 식물은 7~10년에 한 번만 꽃을 피운다.",
+   "<mark class=\"g1\">빅토리아 왕립식물원에서 일하는</mark> 레베카 밀러 박사는 <mark class=\"g2\">피트에게서 꽃가루를 채취하기 위해</mark> 메스를 사용했다. 이 꽃의 꽃가루가 빅토리아 보존 종자은행에 보관된 것은 이번이 처음으로, <u>멸종</u>에 대비한 '보험'인 셈이다. 그녀는 <mark class=\"g2\">꽃가루를 보관할 가장 좋은 방법을 찾기 위해</mark> 여러 온도와 <u>습도</u> 조건을 시험할 예정이다. 그녀는 <u>생존력</u>이 낮을 것으로 예상하지만, 언젠가 이 꽃가루가 세계 다른 식물원의 꽃들을 <u>수분시키기</u>를 바란다."
+  ],
+  "workbook": {
+   "cloze": {
+    "bank": [
+     "pollinate",
+     "viability",
+     "bloom",
+     "extinction",
+     "poaching",
+     "endangered",
+     "deforestation"
+    ],
+    "items": [
+     "Thousands of people came to see the corpse flower in ___.",
+     "The corpse flower is ___ in its native Indonesia.",
+     "Cutting down forests, or ___, also threatens the plant.",
+     "The seedbank stores pollen as insurance against ___.",
+     "Dr Miller hopes the pollen will ___ flowers in other gardens."
+    ],
+    "answers": [
+     "bloom",
+     "endangered",
+     "deforestation",
+     "extinction",
+     "pollinate"
+    ]
+   },
+   "transform": [
+    {
+     "g": 1,
+     "task": "관계대명사 계속적 용법으로 한 문장 만들기",
+     "given": "Dr Miller works for the gardens. She collected the pollen.",
+     "template": "Dr Miller, ___, collected the pollen.",
+     "answer": "who works for the gardens"
+    },
+    {
+     "g": 2,
+     "task": "to부정사(목적)로 한 문장 만들기",
+     "given": "She tests different temperatures. She wants to find the best way to keep the pollen.",
+     "template": "She tests different temperatures ___ the best way to keep the pollen.",
+     "answer": "to find"
+    }
+   ],
+   "ko2en": [
+    {
+     "ko": "그 식물원은 멸종 위기에 처한 식물들을 보호한다.",
+     "hint": "endangered",
+     "answer": "The botanic garden protects endangered plants."
+    },
+    {
+     "ko": "우리는 꽃이 핀 장미를 보기 위해 공원에 갔다.",
+     "hint": "to see · in bloom",
+     "answer": "We went to the park to see the roses in bloom."
+    }
+   ]
+  },
+  "date": "2026-11-23",
+  "pdf": "pdf/2026-11-23.pdf",
+  "mp3": "audio/2026-11-23.mp3",
+  "mp3_normal_at": "1:36",
+  "mp3_marks": {
+   "slow": [
+    [
+     5.44,
+     30.17
+    ],
+    [
+     31.13,
+     54.09
+    ],
+    [
+     55.05,
+     93.27
+    ]
+   ],
+   "normal": [
+    [
+     100.3,
+     118.67
+    ],
+    [
+     119.23,
+     136.26
+    ],
+    [
+     136.82,
+     164.94
+    ]
+   ],
+   "title": [
+    [
+     0.28,
+     4.38
+    ],
+    [
+     96.23,
+     99.24
+    ]
+   ]
+  },
+  "mp3_words": {
+   "slow": [
+    [
+     5.56,
+     6.36,
+     6.62,
+     7.34,
+     7.84,
+     8.1,
+     8.37,
+     8.71,
+     9.35,
+     10.0,
+     10.64,
+     10.91,
+     11.63,
+     11.89,
+     12.23,
+     12.42,
+     12.84,
+     13.41,
+     13.98,
+     14.24,
+     15.64,
+     15.99,
+     16.5,
+     17.23,
+     17.74,
+     18.09,
+     18.75,
+     19.25,
+     19.91,
+     20.65,
+     21.0,
+     21.43,
+     21.93,
+     22.28,
+     23.56,
+     24.37,
+     25.18,
+     25.56,
+     26.36,
+     26.91,
+     27.21,
+     27.93,
+     28.4,
+     28.78,
+     29.41
+    ],
+    [
+     31.25,
+     31.66,
+     32.35,
+     33.04,
+     33.36,
+     34.41,
+     34.73,
+     35.14,
+     35.83,
+     37.06,
+     37.66,
+     38.25,
+     38.76,
+     39.26,
+     39.95,
+     40.36,
+     41.14,
+     41.46,
+     42.24,
+     42.56,
+     42.97,
+     43.98,
+     44.93,
+     45.58,
+     46.15,
+     46.49,
+     47.59,
+     47.93,
+     48.43,
+     49.3,
+     49.64,
+     49.98,
+     50.48,
+     51.05,
+     51.46,
+     51.88,
+     52.38,
+     52.87,
+     53.13,
+     53.48
+    ],
+    [
+     55.17,
+     55.43,
+     56.08,
+     56.87,
+     57.21,
+     57.7,
+     58.04,
+     58.53,
+     59.17,
+     59.82,
+     60.76,
+     61.18,
+     61.37,
+     62.01,
+     62.27,
+     62.91,
+     63.48,
+     63.9,
+     65.24,
+     65.5,
+     65.75,
+     66.08,
+     66.56,
+     66.96,
+     67.29,
+     67.91,
+     68.46,
+     68.79,
+     69.19,
+     69.73,
+     69.99,
+     70.32,
+     71.09,
+     72.07,
+     72.99,
+     73.24,
+     74.01,
+     74.56,
+     75.18,
+     76.91,
+     77.19,
+     77.54,
+     77.88,
+     78.54,
+     79.38,
+     79.66,
+     80.26,
+     80.72,
+     80.94,
+     81.29,
+     81.57,
+     81.91,
+     82.19,
+     82.41,
+     82.76,
+     83.75,
+     84.41,
+     84.73,
+     85.33,
+     85.64,
+     86.59,
+     86.91,
+     87.36,
+     87.68,
+     88.2,
+     88.59,
+     88.91,
+     89.22,
+     89.96,
+     90.55,
+     90.8,
+     91.26,
+     91.85,
+     92.38,
+     92.69
+    ]
+   ],
+   "normal": [
+    [
+     100.42,
+     101.14,
+     101.38,
+     102.03,
+     102.47,
+     102.71,
+     102.95,
+     103.26,
+     103.84,
+     104.42,
+     105.0,
+     105.24,
+     105.89,
+     106.13,
+     106.43,
+     106.6,
+     106.98,
+     107.49,
+     108.01,
+     108.24,
+     109.04,
+     109.24,
+     109.52,
+     109.95,
+     110.24,
+     110.44,
+     110.81,
+     111.1,
+     111.48,
+     111.9,
+     112.1,
+     112.35,
+     112.64,
+     112.84,
+     113.73,
+     114.33,
+     114.93,
+     115.21,
+     115.81,
+     116.22,
+     116.44,
+     116.98,
+     117.32,
+     117.61,
+     118.08
+    ],
+    [
+     119.35,
+     119.61,
+     120.05,
+     120.49,
+     120.7,
+     121.38,
+     121.58,
+     121.84,
+     122.29,
+     123.08,
+     123.46,
+     123.84,
+     124.16,
+     124.49,
+     124.93,
+     125.19,
+     125.69,
+     125.9,
+     126.39,
+     126.6,
+     126.86,
+     127.92,
+     128.7,
+     129.23,
+     129.7,
+     129.98,
+     130.89,
+     131.17,
+     131.58,
+     132.3,
+     132.58,
+     132.86,
+     133.26,
+     133.73,
+     134.08,
+     134.42,
+     134.83,
+     135.23,
+     135.45,
+     135.73
+    ],
+    [
+     136.94,
+     137.13,
+     137.6,
+     138.17,
+     138.42,
+     138.78,
+     139.03,
+     139.38,
+     139.85,
+     140.31,
+     141.0,
+     141.3,
+     141.44,
+     141.91,
+     142.1,
+     142.56,
+     142.98,
+     143.28,
+     144.3,
+     144.49,
+     144.67,
+     144.91,
+     145.26,
+     145.55,
+     145.79,
+     146.25,
+     146.65,
+     146.89,
+     147.18,
+     147.58,
+     147.76,
+     148.0,
+     148.56,
+     149.28,
+     149.95,
+     150.13,
+     150.69,
+     151.09,
+     151.55,
+     152.87,
+     153.08,
+     153.33,
+     153.58,
+     154.07,
+     154.69,
+     154.9,
+     155.34,
+     155.68,
+     155.84,
+     156.1,
+     156.3,
+     156.56,
+     156.77,
+     156.93,
+     157.18,
+     157.93,
+     158.42,
+     158.65,
+     159.09,
+     159.32,
+     160.02,
+     160.25,
+     160.58,
+     160.81,
+     161.2,
+     161.48,
+     161.71,
+     161.94,
+     162.48,
+     162.92,
+     163.1,
+     163.43,
+     163.87,
+     164.25,
+     164.49
+    ]
+   ]
+  }
  }
 ]
