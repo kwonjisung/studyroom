@@ -17512,5 +17512,572 @@
     ]
    ]
   }
+ },
+ {
+  "no": "031",
+  "date": "2026-11-25",
+  "date_display": "2026. 11. 25",
+  "weekday": "수요일 · WED",
+  "title": "Record Ocean Heat Threatens the Great Barrier Reef",
+  "title_ko": "기록적인 바다 열기가 그레이트배리어리프를 위협하다",
+  "image": "img/2026-11-25.png",
+  "source": "ABC News Australia (Romy Stephens · Climate)",
+  "published_display": "2026년 11월 25일",
+  "url": "https://www.abc.net.au/news/2026-11-25/scientists-issue-great-barrier-reef-coral-bleaching-warning/107412866",
+  "passage": [
+   "Australian scientists say <u>unprecedented</u> ocean heat <mark class=\"g1\">could hit</mark> the Great Barrier Reef this summer. A new <u>forecast</u> from the CSIRO and the Bureau of Meteorology shows that sea temperatures along much of the eastern coast <mark class=\"g1\">may rise</mark> about two degrees Celsius above normal in the coming months.",
+   "The warning comes as climate change and El Niño work together. El Niño often brings calm, sunny weather, which can <u>trap</u> heat near the surface of the sea. The forecast heat is <mark class=\"g2\">so severe that scientists had to extend their measuring scale</mark> by three degrees. When water stays too hot, corals push out the tiny <u>algae</u> living inside them and turn white, a process called <u>bleaching</u>.",
+   "The reef has already <u>suffered</u> six mass bleaching events in about ten years, and this summer <mark class=\"g1\">could bring</mark> the seventh. The Reef Authority plans more <u>surveys</u> and will test corals that can <u>tolerate</u> heat. Some <u>conservation</u> groups are <mark class=\"g2\">so worried that they want the government</mark> to treat severe bleaching like a natural <u>disaster</u>."
+  ],
+  "vocab": [
+   {
+    "word": "unprecedented",
+    "ipa": "[ʌnprésɪdèntɪd]",
+    "pos": "adj.",
+    "meaning": "전례 없는, 처음 있는"
+   },
+   {
+    "word": "forecast",
+    "ipa": "[fɔ́ːrkæ̀st]",
+    "pos": "n.",
+    "meaning": "예보, 예측"
+   },
+   {
+    "word": "trap",
+    "ipa": "[træp]",
+    "pos": "v.",
+    "meaning": "가두다, 붙잡아 두다"
+   },
+   {
+    "word": "algae",
+    "ipa": "[ǽldʒiː]",
+    "pos": "n.",
+    "meaning": "조류(물속의 작은 식물성 생물)"
+   },
+   {
+    "word": "bleaching",
+    "ipa": "[blíːtʃɪŋ]",
+    "pos": "n.",
+    "meaning": "백화 현상, 하얗게 변함"
+   },
+   {
+    "word": "suffer",
+    "ipa": "[sʌ́fər]",
+    "pos": "v.",
+    "meaning": "(피해·고통을) 겪다"
+   },
+   {
+    "word": "survey",
+    "ipa": "[sə́ːrveɪ]",
+    "pos": "n.",
+    "meaning": "조사, 측량"
+   },
+   {
+    "word": "tolerate",
+    "ipa": "[tɑ́lərèɪt]",
+    "pos": "v.",
+    "meaning": "견디다, 참다"
+   },
+   {
+    "word": "conservation",
+    "ipa": "[kɑ̀nsərvéɪʃən]",
+    "pos": "n.",
+    "meaning": "(자연·환경) 보호, 보존"
+   },
+   {
+    "word": "disaster",
+    "ipa": "[dɪzǽstər]",
+    "pos": "n.",
+    "meaning": "재해, 재난"
+   }
+  ],
+  "grammar": [
+   {
+    "name": "가능성의 조동사 could / may + 동사원형",
+    "explain": "확실하지 않지만 일어날 가능성이 있는 일을 말할 때 '~할 수도 있다'로 씁니다. could와 may 뒤에는 항상 동사원형이 옵니다.",
+    "examples": [
+     {
+      "en": "It <mark class=\"g1\">may rain</mark> later this afternoon.",
+      "ko": "오늘 오후 늦게 비가 올 수도 있다."
+     },
+     {
+      "en": "The new rule <mark class=\"g1\">could change</mark> how people travel.",
+      "ko": "새 규칙이 사람들의 여행 방식을 바꿀 수도 있다."
+     }
+    ]
+   },
+   {
+    "name": "so + 형용사 + that ~ (너무 ~해서 …하다)",
+    "explain": "정도(원인)와 그 결과를 한 문장으로 말합니다. so 뒤에 형용사나 부사, that 뒤에 결과를 나타내는 문장이 옵니다.",
+    "examples": [
+     {
+      "en": "The soup was <mark class=\"g2\">so hot that I couldn't eat it</mark>.",
+      "ko": "수프가 너무 뜨거워서 나는 먹을 수 없었다."
+     },
+     {
+      "en": "She was <mark class=\"g2\">so tired that she fell asleep on the bus</mark>.",
+      "ko": "그녀는 너무 피곤해서 버스에서 잠들었다."
+     }
+    ]
+   }
+  ],
+  "translation": [
+   "호주 과학자들은 올여름 전례 없는 바다 열기가 그레이트배리어리프를 덮칠 수 있다고 말한다. 호주연방과학산업연구기구(CSIRO)와 기상청이 내놓은 새 예보에 따르면, 앞으로 몇 달 동안 동부 해안 대부분을 따라 해수 온도가 평소보다 섭씨 약 2도 오를 수 있다.",
+   "이번 경고는 기후 변화와 엘니뇨가 함께 작용하는 가운데 나왔다. 엘니뇨는 흔히 잔잔하고 맑은 날씨를 가져오는데, 이런 날씨는 바다 표면 가까이에 열을 가둘 수 있다. 예상되는 열기가 너무 심해서 과학자들은 측정 척도를 3도 늘려야 했다. 물이 계속 너무 뜨거우면 산호는 몸 안에 사는 작은 조류를 밀어내고 하얗게 변하는데, 이를 백화 현상이라고 한다.",
+   "이 산호초는 이미 약 10년 동안 여섯 번의 대규모 백화 현상을 겪었으며, 올여름 일곱 번째가 찾아올 수 있다. 산호초 관리청은 조사를 늘리고 열을 견딜 수 있는 산호를 시험할 계획이다. 일부 환경 보호 단체들은 너무 걱정한 나머지 정부가 심각한 백화 현상을 자연재해처럼 다루기를 원한다."
+  ],
+  "translation_marked": [
+   "호주 과학자들은 올여름 <u>전례 없는</u> 바다 열기가 그레이트배리어리프를 <mark class=\"g1\">덮칠 수 있다</mark>고 말한다. 호주연방과학산업연구기구(CSIRO)와 기상청이 내놓은 새 <u>예보</u>에 따르면, 앞으로 몇 달 동안 동부 해안 대부분을 따라 해수 온도가 평소보다 섭씨 약 2도 <mark class=\"g1\">오를 수 있다</mark>.",
+   "이번 경고는 기후 변화와 엘니뇨가 함께 작용하는 가운데 나왔다. 엘니뇨는 흔히 잔잔하고 맑은 날씨를 가져오는데, 이런 날씨는 바다 표면 가까이에 열을 <u>가둘</u> 수 있다. 예상되는 열기가 <mark class=\"g2\">너무 심해서 과학자들은 측정 척도를 3도 늘려야 했다</mark>. 물이 계속 너무 뜨거우면 산호는 몸 안에 사는 작은 <u>조류</u>를 밀어내고 하얗게 변하는데, 이를 <u>백화 현상</u>이라고 한다.",
+   "이 산호초는 이미 약 10년 동안 여섯 번의 대규모 백화 현상을 <u>겪었으며</u>, 올여름 일곱 번째가 <mark class=\"g1\">찾아올 수 있다</mark>. 산호초 관리청은 <u>조사</u>를 늘리고 열을 <u>견딜</u> 수 있는 산호를 시험할 계획이다. 일부 <u>환경 보호</u> 단체들은 <mark class=\"g2\">너무 걱정한 나머지 정부가</mark> 심각한 백화 현상을 자연<u>재해</u>처럼 다루기를 원한다."
+  ],
+  "workbook": {
+   "cloze": {
+    "bank": [
+     "bleaching",
+     "trap",
+     "forecast",
+     "tolerate",
+     "unprecedented",
+     "surveys",
+     "algae"
+    ],
+    "items": [
+     "A new ___ says sea temperatures may rise this summer.",
+     "Corals push out the tiny ___ living inside them.",
+     "When corals turn white, the process is called ___.",
+     "The Reef Authority plans to carry out more ___.",
+     "Scientists will test corals that can ___ heat."
+    ],
+    "answers": [
+     "forecast",
+     "algae",
+     "bleaching",
+     "surveys",
+     "tolerate"
+    ]
+   },
+   "transform": [
+    {
+     "g": 1,
+     "task": "가능성의 조동사 could를 써서 바꾸기",
+     "given": "Perhaps the reef will face a seventh bleaching event.",
+     "template": "The reef ___ a seventh bleaching event.",
+     "answer": "could face"
+    },
+    {
+     "g": 2,
+     "task": "so ~ that으로 한 문장 만들기",
+     "given": "The water was very hot. The corals turned white.",
+     "template": "The water was ___ the corals turned white.",
+     "answer": "so hot that"
+    }
+   ],
+   "ko2en": [
+    {
+     "ko": "올여름 전례 없는 더위가 호주를 덮칠 수도 있다.",
+     "hint": "unprecedented / could",
+     "answer": "Unprecedented heat could hit Australia this summer."
+    },
+    {
+     "ko": "그 산호들은 너무 약해서 열을 견딜 수 없었다.",
+     "hint": "so ~ that / tolerate",
+     "answer": "The corals were so weak that they couldn't tolerate the heat."
+    }
+   ]
+  },
+  "pdf": "pdf/2026-11-25.pdf",
+  "mp3": "audio/2026-11-25.mp3",
+  "mp3_normal_at": "1:38",
+  "mp3_marks": {
+   "slow": [
+    [
+     6.0,
+     33.05
+    ],
+    [
+     34.01,
+     66.72
+    ],
+    [
+     67.68,
+     95.19
+    ]
+   ],
+   "normal": [
+    [
+     102.56,
+     122.36
+    ],
+    [
+     122.92,
+     146.82
+    ],
+    [
+     147.38,
+     167.67
+    ]
+   ],
+   "title": [
+    [
+     0.28,
+     4.94
+    ],
+    [
+     98.15,
+     101.5
+    ]
+   ]
+  },
+  "mp3_words": {
+   "slow": [
+    [
+     6.12,
+     7.06,
+     8.0,
+     8.37,
+     9.56,
+     10.09,
+     10.54,
+     11.07,
+     11.44,
+     11.81,
+     12.34,
+     13.04,
+     13.49,
+     13.94,
+     15.73,
+     15.94,
+     16.32,
+     17.11,
+     17.57,
+     17.95,
+     18.5,
+     18.87,
+     19.25,
+     19.88,
+     20.17,
+     21.21,
+     21.76,
+     22.22,
+     22.6,
+     23.73,
+     24.27,
+     24.73,
+     25.02,
+     25.4,
+     26.11,
+     26.65,
+     27.03,
+     27.49,
+     28.03,
+     28.41,
+     29.12,
+     29.83,
+     30.38,
+     31.01,
+     31.3,
+     31.67,
+     32.3
+    ],
+    [
+     34.13,
+     34.46,
+     35.09,
+     35.57,
+     35.83,
+     36.46,
+     37.01,
+     37.35,
+     37.61,
+     37.94,
+     38.35,
+     39.96,
+     40.21,
+     40.53,
+     40.98,
+     41.51,
+     42.11,
+     42.56,
+     43.37,
+     43.82,
+     44.14,
+     44.53,
+     44.91,
+     45.3,
+     45.61,
+     46.21,
+     46.46,
+     46.77,
+     47.97,
+     48.29,
+     48.96,
+     49.34,
+     49.59,
+     49.84,
+     50.37,
+     50.75,
+     51.56,
+     51.88,
+     52.13,
+     52.66,
+     53.12,
+     53.86,
+     54.31,
+     54.56,
+     55.02,
+     56.47,
+     56.89,
+     57.38,
+     57.87,
+     58.21,
+     58.78,
+     59.35,
+     59.77,
+     60.11,
+     60.45,
+     60.87,
+     61.36,
+     61.93,
+     62.5,
+     62.92,
+     63.26,
+     63.68,
+     64.4,
+     64.59,
+     65.23,
+     65.8
+    ],
+    [
+     67.8,
+     68.11,
+     68.48,
+     68.79,
+     69.37,
+     70.02,
+     70.32,
+     70.7,
+     71.41,
+     71.93,
+     72.17,
+     72.61,
+     72.92,
+     73.56,
+     73.87,
+     74.25,
+     74.76,
+     75.2,
+     75.64,
+     75.95,
+     77.38,
+     77.74,
+     78.18,
+     79.01,
+     79.53,
+     79.97,
+     80.64,
+     81.0,
+     81.44,
+     81.88,
+     82.47,
+     82.91,
+     83.27,
+     84.02,
+     85.41,
+     85.82,
+     86.83,
+     87.39,
+     87.72,
+     87.98,
+     88.62,
+     89.03,
+     89.44,
+     89.85,
+     90.18,
+     91.04,
+     91.3,
+     91.79,
+     92.35,
+     93.13,
+     93.54,
+     93.73,
+     94.36
+    ]
+   ],
+   "normal": [
+    [
+     102.68,
+     103.36,
+     104.04,
+     104.31,
+     105.16,
+     105.55,
+     105.87,
+     106.26,
+     106.52,
+     106.79,
+     107.17,
+     107.67,
+     108.0,
+     108.32,
+     109.66,
+     109.82,
+     110.09,
+     110.67,
+     111.01,
+     111.28,
+     111.68,
+     111.96,
+     112.23,
+     112.69,
+     112.91,
+     113.67,
+     114.07,
+     114.41,
+     114.68,
+     115.51,
+     115.91,
+     116.24,
+     116.46,
+     116.73,
+     117.25,
+     117.65,
+     117.92,
+     118.26,
+     118.66,
+     118.93,
+     119.46,
+     119.98,
+     120.37,
+     120.83,
+     121.05,
+     121.32,
+     121.78
+    ],
+    [
+     123.04,
+     123.28,
+     123.73,
+     124.08,
+     124.26,
+     124.72,
+     125.12,
+     125.35,
+     125.54,
+     125.78,
+     126.07,
+     127.26,
+     127.44,
+     127.67,
+     128.0,
+     128.37,
+     128.8,
+     129.13,
+     129.71,
+     130.04,
+     130.27,
+     130.55,
+     130.82,
+     131.1,
+     131.33,
+     131.76,
+     131.93,
+     132.16,
+     133.1,
+     133.33,
+     133.81,
+     134.09,
+     134.27,
+     134.45,
+     134.84,
+     135.12,
+     135.71,
+     135.94,
+     136.12,
+     136.5,
+     136.83,
+     137.37,
+     137.7,
+     137.88,
+     138.21,
+     139.31,
+     139.62,
+     139.98,
+     140.34,
+     140.58,
+     141.0,
+     141.41,
+     141.72,
+     141.97,
+     142.22,
+     142.52,
+     142.88,
+     143.3,
+     143.71,
+     144.02,
+     144.27,
+     144.57,
+     145.1,
+     145.23,
+     145.7,
+     146.12
+    ],
+    [
+     147.5,
+     147.73,
+     148.0,
+     148.23,
+     148.65,
+     149.13,
+     149.35,
+     149.63,
+     150.15,
+     150.53,
+     150.7,
+     151.03,
+     151.25,
+     151.73,
+     151.95,
+     152.23,
+     152.6,
+     152.93,
+     153.25,
+     153.48,
+     154.6,
+     154.86,
+     155.18,
+     155.8,
+     156.17,
+     156.49,
+     156.99,
+     157.25,
+     157.57,
+     157.89,
+     158.33,
+     158.65,
+     158.91,
+     159.46,
+     160.5,
+     160.8,
+     161.54,
+     161.95,
+     162.19,
+     162.38,
+     162.84,
+     163.14,
+     163.44,
+     163.74,
+     163.99,
+     164.61,
+     164.8,
+     165.16,
+     165.56,
+     166.14,
+     166.43,
+     166.57,
+     167.03
+    ]
+   ]
+  }
  }
 ]
