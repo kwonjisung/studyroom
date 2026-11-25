@@ -152,6 +152,20 @@ mark.g1{background:var(--g1)} mark.g2{background:var(--g2)} mark.g3{background:v
 .player .pl{font-size:13.5px;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:baseline} .player .pl b{color:var(--en)} .player .pl span{font-size:12.5px;color:var(--muted)}
 .player audio{width:100%;height:40px}
 .player.playing{position:sticky;top:calc(env(safe-area-inset-top,0px) + 6px);z-index:6;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.rec{display:flex;flex-direction:column;gap:8px;border:1px dashed var(--line);border-radius:10px;padding:10px 12px}
+.rec .rh{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px}
+.rec .rh b{font-size:13.5px} .rec .rh .m{font-size:12px;color:var(--muted)}
+.recb{font:inherit;font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:7px 14px 7px 11px;cursor:pointer;min-height:38px}
+.recb .dot{width:12px;height:12px;border-radius:50%;background:#d04040;flex:none}
+.recb.on{background:#d04040;border-color:#d04040;color:#fff} .recb.on .dot{background:#fff;border-radius:2px;animation:recp 1s infinite}
+@keyframes recp{50%{opacity:.35}}
+.rec .rt2{font-variant-numeric:tabular-nums;font-size:13px;color:#d04040;font-weight:600}
+.rec .lvl{flex:1;min-width:60px;max-width:180px;height:6px;border-radius:3px;background:var(--sunk);overflow:hidden} .rec .lvl i{display:block;height:100%;width:0;background:#d04040;transition:width .08s}
+.rec ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.rec li{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px;font-size:12.5px;color:var(--muted)}
+.rec li audio{flex:1 1 220px;height:36px;min-width:0}
+.rec .rbx{display:inline-flex;gap:6px;flex:none} .rec li button{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:3px 10px;cursor:pointer}
+.rec .msg{font-size:12.5px;color:var(--muted)}
 .player.ja{background:var(--ja-soft)} .player.ja .pl b{color:var(--ja)}
 #jaSheet .psay button{color:var(--ja)} #jaSheet .psay button:hover{background:var(--ja-soft)} #jaSheet .psay button.on{background:var(--ja);border-color:var(--ja);color:var(--paper)}
 .tw.cur{background:color-mix(in srgb,var(--muted) 30%,transparent);border-radius:3px;box-shadow:0 0 0 2px color-mix(in srgb,var(--muted) 30%,transparent);transition:background .08s}
@@ -719,8 +733,74 @@ async function savePdf(path,filename,btn,note){
   finally{ btn.disabled=false; btn.textContent=label; }
 }
 
+/* ── 내 목소리 녹음 (이 기기의 브라우저에 저장) ── */
+const REC={db:null,mr:null,stream:null,chunks:[],t0:0,timer:0,raf:0,L:null,e:null,ac:null,urls:[]};
+function recHTML(L){ return `<div class="rec" id="${L}Rec"><div class="rh"><button type="button" class="recb" id="${L}RecB"><span class="dot"></span><span class="lb">녹음</span></button><span class="rt2" id="${L}RecT" hidden>0:00</span><span class="lvl" id="${L}RecLv" hidden><i></i></span><b>🎙 내 목소리 녹음</b><span class="m">${L==='en'?'본문을':'대사를'} 따라 읽고 원본 MP3와 비교해 보세요 · 이 기기에 저장</span></div><div class="msg" id="${L}RecMsg"></div><ul id="${L}RecL"></ul></div>`; }
+function recDB(){ if(REC.db) return Promise.resolve(REC.db); return new Promise((ok,no)=>{ try{ const r=indexedDB.open('sr-rec',1); r.onupgradeneeded=()=>{ const st=r.result.createObjectStore('rec',{keyPath:'id'}); st.createIndex('sheet','sheet'); }; r.onsuccess=()=>{ REC.db=r.result; ok(REC.db); }; r.onerror=()=>no(r.error); }catch(err){ no(err); } }); }
+async function recList(sheet){ const db=await recDB(); return new Promise((ok,no)=>{ const q=db.transaction('rec').objectStore('rec').index('sheet').getAll(sheet); q.onsuccess=()=>ok(q.result.sort((a,b)=>b.created-a.created)); q.onerror=()=>no(q.error); }); }
+async function recPut(o){ const db=await recDB(); return new Promise((ok,no)=>{ const t=db.transaction('rec','readwrite'); t.objectStore('rec').put(o); t.oncomplete=()=>ok(); t.onerror=()=>no(t.error); }); }
+async function recDel(id){ const db=await recDB(); return new Promise((ok,no)=>{ const t=db.transaction('rec','readwrite'); t.objectStore('rec').delete(id); t.oncomplete=()=>ok(); t.onerror=()=>no(t.error); }); }
+const recFmt=sec=>{ sec=Math.max(0,Math.round(sec)); return Math.floor(sec/60)+':'+String(sec%60).padStart(2,'0'); };
+function recMime(){ const c=['audio/webm;codecs=opus','audio/webm','audio/mp4','audio/ogg;codecs=opus']; try{ for(const m of c) if(window.MediaRecorder&&MediaRecorder.isTypeSupported(m)) return m; }catch(e){} return ''; }
+async function recRender(L,e){
+  const ul=$(L+'RecL'); if(!ul) return; const sheet=L+'-'+e.date;
+  REC.urls.forEach(u=>URL.revokeObjectURL(u)); REC.urls=[];
+  let rows=[]; try{ rows=await recList(sheet); }catch(err){ $(L+'RecMsg').textContent='이 브라우저에서는 녹음을 저장할 수 없습니다(사생활 보호 모드 등).'; return; }
+  ul.innerHTML='';
+  rows.forEach((r,i)=>{
+    const li=document.createElement('li'); const u=URL.createObjectURL(r.blob); REC.urls.push(u);
+    const d=new Date(r.created);
+    const lab=document.createElement('span'); lab.textContent=`${rows.length-i}회 · ${d.getMonth()+1}/${d.getDate()} ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')} · ${recFmt(r.dur)}`;
+    const au=document.createElement('audio'); au.controls=true; au.preload='metadata'; au.src=u;
+    au.addEventListener('play',()=>{ stopPlay(); ul.querySelectorAll('audio').forEach(x=>{ if(x!==au) x.pause(); }); });
+    const dl=document.createElement('button'); dl.type='button'; dl.textContent='저장';
+    dl.onclick=async()=>{ const ext=(r.mime||'').includes('mp4')?'m4a':(r.mime||'').includes('ogg')?'ogg':'webm'; const fn=`${L==='en'?'English':'Japanese'}_${e.date}_내녹음${rows.length-i}.${ext}`;
+      try{ if(downloads){ await downloads.save({filename:fn,data:r.blob}); } else { const a=document.createElement('a'); a.href=u; a.download=fn; document.body.append(a); a.click(); a.remove(); } }catch(err){ $(L+'RecMsg').textContent= err&&err.code==='declined'?'저장을 취소했습니다.':'파일로 저장하지 못했습니다.'; } };
+    const del=document.createElement('button'); del.type='button'; del.textContent='삭제';
+    del.onclick=async()=>{ if(del.dataset.ok!=='1'){ del.dataset.ok='1'; del.textContent='한 번 더 누르면 삭제'; setTimeout(()=>{ del.dataset.ok=''; del.textContent='삭제'; },3000); return; } await recDel(r.id); recRender(L,e); };
+    const bx=document.createElement('span'); bx.className='rbx'; bx.append(dl,del); li.append(lab,au,bx); ul.append(li);
+  });
+}
+function recUI(L,on){ const b=$(L+'RecB'); if(!b) return; b.classList.toggle('on',on); b.querySelector('.lb').textContent=on?'정지':'녹음'; $(L+'RecT').hidden=!on; $(L+'RecLv').hidden=!on; }
+function recStop(discard){
+  if(!REC.mr) return; REC.discard=!!discard;
+  try{ if(REC.mr.state!=='inactive') REC.mr.stop(); }catch(e){}
+}
+function recCleanup(){ clearInterval(REC.timer); cancelAnimationFrame(REC.raf); try{ REC.stream&&REC.stream.getTracks().forEach(t=>t.stop()); }catch(e){} try{ REC.ac&&REC.ac.close(); }catch(e){} if(REC.L) recUI(REC.L,false); REC.mr=null; REC.stream=null; REC.ac=null; wakeOff(); }
+async function recStart(L,e){
+  const msg=$(L+'RecMsg');
+  if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia||!window.MediaRecorder){ msg.textContent='이 브라우저는 녹음을 지원하지 않습니다. 크롬·사파리 최신 버전에서 열어 주세요.'; return; }
+  stopPlay(); segOff&&segOff();
+  let stream;
+  try{ stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true}}); }
+  catch(err){ const n=err&&err.name; msg.innerHTML= (n==='NotAllowedError'||n==='SecurityError')
+      ? (location.hostname.endsWith('netlify.app')? '마이크 권한이 꺼져 있습니다. 주소창 왼쪽 자물쇠 → 마이크 → 허용으로 바꾼 뒤 다시 눌러 주세요.' : '이 화면에서는 마이크를 쓸 수 없습니다. <a href="https://jsstudyroom.netlify.app/#'+L+'-'+e.date.replace(/-/g,'')+'" target="_blank" rel="noopener">스터디룸 사이트</a>에서 열면 녹음할 수 있어요.')
+      : n==='NotFoundError' ? '연결된 마이크를 찾지 못했습니다.' : '마이크를 켜지 못했습니다. 잠시 뒤 다시 눌러 주세요.'; return; }
+  const mime=recMime(); let mr; try{ mr=mime?new MediaRecorder(stream,{mimeType:mime}):new MediaRecorder(stream); }catch(err){ stream.getTracks().forEach(t=>t.stop()); msg.textContent='녹음을 시작하지 못했습니다.'; return; }
+  Object.assign(REC,{mr,stream,chunks:[],t0:Date.now(),L,e,discard:false});
+  mr.ondataavailable=ev=>{ if(ev.data&&ev.data.size) REC.chunks.push(ev.data); };
+  mr.onstop=async()=>{ const dur=(Date.now()-REC.t0)/1000, chunks=REC.chunks, discard=REC.discard, type=mr.mimeType||mime||'audio/webm'; recCleanup();
+    if(discard){ msg.textContent='날짜를 바꿔 녹음을 멈췄습니다(저장 안 함).'; return; }
+    if(dur<0.8||!chunks.length){ msg.textContent='너무 짧아 저장하지 않았습니다.'; return; }
+    const blob=new Blob(chunks,{type});
+    try{ await recPut({id:Date.now()+'-'+Math.random().toString(36).slice(2,7),sheet:L+'-'+e.date,lang:L,date:e.date,created:Date.now(),dur,mime:type,blob}); msg.textContent=`녹음 ${recFmt(dur)} 저장됨 — 아래에서 들어 보세요.`; }
+    catch(err){ msg.textContent='녹음을 저장하지 못했습니다(저장 공간 부족 또는 사생활 보호 모드).'; }
+    recRender(L,e); };
+  mr.start(1000); recUI(L,true); wakeOn(); msg.textContent='녹음 중… 다 읽으면 ‘정지’를 누르세요.';
+  REC.timer=setInterval(()=>{ const t=$(L+'RecT'); if(t) t.textContent=recFmt((Date.now()-REC.t0)/1000); if(Date.now()-REC.t0>15*60*1000) recStop(); },250);
+  try{ const AC=window.AudioContext||window.webkitAudioContext; const ac=new AC(); REC.ac=ac; const an=ac.createAnalyser(); an.fftSize=512; ac.createMediaStreamSource(stream).connect(an); const buf=new Uint8Array(an.fftSize);
+    const tick=()=>{ an.getByteTimeDomainData(buf); let m=0; for(const v of buf) m=Math.max(m,Math.abs(v-128)); const i=$(L+'RecLv'); if(i) i.firstChild.style.width=Math.min(100,m/90*100)+'%'; REC.raf=requestAnimationFrame(tick); }; tick(); }catch(e){}
+}
+function recSetup(L,e){
+  const b=$(L+'RecB'); if(!b) return;
+  if(REC.mr&&REC.L===L){ recStop(true); }
+  b.onclick=()=>{ if(REC.mr){ const same=REC.L===L; recStop(); if(same) return; } recStart(L,e); };
+  recRender(L,e);
+}
+
 /* ── 버전 정보 · 업데이트 기록 ── */
 const VERSIONS=[
+  {v:'1.15',d:'2026-11-26',items:['영어·일본어 학습지에 🎙 내 목소리 녹음 추가 — 녹음 버튼으로 따라 읽기를 녹음해 이 기기에 저장, 다시 듣기·파일 저장·삭제']},
   {v:'1.14',d:'2026-11-25',items:['맨 아래(footer)에 개발 번호 001 표시']},
   {v:'1.13',d:'2026-11-17',items:['단어장 단어 옆 🔊 버튼으로 바로 발음 듣기(영어·일본어, 모든 보기)']},
   {v:'1.12',d:'2026-11-16',items:['MP3 재생하는 동안 화면이 꺼지거나 잠기지 않음(멈추면 원래대로)']},
@@ -1089,7 +1169,7 @@ function renderEN(date){
         <div class="rtrow"><select id="enDay" aria-label="영어 학습지 날짜">${list.map(x=>`<option value="${x.date}" ${x.date===e.date?'selected':''}>${md(x.date)} No.${esc(x.no)}</option>`).join('')}</select><button type="button" class="todayb" id="enToday" ${e.date===(list.find(x=>x.date===TODAY)||list[0]).date?'disabled':''} title="오늘 학습지로">오늘</button>${e.pdf?'<button class="btn pdfb" type="button" id="enPdf">PDF 저장</button>':''}</div></div></div>
     <div class="src">출처: <b>${esc(e.source)}</b> · 발행일 ${esc(e.published_display)} · <a href="${esc(e.url)}" target="_blank" rel="noopener">원문 기사 보기 ↗</a><br>※ 학습용으로 기사 내용을 요약·재구성한 본문입니다.</div>
     ${e.mp3?`<div class="player"><div class="pl"><b>▶ 본문 MP3</b><span>느린 발음 1회 → 보통 발음 1회${e.mp3_normal_at?` (보통 발음은 ${esc(e.mp3_normal_at)}부터)`:''}</span></div><audio id="enAud" controls preload="none" src="en/${esc(e.mp3)}"></audio></div>`:''}
-    <div class="note" id="enNote">${e.mp3_marks?'문단 끝의 ▶느리게 / ▶보통 을 누르면 본문 MP3에서 그 문단만 재생합니다.':''}</div>
+    ${recHTML('en')}<div class="note" id="enNote">${e.mp3_marks?'문단 끝의 ▶느리게 / ▶보통 을 누르면 본문 MP3에서 그 문단만 재생합니다.':''}</div>
     <section class="reading" style="display:flex;flex-direction:column;gap:10px"><div class="sec"><span>READING</span><span class="lg"><u>밑줄</u> 핵심 단어 · <mark class="g1">분홍</mark> 문법 1 · <mark class="g2">파랑</mark> 문법 2</span></div>
       <div>${e.passage.map((p,i)=>`<p data-p="${i}">${p}${psay(e,i,'문단')}</p>`).join('')}</div></section>
     <div class="study2">
@@ -1110,9 +1190,10 @@ function renderEN(date){
     el.onclick=ev=>{ ev.stopPropagation(); showRoot(w, el, vm(w)); };
     el.onkeydown=ev=>{ if(ev.key==='Enter'){ ev.preventDefault(); showRoot(w, el, vm(w)); } };
   });
-  $('enDay').onchange=ev=>{ stopPlay(); renderEN(ev.target.value); };
-  $('enToday').onclick=()=>{ stopPlay(); renderEN(TODAY); };
+  $('enDay').onchange=ev=>{ recStop(true); stopPlay(); renderEN(ev.target.value); };
+  $('enToday').onclick=()=>{ recStop(true); stopPlay(); renderEN(TODAY); };
   setupSeg(e,'enAud','enSheet','enNote');
+  recSetup('en',e);
   if(e.pdf) $('enPdf').onclick=ev=>savePdf('en/'+e.pdf,`EnglishDaily_${e.date}.pdf`,ev.currentTarget,$('enNote'));
   $('enSheet').querySelectorAll('button[data-i]').forEach(b=>b.onclick=()=>play([e.vocab[+b.dataset.i].word],b));
   $('allWords').onclick=ev=>play(e.vocab.map(v=>v.word),ev.currentTarget);
@@ -1150,7 +1231,7 @@ function renderJA(date){
     <div class="kor">${esc(e.korean)}</div>
     <div class="who">— ${esc(e.speaker)} · ${esc(e.source)}</div>
     ${e.mp3?`<div class="player ja"><div class="pl"><b>▶ 대사 MP3</b><span>느린 발음 1회 → 보통 발음 1회${e.mp3_normal_at?` (보통 발음은 ${esc(e.mp3_normal_at)}부터)`:''}</span></div><audio id="jaAud" controls preload="none" src="ja/${esc(e.mp3)}"></audio></div>`:''}
-    <div class="note" id="jaNote">${e.mp3_marks?'문장 끝의 ▶느리게 / ▶보통 을 누르면 그 문장만 재생합니다.':''}</div>
+    ${recHTML('ja')}<div class="note" id="jaNote">${e.mp3_marks?'문장 끝의 ▶느리게 / ▶보통 을 누르면 그 문장만 재생합니다.':''}</div>
     ${e.scene?`<div class="scene"><b>장면</b>${esc(e.scene)}</div>`:''}
     <div class="study2">
       <section style="display:flex;flex-direction:column;gap:8px"><div class="sec"><span>WORDS · 단어</span></div>
@@ -1167,9 +1248,10 @@ function renderJA(date){
       <div class="kanji">${e.kanji.map(k=>`<span class="kj${qk.has(k.k)?' q':''}"><b lang="ja">${esc(k.k)}</b>${k.t?`<i lang="ko">(${esc(k.t)})</i>`:''}<span>${esc(k.ko)}</span></span>`).join('')}</div></section>`; })():''}
     ${e.credit?`<div class="who">출처: ${esc(e.credit)} · 대사는 학습 목적의 짧은 인용입니다.</div>`:''}`;
   setupSeg(e,'jaAud','jaSheet','jaNote');
+  recSetup('ja',e);
   followSetupJA(e);
-  $('jaDay').onchange=ev=>{ stopPlay(); segOff(); renderJA(ev.target.value); };
-  $('jaToday').onclick=()=>{ stopPlay(); segOff(); renderJA(TODAY); };
+  $('jaDay').onchange=ev=>{ recStop(true); stopPlay(); segOff(); renderJA(ev.target.value); };
+  $('jaToday').onclick=()=>{ recStop(true); stopPlay(); segOff(); renderJA(TODAY); };
   if(e.pdf) $('jaPdf').onclick=ev=>savePdf('ja/'+e.pdf,`JapaneseDaily_${e.date}.pdf`,ev.currentTarget,$('jaNote'));
 }
 function renderJAPlan(){
