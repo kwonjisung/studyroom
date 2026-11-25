@@ -1,0 +1,521 @@
+{
+ "lang": "en",
+ "date": "2026-11-26",
+ "no": "T08",
+ "title": "영어 복습 테스트 T08",
+ "pass": 80,
+ "sections": [
+  {
+   "id": "A",
+   "title": "단어 뜻 고르기",
+   "guide": "영어 단어의 뜻을 고르세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "<b>endangered</b>",
+     "from": "#029",
+     "choices": [
+      "멸종 위기에 처한",
+      "견디다, 참다",
+      "생존력, (꽃가루의) 생식 능력",
+      "유인용 미끼, 미끼 상품"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>humidity</b>",
+     "from": "#029",
+     "choices": [
+      "습도",
+      "멸종 위기에 처한",
+      "견디다, 참다",
+      "전례 없는, 처음 있는"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>viability</b>",
+     "from": "#029",
+     "choices": [
+      "생존력, (꽃가루의) 생식 능력",
+      "견디다, 참다",
+      "악명 높게, (나쁜 쪽으로) 널리 알려져",
+      "경계하는, 조심하는"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "<b>notoriously</b>",
+     "from": "#030",
+     "choices": [
+      "전례 없는, 처음 있는",
+      "생존력, (꽃가루의) 생식 능력",
+      "악명 높게, (나쁜 쪽으로) 널리 알려져",
+      "견디다, 참다"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>wary</b>",
+     "from": "#030",
+     "choices": [
+      "생존력, (꽃가루의) 생식 능력",
+      "멸종 위기에 처한",
+      "악명 높게, (나쁜 쪽으로) 널리 알려져",
+      "경계하는, 조심하는"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "<b>decoy</b>",
+     "from": "#030",
+     "choices": [
+      "전략, 작전",
+      "유인용 미끼, 미끼 상품",
+      "악명 높게, (나쁜 쪽으로) 널리 알려져",
+      "전례 없는, 처음 있는"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>tactic</b>",
+     "from": "#030",
+     "choices": [
+      "습도",
+      "전략, 작전",
+      "악명 높게, (나쁜 쪽으로) 널리 알려져",
+      "견디다, 참다"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>unprecedented</b>",
+     "from": "#031",
+     "choices": [
+      "유인용 미끼, 미끼 상품",
+      "전례 없는, 처음 있는",
+      "견디다, 참다",
+      "경계하는, 조심하는"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "<b>tolerate</b>",
+     "from": "#031",
+     "choices": [
+      "유인용 미끼, 미끼 상품",
+      "습도",
+      "견디다, 참다",
+      "(자연·환경) 보호, 보존"
+     ],
+     "answer": 2
+    },
+    {
+     "kind": "choice",
+     "q": "<b>conservation</b>",
+     "from": "#031",
+     "choices": [
+      "유인용 미끼, 미끼 상품",
+      "경계하는, 조심하는",
+      "(자연·환경) 보호, 보존",
+      "전례 없는, 처음 있는"
+     ],
+     "answer": 2
+    }
+   ]
+  },
+  {
+   "id": "B",
+   "title": "단어 쓰기",
+   "guide": "한국어 뜻에 맞는 영어 단어를 쓰세요.",
+   "each": 2,
+   "items": [
+    {
+     "kind": "text",
+     "q": "멸종",
+     "hint": "e… (10글자)",
+     "from": "#029",
+     "answer": "extinction"
+    },
+    {
+     "kind": "text",
+     "q": "위협",
+     "hint": "t… (6글자)",
+     "from": "#029",
+     "answer": "threat"
+    },
+    {
+     "kind": "text",
+     "q": "밀렵, 불법 채취",
+     "hint": "p… (8글자)",
+     "from": "#029",
+     "answer": "poaching"
+    },
+    {
+     "kind": "text",
+     "q": "수분(受粉)시키다",
+     "hint": "p… (9글자)",
+     "from": "#029",
+     "answer": "pollinate"
+    },
+    {
+     "kind": "text",
+     "q": "(낚시·덫의) 미끼",
+     "hint": "b… (4글자)",
+     "from": "#030",
+     "answer": "bait"
+    },
+    {
+     "kind": "text",
+     "q": "독, 독약",
+     "hint": "p… (6글자)",
+     "from": "#030",
+     "answer": "poison"
+    },
+    {
+     "kind": "text",
+     "q": "유인하다, 꾀어내다",
+     "hint": "l… (4글자)",
+     "from": "#030",
+     "answer": "lure"
+    },
+    {
+     "kind": "text",
+     "q": "재해, 재난",
+     "hint": "d… (8글자)",
+     "from": "#031",
+     "answer": "disaster"
+    },
+    {
+     "kind": "text",
+     "q": "(피해·고통을) 겪다",
+     "hint": "s… (6글자)",
+     "from": "#031",
+     "answer": "suffer"
+    },
+    {
+     "kind": "text",
+     "q": "조류(물속의 작은 식물성 생물)",
+     "hint": "a… (5글자)",
+     "from": "#031",
+     "answer": "algae"
+    }
+   ]
+  },
+  {
+   "id": "C",
+   "title": "빈칸 채우기",
+   "guide": "보기에서 알맞은 단어를 고르세요. (남는 단어 있음)",
+   "each": 2,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "Pete stayed in ___ for only about two days.",
+     "from": "#029",
+     "choices": [
+      "wildlife",
+      "trap",
+      "surveys",
+      "bloom",
+      "bleaching",
+      "forecast",
+      "entrance",
+      "deforestation"
+     ],
+     "answer": 3
+    },
+    {
+     "kind": "choice",
+     "q": "Losing forests through ___ is a major threat to the corpse flower.",
+     "from": "#029",
+     "choices": [
+      "wildlife",
+      "trap",
+      "surveys",
+      "bloom",
+      "bleaching",
+      "forecast",
+      "entrance",
+      "deforestation"
+     ],
+     "answer": 7
+    },
+    {
+     "kind": "choice",
+     "q": "The team put a shaker of peanut butter and oats at the ___ of some tunnels.",
+     "from": "#030",
+     "choices": [
+      "wildlife",
+      "trap",
+      "surveys",
+      "bloom",
+      "bleaching",
+      "forecast",
+      "entrance",
+      "deforestation"
+     ],
+     "answer": 6
+    },
+    {
+     "kind": "choice",
+     "q": "Rat poison can also harm other ___, such as birds.",
+     "from": "#030",
+     "choices": [
+      "wildlife",
+      "trap",
+      "surveys",
+      "bloom",
+      "bleaching",
+      "forecast",
+      "entrance",
+      "deforestation"
+     ],
+     "answer": 0
+    },
+    {
+     "kind": "choice",
+     "q": "Calm, sunny weather can ___ heat near the surface of the sea.",
+     "from": "#031",
+     "choices": [
+      "wildlife",
+      "trap",
+      "surveys",
+      "bloom",
+      "bleaching",
+      "forecast",
+      "entrance",
+      "deforestation"
+     ],
+     "answer": 1
+    },
+    {
+     "kind": "choice",
+     "q": "Corals that push out their algae and turn white are going through ___.",
+     "from": "#031",
+     "choices": [
+      "wildlife",
+      "trap",
+      "surveys",
+      "bloom",
+      "bleaching",
+      "forecast",
+      "entrance",
+      "deforestation"
+     ],
+     "answer": 4
+    }
+   ]
+  },
+  {
+   "id": "D",
+   "title": "문법 고르기",
+   "guide": "빈칸에 알맞은 것을 고르세요.",
+   "each": 3,
+   "items": [
+    {
+     "kind": "choice",
+     "q": "Pete, ___ flowered for only two days, smelled like rotting fish.",
+     "from": "#029",
+     "choices": [
+      "that",
+      "what",
+      "where",
+      "which"
+     ],
+     "answer": 3,
+     "explain": "사물 선행사 + 콤마(,) 뒤 계속적 용법 → which (that은 콤마 뒤에 못 씀)"
+    },
+    {
+     "kind": "choice",
+     "q": "Dr Miller used a scalpel ___ pollen from Pete.",
+     "from": "#029",
+     "choices": [
+      "collect",
+      "collected",
+      "to collect",
+      "collects"
+     ],
+     "answer": 2,
+     "explain": "'~하기 위해' 목적 → to + 동사원형"
+    },
+    {
+     "kind": "choice",
+     "q": "Catching black rats ___ notoriously hard.",
+     "from": "#030",
+     "choices": [
+      "is",
+      "are",
+      "were",
+      "be"
+     ],
+     "answer": 0,
+     "explain": "동명사 주어(Catching ~)는 단수 취급 → is"
+    },
+    {
+     "kind": "choice",
+     "q": "The rats were ___ wary that they avoided the traps.",
+     "from": "#030",
+     "choices": [
+      "very",
+      "so",
+      "such",
+      "too"
+     ],
+     "answer": 1,
+     "explain": "so + 형용사 + that ~ (너무 …해서 ~하다)"
+    },
+    {
+     "kind": "choice",
+     "q": "This summer could ___ a seventh bleaching event.",
+     "from": "#031",
+     "choices": [
+      "brings",
+      "brought",
+      "bringing",
+      "bring"
+     ],
+     "answer": 3,
+     "explain": "조동사 could 뒤에는 동사원형 → bring"
+    },
+    {
+     "kind": "choice",
+     "q": "The heat is so severe ___ scientists had to extend their scale.",
+     "from": "#031",
+     "choices": [
+      "that",
+      "which",
+      "as",
+      "than"
+     ],
+     "answer": 0,
+     "explain": "so + 형용사 + that ~ → 짝이 되는 말은 that"
+    }
+   ]
+  },
+  {
+   "id": "E",
+   "title": "문법 바꿔 쓰기",
+   "guide": "빈칸에 들어갈 말을 쓰세요.",
+   "each": 4,
+   "items": [
+    {
+     "kind": "text",
+     "q": "<span class='sub'>관계대명사 계속적 용법(, which)으로 한 문장 만들기</span>The corpse flower is endangered. It blooms only once every seven to ten years.<br>→ The corpse flower, ___, is endangered.",
+     "from": "#029",
+     "answer": "which blooms only once every seven to ten years",
+     "accept": [],
+     "explain": "사물 선행사 + , which + 동사 (It → which)"
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>동명사 주어로 바꾸기</span>It is hard to catch black rats.<br>→ ___ is hard.",
+     "from": "#030",
+     "answer": "Catching black rats",
+     "accept": [],
+     "explain": "It ~ to부정사 → 동명사(-ing) 주어 + 단수 동사"
+    },
+    {
+     "kind": "text",
+     "q": "<span class='sub'>가능성의 조동사 could를 써서 바꾸기</span>Perhaps sea temperatures will rise two degrees above normal.<br>→ Sea temperatures ___ two degrees above normal.",
+     "from": "#031",
+     "answer": "could rise",
+     "accept": [],
+     "explain": "could + 동사원형 (~할 수도 있다)"
+    }
+   ]
+  },
+  {
+   "id": "F",
+   "title": "기사 내용 O / X",
+   "guide": "맞으면 O, 틀리면 X",
+   "each": 1,
+   "items": [
+    {
+     "kind": "ox",
+     "q": "Pete the corpse flower bloomed for about two weeks.",
+     "from": "#029",
+     "answer": "X",
+     "explain": "2주가 아니라 약 이틀"
+    },
+    {
+     "kind": "ox",
+     "q": "Fewer than 1,000 corpse flowers are thought to survive in the wild.",
+     "from": "#029",
+     "answer": "O",
+     "explain": "야생에 1,000그루 미만"
+    },
+    {
+     "kind": "ox",
+     "q": "Dr Miller expects the stored pollen to have very high viability.",
+     "from": "#029",
+     "answer": "X",
+     "explain": "생식 능력이 낮을 것으로 예상"
+    },
+    {
+     "kind": "ox",
+     "q": "The study took place at 226 sites in Sydney over two years.",
+     "from": "#030",
+     "answer": "O",
+     "explain": "2년간 시드니 226곳"
+    },
+    {
+     "kind": "ox",
+     "q": "Inside the tunnels, the rats found peanut butter and oats.",
+     "from": "#030",
+     "answer": "X",
+     "explain": "안에는 빵만, 땅콩버터는 닿지 않는 셰이커 속"
+    },
+    {
+     "kind": "ox",
+     "q": "Adding the decoy raised rat visits by 83 percent.",
+     "from": "#030",
+     "answer": "O",
+     "explain": "방문 83% 증가"
+    },
+    {
+     "kind": "ox",
+     "q": "Scientists had to extend their measuring scale by three degrees.",
+     "from": "#031",
+     "answer": "O",
+     "explain": "측정 척도를 3도 늘림"
+    },
+    {
+     "kind": "ox",
+     "q": "The reef has suffered three mass bleaching events in about ten years.",
+     "from": "#031",
+     "answer": "X",
+     "explain": "3번이 아니라 6번"
+    }
+   ]
+  },
+  {
+   "id": "G",
+   "title": "한국어 → 영어",
+   "guide": "힌트 표현을 넣어 영작하고, 모범 답과 비교해 스스로 채점하세요.",
+   "each": 5,
+   "items": [
+    {
+     "kind": "self",
+     "q": "새로운 것을 피하는 것은 쥐들이 살아남도록 돕는다.",
+     "hint": "힌트: Avoiding · survive",
+     "answer": "Avoiding new things helps rats survive."
+    },
+    {
+     "kind": "self",
+     "q": "그 꽃은 너무 희귀해서 수천 명이 그것을 보러 왔다.",
+     "hint": "힌트: so ~ that · to see",
+     "answer": "The flower was so rare that thousands of people came to see it."
+    }
+   ]
+  }
+ ]
+}
