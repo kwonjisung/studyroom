@@ -107,7 +107,12 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .cell .row.en .lab{color:var(--en)} .cell .row.ja .lab{color:var(--ja)} .cell .row.t .lab{color:var(--test)}
 .cell .row .s{color:var(--muted);overflow:hidden;text-overflow:ellipsis}
 .cell .row .s.ok{color:var(--ok);font-weight:700}
-@media (max-width:560px){ .cell{min-height:58px;padding:4px} .cell .row .s{display:none} }
+.recn{flex:none;font-size:10px;font-weight:700;color:#c03a3a;background:color-mix(in srgb,#d04040 12%,transparent);border-radius:4px;padding:0 3px;line-height:1.45;font-variant-numeric:tabular-nums}
+.cell .row .recn{margin-left:auto}
+.mk.rc{background:color-mix(in srgb,#d04040 12%,transparent);color:#c03a3a}
+.dline .recl{font-size:12.5px;color:#c03a3a;font-weight:600}
+@media (max-width:560px){ .cell{min-height:58px;padding:4px} .cell .row .s{display:none} .cell .recn i{display:none} .cell .recn{padding:0 4px;border-radius:7px;background:#d04040;color:#fff} }
+.recn i{font-style:normal}
 .detail{border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:10px;background:var(--sunk)}
 .detail h3{margin:0;font-size:14.5px}
 .dline{display:flex;flex-direction:column;gap:4px;padding-left:10px;border-left:3px solid var(--c)}
@@ -166,6 +171,7 @@ mark.g1{background:var(--g1)} mark.g2{background:var(--g2)} mark.g3{background:v
 .rec li audio{flex:1 1 220px;height:36px;min-width:0}
 .rec .rbx{display:inline-flex;gap:6px;flex:none} .rec li button{font:inherit;font-size:12px;border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:3px 10px;cursor:pointer}
 .rec .msg{font-size:12.5px;color:var(--muted)}
+.jvid{display:flex;flex-wrap:wrap;align-items:center;gap:6px 10px} .jvid .btn{font-size:13.5px;padding:7px 12px} .jvid .m{font-size:12px;color:var(--muted)}
 .player.ja{background:var(--ja-soft)} .player.ja .pl b{color:var(--ja)}
 #jaSheet .psay button{color:var(--ja)} #jaSheet .psay button:hover{background:var(--ja-soft)} #jaSheet .psay button.on{background:var(--ja);border-color:var(--ja);color:var(--paper)}
 .tw.cur{background:color-mix(in srgb,var(--muted) 30%,transparent);border-radius:3px;box-shadow:0 0 0 2px color-mix(in srgb,var(--muted) 30%,transparent);transition:background .08s}
@@ -772,7 +778,7 @@ async function recRender(L,e){
     dl.onclick=async()=>{ const ext=(r.mime||'').includes('mp4')?'m4a':(r.mime||'').includes('ogg')?'ogg':'webm'; const fn=`${L==='en'?'English':'Japanese'}_${e.date}_내녹음${rows.length-i}.${ext}`;
       try{ if(downloads){ await downloads.save({filename:fn,data:r.blob}); } else { const a=document.createElement('a'); a.href=u; a.download=fn; document.body.append(a); a.click(); a.remove(); } }catch(err){ $(L+'RecMsg').textContent= err&&err.code==='declined'?'저장을 취소했습니다.':'파일로 저장하지 못했습니다.'; } };
     const del=document.createElement('button'); del.type='button'; del.textContent='삭제';
-    del.onclick=async()=>{ if(del.dataset.ok!=='1'){ del.dataset.ok='1'; del.textContent='한 번 더 누르면 삭제'; setTimeout(()=>{ del.dataset.ok=''; del.textContent='삭제'; },3000); return; } await recDel(r.id); recRender(L,e); };
+    del.onclick=async()=>{ if(del.dataset.ok!=='1'){ del.dataset.ok='1'; del.textContent='한 번 더 누르면 삭제'; setTimeout(()=>{ del.dataset.ok=''; del.textContent='삭제'; },3000); return; } await recDel(r.id); recRender(L,e); recCountAll(); };
     const bx=document.createElement('span'); bx.className='rbx'; bx.append(dl,del); li.append(lab,au,bx); ul.append(li);
   });
 }
@@ -800,7 +806,7 @@ async function recStart(L,e){
     const blob=new Blob(chunks,{type});
     try{ await recPut({id:Date.now()+'-'+Math.random().toString(36).slice(2,7),sheet:L+'-'+e.date,lang:L,date:e.date,created:Date.now(),dur,mime:type,blob}); msg.textContent=`녹음 ${recFmt(dur)} 저장됨 — 아래에서 들어 보세요.`; }
     catch(err){ msg.textContent='녹음을 저장하지 못했습니다(저장 공간 부족 또는 사생활 보호 모드).'; }
-    recRender(L,e); };
+    recRender(L,e); recCountAll(); };
   mr.start(1000); recUI(L,true); wakeOn(); msg.textContent='녹음 중… 다 읽으면 ‘정지’를 누르세요.';
   REC.timer=setInterval(()=>{ const t=$(L+'RecT'); if(t) t.textContent=recFmt((Date.now()-REC.t0)/1000); if(Date.now()-REC.t0>15*60*1000) recStop(); },250);
   try{ const AC=window.AudioContext||window.webkitAudioContext; const ac=new AC(); REC.ac=ac; const an=ac.createAnalyser(); an.fftSize=512; ac.createMediaStreamSource(stream).connect(an); const buf=new Uint8Array(an.fftSize);
@@ -815,6 +821,8 @@ function recSetup(L,e){
 
 /* ── 버전 정보 · 업데이트 기록 ── */
 const VERSIONS=[
+  {v:'1.18',d:'2026-11-26',items:['일본어 학습지에 ▶ 관련 영상 링크 — 유튜브에서 작품·대사로 장면 찾기(모든 학습지), 확인된 공식 영상이 있으면 바로 열기 버튼']},
+  {v:'1.17',d:'2026-11-26',items:['달력·이번 주에 내 녹음 표시 — 녹음한 날은 🎙와 횟수, 날짜를 누르면 영어·일본어 녹음 횟수']},
   {v:'1.16',d:'2026-11-26',items:['핵심 단어 어원 카드를 포스트잇 스타일로 — 노란 종이·테이프·줄 노트, 뒤 화면은 살짝 어둡게 해서 글씨가 잘 보이게']},
   {v:'1.15',d:'2026-11-26',items:['영어·일본어 학습지에 🎙 내 목소리 녹음 추가 — 녹음 버튼으로 따라 읽기를 녹음해 이 기기에 저장, 다시 듣기·파일 저장·삭제']},
   {v:'1.14',d:'2026-11-25',items:['맨 아래(footer)에 개발 번호 001 표시']},
@@ -1093,6 +1101,7 @@ function renderHome(){
       marks+=`<span class="mk ${E[iso]?'en':'off'}">EN</span><span class="mk ${J[iso]?'ja':'off'}">JA</span>`;
     }
     if(isTestDay(iso)){ marks+=`<span class="mk ${ET[iso]||JT[iso]?'t':'off'}">테스트</span>`; }
+    { const rn=(RECN['en-'+iso]||0)+(RECN['ja-'+iso]||0); if(rn) marks+=`<span class="mk rc" title="내 녹음 ${rn}회">🎙${rn}</span>`; }
     w+=`<button type="button" class="wd ${iso===TODAY?'is-today':''}" data-cal="${iso}" aria-label="${md(iso)} ${DOW[dw]}요일"><span class="dn">${DOW[dw]}</span><span class="dd">${+iso.slice(8)}</span><span class="marks">${marks}</span></button>`;
   }
   $('weekStrip').innerHTML=w;
@@ -1113,13 +1122,22 @@ function bindJumps(root){
   root.querySelectorAll('[data-play]').forEach(b=>b.onclick=()=>{ show('en',b.dataset.play); const a=$('enAud'); if(a){ a.play().catch(()=>{}); } });
 }
 
+/* 녹음 횟수 (이 기기에 저장된 내 녹음) */
+let RECN={};
+async function recCountAll(){
+  try{ const db=await recDB(); RECN=await new Promise((ok,no)=>{ const m={}; const q=db.transaction('rec').objectStore('rec').index('sheet').openKeyCursor(); q.onsuccess=()=>{ const c=q.result; if(!c){ ok(m); return; } m[c.key]=(m[c.key]||0)+1; c.continue(); }; q.onerror=()=>no(q.error); }); }catch(e){ RECN={}; }
+  renderHome(); renderCal(calSel);
+}
+const recBadge=(L,iso)=>RECN[L+'-'+iso]?`<span class="recn" title="내 녹음 ${RECN[L+'-'+iso]}회"><i>🎙</i>${RECN[L+'-'+iso]}</span>`:'';
 /* ── 달력 (영어 + 일본어) ── */
+let calSel=null;
 let calMonth=TODAY.slice(0,7);
 function renderCal(selIso){
+  calSel=selIso||null;
   const E=enBy(), J=jaBy(), S=schedBy(), ET=enTestBy(), JT=jaTestBy();
   const [y,m]=calMonth.split('-').map(Number);
   $('calMonth').textContent=`${y}년 ${m}월`;
-  $('calLegend').innerHTML='<span><i class="dot" style="background:var(--en)"></i>영어 (뉴스)</span><span><i class="dot" style="background:var(--ja)"></i>일본어 (명대사)</span><span><i class="dot" style="background:var(--test)"></i>목·일 복습 테스트</span><span>✓ 도착 · 예정은 회색</span>';
+  $('calLegend').innerHTML='<span><i class="dot" style="background:var(--en)"></i>영어 (뉴스)</span><span><i class="dot" style="background:var(--ja)"></i>일본어 (명대사)</span><span><i class="dot" style="background:var(--test)"></i>목·일 복습 테스트</span><span>✓ 도착 · 예정은 회색</span><span><span class="recn">🎙2</span> 내 녹음 횟수</span>';
   const first=`${calMonth}-01`; const days=new Date(Date.UTC(y,m,0)).getUTCDate();
   let h=[...DOW].map((c,i)=>`<div class="dh ${i===0?'sun':''}">${c}</div>`).join('');
   for(let i=0;i<dowOf(first);i++) h+='<div class="cell off" aria-hidden="true"></div>';
@@ -1130,8 +1148,8 @@ function renderCal(selIso){
     if(!isTestOnly(iso)){
       const e=E[iso], j=J[iso], s=S[iso];
       const future=iso>TODAY;
-      rows+=`<div class="row en"><span class="lab">EN</span><span class="s ${e?'ok':''}">${e?'✓':(future?'예정':'')}</span></div>`;
-      rows+=`<div class="row ja"><span class="lab">JA</span><span class="s ${j?'ok':''}">${j?'✓ '+esc(j.work_ko):(s&&s.type!=='test'?esc(s.work_ko):'')}</span></div>`;
+      rows+=`<div class="row en"><span class="lab">EN</span><span class="s ${e?'ok':''}">${e?'✓':(future?'예정':'')}</span>${recBadge('en',iso)}</div>`;
+      rows+=`<div class="row ja"><span class="lab">JA</span><span class="s ${j?'ok':''}">${j?'✓ '+esc(j.work_ko):(s&&s.type!=='test'?esc(s.work_ko):'')}</span>${recBadge('ja',iso)}</div>`;
     }
     if(isTestDay(iso)){
       const any=ET[iso]||JT[iso];
@@ -1164,7 +1182,9 @@ function renderDetail(iso){
           : s?`<span class="q jaf" lang="ja">${esc(s.quote)}</span><span class="m">${esc(s.speaker)} · ${esc(s.source)} · ${pending}</span><div class="chips">${s.grammar.map(g=>`<span class="chip">${esc(g)}</span>`).join('')}</div>`
           :`<span class="m">${pending}</span>`}</div>`;
   }
-  $('calDetail').innerHTML=head+body+tb;
+  const rE=RECN['en-'+iso]||0, rJ=RECN['ja-'+iso]||0;
+  const rl=(rE||rJ)?`<div class="dline" style="--c:#d04040"><span class="lab">🎙 내 녹음</span><span class="recl">${[rE?'영어 '+rE+'회':'',rJ?'일본어 '+rJ+'회':''].filter(Boolean).join(' · ')}</span><span class="m">이 기기에 저장된 녹음 · 학습지 화면에서 다시 듣기</span></div>`:'';
+  $('calDetail').innerHTML=head+body+tb+rl;
   $('calDetail').querySelectorAll('a[data-open]').forEach(a=>a.onclick=ev=>{ev.preventDefault();show(a.dataset.open,a.dataset.date);});
   bindJumps($('calDetail'));
 }
@@ -1235,6 +1255,13 @@ function play(words,btn){
 if(tts){ try{ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices(); }catch(e){} }
 
 /* ── 일본어 학습지 ── */
+const jaPlain=t=>String(t||'').replace(/\{([^|{}]+)\|[^{}]+\}/g,'$1').replace(/<[^>]+>/g,'').replace(/[\^⟦⟧]/g,'').trim();
+function jaVideo(e){
+  const q=`${e.work_ja||''} ${jaPlain((e.quote||[])[0]).slice(0,40)}`.trim();
+  const yt='https://www.youtube.com/results?search_query='+encodeURIComponent(q);
+  const v=e.video&&/^https:\/\//.test(e.video.url||'')?e.video:null;
+  return `<div class="jvid">${v?`<a class="btn ja" href="${esc(v.url)}" target="_blank" rel="noopener">▶ ${esc(v.label||'관련 영상 보기')}</a>`:''}<a class="btn ghost-ja" href="${esc(yt)}" target="_blank" rel="noopener">▶ 유튜브에서 이 장면 찾기</a><span class="m">${v&&v.title?esc(v.title)+' · ':''}작품 이름과 대사로 검색해요</span></div>`;
+}
 function renderJA(date){
   const list=[...D.ja].sort((a,b)=>b.date.localeCompare(a.date));
   if(!list.length){ $('jaSheet').innerHTML='<div class="empty">아직 일본어 학습지가 없습니다.</div>'; return; }
@@ -1246,6 +1273,7 @@ function renderJA(date){
     <p class="quote" lang="ja">${e.quote.map((s,i)=>`<span class="qs" data-p="${i}"><span class="ln">${jaH(s)}</span><span class="pr" lang="ko">(${esc((e.quote_pron||[])[i]||'')})${psay(e,i,'문장')}</span></span>`).join('')}</p>
     <div class="kor">${esc(e.korean)}</div>
     <div class="who">— ${esc(e.speaker)} · ${esc(e.source)}</div>
+    ${jaVideo(e)}
     ${e.mp3?`<div class="player ja"><div class="pl"><b>▶ 대사 MP3</b><span>느린 발음 1회 → 보통 발음 1회${e.mp3_normal_at?` (보통 발음은 ${esc(e.mp3_normal_at)}부터)`:''}</span></div><audio id="jaAud" controls preload="none" src="ja/${esc(e.mp3)}"></audio></div>`:''}
     ${recHTML('ja')}<div class="note" id="jaNote">${e.mp3_marks?'문장 끝의 ▶느리게 / ▶보통 을 누르면 그 문장만 재생합니다.':''}</div>
     ${e.scene?`<div class="scene"><b>장면</b>${esc(e.scene)}</div>`:''}
@@ -1441,7 +1469,7 @@ function renderTests(){
   D.en=en||[]; D.ja=ja||[]; D.enT=enT||[]; D.jaT=jaT||[]; D.sched=sched;
   START=[...D.en,...D.ja].map(x=>x.date).sort()[0]||TODAY;
   loadLocalResults();
-  renderHome(); renderCal(TODAY); renderEN(); renderJA(); renderJAPlan(); renderTests();
+  renderHome(); renderCal(TODAY); renderEN(); renderJA(); renderJAPlan(); renderTests(); recCountAll();
   loadCloudResults(); vbCloud('en'); vbCloud('ja');
   const h=(location.hash||'').slice(1);
   const m=h.match(/^(en|ja)-(\d{8})$/);
