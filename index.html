@@ -188,21 +188,36 @@ mark.g1{background:var(--g1)} mark.g2{background:var(--g2)} mark.g3{background:v
 .vlist .w.rk,.reading u.rk{cursor:pointer;text-decoration-style:solid}
 .vlist .w.rk{border-bottom:1.5px dashed var(--en)}
 .vlist .w.rk:hover,.reading u.rk:hover{color:var(--en)}
-.rootcard{position:absolute;z-index:60;width:min(330px,calc(100vw - 32px));background:var(--paper);color:var(--ink);border:1px solid var(--line);border-top:3px solid var(--en);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.18);padding:11px 13px 12px;font-size:13.5px;line-height:1.5}
-.rootcard .rh{display:flex;align-items:baseline;gap:8px;margin-bottom:7px}
-.rootcard .rh b{font-family:var(--enS);font-size:17px}
-.rootcard .rh span{color:var(--muted);font-size:12.5px;flex:1}
-.rootcard .x{border:0;background:none;color:var(--muted);font-size:16px;cursor:pointer;padding:0 2px;line-height:1}
-.rootcard .parts{display:flex;flex-wrap:wrap;align-items:center;gap:4px;margin-bottom:7px}
-.rootcard .pc{display:inline-flex;flex-direction:column;align-items:center;background:var(--en-soft);border-radius:6px;padding:3px 7px;line-height:1.25}
-.rootcard .pc i{font-style:normal;font-family:var(--enS);font-weight:700;color:var(--en)}
-.rootcard .pc small{font-size:11px;color:var(--muted)}
-.rootcard .plus{color:var(--muted);font-size:12px}
-.rootcard .core{margin:0 0 8px;font-weight:600}
-.rootcard .fam{margin:0;padding:0;list-style:none;border-top:1px dotted var(--line);padding-top:6px}
-.rootcard .fam li{padding:1.5px 0}
-.rootcard .fam li b{font-family:var(--enS)}
-.rootcard .tip{margin-top:7px;background:var(--sunk);border-radius:6px;padding:5px 8px;font-size:12.5px}
+.rootcard{--pi:#fff4b8;--pi2:#ffe98a;--pink:#3b3216;--pmut:#6f6233;--pline:rgba(120,95,20,.22);
+  position:absolute;z-index:60;width:min(330px,calc(100vw - 32px));color:var(--pink);
+  background:linear-gradient(175deg,var(--pi) 0%,var(--pi) 70%,var(--pi2) 100%);
+  border:0;border-radius:2px 2px 14px 2px;transform:rotate(-.6deg);
+  box-shadow:0 1px 1px rgba(0,0,0,.08),0 12px 28px -6px rgba(60,45,0,.35),0 0 0 9999px rgba(20,20,30,.12);
+  padding:18px 15px 13px;font-size:14px;line-height:1.55}
+.rootcard::before{content:"";position:absolute;top:-9px;left:50%;width:84px;height:20px;transform:translateX(-50%) rotate(2deg);background:rgba(255,255,255,.55);border:1px solid rgba(0,0,0,.06);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+.rootcard .rh{display:flex;align-items:baseline;gap:8px;margin-bottom:8px;padding-bottom:6px;border-bottom:2px solid var(--pline)}
+.rootcard .rh b{font-family:var(--enS);font-size:19px;color:#1f1a08}
+.rootcard .rh span{color:var(--pmut);font-size:13px;font-weight:600;flex:1}
+.rootcard .x{border:0;background:none;color:var(--pmut);font-size:16px;cursor:pointer;padding:0 2px;line-height:1}
+.rootcard .parts{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin-bottom:8px}
+.rootcard .pc{display:inline-flex;flex-direction:column;align-items:center;background:rgba(255,255,255,.7);border:1px solid var(--pline);border-radius:6px;padding:3px 8px;line-height:1.25}
+.rootcard .pc i{font-style:normal;font-family:var(--enS);font-weight:700;color:#2f5d8a}
+.rootcard .pc small{font-size:11.5px;color:var(--pmut)}
+.rootcard .plus{color:var(--pmut);font-size:12px}
+.rootcard .core{margin:0 0 8px;font-weight:700;color:#1f1a08}
+.rootcard .fam{margin:0;padding:6px 0 0;list-style:none;border-top:1px dashed var(--pline);
+  background:repeating-linear-gradient(transparent 0 21px,var(--pline) 21px 22px);background-position:0 5px}
+.rootcard .fam li{padding:0;line-height:22px}
+.rootcard .fam li b{font-family:var(--enS);color:#1f1a08}
+.rootcard .tip{margin-top:8px;background:rgba(255,255,255,.6);border-left:3px solid #e0a800;border-radius:3px;padding:5px 8px;font-size:13px}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rootcard{--pi:#4a4220;--pi2:#3d3618;--pink:#f5ecc8;--pmut:#d6c890;--pline:rgba(255,230,140,.2);box-shadow:0 14px 30px -6px rgba(0,0,0,.6),0 0 0 9999px rgba(0,0,0,.35)}
+  :root:not([data-theme="light"]) .rootcard .rh b,:root:not([data-theme="light"]) .rootcard .core,:root:not([data-theme="light"]) .rootcard .fam li b{color:#fff7d6}
+  :root:not([data-theme="light"]) .rootcard .pc,:root:not([data-theme="light"]) .rootcard .tip,:root:not([data-theme="light"]) .rootcard::before{background:rgba(255,255,255,.08)}
+  :root:not([data-theme="light"]) .rootcard .pc i{color:#8fb9e3}}
+:root[data-theme="dark"] .rootcard{--pi:#4a4220;--pi2:#3d3618;--pink:#f5ecc8;--pmut:#d6c890;--pline:rgba(255,230,140,.2);box-shadow:0 14px 30px -6px rgba(0,0,0,.6),0 0 0 9999px rgba(0,0,0,.35)}
+:root[data-theme="dark"] .rootcard .rh b,:root[data-theme="dark"] .rootcard .core,:root[data-theme="dark"] .rootcard .fam li b{color:#fff7d6}
+:root[data-theme="dark"] .rootcard .pc,:root[data-theme="dark"] .rootcard .tip,:root[data-theme="dark"] .rootcard::before{background:rgba(255,255,255,.08)}
+:root[data-theme="dark"] .rootcard .pc i{color:#8fb9e3}
 .say{font-family:var(--ko);font-size:12px;font-weight:500;color:var(--en);text-decoration:none;margin-left:6px;white-space:nowrap}
 .psay{display:inline-flex;gap:4px;margin-left:6px;vertical-align:1px;white-space:nowrap}
 .psay button{font-family:var(--ko);font-size:11.5px;font-weight:500;line-height:1.4;border:1px solid var(--line);border-radius:999px;padding:1px 8px;background:var(--paper);color:var(--en);cursor:pointer}
@@ -800,6 +815,7 @@ function recSetup(L,e){
 
 /* ── 버전 정보 · 업데이트 기록 ── */
 const VERSIONS=[
+  {v:'1.16',d:'2026-11-26',items:['핵심 단어 어원 카드를 포스트잇 스타일로 — 노란 종이·테이프·줄 노트, 뒤 화면은 살짝 어둡게 해서 글씨가 잘 보이게']},
   {v:'1.15',d:'2026-11-26',items:['영어·일본어 학습지에 🎙 내 목소리 녹음 추가 — 녹음 버튼으로 따라 읽기를 녹음해 이 기기에 저장, 다시 듣기·파일 저장·삭제']},
   {v:'1.14',d:'2026-11-25',items:['맨 아래(footer)에 개발 번호 001 표시']},
   {v:'1.13',d:'2026-11-17',items:['단어장 단어 옆 🔊 버튼으로 바로 발음 듣기(영어·일본어, 모든 보기)']},
